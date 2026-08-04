@@ -437,6 +437,39 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   },[goTo,selectedBranch,wardrobePhase]);
 
   useEffect(() => {
+    if(!selectedBranch||wardrobePhase)return;
+    let startX=0,startY=0,startAt=0,startTarget:EventTarget|null=null;
+    const isInteractiveRegion=(target:EventTarget|null)=>{
+      const element=target instanceof Element?target:null;
+      return Boolean(element?.closest(".resume-facts,.hotspot-card,.journey-header-actions,.journey-footer,button,a,input,textarea,select"));
+    };
+    const onTouchStart=(event:TouchEvent)=>{
+      if(event.touches.length!==1)return;
+      const touch=event.touches[0];
+      startX=touch.clientX;startY=touch.clientY;startAt=performance.now();startTarget=event.target;
+    };
+    const onTouchEnd=(event:TouchEvent)=>{
+      if(event.changedTouches.length!==1||isInteractiveRegion(startTarget))return;
+      const touch=event.changedTouches[0],deltaX=touch.clientX-startX,deltaY=touch.clientY-startY;
+      if(performance.now()-startAt>900||Math.abs(deltaY)<46||Math.abs(deltaY)<Math.abs(deltaX)*1.2)return;
+      const motion=motionRef.current,now=performance.now();
+      if(now-motion.lastInputAt<520)return;
+      const direction=deltaY<0?1:-1;
+      const currentTarget=Math.round(motion.target*Math.max(1,stopsRef.current.length-1));
+      const next=clamp(currentTarget+direction,0,stopsRef.current.length-1);
+      if(next===currentTarget)return;
+      motion.lastInputAt=now;
+      goTo(next);
+    };
+    window.addEventListener("touchstart",onTouchStart,{passive:true});
+    window.addEventListener("touchend",onTouchEnd,{passive:true});
+    return()=>{
+      window.removeEventListener("touchstart",onTouchStart);
+      window.removeEventListener("touchend",onTouchEnd);
+    };
+  },[goTo,selectedBranch,wardrobePhase]);
+
+  useEffect(() => {
     const worldCanvas=worldCanvasRef.current;
     if(!worldCanvas)return;
     const world=worldCanvas.getContext("2d");if(!world)return;

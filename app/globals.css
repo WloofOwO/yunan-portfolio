@@ -1936,6 +1936,52 @@
   .ui-original.has-branch .journey-footer{right:20px;width:142px}
 }
 
+/* Mobile interaction pass: long experience/project lists scroll inside their
+   own glass panel, while a vertical swipe on the open scene changes stops. */
+@media(max-width:720px){
+  .journey{--mobile-story-height:clamp(260px,calc(42dvh - 24px),350px)}
+  .ui-original.has-branch .story-panel{
+    height:var(--mobile-story-height);
+    min-height:0;
+  }
+  .ui-original.has-branch .story-card{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .ui-original.has-branch .resume-facts{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    touch-action:pan-y;
+    padding-bottom:14px;
+    scrollbar-width:thin;
+    scrollbar-color:color-mix(in srgb,var(--active-accent) 60%,transparent) transparent;
+  }
+  .ui-original.has-branch .resume-fact{
+    flex:0 0 auto;
+  }
+  .ui-original.has-branch .hotspot-field,
+  .ui-original.has-branch .experience-backdrop,
+  .ui-original.has-branch .ai-knowledge-stage,
+  .ui-original.has-branch .avatar-stage{
+    touch-action:pan-y;
+  }
+  .ui-original.has-active-artifact .hotspot-card,
+  .ui-original.has-branch:not(.branch-ai).has-active-artifact .hotspot-card{
+    max-height:min(156px,20dvh);
+    overscroll-behavior:contain;
+    touch-action:pan-y;
+  }
+  .ui-original.has-active-artifact .ai-knowledge-stage,
+  .ui-original.branch-projects.has-active-artifact .ai-knowledge-stage{
+    top:calc(72px + var(--mobile-story-height) + 12px);
+  }
+}
+
 /* Mobile composition: each layer owns a real vertical zone.  Detail content
    replaces the title area instead of floating over readable copy, while the
    generated scene and wardrobe rasters keep their original frame geometry. */
@@ -1991,7 +2037,8 @@
     left:16px;
     top:72px;
     width:calc(100% - 32px);
-    height:395px;
+    height:var(--mobile-story-height);
+    min-height:0;
   }
   .ui-original.has-branch .story-card{
     padding:17px 18px 14px;
@@ -2027,7 +2074,7 @@
     top:10px;
     bottom:auto;
     width:auto;
-    max-height:160px;
+    max-height:min(156px,20dvh);
     padding:15px 17px;
     overflow:auto;
     border-radius:18px;
