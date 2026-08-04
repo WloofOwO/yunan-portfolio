@@ -1,0 +1,374 @@
+{
+  "casual": {
+    "idle": {
+      "fps": 6,
+      "loop": true,
+      "frame_count": 24,
+      "sheet": "/avatar-v3/casual/sheets/idle.png"
+    },
+    "walk_right": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/casual/sheets/walk_right.png"
+    },
+    "walk_left": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/casual/sheets/walk_left.png"
+    },
+    "start_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/casual/sheets/start_right.png"
+    },
+    "start_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/casual/sheets/start_left.png"
+    },
+    "stop_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/casual/sheets/stop_right.png"
+    },
+    "stop_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/casual/sheets/stop_left.png"
+    },
+    "look": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/look.png"
+    },
+    "glasses": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/glasses.png"
+    },
+    "bag": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/bag.png"
+    },
+    "read": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/read.png"
+    },
+    "type": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/type.png"
+    },
+    "point": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/point.png"
+    },
+    "wave": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/wave.png"
+    },
+    "celebrate": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/celebrate.png"
+    },
+    "turn_left": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/turn_left.png"
+    },
+    "turn_right": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/casual/sheets/turn_right.png"
+    },
+    "travel_right": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/casual/animated/travel_right.png"
+    },
+    "travel_left": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/casual/animated/travel_left.png"
+    },
+    "wardrobe": {
+      "fps": 16,
+      "loop": false,
+      "frame_count": 32,
+      "sheet": "/avatar-v3/casual/sheets/wardrobe.png"
+    }
+  },
+  "student": {
+    "idle": {
+      "fps": 6,
+      "loop": true,
+      "frame_count": 24,
+      "sheet": "/avatar-v3/student/sheets/idle.png"
+    },
+    "walk_right": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/student/sheets/walk_right.png"
+    },
+    "walk_left": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/student/sheets/walk_left.png"
+    },
+    "start_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/student/sheets/start_right.png"
+    },
+    "start_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/student/sheets/start_left.png"
+    },
+    "stop_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/student/sheets/stop_right.png"
+    },
+    "stop_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/student/sheets/stop_left.png"
+    },
+    "look": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/look.png"
+    },
+    "glasses": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/glasses.png"
+    },
+    "bag": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/bag.png"
+    },
+    "read": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/read.png"
+    },
+    "type": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/type.png"
+    },
+    "point": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/point.png"
+    },
+    "wave": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/wave.png"
+    },
+    "celebrate": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/celebrate.png"
+    },
+    "turn_left": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/turn_left.png"
+    },
+    "turn_right": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/student/sheets/turn_right.png"
+    },
+    "travel_right": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/student/animated/travel_right.png"
+    },
+    "travel_left": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/student/animated/travel_left.png"
+    },
+    "wardrobe": {
+      "fps": 16,
+      "loop": false,
+      "frame_count": 32,
+      "sheet": "/avatar-v3/student/sheets/wardrobe.png"
+    }
+  },
+  "formal": {
+    "idle": {
+      "fps": 6,
+      "loop": true,
+      "frame_count": 24,
+      "sheet": "/avatar-v3/formal/sheets/idle.png"
+    },
+    "walk_right": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/formal/sheets/walk_right.png"
+    },
+    "walk_left": {
+      "fps": 12,
+      "loop": true,
+      "frame_count": 64,
+      "sheet": "/avatar-v3/formal/sheets/walk_left.png"
+    },
+    "start_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/formal/sheets/start_right.png"
+    },
+    "start_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/formal/sheets/start_left.png"
+    },
+    "stop_right": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/formal/sheets/stop_right.png"
+    },
+    "stop_left": {
+      "fps": 12,
+      "loop": false,
+      "frame_count": 8,
+      "sheet": "/avatar-v3/formal/sheets/stop_left.png"
+    },
+    "look": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/look.png"
+    },
+    "glasses": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/glasses.png"
+    },
+    "bag": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/bag.png"
+    },
+    "read": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/read.png"
+    },
+    "type": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/type.png"
+    },
+    "point": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/point.png"
+    },
+    "wave": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/wave.png"
+    },
+    "celebrate": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/celebrate.png"
+    },
+    "turn_left": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/turn_left.png"
+    },
+    "turn_right": {
+      "fps": 10,
+      "loop": false,
+      "frame_count": 18,
+      "sheet": "/avatar-v3/formal/sheets/turn_right.png"
+    },
+    "travel_right": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/formal/animated/travel_right.png"
+    },
+    "travel_left": {
+      "fps": 24,
+      "loop": false,
+      "frame_count": 64,
+      "duration_ms": 2667,
+      "sheet": "/avatar-v3/formal/animated/travel_left.png"
+    },
+    "wardrobe": {
+      "fps": 16,
+      "loop": false,
+      "frame_count": 32,
+      "sheet": "/avatar-v3/formal/sheets/wardrobe.png"
+    }
+  }
+}

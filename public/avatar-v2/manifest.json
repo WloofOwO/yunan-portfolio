@@ -1,0 +1,104 @@
+{
+  "idle": {
+    "fps": 8,
+    "loop": true,
+    "frame_count": 24,
+    "sheet": "/avatar-v2/sheets/idle.png"
+  },
+  "walk_right": {
+    "fps": 8,
+    "loop": true,
+    "frame_count": 8,
+    "sheet": "/avatar-v2/sheets/walk_right.png"
+  },
+  "walk_left": {
+    "fps": 8,
+    "loop": true,
+    "frame_count": 8,
+    "sheet": "/avatar-v2/sheets/walk_left.png"
+  },
+  "start_right": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 10,
+    "sheet": "/avatar-v2/sheets/start_right.png"
+  },
+  "start_left": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 10,
+    "sheet": "/avatar-v2/sheets/start_left.png"
+  },
+  "stop_right": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 10,
+    "sheet": "/avatar-v2/sheets/stop_right.png"
+  },
+  "stop_left": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 10,
+    "sheet": "/avatar-v2/sheets/stop_left.png"
+  },
+  "look": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/look.png"
+  },
+  "glasses": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/glasses.png"
+  },
+  "bag": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/bag.png"
+  },
+  "read": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/read.png"
+  },
+  "type": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/type.png"
+  },
+  "point": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/point.png"
+  },
+  "wave": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/wave.png"
+  },
+  "celebrate": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/celebrate.png"
+  },
+  "turn_left": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/turn_left.png"
+  },
+  "turn_right": {
+    "fps": 12,
+    "loop": false,
+    "frame_count": 18,
+    "sheet": "/avatar-v2/sheets/turn_right.png"
+  }
+}

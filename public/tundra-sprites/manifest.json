@@ -1,0 +1,42 @@
+{
+  "basalt": {
+    "file": "/tundra-sprites/basalt-16.png",
+    "frames": 16,
+    "frameWidth": 313,
+    "frameHeight": 313,
+    "stripWidth": 5008,
+    "stripHeight": 313
+  },
+  "tundra": {
+    "file": "/tundra-sprites/tundra-16.png",
+    "frames": 16,
+    "frameWidth": 313,
+    "frameHeight": 313,
+    "stripWidth": 5008,
+    "stripHeight": 313
+  },
+  "waterfall": {
+    "file": "/tundra-sprites/waterfall-16.png",
+    "frames": 16,
+    "frameWidth": 313,
+    "frameHeight": 313,
+    "stripWidth": 5008,
+    "stripHeight": 313
+  },
+  "mist": {
+    "file": "/tundra-sprites/mist-16.png",
+    "frames": 16,
+    "frameWidth": 313,
+    "frameHeight": 313,
+    "stripWidth": 5008,
+    "stripHeight": 313
+  },
+  "beacon": {
+    "file": "/tundra-sprites/beacon-16.png",
+    "frames": 16,
+    "frameWidth": 313,
+    "frameHeight": 313,
+    "stripWidth": 5008,
+    "stripHeight": 313
+  }
+}
