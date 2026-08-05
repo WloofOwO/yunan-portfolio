@@ -21,7 +21,7 @@ REVEAL_FRAME_COUNT = 20
 # Match the visible lower-body root of the regular 128 px avatar after the
 # 320 px smoke canvas is displayed at 254 px.  This keeps the handoff visually
 # fixed instead of snapping every outfit to the mathematical canvas center.
-OUTFIT_ROOT_X = {"casual": 164, "formal": 163, "student": 164}
+OUTFIT_ROOT_X = {"casual": 164, "formal": 164, "student": 164}
 
 SHEETS = {
     "casual": {
@@ -174,7 +174,10 @@ def foot_offset(frame: Image.Image, target_x: int) -> tuple[int, int] | None:
             if alpha > 96 and red + green + blue < 180:
                 dark_feet.append((x, y))
 
-    if len(dark_feet) < 80:
+    # Smoke fragments occasionally form small dark clusters. Requiring a
+    # substantial lower-body sample keeps those clouds from being mistaken
+    # for the character and pulling the whole frame sideways.
+    if len(dark_feet) < 600:
         return None
 
     foot_x = [x for x, _ in dark_feet]
@@ -193,16 +196,14 @@ def stabilize_sequence(frames: list[Image.Image], outfit: str) -> list[Image.Ima
     prevents the smoke mass from becoming a second, unstable coordinate
     system.
     """
-    # The middle drawings are intentionally smoke-heavy.  Their darker cloud
-    # pixels can resemble shoes, so only trust the clean character drawings at
-    # both ends of the generated sequence.  Everything between them follows a
-    # single interpolated root trajectory.
-    trusted_indexes = set(range(min(7, len(frames))))
-    trusted_indexes.update(range(max(0, len(frames) - 7), len(frames)))
+    # Trust every frame where a complete lower body can be measured. Dense
+    # smoke frames are rejected by ``foot_offset`` and inherit an interpolated
+    # correction from their nearest visible neighbours. This preserves the
+    # authored pose while locking the feet to one screen coordinate.
     known = [
         (index, offset)
         for index, frame in enumerate(frames)
-        if index in trusted_indexes and (offset := foot_offset(frame, OUTFIT_ROOT_X[outfit]))
+        if (offset := foot_offset(frame, OUTFIT_ROOT_X[outfit]))
     ]
     if not known:
         return [frame.copy() for frame in frames]
@@ -267,7 +268,11 @@ def main() -> None:
             # All moving source frames are already aligned to the same foot
             # anchor. Re-centering the completed frames by the changing smoke
             # silhouette would reintroduce visible left/right drift.
-            transition = cover + bridge + reveal
+            # Interpolation can create a one-frame foot-centre deviation even
+            # when both source drawings were aligned. Run one final anchor
+            # pass on the completed timeline so every visible character frame
+            # lands at exactly the same x coordinate.
+            transition = stabilize_sequence(cover + bridge + reveal, "casual")
             save_apng(transition, TRANSITION_DIR / f"smoke_{source}_to_{target}.png")
 
     preview_names = ["casual", "student", "formal"]

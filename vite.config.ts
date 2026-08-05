@@ -45,9 +45,16 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
-    server: isCodexSeatbeltSandbox
-      ? { watch: { useFsEvents: false, usePolling: true } }
-      : undefined,
+    server: {
+      watch: {
+        ...(isCodexSeatbeltSandbox
+          ? { useFsEvents: false, usePolling: true }
+          : {}),
+        // Miniflare rewrites its worker registry on a heartbeat. Watching that
+        // generated state made Vite reload the whole portfolio every 30s.
+        ignored: ["**/.wrangler/**"],
+      },
+    },
     plugins: [
       vinext(),
       sites(),

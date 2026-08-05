@@ -53,14 +53,14 @@ const ACTIONS: Record<ActionName, { fps: number; frames: number; loop: boolean }
 const HUB_STOP: Stop = {
   id:"hub", number:"00", eyebrow:"CHOOSE YOUR PATH", kind:"origin", accent:"#83b9d9", tint:"#e6f1ef",
   title:"吕雨南｜电商运营与增长",
-  body:"负责年化 GMV 超过 1,300 万美元的 Shopify 独立站运营，具备销售与库存分析、促销策略、新品 GTM、转化实验及竞品洞察经验。结合消费者行为研究背景与 AI 驱动运营工作流，将多源数据转化为可执行的商业决策和增长方案。",
+  body:"我专注于北美电商运营与增长，现负责年化 GMV 超过 1,300 万美元的 Shopify 独立站。工作覆盖销售与库存分析、促销策略、新品 GTM、转化实验和竞品研究；结合消费者行为研究与 AI 工作流，把分散数据转化为清晰、可执行的运营决策。",
   details:[], action:"wave",
 };
 
 const HUB_STOP_EN: Stop = {
   id:"hub", number:"00", eyebrow:"CHOOSE YOUR PATH", kind:"origin", accent:"#83b9d9", tint:"#e6f1ef",
   title:"Yunan Lyu | Ecommerce Operations & Growth",
-  body:"Hands-on ownership of a Shopify storefront exceeding US$13M in annualized GMV, with experience in sales and inventory analysis, promotional strategy, new-product GTM, conversion experimentation, and competitive intelligence. Combine a consumer-behavior research background with AI-driven operating workflows to turn multi-source data into actionable commercial decisions and growth initiatives.",
+  body:"I focus on North American ecommerce operations and growth, currently owning a Shopify storefront exceeding US$13M in annualized GMV. My work spans sales and inventory analysis, promotional strategy, new-product GTM, conversion experimentation, and competitive research—combining consumer-behavior training with AI workflows to turn fragmented data into clear operating decisions.",
   details:[], action:"wave",
 };
 
@@ -127,6 +127,22 @@ const EDUCATION_STOPS_EN: Stop[] = [
   ]},
 ];
 
+const EDUCATION_OVERVIEW: Stop = {
+  id:"uva", number:"E1", eyebrow:"EDUCATION", kind:"experience", accent:"#78b8c8", tint:"#e5f2f1",
+  title:"教育背景", body:"2016—2023｜计算机科学、软件与数据工程", action:"read", details:[
+    {label:"2020—2023",title:"阿姆斯特丹大学｜计算机工程",body:"计算机工程（软件与数据工程），理学硕士。",action:"read"},
+    {label:"2016—2020",title:"香港中文大学（深圳）｜计算机科学与技术",body:"计算机科学与技术，理学学士。",action:"glasses"},
+  ],
+};
+
+const EDUCATION_OVERVIEW_EN: Stop = {
+  id:"uva", number:"E1", eyebrow:"EDUCATION", kind:"experience", accent:"#78b8c8", tint:"#e5f2f1",
+  title:"Education", body:"2016—2023 | Computer Science, Software & Data Engineering", action:"read", details:[
+    {label:"2020—2023",title:"University of Amsterdam | Computer Engineering",body:"M.S. in Computer Engineering (Software and Data Engineering).",action:"read"},
+    {label:"2016—2020",title:"CUHK-Shenzhen | Computer Science and Technology",body:"B.S. in Computer Science and Technology.",action:"glasses"},
+  ],
+};
+
 const WORK_STOPS_EN: Stop[] = [
   { id:"omtech", number:"W1", eyebrow:"WORK · OMTECH", kind:"experience", accent:"#739bd1", tint:"#e1eaf4", title:"North America Market Operations | OMTech", body:"Jun 2025–Present", action:"type", details:[
     {label:"01",title:"US$13M+ annualized GMV",body:"Independently manage OMTech's North American storefront with over US$13M in annualized GMV and more than US$1.1M in average monthly GMV across laser equipment, UV printers, accessories, and consumables.",action:"celebrate"},
@@ -173,14 +189,14 @@ const AI_STOPS_EN: Stop[] = [
 ];
 
 const BRANCHES: Record<BranchId, Stop[]> = {
-  education: EDUCATION_STOPS,
+  education: [EDUCATION_OVERVIEW],
   work: WORK_STOPS,
   projects: PROJECT_STOPS,
   ai: AI_STOPS,
 };
 
 const BRANCHES_EN: Record<BranchId, Stop[]> = {
-  education: EDUCATION_STOPS_EN,
+  education: [EDUCATION_OVERVIEW_EN],
   work: WORK_STOPS_EN,
   projects: PROJECT_STOPS_EN,
   ai: AI_STOPS_EN,
@@ -221,7 +237,7 @@ const ACTION_BLEND_SECONDS=.12;
 const SCENE_TRANSITION_SECONDS=2.6;
 const animationPath = (outfit:OutfitName,action:ActionName) => `/avatar-v3/${outfit}/animated/${action}.png?v=36`;
 const staticAvatarPath = (outfit:OutfitName) => `/avatar-v3/${outfit}/static/idle.png?v=1`;
-const wardrobeTransitionPath = (source:OutfitName,target:OutfitName) => `/avatar-smoke/transitions/smoke_${source}_to_${target}.png?v=2`;
+const wardrobeTransitionPath = (source:OutfitName,target:OutfitName) => `/avatar-smoke/transitions/smoke_${source}_to_${target}.png?v=3`;
 const STOP_VISUALS:Record<string,SceneVisual> = {
   uva:{scene:"amsterdam",logo:"uva"},
   cuhksz:{scene:"cuhk-shenzhen",logo:"cuhk"},
@@ -244,11 +260,22 @@ const sceneDayPath = (visual:SceneVisual) => visual.scene ? `/scene-assets/${vis
 const sceneLogoPath = (visual:SceneVisual) => `/scene-assets/logos/${visual.logo}.png?v=${SCENE_ASSET_VERSION}`;
 const sceneTransitionPath = (fromId:string,toId:string) => `/scene-assets/transitions/${fromId}-to-${toId}.webp?v=${SCENE_TRANSITION_VERSION}`;
 
+const titlePhrases = (title:string) => title.split(/\s*[｜|]\s*/).filter(Boolean);
+
+function SemanticTitle({title}:{title:string}) {
+  const phrases=titlePhrases(title);
+  return <h1 className={`semantic-title ${phrases.length>1?"has-secondary":""}`}>
+    {phrases.map((phrase,index)=><span className={index===0?"title-primary":"title-secondary"} key={`${phrase}-${index}`}>{phrase}</span>)}
+  </h1>;
+}
+
 export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"pixel"|"tundra"}={}) {
   const rootRef = useRef<HTMLElement>(null);
   const worldCanvasRef = useRef<HTMLCanvasElement>(null);
   const avatarElementRef = useRef<HTMLImageElement>(null);
   const wardrobeElementRef = useRef<HTMLImageElement>(null);
+  const detailSceneTimerRef = useRef<ReturnType<typeof setTimeout>|null>(null);
+  const backPointerRef = useRef<{x:number;y:number;moved:boolean}|null>(null);
   const storyCardRefs = useRef<(HTMLElement|null)[]>([]);
   const imagesRef = useRef<Record<string,HTMLImageElement>>({});
   const rafRef = useRef(0);
@@ -263,6 +290,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const [activeIndex,setActiveIndex] = useState(0);
   const [ready,setReady] = useState(false);
   const [entered,setEntered] = useState(false);
+  const [sessionReady,setSessionReady] = useState(false);
   const [coverHovered,setCoverHovered] = useState(false);
   const [locale,setLocale] = useState<Locale>("zh");
   const [actionLabel,setActionLabel] = useState<ActionName>("idle");
@@ -329,12 +357,54 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     setActiveHotspot(null);
   },[forceAction]);
 
+  const selectStopFromList = useCallback((index:number) => {
+    const count=stopsRef.current.length;
+    const bounded=clamp(index,0,count-1);
+    const currentIndex=Math.round(motionRef.current.target*Math.max(1,count-1));
+    if(bounded===currentIndex||wardrobeRef.current.active)return;
+    const motion=motionRef.current;
+    const fromId=stopsRef.current[currentIndex].id;
+    const toId=stopsRef.current[bounded].id;
+    const target=count>1?bounded/(count-1):0;
+    motion.current=target;motion.target=target;motion.previous=target;motion.velocity=0;
+    motion.travelElapsed=0;motion.moving=false;motion.sceneToId=toId;motion.queue=[];
+    activeRef.current=bounded;setActiveIndex(bounded);setActiveHotspot(null);
+    forceAction(stopsRef.current[bounded].action);
+    if(detailSceneTimerRef.current)clearTimeout(detailSceneTimerRef.current);
+    const hasGeneratedTransition=SCENE_TRANSITION_PAIRS.some(([from,to])=>from===fromId&&to===toId);
+    if(hasGeneratedTransition){
+      setSceneTransition({fromId,toId,run:performance.now()});
+      detailSceneTimerRef.current=setTimeout(()=>{
+        setVisualStopId(toId);setSceneTransition(null);detailSceneTimerRef.current=null;
+      },SCENE_TRANSITION_SECONDS*1000);
+    }else{
+      setVisualStopId(toId);setSceneTransition(null);
+    }
+  },[forceAction]);
+
+  const selectDetail = useCallback((detailIndex:number,detail:StopDetail) => {
+    setActiveHotspot(detailIndex);
+    setExplored(current=>({...current,[activeStop.id]:Array.from(new Set([...(current[activeStop.id]??[]),detailIndex]))}));
+    if(motionRef.current.action==="idle")forceAction(detail.action);
+    if(selectedBranch!=="education")return;
+    const targetId=detailIndex===0?"uva":"cuhksz";
+    const currentId=activeHotspot===1?"cuhksz":"uva";
+    if(targetId===currentId)return;
+    if(detailSceneTimerRef.current)clearTimeout(detailSceneTimerRef.current);
+    setSceneTransition({fromId:currentId,toId:targetId,run:performance.now()});
+    detailSceneTimerRef.current=setTimeout(()=>{
+      setVisualStopId(targetId);
+      setSceneTransition(null);
+      detailSceneTimerRef.current=null;
+    },SCENE_TRANSITION_SECONDS*1000);
+  },[activeHotspot,activeStop.id,forceAction,selectedBranch]);
+
   const chooseBranch = useCallback((branch:BranchId) => {
     // Re-selecting the active module is a true no-op. It must not restart the
     // wardrobe timeline or replay the same content transition.
     if(wardrobePhase||selectedBranch===branch)return;
     const motion=motionRef.current;
-    motion.current=0;motion.target=0;motion.velocity=0;motion.previous=0;motion.lastInputAt=0;
+    motion.current=0;motion.target=0;motion.velocity=0;motion.previous=0;motion.lastInputAt=0;motion.moving=false;motion.travelElapsed=0;
     const targetOutfit=BRANCH_OUTFIT[branch];
     const finish=()=>{activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch(branch);setVisualStopId(BRANCHES[branch][0].id);setSceneTransition(null);setWardrobePhase(null);forceAction("idle");};
     if(reducedRef.current){outfitRef.current=targetOutfit;setOutfit(targetOutfit);finish();return;}
@@ -361,7 +431,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const returnToHub = useCallback(() => {
     if(wardrobePhase)return;
     const motion=motionRef.current;
-    motion.current=0;motion.target=0;motion.velocity=0;motion.previous=0;motion.lastInputAt=0;motion.queue=[];
+    motion.current=0;motion.target=0;motion.velocity=0;motion.previous=0;motion.lastInputAt=0;motion.queue=[];motion.moving=false;motion.travelElapsed=0;motion.sceneToId="hub";
     activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch(null);setVisualStopId("hub");setSceneTransition(null);forceAction("idle");
   },[forceAction,wardrobePhase]);
 
@@ -369,6 +439,37 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     stopsRef.current=journeyStops;
     storyCardRefs.current.length=journeyStops.length;
   },[journeyStops]);
+
+  useEffect(()=>{
+    try{
+      const raw=sessionStorage.getItem("yunan-portfolio-view");
+      if(raw){
+        const saved=JSON.parse(raw) as {entered?:boolean;branch?:BranchId|null;index?:number;locale?:Locale};
+        const savedLocale:Locale=saved.locale==="en"?"en":"zh";
+        // A new page visit should always begin at the cover. We still restore
+        // the language and last route underneath it, but never skip the
+        // explicit “开始探索” entrance because of an earlier tab session.
+        setEntered(false);
+        if(savedLocale!==locale)setLocale(savedLocale);
+        if(saved.branch&&["education","work","projects","ai"].includes(saved.branch)){
+          const source=(savedLocale==="en"?BRANCHES_EN:BRANCHES)[saved.branch];
+          const index=clamp(Number(saved.index)||0,0,source.length-1);
+          const target=index/(Math.max(1,source.length-1));
+          setSelectedBranch(saved.branch);setActiveIndex(index);activeRef.current=index;
+          setVisualStopId(source[index].id);setActiveHotspot(null);
+          const restoredOutfit=BRANCH_OUTFIT[saved.branch];outfitRef.current=restoredOutfit;setOutfit(restoredOutfit);
+          motionRef.current.current=target;motionRef.current.target=target;motionRef.current.previous=target;motionRef.current.moving=false;
+        }
+      }
+    }catch{}
+    setSessionReady(true);
+    return()=>{if(detailSceneTimerRef.current)clearTimeout(detailSceneTimerRef.current);};
+  },[]);
+
+  useEffect(()=>{
+    if(!sessionReady)return;
+    try{sessionStorage.setItem("yunan-portfolio-view",JSON.stringify({entered,branch:selectedBranch,index:activeIndex,locale}));}catch{}
+  },[activeIndex,entered,locale,selectedBranch,sessionReady]);
 
   useEffect(()=>{
     if(!avatarElementRef.current)return;
@@ -389,7 +490,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
   useEffect(() => {
     const media=window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync=()=>{ reducedRef.current=media.matches; if(media.matches) setEntered(true); };
+    const sync=()=>{ reducedRef.current=media.matches; };
     sync(); media.addEventListener("change",sync); return()=>media.removeEventListener("change",sync);
   },[]);
 
@@ -416,7 +517,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   },[]);
 
   useEffect(() => {
-    if(!selectedBranch||wardrobePhase)return;
+    if(!selectedBranch||wardrobePhase||selectedBranch==="work"||selectedBranch==="projects")return;
     const onWheel=(event:WheelEvent)=>{
       if(Math.abs(event.deltaY)<Math.abs(event.deltaX))return;
       event.preventDefault();
@@ -437,7 +538,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   },[goTo,selectedBranch,wardrobePhase]);
 
   useEffect(() => {
-    if(!selectedBranch||wardrobePhase)return;
+    if(!selectedBranch||wardrobePhase||selectedBranch==="work"||selectedBranch==="projects")return;
     let startX=0,startY=0,startAt=0,startTarget:EventTarget|null=null;
     const isInteractiveRegion=(target:EventTarget|null)=>{
       const element=target instanceof Element?target:null;
@@ -546,7 +647,8 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   },[forceAction,playAction]);
 
   const progressLabel=useMemo(()=>selectedBranch?`${String(activeIndex+1).padStart(2,"0")} / ${String(journeyStops.length).padStart(2,"0")}`:locale==="en"?"CHOOSE":"选择",[activeIndex,locale,selectedBranch,journeyStops.length]);
-  const steadyVisual=STOP_VISUALS[visualStopId];
+  const effectiveVisualStopId=selectedBranch==="education"?(activeHotspot===1?"cuhksz":"uva"):visualStopId;
+  const steadyVisual=STOP_VISUALS[effectiveVisualStopId];
   const incomingVisual=sceneTransition?STOP_VISUALS[sceneTransition.toId]:null;
   const evidenceScene=activeDetail?.projectScene??(selectedBranch==="projects"?activeStop.details[0]?.projectScene:"/ai-project-scenes/00-overview-integrated-v2-anim.webp");
 
@@ -562,7 +664,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     {selectedBranch&&selectedBranch!=="ai"&&selectedBranch!=="projects"&&steadyVisual&&<section className="experience-backdrop" aria-hidden="true">
       <div className={`experience-visual experience-current ${steadyVisual.scene?"has-location":"is-logo-only"}`} style={sceneDayPath(steadyVisual)?{backgroundImage:`url(${sceneDayPath(steadyVisual)})`}:undefined} />
       <img className={`experience-logo experience-logo-current ${steadyVisual.scene?"":"is-logo-only"}`} src={sceneLogoPath(steadyVisual)} alt="" />
-      {sceneTransition&&selectedBranch==="work"&&incomingVisual&&<img
+      {sceneTransition&&(selectedBranch==="work"||selectedBranch==="education")&&incomingVisual&&<img
         className={`experience-logo experience-logo-incoming ${incomingVisual.scene?"":"is-logo-only"}`}
         src={sceneLogoPath(incomingVisual)}
         alt=""
@@ -584,7 +686,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
       <div className="layer layer-near"><i/><i/><i/><i/><i/></div>
     </div>
 
-    <section className="entry-screen" aria-hidden={entered}>
+    {sessionReady&&<section className="entry-screen" aria-hidden={entered}>
       <picture className="entry-cover-picture" aria-hidden="true">
         <source media="(max-width: 720px)" srcSet="/cover-assets/cover-complete-mobile-v1.png" />
         <img
@@ -599,31 +701,62 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
         onMouseLeave={()=>setCoverHovered(false)}
         onFocus={()=>setCoverHovered(true)}
         onBlur={()=>setCoverHovered(false)}
-        onClick={()=>{setEntered(true);forceAction("idle");}}
+        onClick={()=>{returnToHub();setEntered(true);forceAction("idle");}}
         disabled={!ready}
         aria-busy={!ready}
         aria-label={ready?ui.start:ui.loading}
       >
         <span className="sr-only">{ready?ui.start:ui.loading}</span>
       </button>
-    </section>
+    </section>}
 
     <header className="journey-header">
-      <button className="journey-brand" onClick={returnToHub} aria-label={ui.back}>
+      <button
+        className="journey-brand"
+        onPointerDown={event=>{backPointerRef.current={x:event.clientX,y:event.clientY,moved:false};}}
+        onPointerMove={event=>{const start=backPointerRef.current;if(start&&Math.hypot(event.clientX-start.x,event.clientY-start.y)>7)start.moved=true;}}
+        onPointerUp={()=>{const start=backPointerRef.current;backPointerRef.current=null;if(start&&!start.moved)returnToHub();}}
+        onPointerCancel={()=>{backPointerRef.current=null;}}
+        onClick={event=>{if(event.detail===0)returnToHub();}}
+        aria-label={ui.back}
+      >
         <span>YL</span><b>YUNAN<small>{ui.workspace}</small></b>
         {selectedBranch&&<em className="journey-back-label"><i aria-hidden="true">←</i><span>{locale==="en"?"BACK TO MODULES":"返回模块选择"}</span></em>}
       </button>
       <div className="journey-header-actions">
-        <div className="language-switch" role="group" aria-label="Language / 语言"><button className={locale==="zh"?"active":""} onClick={()=>setLocale("zh")} aria-pressed={locale==="zh"}>中文</button><button className={locale==="en"?"active":""} onClick={()=>setLocale("en")} aria-pressed={locale==="en"}>EN</button></div>
-        <div className="journey-progress"><span>{selectedBranch?selectedBranch.toUpperCase():ui.route}</span><b>{progressLabel}</b></div>
+        <details className="resume-menu">
+          <summary>{locale==="en"?"RESUME DOWNLOAD":"简历下载"}</summary>
+          <div className="resume-menu-popover">
+            <a href="/resumes/Yunan_Lyu_Resume_ZH.docx" download><span>{locale==="en"?"Chinese Resume":"中文简历"}</span><small>DOCX · ZH ↓</small></a>
+            <a href="/resumes/Yunan_Lyu_Resume_EN.docx" download><span>{locale==="en"?"English Resume":"英文简历"}</span><small>DOCX · EN ↓</small></a>
+          </div>
+        </details>
+        {!selectedBranch&&<div className="language-switch" role="group" aria-label="Language / 语言"><button className={locale==="zh"?"active":""} onClick={()=>setLocale("zh")} aria-pressed={locale==="zh"}>中文</button><button className={locale==="en"?"active":""} onClick={()=>setLocale("en")} aria-pressed={locale==="en"}>EN</button></div>}
       </div>
     </header>
 
+    {selectedBranch&&<aside className="journey-indicator-rail" aria-label={locale==="en"?"View indicators":"页面指示"}>
+      <div className="rail-route"><small>{locale==="en"?"SECTION":"当前模块"}</small><strong>{selectedBranch.toUpperCase()}</strong></div>
+      <div className="rail-progress"><small>{locale==="en"?"POSITION":"当前位置"}</small><b>{selectedBranch==="education"?"01 / 01":progressLabel}</b></div>
+      <div className="language-switch" role="group" aria-label="Language / 语言"><button className={locale==="zh"?"active":""} onClick={()=>setLocale("zh")} aria-pressed={locale==="zh"}>中文</button><button className={locale==="en"?"active":""} onClick={()=>setLocale("en")} aria-pressed={locale==="en"}>EN</button></div>
+    </aside>}
+
     <section className="story-panel" aria-live="polite">
-      {journeyStops.map((stop,index)=><article className={`story-card ${stop.title.length>15?"is-long-title":""}`} key={stop.id} ref={el=>{storyCardRefs.current[index]=el;}} aria-hidden={index===0?"false":"true"}>
-        <p className="story-eyebrow"><span>{stop.number}</span>{stop.eyebrow}</p><h1>{stop.title}</h1><p className="story-body">{stop.body}</p>
-        {selectedBranch&&<div className="resume-facts" aria-label={`${stop.eyebrow} ${locale==="en"?"highlights":"重点信息"}`}>
-          {stop.details.map((detail,detailIndex)=><button className={`resume-fact ${(explored[stop.id]??[]).includes(detailIndex)?"is-visited":""} ${index===activeIndex&&activeHotspot===detailIndex?"active":""}`} key={`${stop.id}-${detail.label}`} disabled={index!==activeIndex} aria-pressed={index===activeIndex&&activeHotspot===detailIndex} onClick={()=>{setActiveHotspot(detailIndex);setExplored(current=>({...current,[stop.id]:Array.from(new Set([...(current[stop.id]??[]),detailIndex]))}));if(motionRef.current.action==="idle")forceAction(detail.action);}}><small>{detail.label}</small><b>{detail.title}</b></button>)}
+      {journeyStops.map((stop,index)=><article className={`story-card ${stop.title.length>15?"is-long-title":""} ${(selectedBranch==="work"||selectedBranch==="projects")?"is-layered-browser":""}`} key={stop.id} ref={el=>{storyCardRefs.current[index]=el;}} aria-hidden={index===0?"false":"true"}>
+        <p className="story-eyebrow"><span>{stop.number}</span>{stop.eyebrow}</p><SemanticTitle title={stop.title}/><p className="story-body">{stop.body}</p>
+        {selectedBranch&&(selectedBranch==="work"||selectedBranch==="projects")?<div className="layered-browser" aria-label={locale==="en"?"Position and project browser":"职位与项目浏览"}>
+          <nav className="layered-primary" aria-label={selectedBranch==="work"?(locale==="en"?"Positions":"职位"):(locale==="en"?"Projects":"项目")}>
+            <small>{selectedBranch==="work"?(locale==="en"?"POSITION":"职位"):(locale==="en"?"PROJECT":"项目")}</small>
+            {journeyStops.map((item,itemIndex)=>{const phrases=titlePhrases(item.title);return <button type="button" className={itemIndex===activeIndex?"active":""} key={item.id} disabled={Boolean(wardrobePhase)} onClick={()=>selectStopFromList(itemIndex)}><b>{phrases[0]}</b>{phrases[1]&&<span>{phrases[1]}</span>}</button>;})}
+          </nav>
+          <div className="layered-secondary" aria-label={locale==="en"?"Project details":"项目"}>
+            <small>{selectedBranch==="work"?(locale==="en"?"PROJECTS & RESPONSIBILITIES":"项目与职责"):(locale==="en"?"EVIDENCE":"项目内容")}</small>
+            <div className="layered-secondary-list">
+              {stop.details.map((detail,detailIndex)=><button className={`layered-detail ${(explored[stop.id]??[]).includes(detailIndex)?"is-visited":""} ${index===activeIndex&&activeHotspot===detailIndex?"active":""}`} key={`${stop.id}-${detail.label}`} disabled={index!==activeIndex} aria-pressed={index===activeIndex&&activeHotspot===detailIndex} onClick={()=>selectDetail(detailIndex,detail)}><b>{detail.title}</b><span aria-hidden="true">→</span></button>)}
+            </div>
+          </div>
+        </div>:selectedBranch&&<div className="resume-facts" aria-label={`${stop.eyebrow} ${locale==="en"?"highlights":"重点信息"}`}>
+          {stop.details.map((detail,detailIndex)=><button className={`resume-fact ${(explored[stop.id]??[]).includes(detailIndex)?"is-visited":""} ${index===activeIndex&&activeHotspot===detailIndex?"active":""}`} key={`${stop.id}-${detail.label}`} disabled={index!==activeIndex} aria-pressed={index===activeIndex&&activeHotspot===detailIndex} onClick={()=>selectDetail(detailIndex,detail)}><small>{detail.label}</small><b>{detail.title}</b></button>)}
         </div>}
       </article>)}
     </section>

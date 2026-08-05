@@ -78,7 +78,7 @@
 @media(max-height:790px) and (min-width:721px){.story-panel{top:92px}.story-card{padding:20px 22px}.story-panel h1{font-size:clamp(34px,4vw,54px)}.story-body{margin-top:16px;line-height:1.5}.avatar-button,.avatar-canvas{width:512px;height:640px}}
 @media(max-width:720px){.journey{min-height:560px}.scene-frame{inset:6px}.entry-orb{width:88vw}.entry-orb h1{font-size:19vw}.entry-screen>small{left:50%;right:auto;width:90%;transform:translateX(-50%);text-align:center}.journey-header{inset:6px 6px auto;height:56px;padding:0 12px}.journey-progress span{display:none}.story-panel{left:16px;top:77px;width:calc(100% - 32px);height:310px}.story-card{padding:16px 17px;background:rgba(255,253,246,.84)}.story-eyebrow{margin-bottom:11px;font-size:7px}.story-eyebrow span{width:25px;height:25px}.story-panel h1{max-width:94%;font-size:clamp(29px,8.7vw,43px);line-height:.96}.story-body{max-width:94%;margin-top:11px;font-size:11px;line-height:1.45}.avatar-stage{inset:62px 0 52px}.avatar-button,.avatar-canvas{width:288px;height:360px}.avatar-halo{bottom:8%;width:250px;height:250px;margin-left:-125px;box-shadow:0 0 0 18px color-mix(in srgb,var(--active-accent) 5%,transparent)}.avatar-status{left:auto;right:14px;bottom:10px}.hotspot-field{inset:62px 0 52px}.hotspot{width:25px;height:25px}.hotspot-1{left:12%;top:54%}.hotspot-2{right:11%;top:48%}.hotspot-3{left:18%;bottom:12%}.hotspot span{left:31px;font-size:7px}.hotspot-card{right:14px;bottom:58px;width:calc(100% - 28px);padding:14px 16px}.journey-nav{display:none}.journey-footer{inset:auto 6px 6px;height:42px;padding:0 12px}.journey-footer>span{display:none}.journey-footer div{width:100%;justify-content:space-between}.drag-layer{inset:62px 0 52px}.layer-near i{opacity:.22}}
 @media(max-width:720px){.experience-backdrop{left:4%;right:4%;top:43%;bottom:7%}.experience-visual,.experience-day-night{background-position:center;object-position:center}.experience-logo{right:5%;top:14%;width:116px}.experience-logo.is-logo-only{left:50%;top:65%;width:min(62vw,300px)}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.entry-screen{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 
 /* Scene interaction v2: crisp integer-scale avatar and artifact-led exploration. */
 .avatar-halo{display:none}
@@ -1936,6 +1936,84 @@
   .ui-original.has-branch .journey-footer{right:20px;width:142px}
 }
 
+/* Navigation and responsive type refinement. */
+.ui-original .journey-footer{display:none!important}
+
+.resume-menu{position:relative;z-index:32}
+.resume-menu summary{
+  min-width:64px;height:38px;padding:0 14px;display:grid;place-items:center;
+  list-style:none;cursor:pointer;border:1px solid var(--original-glass-stroke);
+  border-radius:14px;background:rgba(249,251,251,.66);box-shadow:var(--original-glass-shadow-soft);
+  color:var(--ink);font:750 9px/1 var(--font-geist-mono);letter-spacing:.08em;
+  backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);
+}
+.resume-menu summary::-webkit-details-marker{display:none}
+.resume-menu[open] summary{background:rgba(39,54,63,.94);color:#fff}
+.resume-menu-popover{
+  position:absolute;right:0;top:48px;width:210px;padding:8px;display:grid;gap:7px;
+  border:1px solid rgba(255,255,255,.88);border-radius:18px;
+  background:rgba(249,251,251,.82);box-shadow:0 24px 60px rgba(31,44,51,.16),inset 0 1px 0 #fff;
+  backdrop-filter:blur(28px) saturate(1.25);-webkit-backdrop-filter:blur(28px) saturate(1.25);
+}
+.resume-menu-popover a{padding:12px 13px;display:grid;gap:5px;border-radius:12px;color:var(--ink);background:rgba(255,255,255,.42)}
+.resume-menu-popover a:hover,.resume-menu-popover a:focus-visible{background:rgba(255,255,255,.88);outline:0}
+.resume-menu-popover span{font-size:12px;font-weight:700}.resume-menu-popover small{color:var(--muted);font:650 7px/1 var(--font-geist-mono);letter-spacing:.08em}
+
+.scene-switcher{
+  position:absolute;left:calc(50% + 72px);right:clamp(190px,15vw,270px);bottom:22px;z-index:24;
+  min-width:330px;height:54px;padding:6px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;
+  border:1px solid rgba(255,255,255,.88);border-radius:18px;background:rgba(249,251,251,.68);
+  box-shadow:0 18px 48px rgba(31,44,51,.12),inset 0 1px 0 #fff;
+  backdrop-filter:blur(26px) saturate(1.2);-webkit-backdrop-filter:blur(26px) saturate(1.2);
+}
+.scene-switcher button{height:40px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:12px;color:var(--ink);cursor:pointer}
+.scene-switcher button:hover:not(:disabled),.scene-switcher button:focus-visible{background:rgba(255,255,255,.8);outline:0}
+.scene-switcher button:disabled{opacity:.28;cursor:default}
+.scene-switcher span{font-size:18px;line-height:1}.scene-switcher em{font:700 8px/1 var(--font-geist-mono);font-style:normal;letter-spacing:.08em}
+.scene-switcher>b{min-width:62px;text-align:center;font:750 10px/1 var(--font-geist-mono);letter-spacing:.08em}.scene-switcher>b i{color:var(--muted);font-style:normal}
+
+@media(min-width:1200px){
+  .journey-header{padding-inline:clamp(28px,3.5vw,64px)}
+  .journey-brand b{font-size:13px}.journey-brand small{font-size:8px}
+  .language-switch button,.journey-progress{font-size:9px}
+  .ui-original:not(.has-branch) .story-panel{left:clamp(56px,7vw,132px);top:clamp(112px,14vh,148px);width:min(430px,30vw);height:min(410px,54vh)}
+  .ui-original:not(.has-branch) .story-panel h1{font-size:clamp(46px,3.35vw,60px);line-height:1.01;letter-spacing:-.045em}
+  .ui-original:not(.has-branch) .story-body{font-size:14px;line-height:1.72}
+  .ui-original:not(.has-branch) .branch-selector{right:clamp(56px,7vw,132px);top:clamp(132px,17vh,176px);width:min(390px,29vw);gap:12px}
+  .ui-original:not(.has-branch) .branch-selector button{min-height:90px;padding:16px 20px}
+  .ui-original:not(.has-branch) .branch-selector b{font-size:clamp(24px,1.7vw,31px);line-height:1.06}
+  .ui-original:not(.has-branch) .avatar-stage{inset:72px 0 96px}
+  .ui-original.has-branch .story-body{font-size:14px}.ui-original.has-branch .resume-fact b{font-size:14px}
+}
+
+@media(max-width:1199px) and (min-width:721px){
+  .journey-header{padding-inline:22px}.journey-header-actions{gap:9px}
+  .journey-brand b{font-size:11px}.journey-brand small{font-size:7px}
+  .ui-original:not(.has-branch) .story-panel{left:28px;top:104px;width:40vw;height:390px}
+  .ui-original:not(.has-branch) .story-panel h1{font-size:clamp(39px,4.8vw,54px);line-height:1.02}
+  .ui-original:not(.has-branch) .branch-selector{right:28px;top:118px;width:36vw}
+  .ui-original:not(.has-branch) .branch-selector button{min-height:82px;padding:13px 16px}
+  .ui-original:not(.has-branch) .branch-selector b{font-size:clamp(20px,2.4vw,27px)}
+  .ui-original.has-branch .story-panel h1{font-size:clamp(30px,3.5vw,44px)}
+  .scene-switcher{left:48%;right:24px;min-width:300px}
+}
+
+@media(max-width:720px){
+  .journey-header-actions{gap:5px}
+  .resume-menu summary{min-width:44px;height:34px;padding:0 9px;border-radius:12px;font-size:7px}
+  .resume-menu-popover{position:fixed;right:8px;top:58px;width:188px}
+  .language-switch button{font-size:7.5px}.journey-progress b{font-size:7.5px}
+  .ui-original:not(.has-branch) .story-panel h1{font-size:clamp(29px,8.1vw,35px);letter-spacing:-.035em}
+  .ui-original:not(.has-branch) .story-body{font-size:11.5px;line-height:1.62}
+  .ui-original:not(.has-branch) .branch-selector b{font-size:18px;line-height:1.08}
+  .ui-original:not(.has-branch) .branch-selector small{font-size:6.5px}
+  .ui-original.has-branch .story-panel h1{font-size:clamp(27px,7.2vw,32px);letter-spacing:-.03em}
+  .ui-original.has-branch .story-body{font-size:11.5px}
+  .ui-original.has-branch .resume-fact b{font-size:11.5px;line-height:1.35}
+  .scene-switcher{left:12px;right:12px;bottom:10px;min-width:0;height:48px;border-radius:16px}
+  .scene-switcher button{height:36px;padding:0 10px}.scene-switcher em{display:none}.scene-switcher span{font-size:17px}
+}
+
 /* Mobile interaction pass: long experience/project lists scroll inside their
    own glass panel, while a vertical swipe on the open scene changes stops. */
 @media(max-width:720px){
@@ -2326,4 +2404,373 @@
   .has-branch:not(.branch-ai) .hotspot-card{
     right:calc(var(--resume-rail-right) + var(--resume-rail-width) + 16px);
   }
+}
+
+/* Final responsive type lock. Keep these after legacy breakpoint rules. */
+@media(max-width:720px){
+  .ui-original:not(.has-branch) .story-panel h1{font-size:clamp(29px,8.1vw,35px);line-height:1.04;letter-spacing:-.035em}
+  .ui-original:not(.has-branch) .story-body{font-size:11.5px;line-height:1.62}
+  .ui-original:not(.has-branch) .branch-selector b{font-size:18px;line-height:1.08}
+  .ui-original.has-branch .story-panel h1{font-size:clamp(27px,7.2vw,32px);line-height:1.06;letter-spacing:-.03em}
+  .ui-original.has-branch .story-body{font-size:11.5px;line-height:1.58}
+  .ui-original.has-branch .resume-fact b{font-size:11.5px;line-height:1.35}
+}
+
+/* One coordinate system for each visual and its navigation. Keeping the
+   switcher on the same left/right rails prevents it drifting at intermediate
+   viewport widths. */
+.branch-work{--scene-rail-left:41%;--scene-rail-right:17%}
+.branch-projects{--scene-rail-left:44%;--scene-rail-right:3%}
+.branch-work .experience-backdrop,
+.branch-work .scene-switcher,
+.branch-projects .ai-knowledge-stage,
+.branch-projects .scene-switcher{
+  left:var(--scene-rail-left);
+  right:var(--scene-rail-right);
+}
+.branch-work .scene-switcher,
+.branch-projects .scene-switcher{min-width:0}
+@media(max-width:1000px) and (min-width:721px){
+  .branch-work{--scene-rail-left:43%;--scene-rail-right:18%}
+}
+@media(max-width:720px){
+  .branch-work,
+  .branch-projects{--scene-rail-left:5%;--scene-rail-right:3%}
+  .branch-work .scene-switcher,
+  .branch-projects .scene-switcher{bottom:8px;width:auto;min-width:0}
+}
+
+/* Desktop indicator rail. Resume remains in the navigation bar; contextual
+   position and language controls use the otherwise empty scene-side rail. */
+.journey-indicator-rail{
+  position:absolute;
+  right:clamp(26px,3vw,56px);
+  top:clamp(118px,15vh,156px);
+  z-index:26;
+  width:clamp(124px,11vw,178px);
+  padding:18px 0 0 18px;
+  display:grid;
+  gap:20px;
+  color:var(--ink);
+  border-left:1px solid rgba(48,64,74,.18);
+}
+.journey-indicator-rail::before{
+  content:"";
+  position:absolute;
+  left:-2px;
+  top:0;
+  width:3px;
+  height:42px;
+  border-radius:3px;
+  background:var(--active-accent);
+}
+.journey-indicator-rail small{
+  display:block;
+  margin-bottom:7px;
+  color:var(--muted);
+  font:700 7px/1 var(--font-geist-mono);
+  letter-spacing:.12em;
+}
+.journey-indicator-rail strong{
+  display:block;
+  overflow-wrap:anywhere;
+  font:700 10px/1.35 var(--font-geist-mono);
+  letter-spacing:.1em;
+}
+.journey-indicator-rail .rail-progress b{
+  font:650 19px/1 var(--font-geist-sans);
+  letter-spacing:.02em;
+}
+.journey-indicator-rail .language-switch{
+  width:100%;
+  min-width:0;
+  height:38px;
+}
+.journey-indicator-rail .language-switch button{min-width:0;padding:0 8px}
+.ui-original.has-branch .journey-nav{display:none}
+
+/* Chinese type system: Songti gives display copy a calmer editorial voice;
+   interface copy stays in a clean UI sans face for fast scanning. */
+.locale-zh{
+  --font-zh-display:"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC","SimSun",serif;
+  --font-zh-ui:"Microsoft YaHei UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",var(--font-geist-sans),sans-serif;
+}
+.locale-zh .story-panel h1,
+.locale-zh .branch-selector b,
+.locale-zh .hotspot-card b{
+  font-family:var(--font-zh-display);
+  font-weight:700;
+  letter-spacing:-.025em;
+}
+.locale-zh .story-body,
+.locale-zh .resume-fact b,
+.locale-zh .hotspot-card p,
+.locale-zh .detail-points{
+  font-family:var(--font-zh-ui);
+}
+.locale-zh .story-body{font-size:clamp(14px,1vw,16px);line-height:1.78}
+.locale-zh .resume-fact b{font-size:clamp(14px,.94vw,16px);font-weight:620;line-height:1.42;letter-spacing:0}
+.locale-zh .hotspot-card b{font-size:clamp(25px,2vw,34px);line-height:1.13}
+@media(min-width:721px){
+  .locale-zh .story-panel h1{font-size:clamp(42px,3.45vw,60px);line-height:1.04}
+  .locale-zh .story-card.is-long-title h1{font-size:clamp(34px,2.8vw,48px);line-height:1.08}
+  .locale-zh:not(.has-branch) .story-panel h1{font-size:clamp(43px,3.2vw,56px)}
+}
+@media(max-width:720px){
+  .journey-indicator-rail{
+    position:absolute;
+    right:8px;
+    top:66px;
+    width:auto;
+    padding:0;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:0;
+  }
+  .journey-indicator-rail::before,.journey-indicator-rail .rail-route{display:none}
+  .journey-indicator-rail .rail-progress{height:34px;padding:0 10px;display:grid;place-items:center;border-radius:12px;background:rgba(249,251,251,.72);box-shadow:var(--original-glass-shadow-soft)}
+  .journey-indicator-rail .rail-progress small{display:none}
+  .journey-indicator-rail .rail-progress b{font-size:10px}
+  .journey-indicator-rail .language-switch{width:86px;height:34px}
+  .locale-zh .story-panel h1{font-family:var(--font-zh-display);font-size:clamp(29px,8vw,35px);line-height:1.08}
+  .locale-zh .story-card.is-long-title h1{font-size:clamp(27px,7.2vw,32px)}
+  .locale-zh .story-body{font-size:12px;line-height:1.68}
+  .locale-zh .resume-fact b{font-size:12px;line-height:1.4}
+}
+
+/* 2026-08 semantic hierarchy pass -----------------------------------------
+   Display copy is grouped by meaning in JSX, so browsers never split a role
+   from its organisation at an arbitrary character. */
+.semantic-title span{display:block;max-width:100%;text-wrap:balance}
+.semantic-title .title-primary{width:max-content;word-break:keep-all}
+.semantic-title .title-secondary{
+  width:max-content;
+  margin-top:.08em;
+  font-size:.76em;
+  line-height:1.06;
+  letter-spacing:-.035em;
+  word-break:keep-all;
+}
+.ui-original:not(.has-branch) .semantic-title .title-secondary{font-size:.86em}
+
+/* Use one warm, professional sans family for large Chinese text. Songti at
+   display size produced brittle mixed Chinese/Latin line breaks. */
+.locale-zh{
+  --font-zh-display:"PingFang SC","Microsoft YaHei UI","Source Han Sans SC","Noto Sans CJK SC",var(--font-geist-sans),sans-serif;
+  --font-zh-ui:"PingFang SC","Microsoft YaHei UI","Microsoft YaHei","Noto Sans CJK SC",var(--font-geist-sans),sans-serif;
+}
+.locale-zh .story-panel h1,
+.locale-zh .branch-selector b,
+.locale-zh .hotspot-card b{
+  font-family:var(--font-zh-display);
+  font-weight:620;
+  letter-spacing:-.045em;
+}
+.locale-zh .story-body{font-weight:390;letter-spacing:.008em;text-wrap:pretty}
+
+/* Position -> project -> detail. The first two levels live in the left card;
+   choosing a project opens the existing right-hand evidence/detail layer. */
+.branch-work .story-panel,
+.branch-projects .story-panel{
+  left:clamp(22px,2.4vw,44px);
+  top:clamp(86px,10.5vh,112px);
+  width:min(42vw,680px);
+  height:calc(100vh - clamp(104px,13vh,136px));
+  max-height:720px;
+}
+.story-card.is-layered-browser{padding:24px 26px 22px;display:flex;flex-direction:column;overflow:hidden}
+.story-card.is-layered-browser .story-eyebrow{margin-bottom:14px}
+.story-card.is-layered-browser .semantic-title{font-size:clamp(30px,2.75vw,45px);line-height:1.01}
+.story-card.is-layered-browser .story-body{margin-top:11px;font-size:13px;line-height:1.45}
+.layered-browser{
+  min-height:0;
+  flex:1;
+  margin-top:18px;
+  padding-top:16px;
+  display:grid;
+  grid-template-columns:minmax(126px,.74fr) minmax(220px,1.5fr);
+  gap:18px;
+  border-top:1px solid rgba(48,64,74,.15);
+}
+.layered-browser small{
+  display:block;
+  margin:0 0 10px;
+  color:var(--muted);
+  font:700 7px/1 var(--font-geist-mono);
+  letter-spacing:.13em;
+}
+.layered-primary{
+  min-width:0;
+  padding-right:15px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  border-right:1px solid rgba(48,64,74,.13);
+}
+.layered-primary button{
+  position:relative;
+  width:100%;
+  padding:10px 10px 10px 13px;
+  display:grid;
+  gap:4px;
+  text-align:left;
+  color:var(--muted);
+  border-radius:11px;
+  cursor:pointer;
+}
+.layered-primary button::before{
+  content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;background:rgba(48,64,74,.15)
+}
+.layered-primary button.active{color:var(--ink);background:rgba(255,255,255,.55)}
+.layered-primary button.active::before{background:var(--active-accent)}
+.layered-primary button:focus-visible,.layered-primary button:hover{outline:0;background:rgba(255,255,255,.72)}
+.layered-primary b{font-size:11px;line-height:1.35;font-weight:680;text-wrap:pretty}
+.layered-primary span{font-size:8px;line-height:1.3;color:var(--muted)}
+.layered-secondary{min-width:0;display:flex;flex-direction:column}
+.layered-secondary-list{min-height:0;overflow:auto;padding-right:4px;scrollbar-width:thin;scrollbar-color:rgba(48,64,74,.22) transparent}
+.layered-detail{
+  width:100%;min-height:48px;padding:9px 7px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;
+  text-align:left;color:var(--ink);border-bottom:1px solid rgba(48,64,74,.13);cursor:pointer;
+}
+.layered-detail b{font-size:12.5px;line-height:1.4;font-weight:610;text-wrap:pretty}
+.layered-detail span{opacity:.3;font-size:14px;transition:transform .2s ease,opacity .2s ease}
+.layered-detail:hover,.layered-detail:focus-visible,.layered-detail.active{padding-left:11px;background:rgba(255,255,255,.52);outline:0}
+.layered-detail:hover span,.layered-detail:focus-visible span,.layered-detail.active span{opacity:1;transform:translateX(2px)}
+.layered-detail.is-visited:not(.active)::after{content:"";position:absolute}
+
+/* Keep the module, position and language controls as one aligned utility
+   card instead of three unrelated items floating down the right edge. */
+.journey-indicator-rail{
+  right:clamp(20px,2.2vw,38px);
+  top:clamp(104px,12vh,132px);
+  width:clamp(150px,11.5vw,182px);
+  padding:14px;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:12px 10px;
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:18px;
+  background:rgba(249,251,251,.62);
+  box-shadow:0 16px 44px rgba(31,44,51,.11),inset 0 1px 0 rgba(255,255,255,.96);
+  backdrop-filter:blur(22px) saturate(1.16);
+  -webkit-backdrop-filter:blur(22px) saturate(1.16);
+}
+.journey-indicator-rail::before{left:0;top:14px;height:38px}
+.journey-indicator-rail small{margin-bottom:6px}
+.journey-indicator-rail .rail-progress{text-align:right}
+.journey-indicator-rail .rail-progress b{font-size:15px;white-space:nowrap}
+.journey-indicator-rail .language-switch{grid-column:1/-1;height:34px}
+
+@media(max-width:1100px) and (min-width:721px){
+  .branch-work .story-panel,.branch-projects .story-panel{width:46vw}
+  .layered-browser{grid-template-columns:minmax(112px,.68fr) minmax(190px,1.35fr);gap:13px}
+  .layered-primary{padding-right:11px}
+  .story-card.is-layered-browser{padding:20px}
+}
+
+@media(max-width:720px){
+  .semantic-title .title-primary,.semantic-title .title-secondary{width:auto;word-break:normal;text-wrap:balance}
+  .ui-original:not(.has-branch) .semantic-title .title-secondary{font-size:.8em}
+  .branch-work .story-panel,.branch-projects .story-panel{
+    left:12px;top:68px;width:calc(100% - 24px);height:clamp(310px,48dvh,410px);max-height:none;
+  }
+  .story-card.is-layered-browser{padding:15px 16px 13px}
+  .story-card.is-layered-browser .story-eyebrow{margin-bottom:9px}
+  .story-card.is-layered-browser .semantic-title{font-size:clamp(23px,6.8vw,31px)}
+  .story-card.is-layered-browser .story-body{margin-top:7px;font-size:10.5px}
+  .layered-browser{margin-top:11px;padding-top:10px;grid-template-columns:104px minmax(0,1fr);gap:10px}
+  .layered-primary{padding-right:8px;gap:3px}
+  .layered-primary button{padding:7px 6px 7px 9px;gap:2px}
+  .layered-primary b{font-size:9px}.layered-primary span{font-size:6.5px}
+  .layered-browser small{margin-bottom:6px;font-size:6px}
+  .layered-detail{min-height:38px;padding:6px 4px;gap:6px}
+  .layered-detail b{font-size:9.5px;line-height:1.3}
+  .journey-indicator-rail{
+    right:7px;top:62px;width:auto;padding:5px 6px;display:flex;align-items:center;gap:6px;border-radius:13px;
+  }
+  .journey-indicator-rail::before,.journey-indicator-rail .rail-route{display:none}
+  .journey-indicator-rail .rail-progress{height:30px;padding:0 8px;display:grid;place-items:center;background:transparent;box-shadow:none}
+  .journey-indicator-rail .rail-progress small{display:none}
+  .journey-indicator-rail .rail-progress b{font-size:9px}
+  .journey-indicator-rail .language-switch{width:80px;height:30px}
+}
+
+/* 2026-08 layout consolidation ------------------------------------------- */
+.resume-menu summary{min-width:86px;padding-inline:16px;white-space:nowrap}
+@media(min-width:721px){
+  /* Keep the download sheet clear of the fixed module/status rail. */
+  .resume-menu-popover{right:calc(100% + 84px);top:0}
+}
+
+/* The left browser is deliberately narrower so its project list, the right
+   scene and the detail layer each own a non-overlapping column. */
+.branch-work .story-panel,
+.branch-projects .story-panel{
+  width:min(36vw,620px);
+}
+.layered-browser{grid-template-columns:minmax(108px,.64fr) minmax(196px,1.45fr);gap:14px}
+.layered-primary{padding-right:11px}
+.story-card.is-layered-browser .semantic-title{font-size:clamp(28px,2.45vw,42px)}
+
+/* Detail cards share the story card's top baseline and finish before the
+   compact utility card, rather than floating across either neighbour. */
+@media(min-width:721px){
+  .branch-work.has-active-artifact .hotspot-card,
+  .branch-projects.has-active-artifact .hotspot-card,
+  .branch-education.has-active-artifact .hotspot-card{
+    left:calc(clamp(22px,2.4vw,44px) + min(36vw,620px) + 20px);
+    right:calc(clamp(20px,2.2vw,38px) + clamp(176px,13vw,206px) + 22px);
+    top:10px;
+    max-height:calc(100vh - clamp(116px,14vh,148px));
+  }
+}
+
+.journey-indicator-rail{
+  width:clamp(176px,13vw,206px);
+  grid-template-columns:minmax(82px,1fr) auto;
+  align-items:start;
+}
+.journey-indicator-rail .rail-progress{text-align:left}
+.journey-indicator-rail .rail-route,
+.journey-indicator-rail .rail-progress{min-width:0}
+.journey-indicator-rail strong,
+.journey-indicator-rail .rail-progress b{display:block;padding-top:1px}
+.journey-indicator-rail strong{white-space:nowrap;font-size:9px;letter-spacing:.08em}
+
+/* Hub composition: both glass columns terminate on the same baseline. */
+@media(min-width:1200px){
+  .ui-original:not(.has-branch) .story-panel{
+    top:clamp(112px,14vh,148px);
+    bottom:clamp(46px,6.5vh,72px);
+    height:auto;
+  }
+  .ui-original:not(.has-branch) .branch-selector{
+    top:clamp(132px,17vh,176px);
+    bottom:0;
+    height:auto;
+    grid-template-rows:repeat(4,minmax(82px,1fr));
+  }
+  .ui-original:not(.has-branch) .branch-selector button{
+    min-height:0;
+  }
+}
+
+@media(max-width:1100px) and (min-width:721px){
+  .branch-work .story-panel,.branch-projects .story-panel{width:41vw}
+  .branch-work.has-active-artifact .hotspot-card,
+  .branch-projects.has-active-artifact .hotspot-card{
+    left:calc(22px + 41vw + 14px);
+    right:214px;
+  }
+  .layered-browser{grid-template-columns:minmax(100px,.58fr) minmax(176px,1.35fr);gap:10px}
+}
+
+@media(max-width:720px){
+  .resume-menu summary{min-width:66px;padding-inline:10px}
+  .branch-work .story-panel,.branch-projects .story-panel{width:calc(100% - 24px)}
+  .layered-browser{grid-template-columns:96px minmax(0,1fr);gap:8px}
+  .journey-indicator-rail{grid-template-columns:auto;align-items:center}
+  .journey-indicator-rail .rail-progress{text-align:center}
 }
