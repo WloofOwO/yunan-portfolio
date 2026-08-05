@@ -52,15 +52,15 @@ const ACTIONS: Record<ActionName, { fps: number; frames: number; loop: boolean }
 
 const HUB_STOP: Stop = {
   id:"hub", number:"00", eyebrow:"CHOOSE YOUR PATH", kind:"origin", accent:"#83b9d9", tint:"#e6f1ef",
-  title:"吕雨南｜电商运营与增长",
-  body:"我专注于北美电商运营与增长，现负责年化 GMV 超过 1,300 万美元的 Shopify 独立站。工作覆盖销售与库存分析、促销策略、新品 GTM、转化实验和竞品研究；结合消费者行为研究与 AI 工作流，把分散数据转化为清晰、可执行的运营决策。",
+  title:"吕雨南｜数据、策略与实验驱动的增长运营",
+  body:"遵循数据与策略实验驱动的运营方式，围绕消费者与用户理解业务问题。\n\n从量化数据中提取关键信息，并将消费者/用户行为与行为轨迹、评论与咨询、社媒热度与趋势及市场竞争格局等非量化信息，转化为结构化数据点与可分析的量化特征。\n\n整合市场、销售、库存及运营风险等多源信号，构建分析、预测与实验模型，将洞察转化为可验证的策略与经营动作。",
   details:[], action:"wave",
 };
 
 const HUB_STOP_EN: Stop = {
   id:"hub", number:"00", eyebrow:"CHOOSE YOUR PATH", kind:"origin", accent:"#83b9d9", tint:"#e6f1ef",
-  title:"Yunan Lyu | Ecommerce Operations & Growth",
-  body:"I focus on North American ecommerce operations and growth, currently owning a Shopify storefront exceeding US$13M in annualized GMV. My work spans sales and inventory analysis, promotional strategy, new-product GTM, conversion experimentation, and competitive research—combining consumer-behavior training with AI workflows to turn fragmented data into clear operating decisions.",
+  title:"Yunan Lyu | Data, Strategy & Experiment-Led Growth Operations",
+  body:"Data, strategy, and structured experimentation guide how I frame business problems around consumers and users.\n\nI combine quantitative signals with behavior paths, reviews, inquiries, social trends, and competitive dynamics, translating qualitative evidence into structured, analyzable features.\n\nBringing together market, sales, inventory, and risk signals, I build analytical, predictive, and experimental models that turn insight into testable strategy and executable action.",
   details:[], action:"wave",
 };
 
@@ -77,9 +77,10 @@ const WORK_STOPS: Stop[] = [
   { id:"omtech", number:"W1", eyebrow:"WORK · OMTECH", kind:"experience", accent:"#739bd1", tint:"#e1eaf4", title:"北美市场运营｜OMTech", body:"2025.06–至今", action:"type", details:[
     {label:"01",title:"年化 GMV 超过 1,300 万美元",body:"个人负责年化 GMV 超过 1,300 万美元、月均 GMV 超过 110 万美元的 OMTech 北美独立站运营，覆盖激光设备、UV 打印机、配件及耗材等多品类业务。",action:"celebrate"},
     {label:"02",title:"独立站内容、页面样式及转化实验",body:"负责独立站内容、页面样式及转化实验的策划与迭代，结合活动节奏与业务反馈快速调整测试方案和上线内容。",action:"type"},
-    {label:"03",title:"竞品追踪与市场情报分析",body:"负责竞品追踪与市场情报分析，持续监控新品、定价、促销、页面策略及社区反馈，并将洞察转化为商品、营销与页面实验建议。",action:"look"},
-    {label:"04",title:"销售、库存、DS、利润与超卖风险",body:"分析销售、库存、DS、利润与超卖风险，为重点 SKU 制定补货、调拨、预售及清库存建议。",action:"glasses"},
-    {label:"05",title:"大促及季节性活动",body:"策划大促及季节性活动，结合销售、利润、库存与用户需求制定选品、定价、赠品及组合策略。",action:"point"},
+    {label:"03",title:"新品及重点产品 GTM",body:"基于产品市场匹配、用户痛点与目标客群，制定新品及重点产品 GTM 计划，明确定位、核心信息、页面、促销节奏及验证指标。",action:"point"},
+    {label:"04",title:"竞品追踪与市场情报分析",body:"负责竞品追踪与市场情报分析，持续监控新品、定价、促销、页面策略及社区反馈，并将洞察转化为商品、营销与页面实验建议。",action:"look"},
+    {label:"05",title:"销售、库存、DS、利润与超卖风险",body:"分析销售、库存、DS、利润与超卖风险，为重点 SKU 制定补货、调拨、预售及清库存建议。",action:"glasses"},
+    {label:"06",title:"大促及季节性活动",body:"策划大促及季节性活动，结合销售、利润、库存与用户需求制定选品、定价、赠品及组合策略。",action:"point"},
   ]},
   { id:"cuhk-research", number:"W2", eyebrow:"WORK · CUHK BUSINESS SCHOOL", kind:"experience", accent:"#a995c8", tint:"#ece5f1", title:"全职研究助理｜香港中文大学商学院", body:"2023.12–2025.06", action:"glasses", details:[
     {label:"01",title:"消费者行为和市场研究",body:"支持消费者行为和市场研究，负责数据采集、分析及在线实验与问卷搭建。",action:"read"},
@@ -147,9 +148,10 @@ const WORK_STOPS_EN: Stop[] = [
   { id:"omtech", number:"W1", eyebrow:"WORK · OMTECH", kind:"experience", accent:"#739bd1", tint:"#e1eaf4", title:"North America Market Operations | OMTech", body:"Jun 2025–Present", action:"type", details:[
     {label:"01",title:"US$13M+ annualized GMV",body:"Independently manage OMTech's North American storefront with over US$13M in annualized GMV and more than US$1.1M in average monthly GMV across laser equipment, UV printers, accessories, and consumables.",action:"celebrate"},
     {label:"02",title:"Storefront content and conversion experiments",body:"Own the planning and iteration of storefront content, page styling, and conversion experiments, rapidly adjusting test plans and live content based on campaign needs and business feedback.",action:"type"},
-    {label:"03",title:"Competitor and market intelligence",body:"Track competitors and market activity across launches, pricing, promotions, page strategy, and community feedback, translating insights into product, marketing, and page-experiment recommendations.",action:"look"},
-    {label:"04",title:"Sales, inventory and oversell risk",body:"Analyze sales, inventory, demand forecasts, profitability, and oversell risk, recommending replenishment, transfers, presales, and clearance actions for priority SKUs.",action:"glasses"},
-    {label:"05",title:"Promotional and seasonal campaigns",body:"Plan major promotional and seasonal campaigns, developing product selection, pricing, gift, and bundle strategies from sales, profitability, inventory, and customer demand.",action:"point"},
+    {label:"03",title:"New and priority-product GTM",body:"Develop GTM plans for new and priority products based on product-market fit, customer pain points, and target segments, defining positioning, core messaging, page strategy, promotional cadence, and validation metrics.",action:"point"},
+    {label:"04",title:"Competitor and market intelligence",body:"Track competitors and market activity across launches, pricing, promotions, page strategy, and community feedback, translating insights into product, marketing, and page-experiment recommendations.",action:"look"},
+    {label:"05",title:"Sales, inventory and oversell risk",body:"Analyze sales, inventory, demand forecasts, profitability, and oversell risk, recommending replenishment, transfers, presales, and clearance actions for priority SKUs.",action:"glasses"},
+    {label:"06",title:"Promotional and seasonal campaigns",body:"Plan major promotional and seasonal campaigns, developing product selection, pricing, gift, and bundle strategies from sales, profitability, inventory, and customer demand.",action:"point"},
   ]},
   { id:"cuhk-research", number:"W2", eyebrow:"WORK · CUHK BUSINESS SCHOOL", kind:"experience", accent:"#a995c8", tint:"#ece5f1", title:"Full-time Research Assistant | CUHK Business School", body:"Dec 2023–Jun 2025", action:"glasses", details:[
     {label:"01",title:"Consumer behavior and market research",body:"Supported consumer behavior and market research through data collection, analysis, and online experiment and survey development.",action:"read"},
@@ -267,6 +269,13 @@ function SemanticTitle({title}:{title:string}) {
   return <h1 className={`semantic-title ${phrases.length>1?"has-secondary":""}`}>
     {phrases.map((phrase,index)=><span className={index===0?"title-primary":"title-secondary"} key={`${phrase}-${index}`}>{phrase}</span>)}
   </h1>;
+}
+
+function StoryBody({body}:{body:string}) {
+  const paragraphs=body.split(/\n{2,}/).map(paragraph=>paragraph.trim()).filter(Boolean);
+  return <div className={`story-body ${paragraphs.length>1?"is-structured":""}`}>
+    {paragraphs.map((paragraph,index)=><p key={`${index}-${paragraph.slice(0,12)}`}>{paragraph}</p>)}
+  </div>;
 }
 
 export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"pixel"|"tundra"}={}) {
@@ -743,7 +752,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
     <section className="story-panel" aria-live="polite">
       {journeyStops.map((stop,index)=><article className={`story-card ${stop.title.length>15?"is-long-title":""} ${(selectedBranch==="work"||selectedBranch==="projects")?"is-layered-browser":""}`} key={stop.id} ref={el=>{storyCardRefs.current[index]=el;}} aria-hidden={index===0?"false":"true"}>
-        <p className="story-eyebrow"><span>{stop.number}</span>{stop.eyebrow}</p><SemanticTitle title={stop.title}/><p className="story-body">{stop.body}</p>
+        <p className="story-eyebrow"><span>{stop.number}</span>{stop.eyebrow}</p><SemanticTitle title={stop.title}/><StoryBody body={stop.body}/>
         {selectedBranch&&(selectedBranch==="work"||selectedBranch==="projects")?<div className="layered-browser" aria-label={locale==="en"?"Position and project browser":"职位与项目浏览"}>
           <nav className="layered-primary" aria-label={selectedBranch==="work"?(locale==="en"?"Positions":"职位"):(locale==="en"?"Projects":"项目")}>
             <small>{selectedBranch==="work"?(locale==="en"?"POSITION":"职位"):(locale==="en"?"PROJECT":"项目")}</small>

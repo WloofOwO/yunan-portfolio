@@ -2410,6 +2410,7 @@
 @media(max-width:720px){
   .ui-original:not(.has-branch) .story-panel h1{font-size:clamp(29px,8.1vw,35px);line-height:1.04;letter-spacing:-.035em}
   .ui-original:not(.has-branch) .story-body{font-size:11.5px;line-height:1.62}
+  .ui-original:not(.has-branch) .story-body.is-structured{margin-top:9px;gap:5px}
   .ui-original:not(.has-branch) .branch-selector b{font-size:18px;line-height:1.08}
   .ui-original.has-branch .story-panel h1{font-size:clamp(27px,7.2vw,32px);line-height:1.06;letter-spacing:-.03em}
   .ui-original.has-branch .story-body{font-size:11.5px;line-height:1.58}
@@ -2552,7 +2553,25 @@
   letter-spacing:-.035em;
   word-break:keep-all;
 }
-.ui-original:not(.has-branch) .semantic-title .title-secondary{font-size:.86em}
+.ui-original:not(.has-branch) .semantic-title .title-secondary{
+  width:auto;
+  max-width:100%;
+  margin-top:.34em;
+  font-size:.47em;
+  line-height:1.24;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  word-break:normal;
+  overflow-wrap:normal;
+  text-wrap:nowrap;
+}
+.locale-en.ui-original:not(.has-branch) .semantic-title .title-secondary{
+  width:100%;
+  font-size:.39em;
+  line-height:1.14;
+  white-space:normal;
+  text-wrap:balance;
+}
 
 /* Use one warm, professional sans family for large Chinese text. Songti at
    display size produced brittle mixed Chinese/Latin line breaks. */
@@ -2568,6 +2587,23 @@
   letter-spacing:-.045em;
 }
 .locale-zh .story-body{font-weight:390;letter-spacing:.008em;text-wrap:pretty}
+.story-body p{margin:0}
+.ui-original:not(.has-branch) .story-body.is-structured{
+  display:grid;
+  gap:clamp(10px,1.25vh,15px);
+  max-width:100%;
+}
+.ui-original:not(.has-branch) .story-body.is-structured p{
+  text-indent:0;
+  text-wrap:pretty;
+}
+.ui-original:not(.has-branch) .story-body.is-structured p:first-child{
+  color:color-mix(in srgb,var(--ink) 90%,var(--muted));
+  font-weight:520;
+}
+@media(max-width:720px){
+  .ui-original:not(.has-branch) .story-body.is-structured{margin-top:9px;gap:5px}
+}
 
 /* Position -> project -> detail. The first two levels live in the left card;
    choosing a project opens the existing right-hand evidence/detail layer. */
@@ -2672,7 +2708,19 @@
 
 @media(max-width:720px){
   .semantic-title .title-primary,.semantic-title .title-secondary{width:auto;word-break:normal;text-wrap:balance}
-  .ui-original:not(.has-branch) .semantic-title .title-secondary{font-size:.8em}
+  .ui-original:not(.has-branch) .semantic-title .title-secondary{
+    margin-top:.38em;
+    font-size:clamp(16px,4.7vw,18px);
+    line-height:1.3;
+    white-space:nowrap;
+    text-wrap:nowrap;
+  }
+  .locale-en.ui-original:not(.has-branch) .semantic-title .title-secondary{
+    font-size:clamp(14px,4.15vw,17px);
+    line-height:1.2;
+    white-space:normal;
+    text-wrap:balance;
+  }
   .branch-work .story-panel,.branch-projects .story-panel{
     left:12px;top:68px;width:calc(100% - 24px);height:clamp(310px,48dvh,410px);max-height:none;
   }
@@ -2773,4 +2821,358 @@
   .layered-browser{grid-template-columns:96px minmax(0,1fr);gap:8px}
   .journey-indicator-rail{grid-template-columns:auto;align-items:center}
   .journey-indicator-rail .rail-progress{text-align:center}
+}
+
+/* 2026-08 responsive spatial scale ---------------------------------------
+   Viewport-only sizing made the character look miniature on wide displays
+   while stretching the glass panels into large empty slabs. These variables
+   keep every part of the composition within a readable min/ideal/max range. */
+@media(min-width:721px){
+  .ui-original{
+    --layout-edge:max(28px,calc((100vw - 1540px)/2));
+    --module-panel-width:clamp(430px,36vw,600px);
+    --utility-rail-width:clamp(176px,13vw,206px);
+    --steady-avatar-width:clamp(146px,min(10.5vw,22vh),176px);
+  }
+
+  /* Hub: one centred composition instead of three elements drifting toward
+     opposite viewport edges. The two columns share one visual height. */
+  .ui-original:not(.has-branch){
+    --hub-edge:max(28px,calc((100vw - 1240px)/2));
+    --hub-height:clamp(470px,62vh,580px);
+    --steady-avatar-width:clamp(152px,min(11.5vw,24vh),192px);
+  }
+  .ui-original:not(.has-branch) .story-panel{
+    left:var(--hub-edge);
+    top:clamp(96px,14vh,136px);
+    bottom:auto;
+    width:clamp(410px,31vw,500px);
+    height:var(--hub-height);
+  }
+  .ui-original:not(.has-branch) .branch-selector{
+    left:auto;
+    right:var(--hub-edge);
+    top:clamp(96px,14vh,136px);
+    bottom:auto;
+    width:clamp(410px,31vw,500px);
+    height:var(--hub-height);
+    grid-template-rows:repeat(4,minmax(0,1fr));
+    align-content:stretch;
+    transform:translateY(-76px);
+  }
+  .ui-original:not(.has-branch) .branch-selector button{min-height:0}
+
+  /* Modules: cap vertical growth, centre the whole working canvas on large
+     screens and reserve a stable column for the utility rail. */
+  .ui-original.has-branch .story-panel{
+    left:var(--layout-edge);
+    top:clamp(82px,10.5vh,108px);
+    width:var(--module-panel-width);
+    height:clamp(500px,68vh,650px);
+    max-height:calc(100dvh - 100px);
+  }
+  .ui-original.has-branch .journey-indicator-rail{
+    right:var(--layout-edge);
+    width:var(--utility-rail-width);
+  }
+  .branch-work,
+  .branch-projects{
+    --scene-rail-left:calc(var(--layout-edge) + var(--module-panel-width) + 24px);
+    --scene-rail-right:calc(var(--layout-edge) + var(--utility-rail-width) + 18px);
+  }
+
+  /* The still pose and integrated smoke-change raster use the same scale
+     factor. This preserves the centre/bottom anchor throughout the handoff. */
+  .ui-original .avatar-button,
+  .ui-original .avatar-animation,
+  .ui-original.has-branch .avatar-button,
+  .ui-original.has-branch .avatar-animation{
+    width:var(--steady-avatar-width);
+    height:calc(var(--steady-avatar-width) * 1.25);
+  }
+  .ui-original .wardrobe-animation,
+  .ui-original.has-branch .wardrobe-animation{
+    width:calc(var(--steady-avatar-width) * 1.984375);
+  }
+}
+
+/* Compact laptops need width, not smaller typography or a miniature avatar. */
+@media(max-width:1100px) and (min-width:721px){
+  .ui-original{
+    --layout-edge:22px;
+    --module-panel-width:clamp(410px,41vw,450px);
+    --utility-rail-width:168px;
+  }
+  .ui-original:not(.has-branch){
+    --hub-edge:28px;
+    --hub-height:clamp(450px,62vh,510px);
+  }
+  .ui-original:not(.has-branch) .story-panel{width:clamp(390px,40vw,430px)}
+  .ui-original:not(.has-branch) .branch-selector{width:clamp(340px,36vw,380px)}
+}
+
+/* Low-height desktop windows keep all controls visible without shrinking the
+   character or body copy below a comfortable reading size. */
+@media(max-height:720px) and (min-width:721px){
+  .ui-original:not(.has-branch){--hub-height:clamp(410px,68vh,470px)}
+  .ui-original:not(.has-branch) .story-panel{top:88px}
+  .ui-original:not(.has-branch) .branch-selector{top:88px}
+  .locale-en.ui-original:not(.has-branch) .story-body{
+    font-size:12px;
+    line-height:1.42;
+  }
+  .locale-en.ui-original:not(.has-branch) .story-body.is-structured{gap:6px}
+  .ui-original.has-branch .story-panel{
+    top:78px;
+    height:calc(100dvh - 92px);
+  }
+}
+
+@media(max-width:720px){
+  .ui-original{--steady-avatar-width:clamp(126px,34vw,142px)}
+  .ui-original .avatar-button,
+  .ui-original .avatar-animation,
+  .ui-original.has-branch .avatar-button,
+  .ui-original.has-branch .avatar-animation{
+    width:var(--steady-avatar-width);
+    height:calc(var(--steady-avatar-width) * 1.25);
+  }
+  .ui-original .wardrobe-animation,
+  .ui-original.has-branch .wardrobe-animation{width:calc(var(--steady-avatar-width) * 1.984375)}
+}
+
+/* 2K / 4K native-CSS viewports ------------------------------------------
+   A 3840px viewport needs a larger design canvas, not the 1920px caps placed
+   in a wider sea of whitespace. This tier scales each hierarchy separately so
+   text, raster scenes, controls and the character keep their intended weight. */
+@media(min-width:2560px) and (min-height:1200px){
+  .ui-original{
+    --layout-edge:max(96px,calc((100vw - 2780px)/2));
+    --module-panel-width:clamp(760px,24vw,920px);
+    --utility-rail-width:clamp(260px,8.4vw,320px);
+    --steady-avatar-width:clamp(220px,min(8vw,16vh),280px);
+  }
+  .ui-original:not(.has-branch){
+    --hub-edge:max(96px,calc((100vw - 2500px)/2));
+    --hub-height:clamp(700px,43vh,900px);
+    --steady-avatar-width:clamp(232px,min(8.2vw,16vh),300px);
+  }
+
+  .journey-header{
+    inset:24px 24px auto;
+    height:86px;
+    padding-inline:max(64px,calc((100vw - 3400px)/2 + 64px));
+  }
+  .journey-brand{gap:17px}
+  .journey-brand>span{width:54px;height:54px;font-size:15px;box-shadow:5px 5px 0 var(--active-accent)}
+  .journey-brand b{gap:5px;font-size:17px}
+  .journey-brand small{font-size:10px}
+  .journey-header-actions{gap:14px}
+  .resume-menu summary{min-width:126px;height:54px;padding-inline:22px;border-radius:18px;font-size:12px}
+  .resume-menu-popover{top:66px;width:288px;padding:11px;border-radius:22px}
+  .resume-menu-popover a{padding:17px}.resume-menu-popover span{font-size:16px}.resume-menu-popover small{font-size:9px}
+  .language-switch{width:160px;height:54px;border-radius:18px}
+  .language-switch button{font-size:12px}
+
+  .ui-original:not(.has-branch) .story-panel{
+    top:clamp(180px,10vh,230px);
+    width:clamp(620px,20vw,780px);
+  }
+  .ui-original:not(.has-branch) .story-card{padding:46px 50px}
+  .ui-original:not(.has-branch) .story-eyebrow{margin-bottom:28px;font-size:12px}
+  .ui-original:not(.has-branch) .story-eyebrow span{width:44px;height:44px;margin-right:16px}
+  .ui-original:not(.has-branch) .story-panel h1,
+  .locale-zh:not(.has-branch) .story-panel h1{font-size:clamp(68px,2.2vw,84px);line-height:1.02}
+  .ui-original:not(.has-branch) .story-body{max-width:660px;margin-top:34px;font-size:clamp(19px,.56vw,22px);line-height:1.76}
+
+  .ui-original:not(.has-branch) .branch-selector{
+    top:clamp(180px,10vh,230px);
+    width:clamp(620px,20vw,780px);
+    gap:18px;
+  }
+  .ui-original:not(.has-branch) .branch-selector button{padding:24px 30px;border-radius:26px}
+  .ui-original:not(.has-branch) .branch-selector small{font-size:10px}
+  .ui-original:not(.has-branch) .branch-selector b{margin-top:14px;font-size:clamp(34px,1.15vw,44px)}
+  .ui-original:not(.has-branch) .branch-selector span{margin-top:10px;font-size:10px}
+
+  .ui-original.has-branch .story-panel{
+    top:clamp(150px,8vh,190px);
+    height:clamp(900px,58vh,1160px);
+    max-height:calc(100dvh - 180px);
+  }
+  .ui-original.has-branch .story-card{padding:38px 42px 34px}
+  .ui-original.has-branch .story-eyebrow{margin-bottom:22px;font-size:12px}
+  .ui-original.has-branch .story-eyebrow span{width:44px;height:44px;margin-right:16px}
+  .ui-original.has-branch .story-panel h1{font-size:clamp(58px,1.8vw,70px)}
+  .ui-original.has-branch .story-card.is-long-title h1{font-size:clamp(50px,1.55vw,60px)}
+  .ui-original.has-branch .story-body{margin-top:22px;font-size:19px;line-height:1.62}
+  .ui-original.has-branch .resume-facts{margin-top:28px}
+  .ui-original.has-branch .resume-fact{min-height:76px;padding-block:13px;grid-template-columns:120px minmax(0,1fr)}
+  .ui-original.has-branch .resume-fact small{font-size:10px}
+  .ui-original.has-branch .resume-fact b{font-size:19px}
+
+  .story-card.is-layered-browser{padding:38px 42px 34px}
+  .story-card.is-layered-browser .semantic-title{font-size:clamp(54px,1.55vw,62px)}
+  .story-card.is-layered-browser .story-body{font-size:18px;line-height:1.55}
+  .layered-browser{margin-top:28px;padding-top:24px;grid-template-columns:minmax(210px,.72fr) minmax(390px,1.45fr);gap:26px}
+  .layered-browser small{margin-bottom:15px;font-size:10px}
+  .layered-primary{padding-right:20px;gap:10px}
+  .layered-primary button{padding:15px 15px 15px 20px;border-radius:16px}
+  .layered-primary b{font-size:17px}.layered-primary span{font-size:11px}
+  .layered-detail{min-height:74px;padding:13px 12px;gap:18px}
+  .layered-detail b{font-size:19px}.layered-detail span{font-size:20px}
+
+  .journey-indicator-rail{
+    top:clamp(170px,9vh,210px);
+    padding:22px;
+    gap:17px 14px;
+    border-radius:24px;
+  }
+  .journey-indicator-rail::before{top:22px;height:54px}
+  .journey-indicator-rail small{margin-bottom:9px;font-size:10px}
+  .journey-indicator-rail strong{font-size:13px}
+  .journey-indicator-rail .rail-progress b{font-size:22px}
+  .journey-indicator-rail .language-switch{height:50px}
+
+  .branch-work,
+  .branch-projects{
+    --scene-rail-left:calc(var(--layout-edge) + var(--module-panel-width) + 40px);
+    --scene-rail-right:calc(var(--layout-edge) + var(--utility-rail-width) + 32px);
+  }
+  .ai-knowledge-stage{top:160px;bottom:84px}
+  .ai-project-scene-wrap.is-overview{width:clamp(760px,26vw,980px)}
+  .branch-projects .ai-project-scene-wrap,
+  .branch-projects.has-active-artifact .ai-project-scene-wrap{width:clamp(560px,18vw,700px)}
+
+  .branch-work.has-active-artifact .hotspot-card,
+  .branch-projects.has-active-artifact .hotspot-card,
+  .branch-education.has-active-artifact .hotspot-card{
+    left:calc(var(--layout-edge) + var(--module-panel-width) + 40px);
+    right:calc(var(--layout-edge) + var(--utility-rail-width) + 32px);
+    top:32px;
+    max-height:calc(100dvh - 220px);
+    padding:36px 42px;
+    border-radius:30px;
+  }
+  .has-branch:not(.branch-ai) .hotspot-card b{font-size:clamp(38px,1.3vw,50px)}
+  .has-branch:not(.branch-ai) .hotspot-card p{font-size:19px;line-height:1.72}
+  .detail-points{font-size:17px}
+
+  .journey-back-label{min-height:50px;padding-inline:18px;font-size:11px}
+}
+
+/* 2026-08 final typography rhythm ---------------------------------------
+   Keep display copy compact but never compressed; give explanatory copy a
+   calmer reading rhythm, while navigation rows remain quick to scan. */
+.ui-original .semantic-title{
+  line-height:1.08;
+}
+.ui-original .semantic-title .title-primary{
+  line-height:1.08;
+}
+.ui-original .semantic-title .title-secondary{
+  margin-top:.14em;
+  line-height:1.14;
+}
+.locale-zh.ui-original.has-branch .semantic-title{
+  line-height:1.12;
+}
+.locale-zh.ui-original.has-branch .story-card.is-long-title .semantic-title{
+  line-height:1.16;
+}
+.locale-en.ui-original.has-branch .semantic-title{
+  line-height:1.1;
+}
+
+.ui-original .story-body{
+  line-height:1.72;
+}
+.locale-zh.ui-original .story-body{
+  line-height:1.82;
+  letter-spacing:.006em;
+}
+.ui-original .story-body.is-structured{
+  gap:.72em;
+}
+.ui-original .story-card.is-layered-browser .story-body{
+  line-height:1.62;
+}
+
+.ui-original .branch-selector b{
+  line-height:1.16;
+}
+.ui-original .layered-primary b{
+  line-height:1.42;
+}
+.ui-original .layered-primary span{
+  line-height:1.4;
+}
+.ui-original .layered-detail b{
+  line-height:1.48;
+}
+.ui-original .resume-fact b{
+  line-height:1.48;
+}
+
+.ui-original .hotspot-card > b{
+  line-height:1.18;
+}
+.ui-original .hotspot-card > p{
+  line-height:1.76;
+}
+.ui-original .detail-points{
+  line-height:1.68;
+}
+.ui-original .detail-points li + li{
+  margin-top:.58em;
+}
+
+@media(max-width:720px){
+  .ui-original .semantic-title,
+  .ui-original .semantic-title .title-primary{line-height:1.11}
+  .ui-original .semantic-title .title-secondary{margin-top:.16em;line-height:1.18}
+  .locale-zh.ui-original.has-branch .semantic-title,
+  .locale-zh.ui-original.has-branch .story-card.is-long-title .semantic-title{line-height:1.14}
+  .ui-original .story-body{line-height:1.68}
+  .locale-zh.ui-original .story-body{line-height:1.74}
+  .ui-original .story-body.is-structured{gap:.54em}
+  .ui-original .story-card.is-layered-browser .story-body{line-height:1.56}
+  .ui-original .resume-fact b,
+  .ui-original .layered-detail b{line-height:1.44}
+  .ui-original .hotspot-card > p{line-height:1.66}
+}
+
+/* Mobile list completion --------------------------------------------------
+   The secondary work/project column previously kept its natural content
+   height. The outer story card then clipped the last rows instead of giving
+   that column a real scroll viewport. Keep the header/title stable and let
+   the project rows own the remaining vertical space. */
+@media(max-width:720px){
+  .journey{
+    --mobile-story-height:clamp(330px,48dvh,400px);
+  }
+
+  .story-card.is-layered-browser{
+    min-height:0;
+  }
+
+  .story-card.is-layered-browser .layered-browser,
+  .story-card.is-layered-browser .layered-secondary{
+    min-height:0;
+  }
+
+  .story-card.is-layered-browser .layered-secondary-list{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-gutter:stable;
+  }
+
+  .story-card.is-layered-browser .layered-detail{
+    flex:0 0 auto;
+  }
 }
