@@ -38,6 +38,9 @@ type WardrobePhase = "changing" | null;
 type SceneVisual = { scene?: "amsterdam" | "hillside-campus" | "cuhk-shenzhen"; logo: "omtech" | "uva" | "cuhk" | "handshake" };
 type SceneTransition = { fromId:string; toId:string; run:number };
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const assetPath = (path:string) => path.startsWith("/") ? `${BASE_PATH}${path}` : path;
+
 const ACTIONS: Record<ActionName, { fps: number; frames: number; loop: boolean }> = {
   idle: { fps: 6, frames: 24, loop: true },
   walk_left: { fps: 24, frames: 64, loop: true }, walk_right: { fps: 24, frames: 64, loop: true },
@@ -237,9 +240,9 @@ const WARDROBE_SWITCH_SECONDS=1.2;
 const WARDROBE_DURATION_SECONDS=2.36;
 const ACTION_BLEND_SECONDS=.12;
 const SCENE_TRANSITION_SECONDS=2.6;
-const animationPath = (outfit:OutfitName,action:ActionName) => `/avatar-v3/${outfit}/animated/${action}.png?v=36`;
-const staticAvatarPath = (outfit:OutfitName) => `/avatar-v3/${outfit}/static/idle.png?v=1`;
-const wardrobeTransitionPath = (source:OutfitName,target:OutfitName) => `/avatar-smoke/transitions/smoke_${source}_to_${target}.png?v=3`;
+const animationPath = (outfit:OutfitName,action:ActionName) => assetPath(`/avatar-v3/${outfit}/animated/${action}.png?v=36`);
+const staticAvatarPath = (outfit:OutfitName) => assetPath(`/avatar-v3/${outfit}/static/idle.png?v=1`);
+const wardrobeTransitionPath = (source:OutfitName,target:OutfitName) => assetPath(`/avatar-smoke/transitions/smoke_${source}_to_${target}.png?v=3`);
 const STOP_VISUALS:Record<string,SceneVisual> = {
   uva:{scene:"amsterdam",logo:"uva"},
   cuhksz:{scene:"cuhk-shenzhen",logo:"cuhk"},
@@ -258,9 +261,9 @@ const SCENE_TRANSITION_PAIRS = [
   ["omtech","cuhk-research"],["cuhk-research","omtech"],
   ["cuhk-research","mercado-libre"],["mercado-libre","cuhk-research"],
 ] as const;
-const sceneDayPath = (visual:SceneVisual) => visual.scene ? `/scene-assets/${visual.scene}/day.png?v=${SCENE_ASSET_VERSION}` : null;
-const sceneLogoPath = (visual:SceneVisual) => `/scene-assets/logos/${visual.logo}.png?v=${SCENE_ASSET_VERSION}`;
-const sceneTransitionPath = (fromId:string,toId:string) => `/scene-assets/transitions/${fromId}-to-${toId}.webp?v=${SCENE_TRANSITION_VERSION}`;
+const sceneDayPath = (visual:SceneVisual) => visual.scene ? assetPath(`/scene-assets/${visual.scene}/day.png?v=${SCENE_ASSET_VERSION}`) : null;
+const sceneLogoPath = (visual:SceneVisual) => assetPath(`/scene-assets/logos/${visual.logo}.png?v=${SCENE_ASSET_VERSION}`);
+const sceneTransitionPath = (fromId:string,toId:string) => assetPath(`/scene-assets/transitions/${fromId}-to-${toId}.webp?v=${SCENE_TRANSITION_VERSION}`);
 
 const titlePhrases = (title:string) => title.split(/\s*[｜|]\s*/).filter(Boolean);
 
@@ -322,7 +325,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   useEffect(()=>{setDetailExpanded(false);},[activeHotspot,activeIndex,selectedBranch]);
   useEffect(()=>{
     const hoverCover=new Image();
-    hoverCover.src="/cover-assets/cover-complete-hover-v12-black-hd.png";
+    hoverCover.src=assetPath("/cover-assets/cover-complete-hover-v12-black-hd.png");
   },[]);
 
   const playAction = useCallback((...requested:ActionName[]) => {
@@ -492,9 +495,9 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
       [sceneDayPath(visual),sceneLogoPath(visual)].filter(Boolean).forEach(path=>{const image=new Image();image.src=path!;});
     });
     SCENE_TRANSITION_PAIRS.forEach(([fromId,toId])=>{const image=new Image();image.src=sceneTransitionPath(fromId,toId);});
-    AI_STOPS[0].details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=detail.projectScene;}});
-    PROJECT_STOPS.forEach(stop=>stop.details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=detail.projectScene;}}));
-    {const image=new Image();image.src="/ai-project-scenes/00-overview-integrated-v2-anim.webp";}
+    AI_STOPS[0].details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=assetPath(detail.projectScene);}});
+    PROJECT_STOPS.forEach(stop=>stop.details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=assetPath(detail.projectScene);}}));
+    {const image=new Image();image.src=assetPath("/ai-project-scenes/00-overview-integrated-v2-anim.webp");}
   },[]);
 
   useEffect(() => {
@@ -659,7 +662,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const effectiveVisualStopId=selectedBranch==="education"?(activeHotspot===1?"cuhksz":"uva"):visualStopId;
   const steadyVisual=STOP_VISUALS[effectiveVisualStopId];
   const incomingVisual=sceneTransition?STOP_VISUALS[sceneTransition.toId]:null;
-  const evidenceScene=activeDetail?.projectScene??(selectedBranch==="projects"?activeStop.details[0]?.projectScene:"/ai-project-scenes/00-overview-integrated-v2-anim.webp");
+  const evidenceScene=assetPath(activeDetail?.projectScene??(selectedBranch==="projects"?activeStop.details[0]?.projectScene:"/ai-project-scenes/00-overview-integrated-v2-anim.webp"));
 
   return <main ref={rootRef} className={`journey ui-${uiVariant} locale-${locale} scene-${activeStop.kind} scene-id-${activeStop.id} ${entered?"is-entered":"is-intro"} ${selectedBranch?`has-branch branch-${selectedBranch}`:""} ${sceneTransition?"is-scene-changing":""} ${activeHotspot===null?"":"has-active-artifact"} ${wardrobePhase?`wardrobe-${wardrobePhase}`:""}`} style={{"--active-accent":activeStop.accent,"--scene-tint":activeStop.tint} as React.CSSProperties}>
     <canvas ref={worldCanvasRef} className="world-canvas" aria-hidden="true" />
@@ -697,10 +700,10 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
     {sessionReady&&<section className="entry-screen" aria-hidden={entered}>
       <picture className="entry-cover-picture" aria-hidden="true">
-        <source media="(max-width: 720px)" srcSet="/cover-assets/cover-complete-mobile-v1.png" />
+        <source media="(max-width: 720px)" srcSet={assetPath("/cover-assets/cover-complete-mobile-v1.png")} />
         <img
           className="entry-cover-raster"
-          src={coverHovered?"/cover-assets/cover-complete-hover-v12-black-hd.png":"/cover-assets/cover-complete-default-v11-hd.png"}
+          src={assetPath(coverHovered?"/cover-assets/cover-complete-hover-v12-black-hd.png":"/cover-assets/cover-complete-default-v11-hd.png")}
           alt=""
         />
       </picture>
@@ -736,8 +739,8 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
         <details className="resume-menu">
           <summary>{locale==="en"?"RESUME DOWNLOAD":"简历下载"}</summary>
           <div className="resume-menu-popover">
-            <a href="/resumes/Yunan_Lyu_Resume_ZH.docx" download><span>{locale==="en"?"Chinese Resume":"中文简历"}</span><small>DOCX · ZH ↓</small></a>
-            <a href="/resumes/Yunan_Lyu_Resume_EN.docx" download><span>{locale==="en"?"English Resume":"英文简历"}</span><small>DOCX · EN ↓</small></a>
+            <a href={assetPath("/resumes/Yunan_Lyu_Resume_ZH.docx")} download><span>{locale==="en"?"Chinese Resume":"中文简历"}</span><small>DOCX · ZH ↓</small></a>
+            <a href={assetPath("/resumes/Yunan_Lyu_Resume_EN.docx")} download><span>{locale==="en"?"English Resume":"英文简历"}</span><small>DOCX · EN ↓</small></a>
           </div>
         </details>
         {!selectedBranch&&<div className="language-switch" role="group" aria-label="Language / 语言"><button className={locale==="zh"?"active":""} onClick={()=>setLocale("zh")} aria-pressed={locale==="zh"}>中文</button><button className={locale==="en"?"active":""} onClick={()=>setLocale("en")} aria-pressed={locale==="en"}>EN</button></div>}
@@ -807,8 +810,8 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
     <footer className="journey-footer">
       <div className="resume-downloads" aria-label={locale==="en"?"Resume downloads":"简历下载"}>
-        <a className="resume-download" href="/resumes/Yunan_Lyu_Resume_ZH.docx" download><span>{locale==="en"?"Chinese Resume":"中文简历"}</span><small>DOCX · ZH ↓</small></a>
-        <a className="resume-download" href="/resumes/Yunan_Lyu_Resume_EN.docx" download><span>{locale==="en"?"English Resume":"英文简历"}</span><small>DOCX · EN ↓</small></a>
+        <a className="resume-download" href={assetPath("/resumes/Yunan_Lyu_Resume_ZH.docx")} download><span>{locale==="en"?"Chinese Resume":"中文简历"}</span><small>DOCX · ZH ↓</small></a>
+        <a className="resume-download" href={assetPath("/resumes/Yunan_Lyu_Resume_EN.docx")} download><span>{locale==="en"?"English Resume":"英文简历"}</span><small>DOCX · EN ↓</small></a>
       </div>
     </footer>
 

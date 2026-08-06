@@ -1,4 +1,8 @@
 node_modules/
+.tools/
+.next/
+out/
+next-env.d.ts
 .vinext/
 .wrangler/
 build/
