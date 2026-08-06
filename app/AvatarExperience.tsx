@@ -531,6 +531,10 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   useEffect(() => {
     if(!selectedBranch||wardrobePhase||selectedBranch==="work"||selectedBranch==="projects")return;
     const onWheel=(event:WheelEvent)=>{
+      // Mobile modules are laid out as a vertical document. Do not convert a
+      // natural page scroll into scene navigation or cancel the browser's
+      // default scrolling behaviour.
+      if(window.matchMedia("(max-width: 720px)").matches)return;
       if(Math.abs(event.deltaY)<Math.abs(event.deltaX))return;
       event.preventDefault();
       const motion=motionRef.current,now=performance.now();
@@ -551,6 +555,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
   useEffect(() => {
     if(!selectedBranch||wardrobePhase||selectedBranch==="work"||selectedBranch==="projects")return;
+    if(window.matchMedia("(max-width: 720px)").matches)return;
     let startX=0,startY=0,startAt=0,startTarget:EventTarget|null=null;
     const isInteractiveRegion=(target:EventTarget|null)=>{
       const element=target instanceof Element?target:null;
