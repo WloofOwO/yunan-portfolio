@@ -323,10 +323,6 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const exploredCount = explored[activeStop.id]?.length ?? 0;
   const activeDetail = activeHotspot === null ? null : activeStop.details[activeHotspot];
   useEffect(()=>{setDetailExpanded(false);},[activeHotspot,activeIndex,selectedBranch]);
-  useEffect(()=>{
-    const hoverCover=new Image();
-    hoverCover.src=assetPath("/cover-assets/cover-complete-hover-v12-black-hd.png");
-  },[]);
 
   const playAction = useCallback((...requested:ActionName[]) => {
     const motion = motionRef.current;
@@ -487,18 +483,33 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     if(!avatarElementRef.current)return;
     avatarElementRef.current.src=wardrobePhase
       ? staticAvatarPath(outfit)
-      : `${animationPath(outfit,actionLabel)}&run=${performance.now()}`;
+      : actionLabel==="idle"
+        ? animationPath(outfit,"idle")
+        : `${animationPath(outfit,actionLabel)}&run=${performance.now()}`;
   },[actionLabel,outfit,wardrobePhase]);
 
   useEffect(()=>{
-    Object.values(STOP_VISUALS).forEach(visual=>{
-      [sceneDayPath(visual),sceneLogoPath(visual)].filter(Boolean).forEach(path=>{const image=new Image();image.src=path!;});
-    });
-    SCENE_TRANSITION_PAIRS.forEach(([fromId,toId])=>{const image=new Image();image.src=sceneTransitionPath(fromId,toId);});
-    AI_STOPS[0].details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=assetPath(detail.projectScene);}});
-    PROJECT_STOPS.forEach(stop=>stop.details.forEach(detail=>{if(detail.projectScene){const image=new Image();image.src=assetPath(detail.projectScene);}}));
-    {const image=new Image();image.src=assetPath("/ai-project-scenes/00-overview-integrated-v2-anim.webp");}
-  },[]);
+    if(!entered||!selectedBranch)return;
+    const branchIds=new Set(journeyStops.map(stop=>stop.id));
+    const immediate=window.setTimeout(()=>{
+      const visual=STOP_VISUALS[activeStop.id];
+      if(visual)[sceneDayPath(visual),sceneLogoPath(visual)].filter(Boolean).forEach(path=>{const image=new Image();image.src=path!;});
+      if(selectedBranch==="ai"){
+        const image=new Image();
+        image.src=assetPath("/ai-project-scenes/00-overview-integrated-v2-anim.webp");
+      }
+    },120);
+    const deferred=window.setTimeout(()=>{
+      journeyStops.forEach(stop=>{
+        const visual=STOP_VISUALS[stop.id];
+        if(visual)[sceneDayPath(visual),sceneLogoPath(visual)].filter(Boolean).forEach(path=>{const image=new Image();image.src=path!;});
+      });
+      SCENE_TRANSITION_PAIRS.filter(([fromId,toId])=>branchIds.has(fromId)&&branchIds.has(toId)).forEach(([fromId,toId])=>{
+        const image=new Image();image.src=sceneTransitionPath(fromId,toId);
+      });
+    },1400);
+    return()=>{window.clearTimeout(immediate);window.clearTimeout(deferred);};
+  },[activeStop.id,entered,journeyStops,selectedBranch]);
 
   useEffect(() => {
     const media=window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -511,11 +522,29 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     const load=(outfit:OutfitName,action:ActionName)=>new Promise<void>(resolve => {
       const path=animationPath(outfit,action);const image=new Image(); image.onload=()=>{imagesRef.current[path]=image;resolve();}; image.onerror=()=>resolve(); image.src=path;
     });
-    const loadWardrobeTransition=(source:OutfitName,target:OutfitName)=>new Promise<void>(resolve=>{const path=wardrobeTransitionPath(source,target),image=new Image();image.onload=()=>{imagesRef.current[path]=image;resolve();};image.onerror=()=>resolve();image.src=path;});
-    const critical:ActionName[]=["idle"];
-    Promise.all([...OUTFITS.flatMap(name=>critical.map(action=>load(name,action))),...OUTFITS.map(target=>loadWardrobeTransition("casual",target))]).then(()=>{if(!cancelled){readyRef.current=true;setReady(true);OUTFITS.forEach(name=>(Object.keys(ACTIONS) as ActionName[]).filter(action=>!critical.includes(action)).forEach(action=>load(name,action)));OUTFITS.forEach(source=>OUTFITS.forEach(target=>loadWardrobeTransition(source,target)));}});
+    load("casual","idle").then(()=>{if(!cancelled){readyRef.current=true;setReady(true);}});
     return()=>{cancelled=true;};
   },[]);
+
+  useEffect(()=>{
+    if(!entered)return;
+    let cancelled=false;
+    const load=(outfitName:OutfitName,action:ActionName)=>new Promise<void>(resolve=>{
+      const path=animationPath(outfitName,action);if(imagesRef.current[path]){resolve();return;}
+      const image=new Image();image.onload=()=>{if(!cancelled)imagesRef.current[path]=image;resolve();};image.onerror=()=>resolve();image.src=path;
+    });
+    const loadWardrobeTransition=(source:OutfitName,target:OutfitName)=>{
+      const path=wardrobeTransitionPath(source,target);if(imagesRef.current[path])return;
+      const image=new Image();image.onload=()=>{if(!cancelled)imagesRef.current[path]=image;};image.src=path;
+    };
+    const wardrobeTimer=window.setTimeout(()=>{
+      OUTFITS.forEach(target=>{void load(target,"idle");loadWardrobeTransition(outfitRef.current,target);});
+    },450);
+    const actionTimer=window.setTimeout(()=>{
+      (Object.keys(ACTIONS) as ActionName[]).filter(action=>action!=="idle").forEach(action=>{void load(outfit,action);});
+    },selectedBranch?850:1800);
+    return()=>{cancelled=true;window.clearTimeout(wardrobeTimer);window.clearTimeout(actionTimer);};
+  },[entered,outfit,selectedBranch]);
 
   useEffect(() => {
     const root=rootRef.current; if(!root) return;
