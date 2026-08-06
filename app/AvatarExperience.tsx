@@ -290,6 +290,8 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const backPointerRef = useRef<{x:number;y:number;moved:boolean}|null>(null);
   const storyCardRefs = useRef<(HTMLElement|null)[]>([]);
   const imagesRef = useRef<Record<string,HTMLImageElement>>({});
+  const assetLoadsRef = useRef<Record<string,Promise<boolean>>>({});
+  const branchRequestRef = useRef<BranchId|null>(null);
   const rafRef = useRef(0);
   const activeRef = useRef(0);
   const readyRef = useRef(false);
@@ -313,6 +315,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const [outfit,setOutfit] = useState<OutfitName>("casual");
   const [wardrobePhase,setWardrobePhase] = useState<WardrobePhase>(null);
   const [wardrobeMedia,setWardrobeMedia] = useState({src:"",run:0});
+  const [loadingBranch,setLoadingBranch] = useState<BranchId|null>(null);
   const [visualStopId,setVisualStopId] = useState("hub");
   const [sceneTransition,setSceneTransition] = useState<SceneTransition|null>(null);
   const ui=UI_COPY[locale];
@@ -323,6 +326,23 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const exploredCount = explored[activeStop.id]?.length ?? 0;
   const activeDetail = activeHotspot === null ? null : activeStop.details[activeHotspot];
   useEffect(()=>{setDetailExpanded(false);},[activeHotspot,activeIndex,selectedBranch]);
+
+  const loadAsset = useCallback((path:string) => {
+    if(!path)return Promise.resolve(false);
+    if(imagesRef.current[path])return Promise.resolve(true);
+    if(assetLoadsRef.current[path])return assetLoadsRef.current[path];
+    const request=new Promise<boolean>(resolve=>{
+      const image=new Image();
+      image.onload=()=>{
+        const complete=()=>{imagesRef.current[path]=image;delete assetLoadsRef.current[path];resolve(true);};
+        if(typeof image.decode==="function")image.decode().then(complete).catch(complete);else complete();
+      };
+      image.onerror=()=>{delete assetLoadsRef.current[path];resolve(false);};
+      image.src=path;
+    });
+    assetLoadsRef.current[path]=request;
+    return request;
+  },[]);
 
   const playAction = useCallback((...requested:ActionName[]) => {
     const motion = motionRef.current;
@@ -407,20 +427,36 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     },SCENE_TRANSITION_SECONDS*1000);
   },[activeHotspot,activeStop.id,forceAction,selectedBranch]);
 
-  const chooseBranch = useCallback((branch:BranchId) => {
+  const chooseBranch = useCallback(async (branch:BranchId) => {
     // Re-selecting the active module is a true no-op. It must not restart the
     // wardrobe timeline or replay the same content transition.
-    if(wardrobePhase||selectedBranch===branch)return;
+    if(wardrobePhase||selectedBranch===branch||branchRequestRef.current)return;
+    branchRequestRef.current=branch;
+    setLoadingBranch(branch);
+    const targetOutfit=BRANCH_OUTFIT[branch];
+    const sourceOutfit=outfitRef.current;
+    const firstStop=BRANCHES[branch][0];
+    const firstVisual=STOP_VISUALS[firstStop.id];
+    const criticalAssets=[animationPath(targetOutfit,"idle")];
+    if(sourceOutfit!==targetOutfit&&branch!=="ai")criticalAssets.push(wardrobeTransitionPath(sourceOutfit,targetOutfit));
+    if(firstVisual)criticalAssets.push(...[sceneDayPath(firstVisual),sceneLogoPath(firstVisual)].filter((path):path is string=>Boolean(path)));
+    // Keep the existing scene perfectly stable until the exact transition the
+    // user requested is downloaded and decoded. A bounded fallback prevents a
+    // broken or stalled asset from trapping the route selector forever.
+    const criticalReady=await Promise.race([
+      Promise.all(criticalAssets.map(loadAsset)).then(results=>results.every(Boolean)),
+      new Promise<false>(resolve=>window.setTimeout(()=>resolve(false),12000)),
+    ]);
+    if(branchRequestRef.current!==branch)return;
     const motion=motionRef.current;
     motion.current=0;motion.target=0;motion.velocity=0;motion.previous=0;motion.lastInputAt=0;motion.moving=false;motion.travelElapsed=0;
-    const targetOutfit=BRANCH_OUTFIT[branch];
-    const finish=()=>{activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch(branch);setVisualStopId(BRANCHES[branch][0].id);setSceneTransition(null);setWardrobePhase(null);forceAction("idle");};
+    const finish=()=>{activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch(branch);setVisualStopId(BRANCHES[branch][0].id);setSceneTransition(null);setWardrobePhase(null);forceAction("idle");branchRequestRef.current=null;setLoadingBranch(null);};
+    if(!criticalReady){outfitRef.current=targetOutfit;setOutfit(targetOutfit);finish();return;}
     if(reducedRef.current){outfitRef.current=targetOutfit;setOutfit(targetOutfit);finish();return;}
     // AI is a knowledge-work route rather than another outfit chapter. Enter
     // it directly from every branch and keep the wardrobe sequence reserved
     // for the education/work/project clothing changes it actually explains.
     if(branch==="ai"){outfitRef.current=targetOutfit;setOutfit(targetOutfit);finish();return;}
-    const sourceOutfit=outfitRef.current;
     // Wardrobe motion exists only to explain a real outfit change. Projects
     // use the casual outfit already shown in the hub, so entering projects
     // should go straight to the first project without a redundant turn/booth.
@@ -434,7 +470,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
     // frame 0 even when this same outfit transition was played previously.
     setWardrobeMedia(current=>({src:wardrobeSource,run:current.run+1}));
     setWardrobePhase("changing");forceAction("idle");
-  },[forceAction,selectedBranch,wardrobePhase]);
+  },[forceAction,loadAsset,selectedBranch,wardrobePhase]);
 
   const returnToHub = useCallback(() => {
     if(wardrobePhase)return;
@@ -684,7 +720,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
         }
         if(change.elapsed>=WARDROBE_DURATION_SECONDS){
           change.active=false;
-          setWardrobePhase(null);forceAction("idle");
+          setWardrobePhase(null);forceAction("idle");branchRequestRef.current=null;setLoadingBranch(null);
         }
       }
       drawWorld(motion.current);rafRef.current=requestAnimationFrame(tick);
@@ -832,7 +868,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
     <section className="hotspot-field" aria-label={`${activeStop.eyebrow} ${locale==="en"?"interactive details":"可探索内容"}`}>
       {!selectedBranch&&<div className="branch-selector" aria-label={ui.choose}>
-        {localizedBranchOptions.map(option=><button className={`pixel-route pixel-route-${option.id}`} key={option.id} onClick={()=>chooseBranch(option.id)}><small>{option.index} · {option.subtitle}</small><b>{option.title}</b><span>{ui.enter}</span></button>)}
+        {localizedBranchOptions.map(option=><button className={`pixel-route pixel-route-${option.id}`} key={option.id} disabled={Boolean(loadingBranch)} aria-busy={loadingBranch===option.id} onClick={()=>void chooseBranch(option.id)}><small>{option.index} · {option.subtitle}</small><b>{option.title}</b><span>{loadingBranch===option.id?(locale==="en"?"Preparing animation…":"正在准备动画…"):ui.enter}</span></button>)}
       </div>}
       {selectedBranch&&<>
       {activeDetail&&<aside className={`hotspot-card ${detailExpanded?"is-expanded":"is-collapsed"}`}>
