@@ -3197,6 +3197,21 @@
     overscroll-behavior-y:contain;
     -webkit-overflow-scrolling:touch;
   }
+  .journey.is-intro{
+    overflow:hidden;
+    touch-action:none;
+    overscroll-behavior:none;
+  }
+  .journey.is-intro .entry-screen{
+    position:fixed;
+    inset:0;
+  }
+  .journey.is-intro .experience-backdrop,
+  .journey.is-intro .ai-knowledge-stage,
+  .journey.is-intro .avatar-stage,
+  .journey.is-intro .hotspot-field{
+    visibility:hidden!important;
+  }
   .journey.has-active-artifact{min-height:0}
   .journey.has-active-artifact{
     --mobile-scene-height:clamp(278px,39dvh,326px);
