@@ -3187,7 +3187,7 @@
     --mobile-story-top:122px;
     --mobile-story-height:clamp(350px,52dvh,430px);
     --mobile-detail-gap:14px;
-    --mobile-detail-height:clamp(170px,25dvh,220px);
+    --mobile-detail-height:clamp(150px,19dvh,178px);
     --mobile-scene-height:clamp(360px,54dvh,470px);
     height:100dvh;
     min-height:0;
@@ -3198,6 +3198,12 @@
     -webkit-overflow-scrolling:touch;
   }
   .journey.has-active-artifact{min-height:0}
+  .journey.has-active-artifact{
+    --mobile-scene-height:clamp(278px,39dvh,326px);
+  }
+  .journey.branch-work.has-active-artifact{
+    --mobile-scene-height:clamp(238px,32dvh,274px);
+  }
   .drag-layer{pointer-events:none;touch-action:pan-y}
 
   /* Keep the compact status control below the header and above the card. */
@@ -3282,6 +3288,11 @@
     border-radius:20px;
     box-sizing:border-box;
   }
+  .ui-original.branch-ai.has-active-artifact .hotspot-card:not(.has-case-image).is-collapsed{
+    height:auto;
+    max-height:var(--mobile-detail-height);
+    overflow:auto;
+  }
 
   /* Scene imagery begins after the content above it. */
   .ui-original.has-branch .experience-backdrop,
@@ -3298,7 +3309,14 @@
   .ui-original.has-active-artifact .experience-backdrop,
   .ui-original.has-active-artifact .ai-knowledge-stage,
   .ui-original.branch-projects.has-active-artifact .ai-knowledge-stage{
-    top:calc(var(--mobile-story-top) + var(--mobile-story-height) + var(--mobile-detail-height) + 36px);
+    top:calc(var(--mobile-story-top) + var(--mobile-story-height) + var(--mobile-detail-height) + 18px);
+  }
+  .ui-original.branch-ai.has-active-artifact .ai-knowledge-stage{
+    top:calc(var(--mobile-story-top) + var(--mobile-story-height) + var(--mobile-detail-height) + 32px);
+  }
+  .ui-original.has-active-artifact .experience-logo.is-logo-only{
+    top:30%;
+    width:min(58vw,240px);
   }
 
   /* The person stands at the right edge of the scene on every mobile module. */
@@ -3316,7 +3334,8 @@
   }
   .ui-original.has-active-artifact .avatar-stage,
   .ui-original.has-branch:not(.branch-ai).has-active-artifact .avatar-stage{
-    top:calc(var(--mobile-story-top) + var(--mobile-story-height) + var(--mobile-detail-height) + 36px);
+    top:calc(var(--mobile-story-top) + var(--mobile-story-height) + var(--mobile-detail-height) + 18px);
+    padding-bottom:8px;
   }
   .ui-original.has-branch .avatar-button{flex:0 0 auto}
   .ui-original.has-branch .wardrobe-animation{
