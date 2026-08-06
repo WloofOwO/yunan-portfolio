@@ -6,7 +6,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yunan-workspace.irismelt.chatgpt.site"),
+  metadataBase: new URL("https://yunanlyu.com"),
   title: "Yunan — Personal Workspace",
   description: "Yunan 的个人网站与横向职业旅程：产品策略、GTM、电商运营与 AI 协作。",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },

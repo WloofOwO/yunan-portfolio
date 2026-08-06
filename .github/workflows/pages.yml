@@ -17,8 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: /yunan-portfolio
     steps:
       - name: Check out source
         uses: actions/checkout@v4
