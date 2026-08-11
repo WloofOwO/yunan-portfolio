@@ -318,6 +318,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
   const [loadingBranch,setLoadingBranch] = useState<BranchId|null>(null);
   const [visualStopId,setVisualStopId] = useState("hub");
   const [sceneTransition,setSceneTransition] = useState<SceneTransition|null>(null);
+  const [projectModeTransition,setProjectModeTransition] = useState(false);
   const ui=UI_COPY[locale];
   const localizedBranches=locale==="en"?BRANCHES_EN:BRANCHES;
   const localizedBranchOptions=locale==="en"?BRANCH_OPTIONS_EN:BRANCH_OPTIONS;
@@ -486,16 +487,17 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
 
   useEffect(()=>{
     try{
+      const requestedView=new URLSearchParams(window.location.search).get("view");
+      const openHub=requestedView==="hub";
+      const openProjects=requestedView==="projects";
+      let launchLocale:Locale="zh";
       const raw=sessionStorage.getItem("yunan-portfolio-view");
       if(raw){
         const saved=JSON.parse(raw) as {entered?:boolean;branch?:BranchId|null;index?:number;locale?:Locale};
         const savedLocale:Locale=saved.locale==="en"?"en":"zh";
-        // A new page visit should always begin at the cover. We still restore
-        // the language and last route underneath it, but never skip the
-        // explicit “开始探索” entrance because of an earlier tab session.
-        setEntered(false);
+        launchLocale=savedLocale;
         if(savedLocale!==locale)setLocale(savedLocale);
-        if(saved.branch&&["education","work","projects","ai"].includes(saved.branch)){
+        if(!openHub&&!openProjects&&saved.branch&&["education","work","projects","ai"].includes(saved.branch)){
           const source=(savedLocale==="en"?BRANCHES_EN:BRANCHES)[saved.branch];
           const index=clamp(Number(saved.index)||0,0,source.length-1);
           const target=index/(Math.max(1,source.length-1));
@@ -504,6 +506,18 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
           const restoredOutfit=BRANCH_OUTFIT[saved.branch];outfitRef.current=restoredOutfit;setOutfit(restoredOutfit);
           motionRef.current.current=target;motionRef.current.target=target;motionRef.current.previous=target;motionRef.current.moving=false;
         }
+      }
+      if(openProjects){
+        const source=(launchLocale==="en"?BRANCHES_EN:BRANCHES).projects;
+        activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch("projects");setVisualStopId(source[0].id);setSceneTransition(null);setEntered(true);
+        outfitRef.current="casual";setOutfit("casual");motionRef.current.current=0;motionRef.current.target=0;motionRef.current.previous=0;motionRef.current.moving=false;
+        window.history.replaceState(null,"",window.location.pathname+window.location.hash);
+      }else if(openHub){
+        activeRef.current=0;setActiveIndex(0);setActiveHotspot(null);setSelectedBranch(null);setVisualStopId("hub");setSceneTransition(null);setEntered(true);
+        window.history.replaceState(null,"",window.location.pathname+window.location.hash);
+      }else{
+        // Ordinary new visits still begin at the cover.
+        setEntered(false);
       }
     }catch{}
     setSessionReady(true);
@@ -816,6 +830,18 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
         {!selectedBranch&&<div className="language-switch" role="group" aria-label="Language / 语言"><button className={locale==="zh"?"active":""} onClick={()=>setLocale("zh")} aria-pressed={locale==="zh"}>中文</button><button className={locale==="en"?"active":""} onClick={()=>setLocale("en")} aria-pressed={locale==="en"}>EN</button></div>}
       </div>
     </header>
+
+    {selectedBranch==="projects"&&<nav className={`project-mode-switcher ${projectModeTransition?"is-opening-detail":""}`} aria-label={locale==="en"?"Project view":"项目版本"}>
+      <span className="project-mode-indicator" aria-hidden="true" />
+      <button type="button" className="active" aria-current="page"><b>{locale==="en"?"RESUME":"简历版"}</b><small>{locale==="en"?"CAREER VIEW":"经历概览"}</small></button>
+      <a href={assetPath("/selected-projects/index.html")} onClick={event=>{
+        if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+        event.preventDefault();
+        const target=event.currentTarget.href;
+        setProjectModeTransition(true);
+        window.setTimeout(()=>window.location.assign(target),reducedRef.current?0:260);
+      }}><b>{locale==="en"?"DETAIL":"详细版"}</b><small>{locale==="en"?"09 SELECTED CASES":"9 个精选案例"}</small></a>
+    </nav>}
 
     {selectedBranch&&<aside className="journey-indicator-rail" aria-label={locale==="en"?"View indicators":"页面指示"}>
       <div className="rail-route"><small>{locale==="en"?"SECTION":"当前模块"}</small><strong>{selectedBranch.toUpperCase()}</strong></div>

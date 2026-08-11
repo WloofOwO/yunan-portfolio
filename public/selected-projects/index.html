@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f1e8">
+  <title>Yunan｜精选项目</title>
+  <style>
+    :root{--ink:#2f404a;--paper:#f4f1e8;--surface:#fffdf7;--line:#cfd2cb;--muted:#738087;--orange:#d7965d;--blue:#79aabd;--green:#8ba16f;--rose:#c78178}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--paper)}body{margin:0;color:var(--ink);background:linear-gradient(rgba(47,64,74,.027) 1px,transparent 1px),linear-gradient(90deg,rgba(47,64,74,.027) 1px,transparent 1px),var(--paper);background-size:30px 30px;font-family:"Microsoft YaHei UI","PingFang SC",Arial,sans-serif;font-size:14px;line-height:1.65}.mono{font-family:Consolas,"SFMono-Regular",monospace;letter-spacing:.08em}.frame{position:fixed;inset:10px;z-index:99;pointer-events:none;border:1px solid rgba(47,64,74,.35)}
+    .topbar{position:sticky;top:0;z-index:80;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1180px)/2));border-bottom:1px solid var(--line);background:rgba(244,241,232,.94);backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:34px;height:34px;display:grid;place-items:center;color:#fff;background:var(--ink);box-shadow:3px 3px 0 var(--orange);font:800 10px/1 Consolas,monospace}.brand b{display:block;font-size:10px;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font:700 6px/1 Consolas,monospace;letter-spacing:.1em}.top-actions{display:flex;align-items:center;gap:10px}.site-back,.detail-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 7px/1 Consolas,monospace;letter-spacing:.06em}.site-back{height:34px;padding:0 12px}.site-back:hover,.site-back:focus,.detail-link:hover,.detail-link:focus{border-color:var(--ink);background:var(--ink);color:#fff}.top-nav{display:flex;gap:5px}.top-nav a{padding:8px 9px;color:var(--muted);text-decoration:none;font:700 7px/1 Consolas,monospace;border:1px solid transparent}.top-nav a:hover,.top-nav a:focus{color:var(--ink);border-color:var(--line);background:var(--surface)}.detail-link{margin-top:16px;min-height:38px;padding:0 14px;align-self:flex-start}
+    main{width:min(1180px,calc(100% - 48px));margin:0 auto;padding:28px 0 70px}.hero{display:grid;grid-template-columns:1.18fr .82fr;border:1px solid rgba(47,64,74,.5);background:var(--surface);box-shadow:9px 10px 0 rgba(215,150,93,.16)}.hero-copy{padding:46px 44px;background:linear-gradient(140deg,rgba(244,229,215,.78),rgba(255,253,247,.96))}.eyebrow{margin:0 0 18px;color:var(--muted);font:750 7px/1 Consolas,monospace;letter-spacing:.16em}.hero h1{margin:0;font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-.065em}.hero-copy>p:last-child{max-width:660px;margin:24px 0 0;color:var(--muted);font-size:12px}.hero-index{padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);align-content:center}.hero-index a{min-height:82px;padding:15px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.025)}.hero-index a:hover{background:var(--orange);color:var(--ink)}.hero-index small{display:block;color:var(--orange);font:700 7px/1 Consolas,monospace}.hero-index a:hover small{color:var(--ink)}.hero-index b{display:block;margin-top:9px;font-size:10px;line-height:1.35}
+    .section-head{margin:54px 0 15px;display:flex;align-items:end;justify-content:space-between;gap:24px}.section-head small{display:block;margin-bottom:7px;color:var(--orange);font:750 7px/1 Consolas,monospace;letter-spacing:.14em}.section-head h2{margin:0;font-size:29px;letter-spacing:-.045em}.section-head p{max-width:510px;margin:0;color:var(--muted);font-size:10px;text-align:right}.case{scroll-margin-top:78px;border:1px solid var(--line);background:rgba(255,253,247,.91)}.case-top{display:grid;grid-template-columns:150px 1fr 1fr;border-bottom:1px solid var(--line)}.case-no{padding:23px;border-right:1px solid var(--line);font:800 31px/1 Consolas,monospace;color:var(--orange)}.case-title{padding:21px 24px;border-right:1px solid var(--line)}.case-title small{color:var(--muted);font:700 6px/1 Consolas,monospace;letter-spacing:.12em}.case-title h3{margin:8px 0 0;font-size:22px;letter-spacing:-.035em}.case-summary{padding:21px 24px;color:var(--muted);font-size:10px}.case-body{display:grid;grid-template-columns:1.25fr .75fr;min-height:390px}.case-body.reverse{grid-template-columns:.75fr 1.25fr}.visual{position:relative;min-width:0;padding:26px;border-right:1px solid var(--line);overflow:hidden}.reverse .visual{order:2;border-right:0;border-left:1px solid var(--line)}.logic{padding:26px;display:flex;flex-direction:column;justify-content:space-between}.logic dl{margin:0}.logic dt{margin-top:20px;color:var(--orange);font:750 7px/1 Consolas,monospace;letter-spacing:.12em}.logic dt:first-child{margin-top:0}.logic dd{margin:6px 0 0;font-size:11px}.evidence{margin-top:24px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:8px}.evidence b{display:block;margin-bottom:5px;color:var(--ink);font-size:8px}.real-shot{width:100%;height:100%;min-height:330px;display:block;object-fit:contain;background:#fff;border:1px solid var(--line)}.real-shot.cover{object-fit:cover;object-position:top}.shot-label{position:absolute;left:38px;top:38px;padding:7px 9px;color:#fff;background:rgba(47,64,74,.9);font:700 6px/1 Consolas,monospace;letter-spacing:.08em}
+    .matrix{position:relative;height:335px;border:1px solid var(--ink);background:repeating-linear-gradient(to right,transparent 0 calc(20% - 1px),rgba(47,64,74,.08) calc(20% - 1px) 20%),repeating-linear-gradient(to top,transparent 0 calc(25% - 1px),rgba(47,64,74,.08) calc(25% - 1px) 25%),var(--surface)}.matrix::before{content:"市场位置增强 →";position:absolute;bottom:8px;right:12px;color:var(--muted);font:700 6px/1 Consolas,monospace}.matrix::after{content:"需求覆盖";position:absolute;left:10px;top:10px;color:var(--muted);font:700 6px/1 Consolas,monospace}.bubble{position:absolute;width:44px;height:44px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:50%;background:var(--surface);box-shadow:4px 4px 0 rgba(47,64,74,.13);font:800 7px/1 Consolas,monospace}.bubble.hot{width:65px;height:65px;background:#e7ecdf;border-color:var(--green)}.bubble.overlap{background:#f2dfcf;border-color:var(--orange)}.matrix-note{position:absolute;padding:6px 8px;background:var(--ink);color:#fff;font:700 6px/1 Consolas,monospace}.matrix-note.one{left:10%;top:18%}.matrix-note.two{right:8%;bottom:16%}
+    .market-frame{height:335px;border:1px solid var(--ink);background:var(--surface);display:grid;grid-template-columns:74px 1fr}.price-axis{padding:18px 10px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--line);color:var(--muted);font:700 6px/1 Consolas,monospace}.market-grid{position:relative;background:repeating-linear-gradient(to right,transparent 0 calc(25% - 1px),rgba(47,64,74,.08) calc(25% - 1px) 25%),repeating-linear-gradient(to bottom,transparent 0 calc(25% - 1px),rgba(47,64,74,.08) calc(25% - 1px) 25%)}.brand-row{position:absolute;left:6%;right:6%;height:30px;display:flex;align-items:center;gap:6px}.brand-row b{width:68px;font:800 7px/1 Consolas,monospace}.brand-row span{height:14px;border:1px solid var(--ink);background:var(--blue)}.brand-row:nth-child(2) span{background:var(--orange)}.brand-row:nth-child(3) span{background:var(--green)}.brand-row:nth-child(4) span{background:var(--rose)}
+    .journey{height:335px;padding:28px;border:1px solid var(--ink);background:var(--surface);display:grid;grid-template-rows:repeat(4,1fr);gap:10px}.path{display:grid;grid-template-columns:112px repeat(5,1fr);align-items:center}.path>strong{font-size:9px}.event{position:relative;height:34px;display:grid;place-items:center;border:1px solid var(--line);background:var(--paper);font:750 7px/1 Consolas,monospace}.event.machine{background:var(--ink);color:#fff}.event.accessory{background:#e9eee2}.event::after{content:"";position:absolute;left:100%;top:50%;width:100%;border-top:1px dashed var(--muted)}.event:last-child::after{display:none}.gap{color:var(--muted);font:700 6px/1 Consolas,monospace;text-align:center}.path-legend{display:flex;gap:14px;margin-top:10px;color:var(--muted);font-size:7px}.path-legend i{display:inline-block;width:9px;height:9px;margin-right:5px;background:var(--ink)}.path-legend i.acc{background:var(--green)}
+    .launch-grid{height:335px;display:grid;grid-template-columns:.78fr 1.22fr;gap:12px}.product-panel{padding:18px;border:1px solid var(--ink);background:#e8ece6;display:flex;flex-direction:column;justify-content:space-between}.product-panel img{width:100%;height:185px;object-fit:contain}.product-panel b{font-size:12px}.product-panel span{color:var(--muted);font-size:8px}.signal-panel{display:grid;grid-template-rows:repeat(3,1fr);border:1px solid var(--line)}.signal-row{padding:16px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:84px 1fr;align-items:center}.signal-row:last-child{border-bottom:0}.signal-row strong{font:800 8px/1 Consolas,monospace}.signal-row b{display:block;font-size:17px;line-height:1}.signal-row span{display:block;margin-top:6px;color:var(--muted);font-size:7px}.mini-bars{height:32px;display:flex;align-items:end;gap:5px}.mini-bars i{width:12px;background:var(--blue)}
+    .risk-board{height:335px;border:1px solid var(--ink);display:grid;grid-template-columns:1.1fr .9fr;background:var(--surface)}.risk-list{padding:20px;border-right:1px solid var(--line)}.risk-list h4{margin:0 0 15px;font-size:11px}.risk-row{display:grid;grid-template-columns:50px 1fr 44px;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:8px}.risk-row i{height:7px;background:var(--rose)}.risk-row:nth-child(3) i{background:var(--orange)}.risk-row:nth-child(4) i{background:var(--green)}.risk-counts{padding:22px;display:flex;flex-direction:column;justify-content:center}.risk-counts div{padding:14px 0;border-bottom:1px solid var(--line)}.risk-counts div:last-child{border-bottom:0}.risk-counts b{font:800 32px/1 Consolas,monospace}.risk-counts span{display:block;margin-top:5px;color:var(--muted);font-size:8px}
+    .clearance{height:335px;border:1px solid var(--ink);display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface)}.clear-col{padding:20px;border-right:1px solid var(--line)}.clear-col:last-child{border-right:0}.clear-col small{color:var(--orange);font:750 7px/1 Consolas,monospace}.clear-col h4{margin:10px 0 16px;font-size:12px}.clear-col p{margin:0 0 8px;padding:9px;background:var(--paper);font-size:8px}.arrow-down{margin:9px 0;text-align:center;color:var(--orange);font:800 16px/1 Consolas,monospace}
+    .footer{margin-top:30px;padding:17px 0;display:flex;justify-content:space-between;border-top:1px solid var(--line);color:var(--muted);font:700 6px/1.4 Consolas,monospace;letter-spacing:.08em}
+    @media(max-width:900px){.top-nav{display:none}.hero{grid-template-columns:1fr}.case-body,.case-body.reverse{grid-template-columns:1fr}.reverse .visual{order:0;border-left:0}.visual{border-right:0;border-bottom:1px solid var(--line)}.case-top{grid-template-columns:90px 1fr}.case-summary{grid-column:1/-1;border-top:1px solid var(--line)}.section-head{display:block}.section-head p{margin-top:8px;text-align:left}.launch-grid,.risk-board{height:auto;grid-template-columns:1fr}.risk-list{border-right:0;border-bottom:1px solid var(--line)}}
+    @media(max-width:620px){.frame{inset:5px}.topbar{height:56px;padding:0 14px}main{width:calc(100% - 24px);padding-top:14px}.hero-copy{padding:28px 23px}.hero h1{font-size:42px}.hero-index{padding:16px}.hero-index a{min-height:78px}.case-no{padding:18px;font-size:24px}.case-title,.case-summary,.visual,.logic{padding:18px}.case-title h3{font-size:18px}.matrix,.market-frame,.journey,.launch-grid,.risk-board,.clearance{height:auto;min-height:310px}.path{grid-template-columns:82px repeat(5,1fr)}.event{font-size:5px}.clearance{grid-template-columns:1fr}.clear-col{border-right:0;border-bottom:1px solid var(--line)}.real-shot{min-height:250px}.footer{flex-direction:column;gap:6px}}
+  </style>
+  <style>
+    .visual.art{display:grid;place-items:center;padding:18px;background:transparent}
+    .case-art{display:block;width:100%;height:auto;max-height:480px;object-fit:contain}
+    .case-art.full{max-height:none;border:0}
+    .section-head h2{font-size:25px;line-height:1.25;letter-spacing:-.03em}
+    .section-head p{font-size:11px;line-height:1.65}
+    .case-title h3{font-size:19px;line-height:1.35;letter-spacing:-.02em}
+    .case-summary{font-size:11px;line-height:1.7}
+    .logic dd{font-size:11.5px;line-height:1.72}
+    .logic dt{font-size:7.5px}
+    .evidence,.evidence b{font-size:8.5px}
+    .evidence-gallery{padding:18px;border-top:1px solid var(--line);background:rgba(244,241,232,.5)}
+    .evidence-gallery-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px}
+    .evidence-gallery-head b{font-size:11px}
+    .evidence-gallery-head span{color:var(--muted);font-size:8.5px}
+    .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .evidence-card{margin:0;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+    .evidence-media{position:relative;aspect-ratio:1.55;overflow:hidden;background:#fff}
+    .evidence-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+    .evidence-card figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px;border-top:1px solid var(--line);font-size:8.5px}
+    .evidence-card figcaption small{color:var(--muted);font:400 7.5px/1.4 "Microsoft YaHei UI","PingFang SC",sans-serif;letter-spacing:0}
+    .privacy-mask{position:absolute;display:block;background:rgba(244,241,232,.42);border:1px solid rgba(255,255,255,.58);backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(47,64,74,.05)}
+    .evidence-card.co2 .mask-a{left:31%;top:39%;width:28%;height:5%}.evidence-card.co2 .mask-b{left:68%;top:63%;width:20%;height:5%}
+    .evidence-card.fiber .mask-a{left:18%;top:64%;width:31%;height:5%}.evidence-card.fiber .mask-b{left:35%;top:70%;width:25%;height:5%}
+    .evidence-card.maker .mask-a{left:37%;top:60%;width:22%;height:6%}.evidence-card.maker .mask-b{left:69%;top:47%;width:18%;height:6%}
+    .case-evidence-proof{padding:18px;border-top:1px solid var(--line);background:rgba(244,241,232,.5)}
+    .case-evidence-proof-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px}
+    .case-evidence-proof-head b{font-size:11px}.case-evidence-proof-head span{color:var(--muted);font-size:8.5px}
+    .case-evidence-proof figure{margin:0;border:1px solid var(--line);background:#fff;overflow:hidden}
+    .case-evidence-proof img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;object-position:top;background:#fff}
+    .case-evidence-proof figcaption{display:grid;grid-template-columns:minmax(170px,.38fr) 1fr;align-items:start;gap:18px;padding:12px 14px;border-top:1px solid var(--line)}
+    .case-evidence-proof figcaption span{font-size:9.5px;font-weight:700}
+    .case-evidence-proof figcaption small{color:var(--muted);font:400 9px/1.65 "Microsoft YaHei UI","PingFang SC",sans-serif;letter-spacing:0}
+    @media(max-width:620px){.visual.art{padding:8px}.case-art{max-height:360px}}
+    @media(max-width:760px){.evidence-gallery-head,.case-evidence-proof-head{display:block}.evidence-gallery-head span,.case-evidence-proof-head span{display:block;margin-top:4px}.evidence-grid{grid-template-columns:1fr}.evidence-media{aspect-ratio:1.75}.case-evidence-proof{padding:10px}.case-evidence-proof figcaption{grid-template-columns:1fr;gap:4px}}
+  </style>
+  <style id="portfolio-site-alignment">
+    :root{--ink:#30404a;--paper:#e6ebea;--surface:rgba(255,255,255,.62);--line:rgba(72,91,100,.14);--muted:#6f8087;--orange:#7fa5b6;--blue:#82aebe;--green:#8ca58a;--rose:#bd8f89;--glass-stroke:rgba(255,255,255,.78);--glass-shadow:0 30px 76px rgba(42,55,62,.12),0 8px 24px rgba(42,55,62,.06),inset 0 1px 0 rgba(255,255,255,.96)}
+    html{background:#dce4e3}
+    body{background:radial-gradient(circle at 14% 8%,rgba(255,255,255,.9),transparent 31%),radial-gradient(circle at 84% 14%,rgba(187,207,211,.55),transparent 32%),linear-gradient(145deg,#edf2f1 0%,#d9e2e1 58%,#cfdada 100%);background-attachment:fixed}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.3),transparent 36%,rgba(115,151,164,.08));}
+    .frame{inset:8px;border-color:rgba(255,255,255,.6);border-radius:26px;box-shadow:inset 0 0 0 1px rgba(53,71,80,.04)}
+    .topbar{height:72px;padding:0 max(24px,calc((100vw - 1240px)/2));border-bottom-color:rgba(63,82,91,.1);background:rgba(244,248,248,.62);box-shadow:0 9px 28px rgba(45,60,67,.06),inset 0 1px 0 rgba(255,255,255,.9);backdrop-filter:blur(30px) saturate(1.35);-webkit-backdrop-filter:blur(30px) saturate(1.35)}
+    .brand-mark{width:38px;height:38px;border-radius:13px;background:rgba(39,54,63,.94);box-shadow:0 10px 24px rgba(35,49,56,.18),inset 0 1px 0 rgba(255,255,255,.16)}
+    .brand b{font-size:10px}.brand small{margin-top:3px;color:rgba(75,94,102,.64)}
+    .site-back,.top-nav a,.detail-link{border-color:rgba(69,88,97,.12);border-radius:12px;background:rgba(255,255,255,.5);box-shadow:0 8px 20px rgba(39,54,61,.05),inset 0 1px 0 rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .2s ease,background .2s ease,box-shadow .2s ease,border-color .2s ease}
+    .site-back{height:38px;padding:0 14px}.top-nav a{min-width:34px;height:34px;display:grid;place-items:center;padding:0}.site-back:hover,.site-back:focus,.top-nav a:hover,.top-nav a:focus,.detail-link:hover,.detail-link:focus{transform:translateY(-2px);color:var(--ink);border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.82);box-shadow:0 14px 28px rgba(39,54,61,.1),inset 0 1px 0 #fff;outline:0}
+    main{width:min(1240px,calc(100% - 48px));padding:38px 0 84px}
+    .hero{border:1px solid var(--glass-stroke);border-radius:30px;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.77),rgba(245,249,249,.46));box-shadow:var(--glass-shadow);backdrop-filter:blur(30px) saturate(1.25);-webkit-backdrop-filter:blur(30px) saturate(1.25)}
+    .hero-copy{padding:54px 50px;background:linear-gradient(145deg,rgba(255,255,255,.54),rgba(235,243,243,.28))}.hero h1{font-size:clamp(44px,5.8vw,70px);color:#2d4049}.eyebrow{color:#718890}.hero-copy>p:last-child{max-width:610px;color:#667980;font-size:12px;line-height:1.82}
+    .hero-index{padding:28px;grid-template-columns:repeat(3,1fr);gap:10px;background:rgba(230,238,238,.3);border-left:1px solid rgba(68,87,96,.09)}
+    .hero-index a{min-height:88px;padding:16px;border:1px solid rgba(255,255,255,.74);border-radius:17px;color:var(--ink);background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(245,249,249,.38));box-shadow:0 12px 28px rgba(44,59,66,.06),inset 0 1px 0 rgba(255,255,255,.92);transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+    .hero-index a:hover,.hero-index a:focus{transform:translateY(-3px);color:var(--ink);background:rgba(255,255,255,.84);box-shadow:0 18px 36px rgba(40,55,62,.11),inset 0 1px 0 #fff;outline:0}.hero-index small,.hero-index a:hover small{color:#7899a7}.hero-index b{font-size:10px}
+    .section-head{margin:64px 4px 17px}.section-head small{color:#7996a2}.section-head h2{font-size:25px;color:#2e414a}.section-head p{color:#6c7d84}
+    .case{border:1px solid var(--glass-stroke);border-radius:26px;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(247,250,250,.44));box-shadow:0 24px 58px rgba(42,55,62,.1),0 6px 18px rgba(42,55,62,.045),inset 0 1px 0 rgba(255,255,255,.96);backdrop-filter:blur(26px) saturate(1.24);-webkit-backdrop-filter:blur(26px) saturate(1.24)}
+    .case-top{border-bottom-color:rgba(70,89,98,.1)}.case-no{border-right-color:rgba(70,89,98,.1);color:#7599a8}.case-title{border-right-color:rgba(70,89,98,.1)}.case-title small{color:#7b8d94}.case-summary{color:#687a81}
+    .visual{border-right-color:rgba(70,89,98,.1)}.reverse .visual{border-left-color:rgba(70,89,98,.1)}.logic{background:rgba(255,255,255,.2)}.logic dt{color:#7798a6}.evidence{border-top-color:rgba(70,89,98,.1)}
+    .case-art{filter:drop-shadow(0 14px 18px rgba(42,55,62,.08))}.real-shot{border-color:rgba(70,89,98,.1);border-radius:18px;background:rgba(255,255,255,.54)}
+    .evidence-gallery,.case-evidence-proof{border-top-color:rgba(70,89,98,.1);background:rgba(224,234,234,.25)}.evidence-card,.case-evidence-proof figure{border:1px solid rgba(255,255,255,.76);border-radius:18px;background:rgba(255,255,255,.56);box-shadow:0 14px 34px rgba(42,55,62,.065),inset 0 1px 0 rgba(255,255,255,.9)}.evidence-media,.case-evidence-proof img{background:rgba(255,255,255,.48)}.evidence-card figcaption,.case-evidence-proof figcaption{border-top-color:rgba(70,89,98,.09)}
+    .detail-link{min-height:42px;padding:0 16px}.footer{border-top-color:rgba(70,89,98,.14)}
+    .project-version-switch{position:relative;width:250px;height:46px;padding:4px;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.82);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(242,247,247,.45));box-shadow:0 14px 34px rgba(38,53,61,.1),inset 0 1px 0 #fff;overflow:hidden}.project-version-switch::before{content:"";position:absolute;left:4px;top:4px;width:calc(50% - 4px);height:36px;border-radius:12px;background:linear-gradient(145deg,rgba(38,55,65,.97),rgba(53,76,86,.93));box-shadow:0 8px 18px rgba(31,45,52,.2);transform:translateX(100%);transition:transform .26s cubic-bezier(.22,.75,.25,1)}.project-version-switch.is-resume::before{transform:translateX(0)}.project-version-switch a,.project-version-switch span{position:relative;z-index:1;min-width:0;display:grid;place-items:center;text-decoration:none;border-radius:12px;font:740 8px/1 Consolas,monospace;letter-spacing:.05em}.project-version-switch a{color:var(--ink)}.project-version-switch span{color:#fff}.project-version-switch.is-resume a{color:#fff}.project-version-switch.is-resume span{color:var(--ink)}
+    :is(a,button):focus-visible{outline:2px solid rgba(88,127,143,.72);outline-offset:3px}
+    @media(max-width:900px){.hero-index{grid-template-columns:repeat(2,1fr);border-left:0;border-top:1px solid rgba(70,89,98,.1)}.case-body>.visual{border-bottom-color:rgba(70,89,98,.1)}}
+    @media(max-width:620px){.frame{border-radius:18px}.topbar{height:62px;padding:0 14px}.brand>div{display:none}.project-version-switch{width:190px;height:42px;border-radius:14px}.project-version-switch::before{height:32px;border-radius:10px}.project-version-switch a,.project-version-switch span{font-size:7px}.hero{border-radius:22px}.hero-copy{padding:34px 24px}.hero-index{padding:14px;gap:8px}.hero-index a{min-height:80px;border-radius:14px}.case{border-radius:20px}.section-head{margin-top:48px}.case-top{grid-template-columns:72px 1fr}.case-no{padding:18px 14px}.evidence-card,.case-evidence-proof figure{border-radius:14px}}
+    @media(prefers-reduced-motion:reduce){.site-back,.top-nav a,.detail-link,.hero-index a{transition:none}}
+  </style>
+  <style id="balanced-type-scale">
+    /* A compact six-step scale: labels 10, notes 11, supporting copy 13,
+       body 14, card headings 18-22 and display headings 28-68. */
+    body{font-size:14px;line-height:1.72}
+    .brand b{font-size:11px}.brand small{font-size:9px;line-height:1.25}
+    .site-back,.top-nav a{font-size:9px}.detail-link{font-size:10px}.project-version-switch a,.project-version-switch span{font-size:10px}
+    .eyebrow{margin-bottom:16px;font-size:10px;line-height:1.2;letter-spacing:.12em}
+    .hero h1{font-size:clamp(34px,2.9vw,44px);line-height:1.14;letter-spacing:-.025em;white-space:nowrap}
+    .hero-copy>p:last-child{margin-top:20px;font-size:14px;line-height:1.72}
+    .hero-index small{font-size:9.5px;line-height:1.2;letter-spacing:.02em}
+    .hero-index b{margin-top:8px;font-size:14px;line-height:1.45}
+    .hero-index a{position:relative;overflow:hidden;isolation:isolate}
+    .hero-index small,.hero-index b{position:relative;z-index:1}
+    .hero-index small{padding-right:0;white-space:nowrap}
+    .project-icon{position:absolute;z-index:0;right:-5px;bottom:-10px;width:68px;height:68px;display:block;background-repeat:no-repeat;background-position:center;background-size:contain;image-rendering:pixelated;image-rendering:crisp-edges;opacity:.14;filter:saturate(.7) contrast(.92);pointer-events:none}
+    .project-icon-1{background-image:url("portfolio-assets/project-icon-01.png")}.project-icon-2{background-image:url("portfolio-assets/project-icon-02.png")}.project-icon-3{background-image:url("portfolio-assets/project-icon-03.png")}
+    .project-icon-4{background-image:url("portfolio-assets/project-icon-04.png")}.project-icon-5{background-image:url("portfolio-assets/project-icon-05.png")}.project-icon-6{background-image:url("portfolio-assets/project-icon-06.png")}
+    .project-icon-7{background-image:url("portfolio-assets/project-icon-07.png")}.project-icon-8{background-image:url("portfolio-assets/project-icon-08.png")}.project-icon-9{background-image:url("portfolio-assets/project-icon-09.png")}
+    .section-head small{font-size:10px;line-height:1.2;letter-spacing:.1em}
+    .section-head h2{font-size:22px;line-height:1.34;letter-spacing:-.015em}
+    .section-head p{font-size:13px;line-height:1.68}
+    .case-no{font-size:30px}
+    .case-title small{font-size:10px;line-height:1.25;letter-spacing:.08em}
+    .case-title h3{font-size:17px;line-height:1.44;letter-spacing:-.008em}
+    .case-summary{font-size:13px;line-height:1.72}
+    .logic dt{font-size:10px;line-height:1.2;letter-spacing:.08em}
+    .logic dd{font-size:13.5px;line-height:1.72}
+    .evidence,.evidence b{font-size:11px;line-height:1.58}
+    .evidence-gallery-head b,.case-evidence-proof-head b{font-size:13px}
+    .evidence-gallery-head span,.case-evidence-proof-head span{font-size:11px}
+    .evidence-card figcaption{font-size:11.5px}
+    .evidence-card figcaption small{font-size:10.5px;line-height:1.5}
+    .case-evidence-proof figcaption span{font-size:12px}
+    .case-evidence-proof figcaption small{font-size:11.5px;line-height:1.6}
+    .shot-label{font-size:9px}
+    .matrix::before,.matrix::after,.matrix-note,.price-axis,.gap{font-size:9px}
+    .bubble,.brand-row b,.event{font-size:10px}
+    .path>strong{font-size:12px}.path-legend{font-size:10px}
+    .product-panel b{font-size:14px}.product-panel span{font-size:11px}
+    .signal-row strong{font-size:10px}.signal-row b{font-size:18px}.signal-row span{font-size:10px}
+    .risk-list h4{font-size:14px}.risk-row{font-size:11px}.risk-counts span{font-size:11px}
+    .clear-col small{font-size:10px}.clear-col h4{font-size:14px}.clear-col p{font-size:11px;line-height:1.5}
+    .footer{font-size:9px;line-height:1.5}
+    @media(max-width:620px){
+      .hero h1{font-size:clamp(29px,8.6vw,36px);white-space:normal}
+      .hero-copy>p:last-child{font-size:13px}
+      .hero-index b{font-size:13px}
+      .project-icon{right:-4px;bottom:-8px;width:62px;height:62px;opacity:.13}
+      .section-head h2{font-size:20px}
+      .case-title h3{font-size:16px}
+      .event{font-size:9px}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame" aria-hidden="true"></div>
+  <header class="topbar"><div class="brand"><span class="brand-mark">YL</span><div><b>YUNAN · SELECTED PROJECTS</b><small>MARKET / USER / DATA / DELIVERY</small></div></div><div class="top-actions"><nav class="project-version-switch" aria-label="项目版本"><a href="../?view=projects">简历版</a><span aria-current="page">详细版</span></nav><nav class="top-nav"><a href="#case-01">01</a><a href="#case-02">02</a><a href="#case-03">03</a><a href="#case-04">04</a><a href="#case-05">05</a><a href="#case-06">06</a><a href="#case-07">07</a><a href="#case-08">08</a><a href="#case-09">09</a></nav></div></header>
+  <main>
+    <section class="hero"><div class="hero-copy"><p class="eyebrow">PORTFOLIO · REAL PROJECT ARCHIVE</p><h1>从信息中<br>形成判断</h1><p>九个真实项目，覆盖市场、产品、用户、经营与跨团队推进。工具与报表用于提供证据，重点呈现如何理解问题、形成判断并推动结果。</p></div><div class="hero-index"><a href="#case-01"><small>01 · PORTFOLIO</small><b>产品组合与市场位置</b></a><a href="#case-02"><small>02 · MARKET</small><b>加拿大市场竞品矩阵</b></a><a href="#case-03"><small>03 · USER DATA</small><b>购买路径与产品搭配</b></a><a href="#case-04"><small>04 · LAUNCH</small><b>新品上市反馈判断</b></a><a href="#case-05"><small>05 · OPERATION</small><b>经营趋势判断</b></a><a href="#case-06"><small>06 · FORECAST</small><b>销售与库存风险</b></a><a href="#case-07"><small>07 · INVENTORY</small><b>低动销改善</b></a><a href="#case-08"><small>08 · GTM</small><b>新品页面与协同落地</b></a><a href="#case-09"><small>09 · CAMPAIGN</small><b>市场信号与活动策略</b></a></div></section>
+
+    <div class="section-head"><div><small>CASE 01 · PRODUCT PORTFOLIO</small><h2>产品组合与市场位置分析</h2></div><p>把不同产品放进统一视角，观察市场覆盖、内部重叠和新旧产品承接关系。</p></div>
+    <section class="case" id="case-01"><div class="case-top"><div class="case-no">01</div><div class="case-title"><small>MARKET MAP × BUSINESS SIGNAL</small><h3>从产品分布形成组合判断</h3></div><div class="case-summary">矩阵不是结果，而是把价格位置、需求覆盖、销量与利润放在一起比较的起点。</div></div><div class="case-body"><div class="visual"><div class="matrix"><span class="matrix-note one">重叠区域</span><span class="matrix-note two">机会空间</span><i class="bubble" style="left:17%;bottom:24%">A1</i><i class="bubble overlap" style="left:29%;bottom:31%">A2</i><i class="bubble overlap" style="left:36%;bottom:35%">B1</i><i class="bubble hot" style="left:58%;bottom:49%">C1</i><i class="bubble" style="left:77%;bottom:66%">D1</i><i class="bubble" style="left:68%;bottom:18%">E1</i></div></div><aside class="logic"><dl><dt>PROJECT QUESTION</dt><dd>现有产品覆盖了哪些市场位置，哪些产品彼此接近，哪些位置仍有空间？</dd><dt>ANALYSIS</dt><dd>统一价格与产品口径，叠加销量、利润和生命周期，再比较新旧产品的承接关系。</dd><dt>OUTPUT</dt><dd>形成保留、调整定位、替换、合并或退出候选等组合建议。</dd></dl><div class="evidence"><b>项目依据</b>三份实际产品矩阵，关键信息已匿名化</div></aside></div><div class="evidence-gallery"><div class="evidence-grid"><figure class="evidence-card co2"><div class="evidence-media"><img loading="lazy" src="portfolio-assets/evidence-case01-co2-public-replica.png" alt="CO₂ 产品矩阵公开复刻截图"></div><figcaption><span>CO₂ 产品矩阵</span><small>观察价格位置与产品覆盖</small></figcaption></figure><figure class="evidence-card fiber"><div class="evidence-media"><img loading="lazy" src="portfolio-assets/evidence-case01-fiber-public-replica.png" alt="Fiber 产品矩阵公开复刻截图"></div><figcaption><span>Fiber 产品矩阵</span><small>观察竞争区间与市场空位</small></figcaption></figure><figure class="evidence-card maker"><div class="evidence-media"><img loading="lazy" src="portfolio-assets/evidence-case01-family-public-replica.png" alt="Maker 与 Pronto 专项矩阵公开复刻截图"></div><figcaption><span>Maker / Pronto 专项矩阵</span><small>比较产品位置与调整方向</small></figcaption></figure></div></div></section>
+
+    <div class="section-head"><div><small>CASE 02 · COMPETITIVE LANDSCAPE</small><h2>加拿大市场竞品矩阵</h2></div><p>从公开市场资料中识别价格密集区、品牌覆盖范围与可能的市场空位。</p></div>
+    <section class="case" id="case-02"><div class="case-top"><div class="case-no">02</div><div class="case-title"><small>BRAND × PRICE BAND × POSITION</small><h3>把分散竞品放进同一市场坐标</h3></div><div class="case-summary">比较的重点不是单个参数，而是不同品牌正在争夺哪一类用户和哪一段预算。</div></div><div class="case-body reverse"><div class="visual"><div class="market-frame"><div class="price-axis"><span>PREMIUM</span><span>MID-HIGH</span><span>MID</span><span>ENTRY</span></div><div class="market-grid"><div class="brand-row" style="top:12%"><b>BRAND A</b><span style="width:61%;margin-left:25%"></span></div><div class="brand-row" style="top:34%"><b>BRAND B</b><span style="width:54%;margin-left:8%"></span></div><div class="brand-row" style="top:56%"><b>BRAND C</b><span style="width:41%;margin-left:42%"></span></div><div class="brand-row" style="top:78%"><b>OMTECH</b><span style="width:69%;margin-left:13%"></span></div></div></div></div><aside class="logic"><dl><dt>INPUT</dt><dd>公开售价、产品层级、页面重点和活动变化。</dd><dt>JUDGMENT</dt><dd>识别竞争集中区、产品跨度以及品牌尚未充分覆盖的位置。</dd><dt>APPLICATION</dt><dd>用于产品定位、价格表达、推广重点和后续上市判断。</dd></dl><div class="evidence"><b>真实证据</b>OMTech Canada Competitive Matrix · 2026-05</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 03 · USER JOURNEY</small><h2>用户购买路径与产品搭配分析</h2></div><p>从跨店铺历史订单中还原购买顺序，再把用户行为转化为产品组合和内容策略。</p></div>
+    <section class="case" id="case-03"><div class="case-top"><div class="case-no">03</div><div class="case-title"><small>RAW ORDER → MATCH → SEQUENCE → PATH</small><h3>从订单记录还原真实购买路径</h3></div><div class="case-summary">完成用户匹配、订单清理和时间排序后，将行为划分为四类可比较路径。</div></div><div class="case-body"><div class="visual"><div class="journey"><div class="path"><strong>随主产品购买</strong><span class="event machine">主产品</span><span class="event accessory">配件</span><span class="gap">—</span><span class="gap">—</span><span class="gap">—</span></div><div class="path"><strong>同单搭配</strong><span class="gap">—</span><span class="event machine">主产品</span><span class="event accessory">配件</span><span class="gap">—</span><span class="gap">—</span></div><div class="path"><strong>购买后追加</strong><span class="event machine">主产品</span><span class="gap">+14D</span><span class="gap">+30D</span><span class="event accessory">配件</span><span class="gap">—</span></div><div class="path"><strong>配件先行</strong><span class="event accessory">配件</span><span class="gap">+21D</span><span class="event machine">主产品</span><span class="gap">—</span><span class="gap">—</span></div></div><div class="path-legend"><span><i></i>主产品</span><span><i class="acc"></i>配件</span><span>时间与比例均使用相对表达</span></div></div><aside class="logic"><dl><dt>ANALYSIS</dt><dd>比较路径分布、购买间隔和产品搭配关系，区分关联购买与独立需求。</dd><dt>INSIGHT</dt><dd>同一种配件可能承担套装、追加购买或先行试用等不同角色。</dd><dt>OUTPUT</dt><dd>支持套装设计、关联推荐、页面说明和后续用户触达。</dd></dl><div class="evidence"><b>真实证据</b>Gallery × Shopify Purchase Match · CSV + HTML</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 04 · POST-LAUNCH SIGNAL</small><h2>新品上市后的市场与用户反馈判断</h2></div><p>把销售、广告和咨询放在同一时间段中，验证新品受到怎样的关注，以及页面是否回答了关键问题。</p></div>
+    <section class="case" id="case-04"><div class="case-top"><div class="case-no">04</div><div class="case-title"><small>SALES × MEDIA × CUSTOMER VOICE</small><h3>从三类信号判断新品初期表现</h3></div><div class="case-summary">初期成交量有限时，广告反应与用户问题可以帮助解释市场关注方向，但结论保持阶段性。</div></div><div class="case-body reverse"><div class="visual"><div class="launch-grid"><div class="product-panel"><img src="portfolio-assets/polar2-product.png" alt="新品实物图"><div><b>NEW PRODUCT</b><span>真实产品图 · 名称在公开版中可替换</span></div></div><div class="signal-panel"><div class="signal-row"><strong>AD SIGNAL</strong><div><b>28,032</b><span>展示 · 542 点击</span><div class="mini-bars"><i style="height:18px"></i><i style="height:25px"></i><i style="height:30px"></i><i style="height:22px"></i></div></div></div><div class="signal-row"><strong>SALES</strong><div><b>首笔订单</b><span>确认市场已有成交反馈</span></div></div><div class="signal-row"><strong>QUESTIONS</strong><div><b>4 类主题</b><span>长材料 · 旋转配件 · 套装 · 升级</span></div></div></div></div></div><aside class="logic"><dl><dt>QUESTION</dt><dd>用户在关注什么，广告触达与实际成交是否提供一致信号？</dd><dt>VERIFY</dt><dd>对照新品订单、广告点击与转化、上市后咨询主题。</dd><dt>OUTPUT</dt><dd>补充页面关键信息，调整内容顺序和投放表达。</dd></dl><div class="evidence"><b>真实证据</b>Shopify sales · Google Ads · Zendesk launch feedback</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 05 · BUSINESS REVIEW</small><h2>经营信息整合与趋势判断</h2></div><p>让销售、广告、利润和库存进入同一视图，减少单看某个指标造成的判断偏差。</p></div>
+    <section class="case" id="case-05"><div class="case-top"><div class="case-no">05</div><div class="case-title"><small>SALES × ADS × PROFIT × INVENTORY</small><h3>用统一经营视图识别变化与风险</h3></div><div class="case-summary">数据更新时间与统计口径也进入主视图，帮助判断哪些结论可以行动，哪些仍需观察。</div></div><div class="case-body"><div class="visual"><img class="real-shot" src="portfolio-assets/operations-overview.png" alt="真实经营周报总览"><span class="shot-label">REAL REPORT · IDENTIFIERS REDACTED</span></div><aside class="logic"><dl><dt>ALIGN</dt><dd>对齐销售、推广、利润和库存的日期、产品与更新节奏。</dd><dt>ANALYSIS</dt><dd>观察变化时间、产品结构与指标之间是否同步。</dd><dt>OUTPUT</dt><dd>区分需要及时跟进、持续观察或等待数据更新的事项。</dd></dl><div class="evidence"><b>真实证据</b>IDWUS 经营周报 · Overview + SKU View</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 06 · DEMAND & AVAILABILITY</small><h2>销售趋势与库存风险预测</h2></div><p>通过需求节奏、可用库存、超卖与到货时间，判断哪些产品需要提前调整。</p></div>
+    <section class="case" id="case-06"><div class="case-top"><div class="case-no">06</div><div class="case-title"><small>56 SKU × 1,473 SALES LINES</small><h3>将销售变化转成可操作的风险分层</h3></div><div class="case-summary">风险不是只看库存数字，而是结合销量、库存覆盖、未满足订单和未来到货共同判断。</div></div><div class="case-body reverse"><div class="visual"><div class="risk-board"><div class="risk-list"><h4>风险判断依据</h4><div class="risk-row"><span>需求速度</span><i style="width:88%"></i><b>HIGH</b></div><div class="risk-row"><span>库存覆盖</span><i style="width:72%"></i><b>TIGHT</b></div><div class="risk-row"><span>超卖占用</span><i style="width:55%"></i><b>OPEN</b></div><div class="risk-row"><span>未来 ETA</span><i style="width:38%"></i><b>LATER</b></div></div><div class="risk-counts"><div><b>56</b><span>进入分析的 SKU</span></div><div><b>30</b><span>高风险</span></div><div><b>11</b><span>中风险</span></div></div></div></div><aside class="logic"><dl><dt>INPUT</dt><dd>1,473 条销售记录、库存快照、超卖数量与预计到货。</dd><dt>METHOD</dt><dd>计算近期需求速度和库存覆盖，并识别负库存与未来缺口。</dd><dt>OUTPUT</dt><dd>形成需求建议、补货优先级和活动风险提示。</dd></dl><div class="evidence"><b>真实证据</b>DS 建议与断货风险 · 2026-06-03</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 07 · LOW VELOCITY</small><h2>高库龄与低动销产品改善</h2></div><p>先判断销售停滞的原因，再选择适合的处理方向，而不是对所有库存使用同一种方式。</p></div>
+    <section class="case" id="case-07"><div class="case-top"><div class="case-no">07</div><div class="case-title"><small>DIAGNOSIS → STRATEGY → ESCALATION</small><h3>按原因拆解库存问题</h3></div><div class="case-summary">将产品状态、销售速度、库存规模和市场位置结合起来，形成逐项改善建议。</div></div><div class="case-body"><div class="visual"><div class="clearance"><div class="clear-col"><small>01 · DIAGNOSE</small><h4>先识别原因</h4><p>曝光不足 / 页面表达</p><p>价格与市场位置</p><p>新旧产品替代</p><p>需求与生命周期</p></div><div class="clear-col"><small>02 · MATCH</small><h4>匹配处理方式</h4><p>活动消化</p><p>重新组合与搭配</p><p>调整展示重点</p><p>停止补货 / 退出候选</p></div><div class="clear-col"><small>03 · REVIEW</small><h4>设置复核条件</h4><p>目标数量与时间</p><div class="arrow-down">↓</div><p>销售反馈与库存变化</p><div class="arrow-down">↓</div><p>继续 / 升级处理</p></div></div></div><aside class="logic"><dl><dt>QUESTION</dt><dd>问题来自需求不足、产品替代、价格、页面表达还是库存结构？</dd><dt>JUDGMENT</dt><dd>根据原因、可行动空间和产品生命周期分配不同策略。</dd><dt>OUTPUT</dt><dd>形成目标数量、具体改善方式、升级策略与跟进状态。</dd></dl><div class="evidence"><b>真实证据</b>2026 年 5 月与 6 月高库龄、低动销改善文件</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 08 · GTM DELIVERY</small><h2>新品页面信息规划与跨团队落地</h2></div><p>从产品资料与市场参考中提取用户需要理解的内容，再转化为页面结构和可交付的设计需求。</p></div>
+    <section class="case" id="case-08"><div class="case-top"><div class="case-no">08</div><div class="case-title"><small>GTM → CONTENT LOGIC → DESIGN BRIEF</small><h3>把分散信息整理为上市表达</h3></div><div class="case-summary">页面只是最终载体，核心工作是确定信息顺序、证据形式与各团队之间的交付关系。</div></div><div class="case-body reverse"><div class="visual"><img class="real-shot cover" src="portfolio-assets/krysta-listing-preview.png" alt="真实新品 Listing 与 A++ 页面策划预览"><span class="shot-label">REAL PAGE PLAN · PUBLIC VERSION REDACTED</span></div><aside class="logic"><dl><dt>INPUT</dt><dd>GTM 材料、产品资料、竞品页面和现有网站模块。</dd><dt>ANALYSIS</dt><dd>判断用户需要先理解什么、哪些差异需要视觉证明，以及哪些信息影响购买。</dd><dt>DELIVERY</dt><dd>形成 A 图、A++ 模块、设计需求表和整体预览，推进内容、设计与运营协同。</dd></dl><div class="evidence"><b>真实证据</b>Krysta Listing A++ 设计策划 · 需求表 · 整体预览</div></aside></div></section>
+
+    <div class="section-head"><div><small>CASE 09 · CAMPAIGN STRATEGY</small><h2>市场信号与活动策略</h2></div><p>从市场、竞品、社媒和内部经营数据中提取信号，形成产品角色与活动判断，并用阶段结果复核。</p></div>
+    <section class="case" id="case-09"><div class="case-top"><div class="case-no">09</div><div class="case-title"><small>INPUT → ANALYSIS → OUTPUT → REVIEW</small><h3>让活动策略建立在可复核的依据上</h3></div><div class="case-summary">统一日期与产品口径，区分证据强弱，再以订单、广告、库存和超卖数据验证市场观察。</div></div><div class="case-body"><div class="visual"><img class="real-shot" src="portfolio-assets/campaign-plan-preview.png" alt="真实活动产品规划报表预览"><span class="shot-label">REAL CAMPAIGN PLAN · KEY FIELDS REDACTED</span></div><aside class="logic"><dl><dt>INPUT</dt><dd>市场活动、竞品权益、社媒问题，以及 17 天订单、广告、库存和超卖数据。</dd><dt>ANALYSIS</dt><dd>按日期、产品与活动阶段统一口径，比较阶段日均销售、产品贡献和广告效率。</dd><dt>OUTPUT</dt><dd>形成主推、限量主推、支持搭配与排除观察等产品角色，并用四阶段结果复核。</dd></dl><a class="detail-link" href="campaign-detail.html">查看完整分析报告 →</a><div class="evidence"><b>真实证据</b>487 笔订单 · 4 个活动阶段 · 6 个产品系列 · 阶段销售与 ROAS 复核</div></aside></div></section>
+
+    <footer class="footer"><span>YUNAN · REAL PROJECT CASES</span><span>REAL REPORTS · PUBLIC DATA WHERE POSSIBLE · IDENTIFIERS REDACTED</span></footer>
+  </main>
+  <script>
+    const generatedCaseArt={
+      "case-01":["portfolio-assets/case-01-portfolio-visual-transparent-v2.png","依据真实产品组合诊断生成的像素场景图，展示四个产品系列、重叠区域、机会位置和产品决策分流"],
+      "case-02":["portfolio-assets/case-02-market-visual-transparent-v2.png","依据真实加拿大竞品矩阵生成的像素市场街区图，展示不同价格带的竞争密度与市场空位"],
+      "case-03":["portfolio-assets/case-03-user-path-visual-transparent-v2.png","依据真实用户与订单匹配结果生成的像素购买路径图，展示匹配规模及四种产品购买顺序"],
+      "case-04":["portfolio-assets/case-04-launch-signal-visual-transparent-v2.png","依据真实新品销售、广告和用户咨询数据生成的像素观察站"],
+      "case-05":["portfolio-assets/case-05-operations-visual-transparent-v2.png","依据真实经营周报生成的像素运营控制台，展示销售、广告、利润与库存的联合判断"],
+      "case-06":["portfolio-assets/case-06-ds-risk-visual-transparent-v2.png","依据真实 DS 与库存风险表生成的像素供应预测铁路"],
+      "case-07":["portfolio-assets/case-07-low-velocity-visual-transparent-v2.png","依据真实高库龄和低动销改善表生成的像素库存诊断工作台"],
+      "case-08":["portfolio-assets/case-08-gtm-visual-transparent-v9.png","依据真实上市时间线与页面策划生成的像素跨团队协同发射台"],
+      "case-09":["portfolio-assets/case-09-campaign-visual-transparent-v2.png","依据真实活动产品规划和阶段复盘生成的像素策略分析工厂"]
+    };
+    const conciseCaseCopy={
+      "case-01":["判断产品覆盖、重叠与市场空位。","统一价格、销量、利润和生命周期，比较产品位置与新旧承接。","形成保留、调整、替换和退出建议。"],
+      "case-02":["判断竞争集中在哪些价格带，市场空间在哪里。","比较公开售价、产品层级、页面表达和活动变化。","支持产品定位、价格表达与推广重点。"],
+      "case-03":["从跨店铺订单还原主产品与配件的购买顺序。","匹配用户、清理订单，并按时间划分四类路径。","用于套装、关联推荐和用户触达。"],
+      "case-04":["判断新品初期关注是否形成有效需求。","对照销售、广告和用户咨询主题。","补充页面信息并调整投放表达。"],
+      "case-05":["识别经营变化来源和需要跟进的风险。","统一销售、广告、利润和库存的日期与产品口径。","区分立即跟进、持续观察和等待更新。"],
+      "case-06":["判断需求增长能否被库存与到货承接。","结合历史销量、库存覆盖、超卖和 ETA 分层风险。","调整需求建议、补货优先级和活动安排。"],
+      "case-07":["识别高库龄与低动销的具体原因。","比较销量、库存、价格、产品替代和生命周期。","选择活动、组合、重定位或停止补货。"],
+      "case-08":["让不同团队围绕同一上市节奏完成交付。","梳理任务依赖、负责人、状态和 QA 节点。","推进内容、设计、素材和页面按序完成。"],
+      "case-09":["把市场信号转成可验证的活动策略。","统一口径、分级证据，并用订单、广告和库存复核。","确定产品角色，再用四阶段结果验证。"]
+    };
+    Object.entries(generatedCaseArt).forEach(([id,[src,alt]])=>{
+      const visual=document.querySelector(`#${id} .visual`);
+      if(!visual)return;
+      visual.classList.add("art");
+      visual.innerHTML=`<img class="case-art${["case-01","case-04","case-07","case-09"].includes(id)?" full":""}" src="${src}" alt="${alt}" loading="lazy">`;
+      const [summary,analysis,action]=conciseCaseCopy[id];
+      const section=document.getElementById(id);
+      section.querySelector(".case-summary").textContent=summary;
+      const evidence=section.querySelector(".evidence").outerHTML;
+      const detailLink=id==="case-09"?'<a class="detail-link" href="campaign-detail.html">查看完整分析报告 →</a>':'';
+      section.querySelector(".logic").innerHTML=`<dl><dt>分析</dt><dd>${analysis}</dd><dt>落地</dt><dd>${action}</dd></dl>${detailLink}${evidence}`;
+    });
+    const caseEvidenceReplicas={
+      "case-02":["portfolio-assets/evidence-case02-public-replica.png","加拿大市场竞品矩阵","价格带、竞争密度与市场空位"],
+      "case-03":["portfolio-assets/evidence-case03-public-replica.png","用户与订单匹配报告","将站内用户与订单记录进行匹配，区分主产品与配件，并按同单购买、后续追加等顺序还原购买路径，为套装与关联推荐提供依据。"],
+      "case-04":["portfolio-assets/evidence-case04-public-replica.png","新品信号复核报告","广告、销售与用户问题的信号对照"],
+      "case-05":["portfolio-assets/evidence-case05-public-replica.png","经营趋势看板","销售、推广、利润与库存趋势"],
+      "case-06":["portfolio-assets/evidence-case06-public-replica.png","DS 与库存风险表","需求、库存覆盖与到货风险"],
+      "case-07":["portfolio-assets/evidence-case07-public-replica.png","高库龄与低动销改善表","库龄原因、处理方式与跟进状态"],
+      "case-08":["portfolio-assets/evidence-case08-public-replica.png","跨团队上市计划","任务依赖、交付状态与 QA 节点"],
+      "case-09":["portfolio-assets/evidence-case09-public-replica.png","活动产品策略表","产品角色、活动方式与复核状态"]
+    };
+    Object.entries(caseEvidenceReplicas).forEach(([id,[src,title,note]])=>{
+      const section=document.getElementById(id);
+      if(!section)return;
+      const evidence=section.querySelector(".evidence");
+      if(evidence)evidence.innerHTML="<b>项目依据</b>源自实际工作文件，关键信息已匿名化";
+      const proof=document.createElement("div");
+      proof.className="case-evidence-proof";
+      proof.innerHTML=`<figure><img loading="lazy" src="${src}" alt="${title}公开复刻截图"><figcaption><span>${title}</span><small>${note}</small></figcaption></figure>`;
+      section.appendChild(proof);
+    });
+  </script>
+  <script>
+    document.querySelector(".hero h1").textContent="数据 → 信息 → 策略 → 知识";
+    document.querySelector(".hero-copy>p:last-child").textContent="从数据中提取信息，将信息转化为相应策略，并把经过实证的策略沉淀为可复用知识。";
+    [
+      "产品组合结构与资源配置优化",
+      "加拿大市场竞争与价格带研究",
+      "用户订单关联与购买路径研究",
+      "新品上市反馈验证与迭代优化",
+      "多源经营数据整合与趋势监测",
+      "SKU 需求预测与库存风险管理",
+      "高库龄与低动销商品改善",
+      "新品页面策划与跨团队协同落地",
+      "市场信号分析与活动策略制定"
+    ].forEach((title,index)=>{
+      const label=document.querySelectorAll(".hero-index b")[index];
+      if(label)label.textContent=title;
+    });
+    document.querySelectorAll(".hero-index a").forEach((card,index)=>{
+      const icon=document.createElement("span");
+      icon.className=`project-icon project-icon-${index+1}`;
+      icon.setAttribute("aria-hidden","true");
+      card.appendChild(icon);
+    });
+    document.querySelectorAll(".project-version-switch a").forEach(link=>link.addEventListener("click",event=>{
+      if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+      event.preventDefault();
+      const target=link.href;
+      link.closest(".project-version-switch").classList.add("is-resume");
+      const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.setTimeout(()=>window.location.assign(target),reduced?0:260);
+    }));
+  </script>
+</body>
+</html>

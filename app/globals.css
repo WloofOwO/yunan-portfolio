@@ -29,6 +29,7 @@
   image-rendering:crisp-edges;
   animation:experience-cycle-out 2.6s cubic-bezier(.4,0,.2,1) both;
 }
+
 .experience-night{display:none}
 .experience-logo{--logo-opacity:.48;position:absolute;right:8%;top:13%;z-index:3;display:block;width:clamp(72px,7.2vw,110px);max-height:20vh;object-fit:contain;opacity:var(--logo-opacity);image-rendering:pixelated;image-rendering:crisp-edges}
 .experience-logo:not(.is-logo-only){filter:none}
@@ -1939,6 +1940,31 @@
 /* Navigation and responsive type refinement. */
 .ui-original .journey-footer{display:none!important}
 
+.selected-projects-link{
+  min-width:118px;height:38px;padding:0 13px;display:flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid rgba(50,68,77,.14);border-radius:13px;color:var(--ink);text-decoration:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(241,246,246,.5));
+  box-shadow:0 9px 24px rgba(38,54,62,.08),inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.selected-projects-link:hover,.selected-projects-link:focus-visible{transform:translateY(-2px);border-color:rgba(50,68,77,.34);box-shadow:0 13px 30px rgba(38,54,62,.12),inset 0 1px 0 #fff;outline:0}
+.selected-projects-link span{font-size:9px;font-weight:760;white-space:nowrap}.selected-projects-link small{color:var(--muted);font:650 5px/1 var(--font-geist-mono);letter-spacing:.08em;white-space:nowrap}
+@media(max-width:620px){.selected-projects-link{min-width:80px;height:34px;padding:0 10px}.selected-projects-link span{font-size:8px}.selected-projects-link small{display:none}}
+.project-mode-switcher{
+  position:absolute;left:calc(44% + 24px);top:88px;z-index:31;width:330px;height:58px;padding:5px;
+  display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.82);border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(242,247,247,.46));
+  box-shadow:0 22px 54px rgba(38,53,61,.13),0 6px 16px rgba(38,53,61,.06),inset 0 1px 0 #fff;
+  backdrop-filter:blur(28px) saturate(1.32);-webkit-backdrop-filter:blur(28px) saturate(1.32);overflow:hidden;
+}
+.project-mode-indicator{position:absolute;left:5px;top:5px;width:calc(50% - 5px);height:46px;border-radius:15px;background:linear-gradient(145deg,rgba(38,55,65,.97),rgba(53,76,86,.93));box-shadow:0 10px 24px rgba(31,45,52,.22),inset 0 1px 0 rgba(255,255,255,.14);transform:translateX(0);transition:transform .26s cubic-bezier(.22,.75,.25,1)}
+.project-mode-switcher.is-opening-detail .project-mode-indicator{transform:translateX(100%)}
+.project-mode-switcher button,.project-mode-switcher a{position:relative;z-index:1;min-width:0;min-height:46px;padding:8px 13px;display:grid;align-content:center;gap:4px;border:0;border-radius:15px;text-align:left;text-decoration:none;background:transparent;cursor:pointer;transition:color .18s ease,transform .18s ease}
+.project-mode-switcher button{color:#fff}.project-mode-switcher a{color:var(--ink)}.project-mode-switcher.is-opening-detail button{color:var(--ink)}.project-mode-switcher.is-opening-detail a{color:#fff}
+.project-mode-switcher b{font-size:10px;line-height:1;font-weight:760}.project-mode-switcher small{color:currentColor;font:650 5.5px/1 var(--font-geist-mono);letter-spacing:.09em;opacity:.62}.project-mode-switcher a:hover,.project-mode-switcher a:focus-visible{transform:translateY(-1px);outline:0}.project-mode-switcher :is(a,button):focus-visible{box-shadow:0 0 0 2px rgba(121,164,181,.65)}
+@media(max-width:720px){.branch-projects .project-mode-switcher{left:16px;right:16px;top:70px;width:auto;height:54px;border-radius:17px}.branch-projects .project-mode-indicator{height:42px;border-radius:13px}.branch-projects .project-mode-switcher button,.branch-projects .project-mode-switcher a{min-height:42px;padding:7px 11px;border-radius:13px}.branch-projects .story-panel{top:136px;height:calc(100vh - 194px)}}
+@media(prefers-reduced-motion:reduce){.project-mode-indicator,.project-mode-switcher button,.project-mode-switcher a{transition:none}}
 .resume-menu{position:relative;z-index:32}
 .resume-menu summary{
   min-width:64px;height:38px;padding:0 14px;display:grid;place-items:center;
@@ -3358,4 +3384,128 @@
     right:calc(18px - (var(--steady-avatar-width) * .4921875));
     transform:none;
   }
+}
+
+/* The project-mode selector owns a dedicated row on compact layouts. Keep
+   the shared mobile story coordinate below it so long project titles never
+   slide underneath the glass control. */
+@media(max-width:720px){
+  .ui-original.branch-projects{--mobile-story-top:146px}
+  .ui-original.branch-projects .project-mode-switcher{top:72px;left:16px;right:16px;width:auto}
+}
+
+/* Project layout baselines: the version selector belongs to the header row;
+   the project browser, detail card and status rail share one content row. */
+@media(min-width:1101px){
+  .ui-original.branch-projects{--project-content-top:clamp(86px,10.5vh,112px)}
+  .ui-original.branch-projects .project-mode-switcher{left:50%;right:auto;top:10px;transform:translateX(-50%)}
+  .ui-original.branch-projects .story-panel{top:var(--project-content-top);height:calc(100vh - var(--project-content-top) - 36px)}
+  .ui-original.branch-projects .journey-indicator-rail{top:var(--project-content-top)}
+  .ui-original.branch-projects.has-active-artifact .hotspot-card{top:calc(var(--project-content-top) - 76px)}
+}
+
+@media(min-width:721px) and (max-width:1100px){
+  .ui-original.branch-projects{--project-control-top:74px;--project-content-top:144px}
+  .ui-original.branch-projects .project-mode-switcher{left:50%;right:auto;top:var(--project-control-top);transform:translateX(-50%)}
+  .ui-original.branch-projects .journey-indicator-rail{top:var(--project-control-top)}
+  .ui-original.branch-projects .story-panel{top:var(--project-content-top);height:calc(100vh - var(--project-content-top) - 30px)}
+  .ui-original.branch-projects.has-active-artifact .hotspot-card{top:calc(var(--project-content-top) - 76px)}
+}
+
+/* Projects use one visible workspace grid. The browser card, evidence stage
+   and utility rail now start on the same row; the evidence artwork belongs
+   to a bounded surface instead of floating in the page background. */
+@media(min-width:1101px){
+  .ui-original.branch-projects{
+    --project-grid-gap:20px;
+    --project-content-bottom:36px;
+  }
+  .ui-original.branch-projects .journey-header{
+    padding-inline:var(--layout-edge);
+  }
+  .ui-original.branch-projects .story-panel{
+    left:var(--layout-edge);
+    width:var(--module-panel-width);
+    bottom:var(--project-content-bottom);
+    height:auto;
+  }
+  .ui-original.branch-projects .ai-knowledge-stage,
+  .ui-original.branch-projects.has-active-artifact .ai-knowledge-stage{
+    left:calc(var(--layout-edge) + var(--module-panel-width) + var(--project-grid-gap));
+    right:calc(var(--layout-edge) + var(--utility-rail-width) + var(--project-grid-gap));
+    top:var(--project-content-top);
+    bottom:var(--project-content-bottom);
+    box-sizing:border-box;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.82);
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,.48),rgba(244,247,244,.28));
+    box-shadow:0 18px 52px rgba(38,53,61,.08),inset 0 1px 0 rgba(255,255,255,.96);
+    backdrop-filter:blur(18px) saturate(1.08);
+    -webkit-backdrop-filter:blur(18px) saturate(1.08);
+  }
+  .ui-original.branch-projects .ai-project-scene-wrap,
+  .ui-original.branch-projects.has-active-artifact .ai-project-scene-wrap{
+    left:50%;
+    bottom:clamp(20px,4vh,40px);
+  }
+  .ui-original.branch-projects .journey-indicator-rail{
+    right:var(--layout-edge);
+  }
+}
+
+@media(min-width:721px) and (max-width:1100px){
+  .ui-original.branch-projects .journey-header{padding-inline:22px}
+}
+
+/* The three project-header actions are peers: return, view mode and download
+   share one control height, radius and glass surface. */
+@media(min-width:1101px) and (max-width:2559px){
+  .ui-original.branch-projects{--project-header-control-height:46px}
+  .ui-original.branch-projects .journey-back-label,
+  .ui-original.branch-projects .resume-menu summary{
+    height:var(--project-header-control-height);
+    min-height:var(--project-header-control-height);
+    box-sizing:border-box;
+    border-radius:16px;
+    background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(242,247,247,.46));
+    box-shadow:0 14px 34px rgba(38,53,61,.1),inset 0 1px 0 #fff;
+  }
+  .ui-original.branch-projects .project-mode-switcher{
+    top:22px;
+    height:var(--project-header-control-height);
+    padding:4px;
+    border-radius:16px;
+    box-shadow:0 14px 34px rgba(38,53,61,.1),inset 0 1px 0 #fff;
+  }
+  .ui-original.branch-projects .project-mode-indicator{
+    left:4px;
+    top:4px;
+    width:calc(50% - 4px);
+    height:38px;
+    border-radius:12px;
+  }
+  .ui-original.branch-projects .project-mode-switcher button,
+  .ui-original.branch-projects .project-mode-switcher a{
+    min-height:38px;
+    padding:5px 12px;
+    gap:2px;
+    border-radius:12px;
+  }
+}
+
+@media(min-width:2560px){
+  .ui-original.branch-projects{--project-header-control-height:54px}
+  .ui-original.branch-projects .journey-back-label,
+  .ui-original.branch-projects .resume-menu summary,
+  .ui-original.branch-projects .project-mode-switcher{
+    height:var(--project-header-control-height);
+    min-height:var(--project-header-control-height);
+    box-sizing:border-box;
+    border-radius:18px;
+  }
+  .ui-original.branch-projects .project-mode-switcher{top:40px;padding:5px}
+  .ui-original.branch-projects .project-mode-indicator{left:5px;top:5px;height:42px;border-radius:14px}
+  .ui-original.branch-projects .project-mode-switcher button,
+  .ui-original.branch-projects .project-mode-switcher a{min-height:42px;border-radius:14px}
 }
