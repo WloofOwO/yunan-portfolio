@@ -5,7 +5,8 @@ out/
 next-env.d.ts
 .vinext/
 .wrangler/
-build/
+build/*
+!build/sites-vite-plugin.ts
 dist/
 tmp/
 *.log
