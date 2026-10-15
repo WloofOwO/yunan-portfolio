@@ -820,6 +820,7 @@ export function AvatarExperience({uiVariant="original"}:{uiVariant?:"original"|"
         {selectedBranch&&<em className="journey-back-label"><i aria-hidden="true">←</i><span>{locale==="en"?"BACK TO MODULES":"返回模块选择"}</span></em>}
       </button>
       <div className="journey-header-actions">
+        <a className="cases-link" href={assetPath("/cases/index.html")}>{locale==="en"?"Case Studies":"案例"}<span aria-hidden="true">↗</span></a>
         <details className="resume-menu">
           <summary>{locale==="en"?"RESUME DOWNLOAD":"简历下载"}</summary>
           <div className="resume-menu-popover">
