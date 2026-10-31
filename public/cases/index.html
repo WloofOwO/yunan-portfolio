@@ -18,6 +18,7 @@
     @media(prefers-reduced-motion:reduce){.launch{transition:none}.launch:hover{transform:none}}
 
     .studio-case{scroll-margin-top:24px}.studio-case .art{background:#f5f3ea;display:flex;align-items:center;padding:16px}.studio-case .art img{position:static;height:auto;object-fit:contain;border:1px solid rgba(88,103,68,.12);border-radius:8px;box-shadow:0 12px 28px rgba(62,67,48,.09)}.studio-case .tag{background:#e9eddf;color:#586744}.studio-case .launch{background:#64764a}.studio-case .launch:hover{background:#50613a}
+    .business-case-actions{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin-top:auto}.business-case-actions .launch{margin-top:0}.business-demo-link{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;min-height:44px;font-size:13px;color:#536744}.business-demo-link:hover{text-decoration:underline}@media(max-width:660px){.business-case-actions,.business-case-actions .launch{width:100%}}
   </style>
 </head>
 <body>
@@ -29,6 +30,18 @@
     <p class="eyebrow">CASE STUDIES</p>
     <h1>案例</h1>
     <p class="intro">从产品故事到交互体验，看看想法如何成为完整页面。</p>
+    <article class="case studio-case business-case" id="vernal-business" aria-labelledby="business-title">
+      <a class="art" href="./vernal-business/index.html" aria-label="体验 Vernal for Business 企业采购原型"><img src="./vernal-business/assets/scene-team.webp" alt="Vernal 企业办公场景：开放工位与独立会议空间的手绘方案" width="1536" height="1024"></a>
+      <div class="copy">
+        <p class="tag">企业采购体验 · 交互原型</p>
+        <h2 id="business-title">Vernal<br>for Business</h2>
+        <p class="subtitle">从空间需求，到可核对的办公方案。</p>
+        <p class="description">按团队与场景找到起点，规划布局、比较产品，再核对项目清单。通过自动结构演示理解产品，带着已有选择继续配置。</p>
+        <div class="business-case-actions"><a class="launch" href="./vernal-business/index.html">体验企业采购流程 <span aria-hidden="true">↗</span></a><a class="business-demo-link" href="./vernal-business/workspace.html?view=benefits&amp;model=wood">查看产品卖点演示 <span aria-hidden="true">→</span></a></div>
+        <p class="note">可运行原型 · 方案保存在当前浏览器<br>价格为目录快照参考，项目文件本地导出。</p>
+      </div>
+    </article>
+
     <article class="case studio-case" id="vernal-office-studio" aria-labelledby="studio-title">
       <a class="art" href="./vernal-office-studio/index.html?v=13" aria-label="体验 Vernal Office Studio 办公空间规划器"><img src="./vernal-office-studio/cover-v13.png" alt="Vernal Office Studio：办公空间规划、桌椅收纳与配件搭配" width="1440" height="1000"></a>
       <div class="copy">
