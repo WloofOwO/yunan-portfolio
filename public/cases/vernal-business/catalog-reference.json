@@ -1,0 +1,207 @@
+[
+  {
+    "id": "core",
+    "index": 1,
+    "name": "Core3",
+    "kind": "desk",
+    "productUrl": "https://www.vernalspace.com/products/vernal-height-adjustable-standing-desk",
+    "sourceDate": "2026-10-26",
+    "manuals": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/VERNAL_Core3_Standing_Desks_Instruction_Manual.pdf?v=1785320670"
+    ],
+    "defaultVariant": {
+      "id": "43137236992139",
+      "sku": "SDE0197-150x70x2.5LWA&WHL-UA-VN-TMA",
+      "size": "59\"x27.5\"",
+      "w": 149.86,
+      "d": 69.85,
+      "finish": "Light Walnut",
+      "frame": "White",
+      "panel": false,
+      "side": "right",
+      "thickness": 2.54,
+      "min": 60.706,
+      "max": 125.476
+    },
+    "finishes": [
+      "Walnut",
+      "Light Walnut",
+      "White"
+    ],
+    "frames": [
+      "Black",
+      "White"
+    ],
+    "imageAlt": "Core3 / official product reference photograph"
+  },
+  {
+    "id": "coreL",
+    "index": 2,
+    "name": "Core3 L-shaped",
+    "kind": "desk",
+    "productUrl": "https://www.vernalspace.com/products/vernal-l-shaped-standing-desk",
+    "sourceDate": "2026-10-26",
+    "manuals": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/VERNAL_Core3_L-shaped_Standing_Desks_Instruction_Manual_220b6968-b967-4573-89da-1612a2d8894d.pdf?v=1785320763"
+    ],
+    "defaultVariant": {
+      "id": "43148990021771",
+      "sku": "SDE0199-150x150x2.5LWA&WHL-UA-VN-VWB",
+      "size": "59\"x59\"(Right)",
+      "w": 149.86,
+      "d": 149.86,
+      "finish": "Light Walnut",
+      "frame": "White",
+      "panel": false,
+      "side": "right",
+      "thickness": 2.54,
+      "min": 60.706,
+      "max": 125.476
+    },
+    "finishes": [
+      "Walnut",
+      "Light Walnut",
+      "White"
+    ],
+    "frames": [
+      "Black",
+      "White"
+    ],
+    "imageAlt": "Core3 L-shaped / official product reference photograph",
+    "studyImageAlt": "Official Core3 L-shaped frame reference diagram",
+    "studyImageLabel": "Official frame reference diagram"
+  },
+  {
+    "id": "wood",
+    "index": 3,
+    "name": "Core3 Solid Hardwood",
+    "kind": "desk",
+    "productUrl": "https://www.vernalspace.com/products/vernal-solid-wood-standing-desk",
+    "sourceDate": "2026-10-26",
+    "manuals": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/VERNAL_Core_3_Standing_Desks_Instruction_Manual.pdf?v=1768552913"
+    ],
+    "defaultVariant": {
+      "id": "43156548485259",
+      "sku": "SDE0197-150x75x2.8NWA&BLL-UA-VN-TTE",
+      "size": "59\" x 29.5\"",
+      "w": 149.86,
+      "d": 74.93,
+      "finish": "Walnut",
+      "frame": "Black",
+      "panel": false,
+      "side": "right",
+      "thickness": 2.794,
+      "min": 60.706,
+      "max": 125.476
+    },
+    "finishes": [
+      "Cherry",
+      "Maple",
+      "Walnut"
+    ],
+    "frames": [
+      "Black",
+      "White"
+    ],
+    "reports": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/Vernal_Core3_Test_Report_22e6a3bc-c053-4a2e-9503-a49f36e4c3ce.pdf"
+    ],
+    "imageAlt": "Core3 Solid Hardwood / official product reference photograph"
+  },
+  {
+    "id": "executive",
+    "index": 4,
+    "name": "Executive",
+    "kind": "desk",
+    "productUrl": "https://www.vernalspace.com/products/vernal-standard-executive-standing-desk",
+    "sourceDate": "2026-10-26",
+    "manuals": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/Vernal_Executive_Standing_Desk_Instruction_Manual_Standard.pdf?v=1769676828"
+    ],
+    "defaultVariant": {
+      "id": "45157511102603",
+      "sku": "SDE0201-150x70x2.5LWA&WHL-UA-VN-SNU",
+      "size": "59\" x 27.5\"",
+      "w": 149.86,
+      "d": 69.85,
+      "finish": "Light Walnut",
+      "panel": true,
+      "side": "right",
+      "thickness": 2.54,
+      "min": 60.706,
+      "max": 125.476
+    },
+    "finishes": [
+      "Walnut",
+      "Light Walnut"
+    ],
+    "frames": [],
+    "imageAlt": "Executive / official product reference photograph",
+    "defaultConfigurationNote": "Light Walnut / With panel",
+    "dimensionNote": "Confirm lifting-frame finish on the official variant page. The recorded catalogue contains a conflicting generic frame field."
+  },
+  {
+    "id": "executiveL",
+    "index": 5,
+    "name": "L-shaped Executive",
+    "kind": "desk",
+    "productUrl": "https://www.vernalspace.com/products/vernal-executive-standing-desk",
+    "sourceDate": "2026-10-26",
+    "manuals": [
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/L-shaped_Left_Return_English_1.pdf?v=1784024207",
+      "https://cdn.shopify.com/s/files/1/0581/6877/0699/files/L-shaped_Right_Return_English.pdf?v=1784024207"
+    ],
+    "defaultVariant": {
+      "id": "41698616541323",
+      "sku": "SDE0202-180x150x2.5DWA&BLL-UA-VN-MJK",
+      "size": "70.8\" x 59\"(Right)",
+      "w": 179.832,
+      "d": 149.86,
+      "finish": "Walnut",
+      "frame": "Black",
+      "panel": true,
+      "side": "right",
+      "thickness": 2.54,
+      "min": 60.706,
+      "max": 125.476
+    },
+    "finishes": [
+      "Walnut",
+      "Light Walnut"
+    ],
+    "frames": [
+      "Black"
+    ],
+    "imageAlt": "L-shaped Executive / official product reference photograph"
+  },
+  {
+    "id": "arc",
+    "index": 6,
+    "name": "Arc",
+    "kind": "chair",
+    "productUrl": "https://www.vernalspace.com/products/vernal-arc-ergonomic-office-chair",
+    "sourceDate": "2026-10-29",
+    "manuals": [],
+    "defaultVariant": {
+      "id": "48857477480587",
+      "sku": "CHR0020-0B3D-UA-VN-OTO",
+      "w": 70.612,
+      "d": 61.976,
+      "h": 109.474,
+      "finish": "Black 3D Knit Mesh"
+    },
+    "finishes": [
+      "Black 3D Knit Mesh",
+      "Black Mesh",
+      "Khaki Mesh"
+    ],
+    "frames": [],
+    "dimensionNote": "Published maximum overall width and depth; exact fit depends on adjustment. Headrest envelope is illustrative.",
+    "defaultConfigurationNote": "Black 3D Knit Mesh / No Headrest",
+    "fullName": "Vernal Arc Ergonomic Office Chair",
+    "imageAlt": "Arc / official product reference photograph",
+    "studyImageAlt": "Vernal Arc / official rear view photograph",
+    "studyImageLabel": "Rear view / official product photograph"
+  }
+]
