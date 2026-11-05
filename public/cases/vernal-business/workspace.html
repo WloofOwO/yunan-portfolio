@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta name="vernal-case-version" content="workbench-v17"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>VERNAL — Office Studio · For Business</title><meta name="description" content="Plan your office, configure complete Vernal workspaces, and prepare a clear product list."><style>/* Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter) Inter-Italic[opsz,wght].ttf: Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+<html lang="en"><head><meta name="vernal-case-version" content="business-v21"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>VERNAL — Office Studio · For Business</title><meta name="description" content="Plan your office, configure complete Vernal workspaces, and prepare a clear product list."><style>/* Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter) Inter-Italic[opsz,wght].ttf: Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
@@ -2636,6 +2636,291 @@ html body.vernal-v17.vernal-v8.vernal-v13 #tool-products,html body.vernal-v17.ve
  body.vernal-v17 #v17-selection button{padding-inline:3px}
  body.vernal-v17 #v17-selection #v17-configure{min-width:50px}
 }
+</style><style id="vernal-plan-polish">/* Plan-only, static surface treatment. Shared geometry stays cached. */
+.v13-plan .v13-plan-floor{--anatomy-top:#efede7;--anatomy-shade-0:#d8d5ce;--anatomy-shade-1:#dfdcd5;--anatomy-shade-2:#e6e3dc;--anatomy-lo:#c2c1b9}
+.v13-plan .v13-plan-walls .mat-wall{--anatomy-top:#f5f4ef;--anatomy-shade-0:#ddded8;--anatomy-shade-1:#e3e4de;--anatomy-shade-2:#edede7;--anatomy-lo:#c9cbc2;--anatomy-faint:#dedfd8}
+.v13-plan .mat-obstacle{--anatomy-top:#dfddd6;--anatomy-shade-0:#b9b7af;--anatomy-shade-1:#c8c6be;--anatomy-shade-2:#d3d1c9;--anatomy-lo:#b7b5ac}
+.v13-plan .finish-Walnut .mat-wood{--anatomy-top:#ae8d70;--anatomy-shade-0:#725640;--anatomy-shade-1:#88694f;--anatomy-shade-2:#9b7b5e;--anatomy-shade-3:#af8f73;--anatomy-lo:#775d48}
+.v13-plan .finish-Light-Walnut .mat-wood{--anatomy-top:#c3a585;--anatomy-shade-1:#a58768;--anatomy-shade-2:#b79a7b}
+.v13-plan .frame-Black .mat-steel,.v13-plan .mat-graphite{--anatomy-top:#62696b;--anatomy-shade-0:#303638;--anatomy-shade-1:#3e4547;--anatomy-shade-2:#51595b;--anatomy-lo:#303638}
+.v13-plan .iso-edge{stroke-width:.32px;stroke-opacity:.56}
+.v13-plan .iso-crease{stroke-opacity:.28}
+.v13-plan .v20-plan-grain{fill:#523d2b;stroke:none;opacity:.075;pointer-events:none}
+.v13-plan .finish-White .v20-plan-grain{display:none}
+.v13-plan .v20-surface-wash{fill:#fffbef;stroke:none;opacity:.055;pointer-events:none}
+.v13-plan .desktop-edge-light{fill:#fff7e9;opacity:.4}
+.v13-plan .desktop-edge-contact{fill:#47382c;opacity:.24}
+.v13-plan .room-metal-rim{fill:#eef3f3;opacity:.22}
+.v20-desk-ground,.v20-architectural-contact,.v20-obstacle-ground{fill:#444841;stroke:none;pointer-events:none}
+.v20-desk-ground .v20-shadow-outer{opacity:.014}.v20-desk-ground .v20-shadow-mid{opacity:.024}.v20-desk-ground .v20-shadow-inner{opacity:.024}
+.v13-plan .furniture-ambient-shadow{opacity:.025}.v13-plan .furniture-ambient-core{opacity:.035}
+.v13-plan .furniture-contact-shadow{opacity:.105}.v13-plan .furniture-contact-core{opacity:.21}
+.v20-wall-contact{opacity:.07}.v20-wall-soft{opacity:.025}
+.v20-obstacle-contact{opacity:.095}.v20-obstacle-soft{opacity:.035}
+.v13-plan .v20-chair-back .iso-crease{display:none}
+.v13-plan .v20-chair-back .iso-edge{stroke-width:.3px;stroke-opacity:.4}
+body.vernal-v17 .room-stage .scene-object:is(.object-selected,.desk-hovered,:focus-visible,:hover)>.object-footprint{stroke:#798362;stroke-width:1;fill:#7a846008}
+body.vernal-v17 .room-stage .scene-object:is(.desk-hovered,:focus-visible,:hover) .desk-surface-hit{stroke:none}
+body.vernal-v17 .room-stage .scene-object.object-invalid.object-selected>.object-footprint{stroke:#a66e4f;stroke-dasharray:3 3}
+body.vernal-v17 .v20-selection-label rect{fill:#fbfaf6;stroke:#b9bfab;stroke-width:.7}
+body.vernal-v17 .v20-selection-label text{fill:#454d3a;font:500 11px Arial,sans-serif}
+body.vernal-v17 .v20-selection-label line{stroke:#9da78c;stroke-width:.65}
+body.vernal-v17 .v20-selection-label circle{fill:#7b8661;stroke:none}
+body.vernal-v17 .v20-selection-label{pointer-events:none}
+</style><style id="vernal-v20">
+/* V20: restrained, static surface treatment. No raster textures or SVG filters. */
+body.vernal-v20{--v20-paper:#f9f8f5;--v20-surface:#fffefb;--v20-ink:#29302d;--v20-muted:#6a7368;--v20-line:#e1e2d9;--v20-accent:#6c7c46;font-family:"Vernal UI",Arial,sans-serif;color:var(--v20-ink);background:var(--v20-paper)}
+body.vernal-v20 .canvas-layout,body.vernal-v20 .room-stage{background:var(--v20-paper)}
+body.vernal-v20 .canvas-header{background:#fffefb;border-color:var(--v20-line)}
+body.vernal-v20 .personal-preview{background:#f9f8f5}
+body.vernal-v20 .personal-sidebar{background:#fffefb}
+body.vernal-v20 .v13-plan-floor{--anatomy-top:#f0ede6;--anatomy-shade-0:#dad7cf;--anatomy-shade-1:#e4e1d8;--anatomy-shade-2:#eae7df;--anatomy-shade-3:#f0ede6;--anatomy-lo:#c9c9bf}
+body.vernal-v20 .v13-plan-walls .mat-wall{--anatomy-top:#fffef9;--anatomy-shade-0:#e3e4dc;--anatomy-shade-1:#edede6;--anatomy-shade-2:#f8f7f0;--anatomy-shade-3:#fbfaf5;--anatomy-lo:#d0d3c6;--anatomy-faint:#e4e5dd}
+body.vernal-v20 .mat-obstacle{--anatomy-top:#e8e4da;--anatomy-shade-0:#b7b2a7;--anatomy-shade-1:#cac5b9;--anatomy-shade-2:#ddd8ce;--anatomy-shade-3:#e6e2d8;--anatomy-lo:#beb9ae}
+body.vernal-v20 .finish-Walnut .mat-wood{--anatomy-top:#b28660;--anatomy-paper:#9d704c;--anatomy-shade-0:#6e4c33;--anatomy-shade-1:#8c6040;--anatomy-shade-2:#a77852;--anatomy-shade-3:#b88c65;--anatomy-lo:#79573b;--anatomy-faint:#a8815e}
+body.vernal-v20 .finish-Light-Walnut .mat-wood{--anatomy-top:#ceac7f;--anatomy-shade-0:#94724d;--anatomy-shade-1:#ae895f;--anatomy-shade-2:#c09d71;--anatomy-shade-3:#d0ae83;--anatomy-lo:#9a7b55}
+body.vernal-v20 .finish-Maple .mat-wood{--anatomy-top:#e7d7b3;--anatomy-shade-0:#b6a07a;--anatomy-shade-1:#c8b08a;--anatomy-shade-2:#dac49e;--anatomy-shade-3:#e7d7b3;--anatomy-lo:#b09a77}
+body.vernal-v20 .finish-Cherry .mat-wood{--anatomy-top:#c99b75;--anatomy-shade-0:#8e5f41;--anatomy-shade-1:#a67653;--anatomy-shade-2:#bb8b65;--anatomy-shade-3:#c99b75;--anatomy-lo:#986b4c}
+body.vernal-v20 .frame-Black .mat-steel,body.vernal-v20 .mat-graphite{--anatomy-top:#50585a;--anatomy-shade-0:#242b2e;--anatomy-shade-1:#343d40;--anatomy-shade-2:#434d50;--anatomy-shade-3:#535d60;--anatomy-lo:#252e31;--anatomy-faint:#606a6b}
+body.vernal-v20 .frame-White .mat-steel{--anatomy-top:#fafaf5;--anatomy-shade-0:#bdbfb7;--anatomy-shade-1:#d5d6ce;--anatomy-shade-2:#ebebe3;--anatomy-shade-3:#f7f7ef;--anatomy-lo:#a5aaa3;--anatomy-faint:#cbd0c5}
+body.vernal-v20 .v13-plan .iso-edge{stroke-width:.28px;stroke-opacity:.52}
+body.vernal-v20 .v13-plan .iso-crease{stroke-opacity:.24}
+body.vernal-v20 .v13-plan .v20-plan-grain{fill:#513822;opacity:.09}
+body.vernal-v20 .v13-plan .v20-surface-wash{fill:#fff7dd;opacity:.065}
+body.vernal-v20 .v13-plan .desktop-edge-light{opacity:.5}
+body.vernal-v20 .v13-plan .desktop-edge-contact{opacity:.27}
+body.vernal-v20 .v13-plan .room-metal-rim{opacity:.27}
+body.vernal-v20 .v20-desk-ground .v20-shadow-outer{opacity:.016}
+body.vernal-v20 .v20-desk-ground .v20-shadow-mid{opacity:.03}
+body.vernal-v20 .v20-desk-ground .v20-shadow-inner{opacity:.033}
+body.vernal-v20 .v13-plan .furniture-contact-shadow{opacity:.12}
+body.vernal-v20 .v13-plan .furniture-contact-core{opacity:.23}
+body.vernal-v20 #personal-scene .surface-grain{display:initial;opacity:.085}
+body.vernal-v20 #personal-scene .surface-grain-band{display:initial;opacity:.04}
+body.vernal-v20 #personal-scene .wood-grain{opacity:.07}
+body.vernal-v20 #personal-scene .surface-edge-sheen{opacity:.07}
+body.vernal-v20 #personal-scene .metal-face-sheen{opacity:.15}
+body.vernal-v20 #personal-scene .metal-top-sheen{opacity:.24}
+body.vernal-v20 #personal-scene .iso-edge{stroke-opacity:.55;stroke-width:.35px}
+body.vernal-v20 #personal-scene .furniture-contact-core{fill:#29312e;opacity:.23}
+body.vernal-v20 #personal-scene .furniture-ambient-core{fill:#515a54;opacity:.04}
+body.vernal-v20 #personal-scene .furniture-ambient-shadow{opacity:.027}
+@media(prefers-reduced-motion:reduce){body.vernal-v20 *,body.vernal-v20 *::before,body.vernal-v20 *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Explicit Plan-only layout; existing configuration and purchase flows are preserved. */
+html body.vernal-v17.vernal-v20-plan{--v17-library:244px;--v20-right:0px}
+html body.vernal-v17.vernal-v20-plan.v17-library-collapsed{--v17-library:0px}
+html body.vernal-v17.vernal-v20-plan.v20-plan-selected{--v20-right:286px}
+html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan #planner-view .canvas-layout{inset:0 var(--v20-right) 0 var(--v17-library)!important}
+html body.vernal-v17.vernal-v20-plan #product-tray{width:244px;background:#fffefa}
+html body.vernal-v17.vernal-v20-plan #v17-selection{display:none!important}
+html body.vernal-v17.vernal-v20-plan .v17-library-head{padding:16px 18px 5px}
+html body.vernal-v17.vernal-v20-plan .v17-library-head h2{font-size:15px;color:#30382f}
+html body.vernal-v17.vernal-v20-plan #v20-library-tabs{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 18px 12px;border-bottom:1px solid #e4e5dc;flex:none}
+html body.vernal-v17.vernal-v20-plan #v20-library-tabs button{min-height:44px;padding:8px 4px;font-size:12px;border-bottom:2px solid transparent;margin-bottom:-1px;color:#777d70}
+html body.vernal-v17.vernal-v20-plan #v20-library-tabs button[aria-selected=true]{color:#38452c;border-bottom-color:#6c7c48;font-weight:600}
+html body.vernal-v17.vernal-v20-plan .v17-start-actions{grid-template-columns:1fr;margin:0 18px 12px}
+html body.vernal-v17.vernal-v20-plan .v17-start-actions .canvas-tool{min-height:40px;font-size:12px}
+html body.vernal-v17.vernal-v20-plan #v20-products-pane{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+html body.vernal-v17.vernal-v20-plan #v20-products-pane[hidden],html body.vernal-v17.vernal-v20-plan #v20-scenes-pane[hidden]{display:none!important}
+html body.vernal-v17.vernal-v20-plan #v20-products-pane #layouts-toggle{flex:none;border-top:1px solid #e5e6de;margin:0 18px 10px;min-height:40px;font-size:11px;justify-content:center;color:#68715d}
+html body.vernal-v17.vernal-v20-plan #v20-products-pane #layouts-toggle .toolbar-chevron{display:none}
+html body.vernal-v17.vernal-v20-plan #v20-scenes-pane{display:flex;flex-direction:column;min-height:0;flex:1;overflow:auto;padding:0 18px 10px;scrollbar-width:thin;scrollbar-color:#d9ddcf transparent}
+html body.vernal-v17.vernal-v20-plan .v20-scenes-list{display:grid;gap:12px}
+html body.vernal-v17.vernal-v20-plan .v20-scene-card{display:grid;grid-template-columns:1fr auto;text-align:left;border:1px solid #e3e4da;border-radius:5px;overflow:hidden;padding:0 0 10px;background:#fffefa;min-width:0;box-shadow:none;transition:border-color 150ms,background 150ms}
+html body.vernal-v17.vernal-v20-plan .v20-scene-card:hover{border-color:#aab58d;background:#fbfcf6}
+html body.vernal-v17.vernal-v20-plan .v20-scene-card[aria-pressed=true]{border-color:#7d8c57;box-shadow:0 0 0 1px #7d8c57}
+html body.vernal-v17.vernal-v20-plan .v20-scene-image{grid-column:1/-1;display:block;height:91px;background:#f7f6f0;padding:4px 6px;border-bottom:1px solid #eeeede}
+html body.vernal-v17.vernal-v20-plan .v20-scene-image svg{width:100%;height:100%;display:block;fill:initial;stroke:initial}
+html body.vernal-v17.vernal-v20-plan .v20-scene-name{grid-column:1/-1;font-size:12px;font-weight:600;color:#35402e;padding:10px 11px 3px}
+html body.vernal-v17.vernal-v20-plan .v20-scene-meta{grid-column:1/-1;display:flex;justify-content:space-between;gap:7px;font-size:10px;color:#777c70;padding:0 11px;line-height:1.4}
+html body.vernal-v17.vernal-v20-plan .v20-scenes-note{font-size:10px;color:#7c8276;margin:15px 0 3px;line-height:1.5;flex:none}
+html body.vernal-v17.vernal-v20-plan #v20-selection-panel{position:absolute;right:0;top:0;bottom:0;width:var(--v20-right);padding:23px 22px;background:#fffefa;border-left:1px solid #e1e2d8;z-index:23;overflow:auto}
+html body.vernal-v17.vernal-v20-plan #v20-selection-panel[hidden]{display:none!important}
+html body.vernal-v17.vernal-v20-plan .v20-selection-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+html body.vernal-v17.vernal-v20-plan .v20-selection-eyebrow{font-size:10px;color:#7a8171;margin:0 0 8px;letter-spacing:.02em}
+html body.vernal-v17.vernal-v20-plan .v20-selection-heading h2{font:600 18px/1.3 Arial,sans-serif;letter-spacing:-.3px;margin:0;color:#2c3628}
+html body.vernal-v17.vernal-v20-plan #v20-clear{width:36px;min-width:36px;height:36px;display:grid;place-items:center;margin:-6px -8px 0 0;color:#727b66;border-radius:4px}
+html body.vernal-v17.vernal-v20-plan #v20-clear:hover{background:#eff1e8}
+html body.vernal-v17.vernal-v20-plan .v20-selection-model{font-size:13px;color:#606b54;margin:10px 0 15px}
+html body.vernal-v17.vernal-v20-plan .v20-composition{display:flex;gap:12px 10px;flex-wrap:wrap;margin:0 0 22px;color:#66715b}
+html body.vernal-v17.vernal-v20-plan .v20-composition>span{display:flex;align-items:center;gap:5px;font-size:10px;white-space:nowrap}
+html body.vernal-v17.vernal-v20-plan .v20-composition svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+html body.vernal-v17.vernal-v20-plan .v20-configure{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:46px;padding:11px 13px;background:#687b43;border:1px solid #687b43;border-radius:4px;color:white;font-size:12px;font-weight:600}
+html body.vernal-v17.vernal-v20-plan .v20-configure:hover:not(:disabled){background:#536633;border-color:#536633}
+html body.vernal-v17.vernal-v20-plan .v20-configure>span{font-size:19px;font-weight:400}
+html body.vernal-v17.vernal-v20-plan .v20-selection-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-top:20px;border-top:1px solid #e5e6dc;padding-top:12px}
+html body.vernal-v17.vernal-v20-plan .v20-selection-actions>button,html body.vernal-v17.vernal-v20-plan .v20-more>summary{min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:10px;color:#5c6751;border-radius:4px;cursor:pointer;list-style:none}
+html body.vernal-v17.vernal-v20-plan .v20-more>summary::-webkit-details-marker{display:none}
+html body.vernal-v17.vernal-v20-plan .v20-more>summary>span:first-child{height:18px;font-size:25px;line-height:6px;font-weight:600;letter-spacing:1px}
+html body.vernal-v17.vernal-v20-plan .v20-selection-actions>button:hover,html body.vernal-v17.vernal-v20-plan .v20-more>summary:hover{background:#f0f2e9}
+html body.vernal-v17.vernal-v20-plan .v20-more{position:relative}
+html body.vernal-v17.vernal-v20-plan .v20-more>div{position:absolute;right:0;top:calc(100% + 5px);z-index:1;min-width:190px;padding:5px;background:#fffefa;border:1px solid #dedfd6;box-shadow:0 5px 16px #222b1c0d;border-radius:4px}
+html body.vernal-v17.vernal-v20-plan #v20-remove{display:flex;align-items:center;gap:9px;min-height:44px;width:100%;color:#985c42;font-size:12px;padding:8px}
+html body.vernal-v17.vernal-v20-plan .v20-group-hint{font-size:12px;line-height:1.6;color:#717a65;margin:18px 0}
+html body.vernal-v17.vernal-v20-plan .v20-remove-group{min-height:46px;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid #dac8bd;border-radius:4px;color:#8b553d;background:#fff8f3;font-size:12px}
+html body.vernal-v17.vernal-v20-plan .v20-select-all{width:100%;min-height:44px;font-size:11px;color:#647451;margin-top:8px}
+html body.vernal-v17.vernal-v20-plan .scene-object.v20-whole-workspace>.object-footprint{opacity:0!important}
+html body.vernal-v17.vernal-v20-plan .scene-object.v20-whole-workspace:focus-visible{outline:0}
+html body.vernal-v17.vernal-v20-plan .scene-object.v20-whole-workspace:focus-visible .v20-footprint{stroke-width:1.7}
+html body.vernal-v17.vernal-v20-plan .v20-footprint{stroke:#788c50;stroke-width:1.1;fill:#8fa16308;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+html body.vernal-v17.vernal-v20-plan .v20-footprint-chair,html body.vernal-v17.vernal-v20-plan .v20-footprint-storage{stroke:#8d9a73;stroke-width:.8;fill:none}
+html body.vernal-v17.vernal-v20-plan .object-invalid .v20-footprint{stroke:#ae7758;stroke-dasharray:4 3}
+@media(max-width:1200px){
+ html body.vernal-v17.vernal-v20-plan{--v17-library:218px}
+ html body.vernal-v17.vernal-v20-plan.v20-plan-selected{--v20-right:252px}
+ html body.vernal-v17.vernal-v20-plan #product-tray{width:218px}
+ html body.vernal-v17.vernal-v20-plan #v20-selection-panel{padding:21px 18px}
+ html body.vernal-v17.vernal-v20-plan .v20-composition{gap:9px}
+ html body.vernal-v17.vernal-v20-plan #planner-view .canvas-toolbar>.canvas-tool>span{display:none}
+ html body.vernal-v17.vernal-v20-plan #planner-view .canvas-toolbar>.canvas-tool{width:40px;min-width:40px;padding:0!important;justify-content:center}
+}
+@media(max-height:820px) and (min-width:761px){
+ html body.vernal-v17.vernal-v20-plan .v20-scene-image{height:67px}
+ html body.vernal-v17.vernal-v20-plan .v20-scenes-list{gap:9px}
+ html body.vernal-v17.vernal-v20-plan .v20-scene-name{padding-top:8px}
+}
+@media(max-width:760px){
+ html body.vernal-v17.vernal-v20-plan,html body.vernal-v17.vernal-v20-plan.v20-plan-selected{--v17-library:0px;--v20-right:0px}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan #planner-view .canvas-layout{inset:0!important}
+ html body.vernal-v17.vernal-v20-plan #product-tray{width:100%;height:min(650px,80dvh)!important}
+ html body.vernal-v17.vernal-v20-plan .v17-library-head{padding:8px 18px 0}
+ html body.vernal-v17.vernal-v20-plan .v17-start-actions{display:none}
+ html body.vernal-v17.vernal-v20-plan #v20-library-tabs{margin-bottom:10px}
+ html body.vernal-v17.vernal-v20-plan .v20-scenes-list{grid-template-columns:1fr 1fr;gap:12px}
+ html body.vernal-v17.vernal-v20-plan .v20-scene-image{height:95px}
+ html body.vernal-v17.vernal-v20-plan .v20-scene-name{font-size:12px}
+ html body.vernal-v17.vernal-v20-plan .v20-scene-meta{font-size:9px;flex-wrap:wrap}
+ html body.vernal-v17.vernal-v20-plan #v20-selection-panel{left:10px;right:10px;top:auto;bottom:79px;width:auto;height:auto;max-height:250px;padding:12px 14px 10px;border:1px solid #dce0d1;border-radius:5px;box-shadow:0 4px 16px #29371b08;overflow:visible;z-index:24;display:grid;grid-template-columns:1fr auto;gap:0 10px}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-heading{grid-column:1/-1}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-eyebrow{display:none}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-heading h2{font-size:14px;line-height:24px}
+ html body.vernal-v17.vernal-v20-plan #v20-clear{width:44px;min-width:44px;height:44px;margin:-10px -12px -8px 0}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-model{font-size:11px;margin:3px 0 8px;grid-column:1/-1}
+ html body.vernal-v17.vernal-v20-plan .v20-composition{grid-column:1/-1;margin:0 0 9px;gap:12px}
+ html body.vernal-v17.vernal-v20-plan .v20-configure{font-size:11px;min-height:44px;padding:8px 10px}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-actions{margin:0;padding:0;border:0;gap:0;align-self:center}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-actions>button,html body.vernal-v17.vernal-v20-plan .v20-more>summary{min-width:44px;min-height:44px;padding:5px;gap:2px;font-size:9px}
+ html body.vernal-v17.vernal-v20-plan .v20-more>div{top:auto;bottom:calc(100% + 4px)}
+ html body.vernal-v17.vernal-v20-plan .v20-group-hint{grid-column:1/-1;margin:5px 0 8px;font-size:11px}
+ html body.vernal-v17.vernal-v20-plan .v20-select-all{margin:0;font-size:10px;max-width:115px}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan.v20-plan-selected #planner-view .room-stage{bottom:285px!important}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan.v20-plan-selected #planner-view .layout-footer{bottom:253px!important}
+ html body.vernal-v17.vernal-v20-plan #v20-products-pane #layouts-toggle{margin-bottom:5px;min-height:44px}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan[data-v17-tab=planner] #toast{top:160px!important;bottom:auto!important}
+}
+
+/* Configure: one solid workspace and short, discoverable benefit controls. */
+.v20-inline-benefits #details-view.personal-active{background:#faf9f6}
+.v20-inline-benefits .personal-workspace{grid-template-columns:minmax(0,1fr) minmax(350px,30%);max-width:none;min-height:0;flex:1;height:100%}
+.v20-inline-benefits .personal-sidebar{display:flex;flex-direction:column;min-height:0;padding:0 24px 16px;background:#fffefd;border-left:1px solid #e4e2da}
+.v20-inline-benefits #personal-sections{min-height:0;overflow:auto;flex:1;scrollbar-width:thin;scrollbar-color:#d1d2c8 transparent;padding-right:3px}
+.v20-inline-benefits .personal-section-body{gap:15px;padding:20px 0}
+.v20-inline-benefits .personal-category-nav{padding:0;flex:none;gap:8px}
+.v20-inline-benefits .personal-category-nav button{min-height:56px;font-size:13px;flex-direction:row;padding:8px 0;gap:6px;background:none;border-radius:0}
+.v20-inline-benefits .personal-category-nav button[aria-selected=true]{color:#34432a;border-bottom-color:#71844b;background:none;font-weight:600}
+.v20-inline-benefits .personal-category-nav .personal-icon{display:none}
+.v20-inline-benefits .personal-product-heading h2{font-size:24px;letter-spacing:-.55px;color:#28312c}
+.v20-inline-benefits .personal-product-heading p{display:none}
+.v20-inline-benefits .personal-text-action{font-size:12px;color:#536a37;min-height:32px}
+.v20-inline-benefits .personal-preview{padding:12px 24px 20px;min-height:0;overflow:hidden}
+.v20-inline-benefits .personal-scene{min-height:250px}
+.v20-inline-benefits .personal-svg-host>svg{overflow:hidden}
+.v20-inline-benefits .personal-review-bar{flex:none;border-top:1px solid #e4e2da;background:#fffefd;padding-top:12px}
+.v20-inline-benefits .personal-item-counts{display:none}
+.v20-inline-benefits .personal-price-row{padding-bottom:10px}
+.v20-inline-benefits .personal-price strong{font-size:22px;font-family:inherit;letter-spacing:-.6px}
+.v20-inline-benefits #personal-price-info{font-size:11px}
+.v20-inline-benefits .personal-price small{font-size:10px}
+.v20-inline-benefits #personal-review{min-height:45px;font-size:14px;border-radius:5px;background:#647b3e;color:white}
+.v20-inline-benefits .personal-height-control{padding:14px 0;border-top:1px solid #e4e2da;border-bottom:1px solid #e4e2da;gap:5px}
+.v20-inline-benefits .personal-height-heading{font-size:12px}
+.v20-inline-benefits .personal-height-control input[type=range]{min-height:26px;height:26px}
+.v20-inline-benefits .personal-height-presets{max-width:250px;align-self:center;width:100%}
+.v20-inline-benefits .personal-height-presets button{min-height:36px;font-size:12px}
+.v20-height-clearance{font-size:11px;line-height:1.5;color:#786448;margin:5px 0 0}
+.v20-inline-benefits .personal-desktop-swatches .personal-choice.has-swatch{min-height:46px}
+.v20-inline-benefits .personal-desktop-swatches .personal-swatch{height:38px}
+.v20-inline-benefits .personal-choice-field legend{font-size:12px;margin-bottom:7px}
+.v20-inline-benefits .personal-section-body select{min-height:40px;font-size:12px;background:#fffefd}
+.v20-inline-benefits .personal-section-body label{font-size:12px;gap:6px}
+.v20-benefits{padding:0 0 2px;flex:none}
+.v20-benefits-label{font-size:11px;color:#7a8078;margin:0 0 8px;line-height:1.4}
+.v20-benefit-list{display:flex;flex-direction:column;gap:3px}
+.v20-benefit-list>button{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;min-height:43px;padding:10px 10px 10px 9px;border-left:3px solid transparent;border-radius:4px;color:#303a31;background:transparent}
+.v20-benefit-list>button>svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.3;margin-top:1px}
+.v20-benefit-list>button>span{min-width:0;display:block}
+.v20-benefit-list strong{font-size:14px;line-height:1.5;font-weight:500;display:block}
+.v20-benefit-list small{font-size:12px;line-height:1.6;color:#646d60;display:block;margin-top:3px}
+.v20-benefit-list>button[aria-pressed=true]{background:#eff1e7;border-left-color:#6d8244;color:#334529}
+.v20-benefit-list>button[aria-pressed=true] strong{font-weight:600}
+.v20-benefit-list>button:hover{background:#f4f5ee}
+.v20-return-preview{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:9px 12px 0;font-size:11px;color:#65715b}
+.v20-return-preview>div{display:flex;gap:3px}
+.v20-return-preview button{min-height:32px;padding:6px 10px;border:1px solid #d9decd;border-radius:4px;font-size:11px}
+.v20-return-preview button[aria-pressed=true]{background:#eef1e5;border-color:#83965d;color:#3c512c}
+.v20-return-preview [data-v20-return-apply]{background:#657b3f;border-color:#657b3f;color:white;margin-left:auto}
+.v20-inline-benefits .personal-scene-footer{min-height:44px;gap:10px}
+.v20-inline-benefits .personal-position-wrap>button{font-size:11px;min-height:38px;padding:8px 11px;background:#fffdf9;border-color:#dedfd6}
+.v20-canvas-playback{display:flex;align-items:center;border:1px solid #dcdfd3;background:#fffefb;border-radius:20px;max-width:75%;overflow:hidden}
+.v20-canvas-playback button{min-height:38px;display:flex;gap:8px;align-items:center;padding:7px 12px;font-size:11px;color:#526143;white-space:nowrap}
+.v20-canvas-playback button:first-child{overflow:hidden}
+.v20-canvas-playback button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v20-canvas-playback .personal-icon{width:17px;height:17px}
+.v20-canvas-playback button:last-child{border-left:1px solid #e1e3da;padding-inline:10px}
+.v20-workspace-figure [data-v20-part]{transition:filter .2s ease}
+.v20-workspace-figure .v20-benefit-focus .iso-edge{stroke:#84965b!important;stroke-width:.9!important}
+.v20-workspace-figure .v20-benefit-focus .iso-top{stroke:#84965b;stroke-width:.25}
+.v20-workspace-figure .v20-underside-face{fill:var(--anatomy-shade-1,#444b4d);stroke:var(--anatomy-lo,#43494a);stroke-width:.35;stroke-linejoin:round}
+.v20-workspace-figure[data-view=structure]>g.v20-model-parts>[data-workspace-part=chair],.v20-workspace-figure[data-view=structure]>g.v20-model-parts>[data-workspace-part=storage],.v20-workspace-figure[data-view=structure]>.furniture-ground-shadow{visibility:hidden}
+.v20-inline-benefits .personal-scene-footer:has(.v20-canvas-playback:not([hidden])){justify-content:center}
+.v20-inline-benefits .personal-section-body select,.v20-inline-benefits .personal-section-body label,.v20-inline-benefits .personal-height-heading,.v20-inline-benefits .personal-height-presets button,.v20-inline-benefits .personal-text-action{font-size:13px}
+.v20-inline-benefits #personal-scene [data-v13-tone]{opacity:1!important;mask:none!important}
+.v20-inline-benefits #personal-scene .workspace-part-active .iso-edge{stroke-width:.35px!important;stroke:var(--anatomy-lo)!important}
+@media(min-width:761px){.v20-inline-benefits #details-view.personal-active{overflow:hidden;min-height:0;display:flex;flex-direction:column}.v20-inline-benefits .product-experience-header{flex:none}.v20-inline-benefits .personal-workspace{overflow:hidden}}
+@media(min-width:761px) and (max-height:760px){.v20-inline-benefits .personal-sidebar{padding:0 17px 10px}.v20-inline-benefits .personal-section-body{gap:12px;padding-top:14px}.v20-inline-benefits .personal-category-nav button{min-height:46px}.v20-benefit-list>button{min-height:39px;padding-block:8px}.v20-inline-benefits .personal-review-bar{padding-top:8px}.v20-inline-benefits .personal-height-control{padding-block:10px}}
+@media(max-width:1100px) and (min-width:761px){.v20-inline-benefits .personal-workspace{grid-template-columns:minmax(0,1fr) 350px}.v20-inline-benefits .personal-sidebar{padding-inline:18px}.v20-inline-benefits .personal-preview{padding-inline:12px}}
+@media(max-width:760px){.v20-inline-benefits #details-view.personal-active{height:100%;overflow:auto;display:block}.v20-inline-benefits .personal-workspace{height:auto;display:flex;overflow:visible;flex-direction:column}.v20-inline-benefits .personal-preview{height:350px;min-height:350px;padding:4px 16px 12px}.v20-inline-benefits .personal-sidebar{display:block;padding:0 20px 22px;border-left:0}.v20-inline-benefits #personal-sections{overflow:visible}.v20-inline-benefits .personal-category-nav button{min-height:52px}.v20-benefit-list>button{min-height:46px}.v20-inline-benefits .personal-review-bar{position:relative}.v20-inline-benefits .personal-height-presets button{min-height:44px}.v20-inline-benefits .personal-section-body select{min-height:44px}.v20-canvas-playback{max-width:72%}.v20-canvas-playback button{font-size:10px;padding-inline:9px}}
+@media(prefers-reduced-motion:reduce){.v20-workspace-figure [data-v20-part]{transition:none}}
+
+/* Story controls are held outside the drawing; objects stay opaque. */
+.vernal-v21 .v20-benefit-list>button{border:1px solid #e6e8df;border-radius:6px;margin-bottom:5px;padding:12px;background:#fffefa}
+.vernal-v21 .v20-benefit-list>button:hover{background:#f5f6ef;border-color:#c8d0b7}
+.vernal-v21 .v20-benefit-list>button[aria-pressed=true]{background:#eff3e6;border-color:#91a367}
+.vernal-v21 .v20-benefit-list>button>svg{width:22px;height:22px;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-right:2px}
+.vernal-v21 .v20-benefits-label{letter-spacing:.04em;font-size:11px;color:#66715f;margin-bottom:9px}
+.vernal-v21 .v20-benefit-list strong{font-weight:550;font-size:14px}
+.vernal-v21 .personal-preview{position:relative}
+.v21-story-caption{flex:none;max-width:760px;width:100%;align-self:center;padding:10px 14px 12px;margin:0 auto 6px;color:#29332e}
+.v21-story-heading{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.13em;color:#69765c;margin-bottom:6px}
+.v21-story-caption h3{font-size:22px;line-height:1.25;font-weight:550;letter-spacing:-.5px;margin:0 0 12px}
+.v21-story-steps{display:flex;gap:8px;margin-bottom:9px}
+.v21-story-steps button{display:flex;align-items:center;gap:7px;min-height:34px;font-size:12px;color:#77806f;padding:5px 10px;border:1px solid #dfe3d6;border-radius:4px;background:#fffefb;white-space:nowrap}
+.v21-story-steps button span{font-size:10px;color:#8c957e}
+.v21-story-steps button[aria-pressed=true]{background:#eaf0de;border-color:#94a773;color:#34482b}
+.v21-story-steps button[aria-pressed=true] span{color:#61793d}
+.v21-story-steps button.is-complete{border-color:#c3cdb1}
+.v21-story-caption p{font-size:12px;line-height:1.5;color:#66705e;margin:0;min-height:18px}
+.v21-story-progress{height:2px;margin-top:11px;background:#e4e7dc;overflow:hidden}
+.v21-story-progress i{display:block;width:100%;height:100%;background:#839559;transform:scaleX(0);transform-origin:left}
+.vernal-v21 .personal-preview.v21-story-active .personal-scene{min-height:200px;flex:1}
+.vernal-v21 .v20-canvas-playback{max-width:100%;border-radius:5px;background:#fffefa}
+.vernal-v21 .v20-canvas-playback button{min-height:40px;font-size:12px;padding:8px 16px}
+.vernal-v21 .v20-canvas-playback button:last-child{padding-inline:16px}
+.vernal-v21 [data-v21-context]{pointer-events:none}
+.vernal-v21 .v20-benefit-focus .iso-edge{stroke:#6f8751!important;stroke-width:.65!important}
+@media(max-width:760px){
+ .vernal-v21 .personal-preview.v21-story-active{height:480px;min-height:480px;padding:4px 10px 10px}
+ .v21-story-caption{padding:10px 8px 8px;margin-bottom:0;scroll-margin-top:64px}
+ .v21-story-caption h3{font-size:18px;margin-bottom:10px}
+ .v21-story-steps{gap:4px}
+ .v21-story-steps button{font-size:10px;padding:5px 6px;gap:4px;min-height:38px;flex:1;justify-content:center;white-space:normal}
+ .v21-story-caption p{font-size:11px;min-height:32px}
+ .vernal-v21 .v20-canvas-playback button{min-height:40px;font-size:11px}
+}
+@media(max-height:800px) and (min-width:761px){.v21-story-caption{padding-top:0}.v21-story-caption h3{font-size:19px;margin-bottom:8px}.v21-story-steps{margin-bottom:6px}.v21-story-progress{margin-top:7px}}
+
 </style></head>
 <body>
 <header class="app-header canvas-header"><a class="brand" href="#" aria-label="Vernal Office Studio">VERNAL <span>FOR BUSINESS</span></a><nav class="workspace-tabs" role="tablist" aria-label="Workspace"><button role="tab" id="tab-planner" data-workspace-tab="planner" aria-controls="planner-view" aria-selected="true">Space Planner</button><button role="tab" id="tab-details" data-workspace-tab="details" aria-controls="details-view" aria-selected="false">Workspace</button><button role="tab" id="tab-compare" data-workspace-tab="compare" aria-controls="compare-view" aria-selected="false">Compare</button></nav><label class="project-title"><span class="sr-only">Project name</span><input id="project-title" maxlength="60" value="My office" aria-label="Project name"></label><div class="header-actions"><span class="save-status" id="save-status"><i></i> Saved</span><button id="project-menu-toggle" class="project-menu-toggle" aria-label="Project menu" aria-haspopup="menu" aria-expanded="false" aria-controls="project-menu">···</button><button id="workspace-project-link" class="workspace-project-link" aria-label="View project items"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6V3Zm8 0v5h4M9 12h6m-6 4h6"/></svg><span id="workspace-project-label">Project</span></button><button id="project-request-quote" class="primary-button">Request quote</button></div><div id="project-menu" class="clean-popover project-menu" data-clean-popover role="menu" hidden><button id="project-save" role="menuitem">Save locally</button><button id="project-share" role="menuitem">Share summary</button><button id="project-export" role="menuitem">Export project</button><button id="project-restore" role="menuitem">Restore project file</button><div class="menu-divider"></div><button id="undo" role="menuitem" aria-label="Undo">Undo <span>Ctrl Z</span></button><button id="redo" role="menuitem" aria-label="Redo">Redo <span>Ctrl Shift Z</span></button><button id="help" role="menuitem">Help &amp; shortcuts</button><button id="save-plan" hidden>Save plan</button></div></header>
@@ -10963,6 +11248,94 @@ function bindUI(){
  $('#layout-issues').onclick=()=>{const issues=layoutIssues(state);showModal('LAYOUT REVIEW',`<h2 class="modal-title">A little room to adjust.</h2><p class="modal-intro">The room size changed. Move highlighted desks or elements, or expand the room.</p><ul class="source-list">${issues.map(i=>{const item=i.type==='desk'?state.desks.find(d=>d.id===i.id):state.obstacles.find(o=>o.id===i.id);return `<li>${esc(i.type==='desk'?item.label:OBSTACLE_NAMES[item.kind])}: ${esc(i.messages.join('; '))}</li>`;}).join('')}</ul>`);};
  document.addEventListener('keydown',handleKeyboard);document.addEventListener('visibilitychange',()=>{visible=document.visibilityState==='visible';if(!visible&&frame){cancelAnimationFrame(frame);frame=0;}if(visible)startAnimation();});reduced.addEventListener('change',()=>startAnimation());bindCanvasUI();if(typeof bindProfessionalUI==='function')bindProfessionalUI();bindWorkspaceUI();
 }
+/* BEGIN PLAN POLISH */
+// Static Plan refinement; no frame loop, textures, filters or pricing changes.
+// All new surface marks are part of the same reusable desk prototype.
+function v20PlanPartMarkup(item,P){
+ const o=item.part;
+ let markup=item.context?(o.furniture?furniturePartMarkup(o,P,{detail:false}):o.kind!=='box'?partMarkup(o,P):floorPartMarkup(item,P)):floorPartMarkup(item,P);
+ // Keep one compound grain path per board, rather than a DOM node per fibre.
+ if(o.kind==='box'&&o.material==='wood'&&o.h<5&&o.w>15&&o.d>15){
+  const details=surfaceDetails(o,P,{lite:true});
+  const grain=[...details.matchAll(/class="surface-grain [^"]*" d="([^"]+)"/g)].map(m=>m[1]).join('');
+  const wash=details.match(/class="surface-edge-sheen" d="([^"]+)"/);
+  markup=markup.replace(/<path\b[^>]*class="surface-grain [^"]*"[^>]*\/>/g,'');
+  const at=markup.lastIndexOf('</g>');
+  const detail='<path class="v20-plan-grain" d="'+grain+'"/>'+(wash?'<path class="v20-surface-wash" d="'+wash[1]+'"/>':'');
+  if(at>=0)markup=markup.slice(0,at)+detail+markup.slice(at);
+ }
+ return item.context?'<g data-decor="context">'+markup+'</g>':markup;
+}
+function v20GroundSilhouette(poly,P,scale,offset=0){
+ const center=poly.reduce((a,p)=>[a[0]+p[0]/poly.length,a[1]+p[1]/poly.length],[0,0]);
+ return facePath(poly.map(p=>[center[0]+(p[0]-center[0])*scale+offset,center[1]+(p[1]-center[1])*scale+offset,.01]),P,true);
+}
+function v20DeskGround(d,P){
+ const poly=footprint(d);
+ return '<g class="v20-desk-ground" aria-hidden="true">'+[[1.05,2.5,'outer'],[1,1.5,'mid'],[.94,.8,'inner']].map(([scale,offset,cls])=>'<path class="v20-shadow-'+cls+'" d="'+v20GroundSilhouette(poly,P,scale,offset)+'"/>').join('')+'</g>';
+}
+v13PlanDeskMarkup=function(d,P=V13_PLAN_PROJECTION){
+ const local={...d,x:0,y:0},key=JSON.stringify([v13PlanProfileKey(local,P),P.origin,P.scale]);
+ if(V13_PLAN_MARKUP.has(key))return V13_PLAN_MARKUP.get(key);
+ const f=v13PlanFigure(local,P),L=f.P;
+ const parts=[...f.R.items].sort((a,b)=>a.key-b.key).map(item=>v20PlanPartMarkup(item,L)).join('');
+ const plain=parts.replace(/<path\b[^>]*class="(?:[^\"]*\s)?(?:surface-grain|wood-grain|furniture-mesh-warp|furniture-mesh-weft|furniture-seat-weave)[^\"]*"[^>]*\/>/g,'');
+ // Keep the style scope inside the <use> shadow tree as well as the export.
+ const markup='<g class="v13-plan">'+v20DeskGround(local,P)+furnitureShadowMarkup(local,P,[...f.data.parts,...f.props])+'<g class="'+materialClass(variantOf(local))+'">'+plain+'</g>'+deskSurfaceHitMarkup({...local,id:''},L)+'</g>';
+ return v13Remember(V13_PLAN_MARKUP,key,markup);
+};
+// Warm wall bases and corners: physical, floor-plane strips, with a doorway gap.
+const v20BaseArchitecture=v13RoomArchitecture;
+v13RoomArchitecture=function(project,P){
+ const r=project.room,opening=Math.min(84,r.w*.2),start=Math.min(r.w-opening-28,Math.max(36,r.w*.72));
+ const strip=(x,y,w,d)=>facePath([[x,y,.012],[x+w,y,.012],[x+w,y+d,.012],[x,y+d,.012]],P,true);
+ const paths=(depth)=>strip(r.x,r.y,depth,r.d)+strip(r.x,r.y,start,depth)+strip(r.x+start+opening,r.y,r.w-start-opening,depth);
+ const contact='<g class="v20-architectural-contact"><path class="v20-wall-soft" d="'+paths(8)+'"/><path class="v20-wall-contact" d="'+paths(1.8)+'"/></g>';
+ return v20BaseArchitecture(project,P).replace('<g class="v13-plan-walls">',contact+'<g class="v13-plan-walls">');
+};
+const v20BaseObstacle=obstacleMarkup;
+obstacleMarkup=function(o,P){
+ const poly=obstacleFootprint(o);
+ return '<g class="v20-obstacle-ground" aria-hidden="true"><path class="v20-obstacle-soft" d="'+v20GroundSilhouette(poly,P,1.12,1.5)+'"/><path class="v20-obstacle-contact" d="'+v20GroundSilhouette(poly,P,1.035,.5)+'"/></g>'+v20BaseObstacle(o,P);
+};
+// Rounded back silhouette for the generic existing chair, retaining its size.
+// Record the same prism we draw, so rotated occlusion remains geometrical.
+const v20BaseDeskProps=deskProps;
+deskProps=function(d,options={}){
+ const parts=v20BaseDeskProps(d,options);
+ for(let i=0;i<parts.length;i++){
+  const o=parts[i];if(!['chair-shell','woven-back'].includes(o.surface))continue;
+  const radius=Math.min(o.w*.12,o.h*.14),polygon=[];
+  for(const [cx,cy,start] of [[radius,radius,Math.PI],[o.w-radius,radius,Math.PI*1.5],[o.w-radius,o.h-radius,0],[radius,o.h-radius,Math.PI*.5]])for(let j=0;j<=3;j++){const a=start+j*Math.PI/6;polygon.push([cx+Math.cos(a)*radius,cy+Math.sin(a)*radius]);}
+  Object.assign(o,{kind:'prism',furniture:true,id:'existing-chair-back-'+i,F:{o:[o.x,o.y+o.d,o.z],a:[0,-1,0],u:[1,0,0],v:[0,0,1]},polygon,s0:0,s1:o.d,material:o.surface==='woven-back'?'mesh':'graphite'});
+ }
+ return parts;
+};
+// The selected footprint is already drawn in the object's ground layer.
+// Repeating it in room-handles used to paint a line across chairs and legs.
+deskSelectionOutlines=function(){return '';};
+cleanSelectionLabels=function(){
+ if(activeTab!=='planner'||!roomP||resizingRoom||drag||selectedDeskIds.size>1)return '';
+ const d=state.desks.find(d=>selectedDeskIds.has(d.id))||state.desks.find(d=>d.id===hoveredDeskId);if(!d)return '';
+ const scale=$('#room-svg').getScreenCTM()?.a||1,label=workspaceLabel(d),width=Math.max(91,label.length*6.5+22)/scale,height=27/scale;
+ const hullFor=desk=>occupiedFootprints(desk).flatMap(poly=>poly.flatMap(([x,y])=>[0,Math.max(110,desk.height+46)].map(z=>k.iso([x,y,z],roomP))));
+ const points=hullFor(d),xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
+ const box={left:Math.min(...xs),right:Math.max(...xs),top:Math.min(...ys),bottom:Math.max(...ys)};
+ const gap=12/scale,candidates=[{x:box.right+gap,y:(box.top+box.bottom-height)/2},{x:box.left-gap-width,y:(box.top+box.bottom-height)/2},{x:(box.left+box.right-width)/2,y:box.top-gap-height},{x:(box.left+box.right-width)/2,y:box.bottom+gap}];
+ const occupied=state.desks.filter(other=>other.id!==d.id).map(hullFor).concat(state.obstacles.map(o=>obstacleFootprint(o).flatMap(([x,y])=>[0,o.h].map(z=>k.iso([x,y,z],roomP)))));
+ const bounds=occupied.map(p=>({l:Math.min(...p.map(p=>p[0])),r:Math.max(...p.map(p=>p[0])),t:Math.min(...p.map(p=>p[1])),b:Math.max(...p.map(p=>p[1]))}));
+ const overlap=(c,b)=>Math.max(0,Math.min(c.x+width,b.r)-Math.max(c.x,b.l))*Math.max(0,Math.min(c.y+height,b.b)-Math.max(c.y,b.t));
+ const view=$('#room-svg').viewBox.baseVal;
+ for(const c of candidates){c.cost=bounds.reduce((n,b)=>n+overlap(c,b),0)+(c.x<10||c.x+width>view.width-10||c.y<10||c.y+height>view.height-10?1e8:0);}
+ candidates.sort((a,b)=>a.cost-b.cost);const chosen=candidates[0];
+ // In a dense cluster, the persistent selection action bar provides the name.
+ if(chosen.cost>width*height*.12)return '';
+ const cx=chosen.x+width/2,cy=chosen.y+height/2,anchor=[clamp(cx,box.left,box.right),clamp(cy,box.top,box.bottom)];
+ return '<g class="v20-selection-label" aria-hidden="true"><line x1="'+anchor[0]+'" y1="'+anchor[1]+'" x2="'+cx+'" y2="'+cy+'"/><circle cx="'+anchor[0]+'" cy="'+anchor[1]+'" r="'+1.8/scale+'"/><g transform="translate('+chosen.x+' '+chosen.y+') scale('+1/scale+')"><rect width="'+width*scale+'" height="27" rx="4"/><text x="'+width*scale/2+'" y="17" text-anchor="middle">'+esc(label)+'</text></g></g>';
+};
+
+v13InstallPlanSeeds([{"signature":"[\"core\",139.954,74.93,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},48,34,[[\"chair\",\"own\",42.977000000000004,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":11.165195354825466,"feet.pad.stem.0.-1":11.52867074208145,"feet.pad.0.1":48.80120562566424,"feet.pad.stem.0.1":49.16468101292022,"feet.rail.0":48.82120562566424,"feet.endcap.0.3":10.02883077315894,"feet.endcap.0.71.088":51.97750591919204,"legs.column.0.0":48.841205625664244,"legs.column.0.1":52.58607890950994,"legs.column.0.2":55.59285915147214,"motor.housing.0":58.52268257048005,"motor.leg.mount.0":63.43174746376685,"frame.support.0":69.2513820296816,"feet.pad.1.-1":75.48886955149062,"feet.pad.stem.1.-1":75.85234493874661,"feet.pad.1.1":113.12487982232939,"feet.pad.stem.1.1":113.48835520958538,"feet.rail.1":113.50835520958537,"feet.endcap.1.3":74.3525049698241,"feet.endcap.1.71.088":116.3011801158572,"legs.column.1.0":113.52835520958537,"legs.column.1.1":116.9097531061751,"legs.column.1.2":119.9165333481373,"motor.housing.1":122.84635676714522,"motor.leg.mount.1":127.75542166043199,"frame.support.1":133.57505622634676,"frame.rail.left.0":72.57854452641698,"frame.rail.right.0":100.30250631580532,"frame.rail.left.1":83.66825420548813,"frame.rail.right.1":111.39221599487647,"frame.frame.end.0.4":55.36809846630539,"frame.frame.end.0.18.5":63.411747463766844,"frame.frame.end.1.119.95400000000001":119.69177266297055,"frame.frame.end.1.134.454":127.735421660432,"motor.control.box":100.32250631580531,"frame.cable.cover":100.31836222215424,"top.main":152.75506517130566,"keypad.body":152.73506517130565,"keypad.screen":152.75506517130566,"context.0":131.98924855968409,"context.existing-chair-back-1":154.2059142294703,"context.existing-chair-back-2":152.6325183151766,"context.3":121.53804331819556,"context.4":120.16811081003863,"context.5":102.63356179273487,"context.6":121.51804331819557,"context.7":95.73979661084527,"context.8":120.14811081003863,"context.9":94.38986410268835,"context.10":121.49804331819557,"context.11":120.81543945214146,"context.12":127.50221719620447,"context.13":145.77848806495285,"context.14":152.46526580901588,"context.15":152.77506517130567,"context.16":152.79506517130568,"context.17":152.8150651713057,"context.18":152.77506517130567,"context.19":152.77506517130567,"context.20":152.77506517130567}},{"signature":"[\"core\",139.954,74.93,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-42,34,[[\"chair\",\"own\",42.977000000000004,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":3.705716406935973,"feet.pad.stem.0.-1":4.069191794191958,"feet.pad.0.1":-30.181899452162302,"feet.pad.stem.0.1":-29.818424064906313,"feet.rail.0":4.089191794191958,"feet.endcap.0.3":6.667254710529725,"feet.endcap.0.71.088":-31.103502043894768,"legs.column.0.0":10.614303875316251,"legs.column.0.1":26.393329629002054,"legs.column.0.2":29.400109870964254,"motor.housing.0":31.74451859207784,"motor.leg.mount.0":33.41986805756372,"frame.support.0":33.43986805756372,"feet.pad.1.-1":75.14439396954793,"feet.pad.stem.1.-1":75.50786935680392,"feet.pad.1.1":41.256778110449666,"feet.pad.stem.1.1":41.62025349770565,"feet.rail.1":75.52786935680392,"feet.endcap.1.3":78.10593227314168,"feet.endcap.1.71.088":40.33517551871719,"legs.column.1.0":82.05298143792821,"legs.column.1.1":97.83200719161401,"legs.column.1.2":100.83878743357621,"motor.housing.1":103.1831961546898,"motor.leg.mount.1":104.85854562017568,"frame.support.1":104.87854562017567,"frame.rail.left.0":57.48391617896818,"frame.rail.right.0":88.27449510290921,"frame.rail.left.1":58.384429594107026,"frame.rail.right.1":78.28927565778466,"frame.frame.end.0.4":27.559655668002584,"frame.frame.end.0.18.5":36.49303290947656,"frame.frame.end.1.119.95400000000001":98.99833323061455,"frame.frame.end.1.134.454":107.93171047208853,"motor.control.box":69.47249333602579,"frame.cable.cover":58.36442959410702,"top.main":107.95171047208852,"keypad.body":72.07537593483525,"keypad.screen":67.24177038542189,"context.0":7.573801586242251,"context.existing-chair-back-1":9.886367527621417,"context.existing-chair-back-2":10.771713344483913,"context.3":-2.8574036552462485,"context.4":-2.8974036552462485,"context.5":-2.8774036552462485,"context.6":-21.03021821593775,"context.7":-30.02558287075348,"context.8":-2.9174036552462486,"context.9":-4.267336163403188,"context.10":-28.67565036259655,"context.11":2.629770758892626,"context.12":4.047816221906711,"context.13":30.35404495657048,"context.14":31.772090419584565,"context.15":107.97171047208852,"context.16":107.99171047208851,"context.17":108.01171047208851,"context.18":107.99171047208851,"context.19":107.97171047208852,"context.20":107.97171047208852}},{"signature":"[\"core\",139.954,74.93,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-132,34,[[\"chair\",\"own\",42.977000000000004,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-10.773760322395942,"feet.pad.stem.0.-1":-10.410284935139957,"feet.pad.0.1":-48.40977059323471,"feet.pad.stem.0.1":-48.04629520597873,"feet.rail.0":-10.390284935139958,"feet.endcap.0.3":-7.5974600288681335,"feet.endcap.0.71.088":-49.54613517490124,"legs.column.0.0":-4.846941950857074,"legs.column.0.1":10.932083802828728,"legs.column.0.2":13.938864044790929,"motor.housing.0":16.25259248162822,"motor.leg.mount.0":20.545562392744383,"frame.support.0":20.565562392744383,"feet.pad.1.-1":-75.09743451906111,"feet.pad.stem.1.-1":-74.73395913180512,"feet.pad.1.1":-112.73344478989988,"feet.pad.stem.1.1":-112.36996940264389,"feet.rail.1":-74.71395913180513,"feet.endcap.1.3":-71.9211342255333,"feet.endcap.1.71.088":-113.8698093715664,"legs.column.1.0":-69.17061614752224,"legs.column.1.1":-53.39159039383644,"legs.column.1.2":-50.384810151874234,"motor.housing.1":-48.071081715036954,"motor.leg.mount.1":-43.778111803920766,"frame.support.1":-43.75811180392076,"frame.rail.left.0":3.874309236103535,"frame.rail.right.0":-23.8496525532848,"frame.rail.left.1":-7.215400442967606,"frame.rail.right.1":-25.97044149282257,"frame.frame.end.0.4":20.525562392744384,"frame.frame.end.0.18.5":12.481913395282934,"frame.frame.end.1.119.95400000000001":-43.79811180392077,"frame.frame.end.1.134.454":-51.84176080138223,"motor.control.box":-13.839248085509801,"frame.cable.cover":-25.99044149282257,"top.main":20.585562392744382,"keypad.body":-72.69116652925162,"keypad.screen":-72.71116652925161,"context.0":-81.10269434384611,"context.existing-chair-back-1":-79.83325806786094,"context.existing-chair-back-2":-78.81905505703801,"context.3":-91.55389958533463,"context.4":-92.92383209349155,"context.5":-91.57389958533463,"context.6":-110.45838111079533,"context.7":-92.94383209349155,"context.8":-117.3521462926849,"context.9":-91.59389958533463,"context.10":-118.70207880084185,"context.11":-59.30422007035931,"context.12":-58.16229716583186,"context.13":-84.2672686831707,"context.14":-83.12534577864325,"context.15":20.605562392744382,"context.16":20.62556239274438,"context.17":20.64556239274438,"context.18":20.62556239274438,"context.19":20.605562392744382,"context.20":20.605562392744382}},{"signature":"[\"core\",139.954,74.93,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-222,34,[[\"chair\",\"own\",42.977000000000004,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-3.3142813745064506,"feet.pad.stem.0.-1":-2.950805987250465,"feet.pad.0.1":30.573334484591822,"feet.pad.stem.0.1":30.93680987184781,"feet.rail.0":30.59333448459182,"feet.endcap.0.3":-4.235883966238917,"feet.endcap.0.71.088":33.534872788185574,"legs.column.0.0":30.61333448459182,"legs.column.0.1":37.12483308333662,"legs.column.0.2":40.131613325298815,"motor.housing.0":43.03075646003043,"motor.leg.mount.0":48.35400519104719,"frame.support.0":52.90255557939508,"feet.pad.1.-1":-74.75295893711842,"feet.pad.stem.1.-1":-74.38948354986243,"feet.pad.1.1":-40.86534307802014,"feet.pad.stem.1.1":-40.50186769076416,"feet.rail.1":-40.481867690764155,"feet.endcap.1.3":-75.67456152885087,"feet.endcap.1.71.088":-37.90380477442639,"legs.column.1.0":-40.46186769076415,"legs.column.1.1":-34.313844479275346,"legs.column.1.2":-31.307064237313142,"motor.housing.1":-28.407921102581525,"motor.leg.mount.1":-27.287306050713674,"frame.support.1":-18.53612198321688,"frame.rail.left.0":18.96893758355234,"frame.rail.right.0":-11.821641340388695,"frame.rail.left.1":28.954157028676896,"frame.rail.right.1":-1.836421895264138,"frame.frame.end.0.4":48.33400519104719,"frame.frame.end.0.18.5":39.40062794957321,"frame.frame.end.1.119.95400000000001":-23.10467237156478,"frame.frame.end.1.134.454":-32.03804961303876,"motor.control.box":18.98893758355234,"frame.cable.cover":15.963491135224647,"top.main":52.92255557939508,"keypad.body":6.502410860874086,"keypad.screen":11.33601641028746,"context.0":43.31275262959572,"context.existing-chair-back-1":64.48628863398793,"context.existing-chair-back-2":63.041749913654684,"context.3":32.88154738810723,"context.4":32.84154738810722,"context.5":14.708732827415709,"context.6":32.861547388107226,"context.7":32.82154738810722,"context.8":5.713368172599983,"context.9":7.063300680756923,"context.10":31.471614879950288,"context.11":58.881448622889536,"context.12":65.2921038084659,"context.13":31.157174425211682,"context.14":37.567829610788046,"context.15":52.94255557939508,"context.16":52.96255557939509,"context.17":52.98255557939509,"context.18":52.94255557939508,"context.19":52.94255557939508,"context.20":52.94255557939508}},{"signature":"[\"coreL\",149.86,149.86,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},48,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":11.165195354825466,"feet.pad.stem.0.-1":11.52867074208145,"feet.pad.0.1":48.80120562566424,"feet.pad.stem.0.1":49.16468101292022,"feet.rail.0":48.82120562566424,"feet.endcap.0.3":10.02883077315894,"feet.endcap.0.71.088":51.97750591919204,"legs.column.0.0":48.841205625664244,"legs.column.0.1":52.58607890950994,"legs.column.0.2":55.59285915147214,"motor.housing.0":58.52268257048005,"motor.leg.mount.0":63.43174746376685,"frame.support.0":69.2513820296816,"feet.pad.1.-1":88.99330342100889,"feet.pad.stem.1.-1":89.35677880826488,"feet.pad.1.1":92.68987331403261,"feet.pad.stem.1.1":93.0533487012886,"feet.rail.1":93.0733487012886,"legs.column.1.0":106.62592645378952,"legs.column.1.1":122.40495220747532,"legs.column.1.2":125.41173244943752,"motor.housing.1":128.34155586844543,"motor.leg.mount.1":133.25062076173222,"frame.support.1":139.07025532764698,"feet.pad.2.-1":131.94516365789556,"feet.pad.stem.2.-1":132.30863904515155,"feet.pad.2.1":165.83277951699384,"feet.pad.stem.2.1":166.19625490424983,"feet.rail.2":166.21625490424984,"feet.endcap.2.80.39100000000002":131.0235610661631,"feet.endcap.2.148.479":168.7943178205876,"legs.column.2.0":166.23625490424985,"legs.column.2.1":180.45233542739928,"legs.column.2.2":183.4591156693615,"motor.housing.2":186.38893908836937,"motor.leg.mount.2":187.47887385596096,"frame.support.2":188.20582463047293,"frame.rail.left.0":73.95234430174204,"frame.rail.right.0":104.4239056417805,"frame.rail.left.1":85.0420539808132,"frame.rail.right.1":115.51361532085164,"frame.frame.end.0.4":55.36809846630539,"frame.frame.end.0.18.5":63.411747463766844,"frame.frame.end.1.129.86":125.18697176427077,"frame.frame.end.1.144.36":133.2306207617322,"frame.extension.rail.0":149.82525548667948,"frame.extension.rail.1":186.40893908836938,"motor.control.box":104.44390564178049,"frame.cable.cover":103.06596177280434,"top.main":123.93994079033065,"top.corner":186.4289390883694,"top.return":188.22582463047294,"keypad.body":123.91994079033066,"keypad.screen":123.93994079033065,"context.0":115.36274871472446,"context.existing-chair-back-1":137.57941438451067,"context.existing-chair-back-2":136.006018470217,"context.3":104.91154347323595,"context.4":103.541610965079,"context.5":86.00706194777524,"context.6":104.89154347323596,"context.7":79.11329676588566,"context.8":103.521610965079,"context.9":77.76336425772872,"context.10":104.87154347323596,"context.11":104.18893960718184,"context.12":110.87571735124486,"context.13":129.15198821999323,"context.14":135.83876596405622,"context.15":123.95994079033065,"context.16":123.97994079033064,"context.17":123.99994079033064,"context.18":123.95994079033065,"context.19":123.95994079033065,"context.20":123.95994079033065}},{"signature":"[\"coreL\",149.86,149.86,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-42,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":3.705716406935973,"feet.pad.stem.0.-1":4.069191794191958,"feet.pad.0.1":-30.181899452162302,"feet.pad.stem.0.1":-29.818424064906313,"feet.rail.0":4.089191794191958,"feet.endcap.0.3":6.667254710529725,"feet.endcap.0.71.088":-31.103502043894768,"legs.column.0.0":10.614303875316251,"legs.column.0.1":26.393329629002054,"legs.column.0.2":29.400109870964254,"motor.housing.0":31.74451859207784,"motor.leg.mount.0":33.41986805756372,"frame.support.0":33.43986805756372,"feet.pad.1.-1":74.03588348589568,"feet.pad.stem.1.-1":74.39935887315167,"feet.pad.1.1":70.7074770041875,"feet.pad.stem.1.1":71.07095239144348,"feet.rail.1":74.41935887315167,"legs.column.1.0":88.15601833131036,"legs.column.1.1":103.93504408499616,"legs.column.1.2":106.94182432695837,"motor.housing.1":109.28623304807195,"motor.leg.mount.1":110.96158251355783,"frame.support.1":110.98158251355783,"feet.pad.2.-1":-24.287097104806275,"feet.pad.stem.2.-1":-23.923621717550287,"feet.pad.2.1":13.348913166032498,"feet.pad.stem.2.1":13.712388553288482,"feet.rail.2":13.732388553288482,"feet.endcap.2.80.39100000000002":-25.4234616864728,"feet.endcap.2.148.479":16.5252134595603,"legs.column.2.0":13.752388553288482,"legs.column.2.1":26.094271870567688,"legs.column.2.2":29.101052112529885,"motor.housing.2":31.445460833643466,"motor.leg.mount.2":61.455948040798106,"frame.support.2":67.11853436419749,"frame.rail.left.0":59.00967540231372,"frame.rail.right.0":92.85177277294582,"frame.rail.left.1":61.4359480407981,"frame.rail.right.1":82.86655332782126,"frame.frame.end.0.4":27.559655668002584,"frame.frame.end.0.18.5":36.49303290947656,"frame.frame.end.1.129.86":105.1013701239967,"frame.frame.end.1.144.36":114.03474736547068,"frame.extension.rail.0":61.4359480407981,"frame.extension.rail.1":67.09853436419749,"motor.control.box":72.52401178271685,"frame.cable.cover":61.4159480407981,"top.main":92.87177277294582,"top.corner":114.05474736547067,"top.return":67.13853436419748,"keypad.body":40.072938180964634,"keypad.screen":35.23933263155126,"context.0":-10.891797219375537,"context.existing-chair-back-1":-8.57923127799637,"context.existing-chair-back-2":-7.693885461133874,"context.3":-21.323002460864036,"context.4":-21.363002460864035,"context.5":-21.343002460864035,"context.6":-39.49581702155554,"context.7":-48.49118167637127,"context.8":-21.383002460864034,"context.9":-22.732934969020974,"context.10":-47.14124916821434,"context.11":-15.835828046725165,"context.12":-14.41778258371108,"context.13":11.888446150952692,"context.14":13.306491613966777,"context.15":92.89177277294581,"context.16":92.91177277294581,"context.17":92.9317727729458,"context.18":92.91177277294581,"context.19":92.89177277294581,"context.20":92.89177277294581}},{"signature":"[\"coreL\",149.86,149.86,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-132,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-10.773760322395942,"feet.pad.stem.0.-1":-10.410284935139957,"feet.pad.0.1":-48.40977059323471,"feet.pad.stem.0.1":-48.04629520597873,"feet.rail.0":-10.390284935139958,"feet.endcap.0.3":-7.5974600288681335,"feet.endcap.0.71.088":-49.54613517490124,"legs.column.0.0":-4.846941950857074,"legs.column.0.1":10.932083802828728,"legs.column.0.2":13.938864044790929,"motor.housing.0":16.25259248162822,"motor.leg.mount.0":20.545562392744383,"frame.support.0":20.565562392744383,"feet.pad.1.-1":-88.60186838857938,"feet.pad.stem.1.-1":-88.23839300132339,"feet.pad.1.1":-92.2984382816031,"feet.pad.stem.1.1":-91.93496289434711,"feet.rail.1":-88.21839300132339,"legs.column.1.0":-74.66581524882245,"legs.column.1.1":-58.886789495136654,"legs.column.1.2":-55.88000925317445,"motor.housing.1":-53.56628081633717,"motor.leg.mount.1":-49.27331090522098,"frame.support.1":-49.25331090522098,"feet.pad.2.-1":-131.55372862546605,"feet.pad.stem.2.-1":-131.19025323821006,"feet.pad.2.1":-165.44134448456433,"feet.pad.stem.2.1":-165.07786909730834,"feet.rail.2":-131.17025323821005,"feet.endcap.2.80.39100000000002":-128.5921903218723,"feet.endcap.2.148.479":-166.3629470762968,"legs.column.2.0":-131.15025323821004,"legs.column.2.1":-116.93417271506061,"legs.column.2.2":-113.92739247309841,"motor.housing.2":-111.6136640362611,"motor.leg.mount.2":-28.698041043472685,"frame.support.2":-28.678041043472685,"frame.rail.left.0":2.5005094607784812,"frame.rail.right.0":-27.971051879259967,"frame.rail.left.1":-8.589200218292667,"frame.rail.right.1":-28.698041043472685,"frame.frame.end.0.4":20.525562392744384,"frame.frame.end.0.18.5":12.481913395282934,"frame.frame.end.1.129.86":-49.293310905220984,"frame.frame.end.1.144.36":-57.336959902682445,"frame.extension.rail.0":-28.718041043472684,"frame.extension.rail.1":-28.718041043472684,"motor.control.box":-16.58684763615991,"frame.cable.cover":-28.738041043472684,"top.main":20.585562392744382,"top.corner":-16.56684763615991,"top.return":-28.658041043472686,"keypad.body":-43.87604214827661,"keypad.screen":-43.896042148276614,"context.0":-64.47619449888649,"context.existing-chair-back-1":-63.20675822290133,"context.existing-chair-back-2":-62.1925552120784,"context.3":-74.92739974037501,"context.4":-76.29733224853194,"context.5":-74.947399740375,"context.6":-93.8318812658357,"context.7":-76.31733224853194,"context.8":-100.72564644772528,"context.9":-74.967399740375,"context.10":-102.07557895588224,"context.11":-42.67772022539968,"context.12":-41.53579732087225,"context.13":-67.64076883821107,"context.14":-66.49884593368363,"context.15":20.605562392744382,"context.16":20.62556239274438,"context.17":20.64556239274438,"context.18":20.62556239274438,"context.19":20.605562392744382,"context.20":20.605562392744382}},{"signature":"[\"coreL\",149.86,149.86,2.54,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-222,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-3.3142813745064506,"feet.pad.stem.0.-1":-2.950805987250465,"feet.pad.0.1":30.573334484591822,"feet.pad.stem.0.1":30.93680987184781,"feet.rail.0":30.59333448459182,"feet.endcap.0.3":-4.235883966238917,"feet.endcap.0.71.088":33.534872788185574,"legs.column.0.0":30.61333448459182,"legs.column.0.1":37.12483308333662,"legs.column.0.2":40.131613325298815,"motor.housing.0":43.03075646003043,"motor.leg.mount.0":48.35400519104719,"frame.support.0":52.90255557939508,"feet.pad.1.-1":-73.64444845346617,"feet.pad.stem.1.-1":-73.28097306621018,"feet.pad.1.1":-70.31604197175798,"feet.pad.stem.1.1":-69.952566584502,"feet.rail.1":-69.932566584502,"legs.column.1.0":-56.1959071263433,"legs.column.1.1":-40.4168813726575,"legs.column.1.2":-37.410101130695296,"motor.housing.1":-34.51095799596368,"motor.leg.mount.1":-29.187709264946935,"frame.support.1":-24.63915887659904,"feet.pad.2.-1":24.678532137235795,"feet.pad.stem.2.-1":25.042007524491783,"feet.pad.2.1":-12.957478133602974,"feet.pad.stem.2.1":-12.59400274634699,"feet.rail.2":25.062007524491783,"feet.endcap.2.80.39100000000002":27.854832430763608,"feet.endcap.2.148.479":-14.093842715269496,"legs.column.2.0":25.082007524491782,"legs.column.2.1":37.423890841770984,"legs.column.2.2":40.43067108373319,"motor.housing.2":43.329814218464804,"motor.leg.mount.2":44.450429270332656,"frame.support.2":45.177380044844625,"frame.rail.left.0":17.4431783602068,"frame.rail.right.0":-16.39891901042531,"frame.rail.left.1":27.428397805331358,"frame.rail.right.1":-6.413699565300753,"frame.frame.end.0.4":48.33400519104719,"frame.frame.end.0.18.5":39.40062794957321,"frame.frame.end.1.129.86":-29.207709264946935,"frame.frame.end.1.144.36":-38.14108650642091,"frame.extension.rail.0":43.34981421846481,"frame.extension.rail.1":12.93197268853357,"motor.control.box":17.4631783602068,"frame.cable.cover":12.91197268853357,"top.main":52.92255557939508,"top.corner":43.36981421846481,"top.return":45.19738004484463,"keypad.body":38.50484861474471,"keypad.screen":43.33845416415809,"context.0":61.77835143521351,"context.existing-chair-back-1":82.95188743960571,"context.existing-chair-back-2":81.50734871927247,"context.3":51.34714619372502,"context.4":51.30714619372501,"context.5":33.174331633033496,"context.6":51.327146193725014,"context.7":51.28714619372501,"context.8":24.178966978217773,"context.9":25.528899486374712,"context.10":49.937213685568075,"context.11":77.34704742850732,"context.12":83.75770261408368,"context.13":49.622773230829466,"context.14":56.03342841640583,"context.15":52.94255557939508,"context.16":52.96255557939509,"context.17":52.98255557939509,"context.18":52.94255557939508,"context.19":52.94255557939508,"context.20":52.94255557939508}},{"signature":"[\"wood\",149.86,74.93,2.794,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},48,34,[[\"chair\",\"own\",47.93000000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":11.165195354825466,"feet.pad.stem.0.-1":11.52867074208145,"feet.pad.0.1":48.80120562566424,"feet.pad.stem.0.1":49.16468101292022,"feet.rail.0":48.82120562566424,"feet.endcap.0.3":10.02883077315894,"feet.endcap.0.71.088":51.97750591919204,"legs.column.0.0":48.841205625664244,"legs.column.0.1":52.55057016013955,"legs.column.0.2":55.486332903360974,"motor.housing.0":58.38064757299849,"motor.leg.mount.0":63.28971246628527,"frame.support.0":69.10934703220002,"feet.pad.1.-1":80.98406865279085,"feet.pad.stem.1.-1":81.34754404004684,"feet.pad.1.1":118.6200789236296,"feet.pad.stem.1.1":118.9835543108856,"feet.rail.1":118.6400789236296,"feet.endcap.1.3":79.84770407112431,"feet.endcap.1.71.088":121.79637921715742,"legs.column.1.0":118.6600789236296,"legs.column.1.1":122.36944345810493,"legs.column.1.2":125.30520620132634,"motor.housing.1":128.19952087096388,"motor.leg.mount.1":133.10858576425065,"frame.support.1":138.9282203301654,"frame.rail.left.0":73.81030930426047,"frame.rail.right.0":104.28187064429892,"frame.rail.left.1":84.90001898333162,"frame.rail.right.1":115.37158032337007,"frame.frame.end.0.4":55.226063468823824,"frame.frame.end.0.18.5":63.26971246628527,"frame.frame.end.1.129.86":125.04493676678919,"frame.frame.end.1.144.36":133.08858576425064,"motor.control.box":104.30187064429892,"frame.cable.cover":102.9239267753228,"top.main":158.10822927512433,"keypad.body":158.08822927512432,"keypad.screen":158.10822927512433,"context.0":134.7368481103342,"context.existing-chair-back-1":156.95351378012037,"context.existing-chair-back-2":155.38011786582672,"context.3":124.28564286884567,"context.4":122.91571036068873,"context.5":105.38116134338497,"context.6":124.26564286884567,"context.7":98.48739616149538,"context.8":122.89571036068874,"context.9":97.13746365333846,"context.10":124.24564286884568,"context.11":123.56303900279157,"context.12":130.24981674685458,"context.13":148.52608761560296,"context.14":155.21286535966595,"context.15":158.12822927512434,"context.16":158.14822927512435,"context.17":158.16822927512436,"context.18":158.12822927512434,"context.19":158.12822927512434,"context.20":158.12822927512434}},{"signature":"[\"wood\",149.86,74.93,2.794,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-42,34,[[\"chair\",\"own\",47.93000000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":3.705716406935973,"feet.pad.stem.0.-1":4.069191794191958,"feet.pad.0.1":-30.181899452162302,"feet.pad.stem.0.1":-29.818424064906313,"feet.rail.0":4.089191794191958,"feet.endcap.0.3":6.667254710529725,"feet.endcap.0.71.088":-31.103502043894768,"legs.column.0.0":10.614303875316251,"legs.column.0.1":26.35782087963166,"legs.column.0.2":29.29358362285308,"motor.housing.0":31.60248359459628,"motor.leg.mount.0":33.27783306008216,"frame.support.0":33.29783306008216,"feet.pad.1.-1":81.24743086293009,"feet.pad.stem.1.-1":81.61090625018608,"feet.pad.1.1":47.35981500383182,"feet.pad.stem.1.1":47.7232903910878,"feet.rail.1":81.26743086293008,"feet.endcap.1.3":84.20896916652384,"feet.endcap.1.71.088":46.43821241209935,"legs.column.1.0":88.15601833131036,"legs.column.1.1":103.89953533562577,"legs.column.1.2":106.83529807884719,"motor.housing.1":109.14419805059039,"motor.leg.mount.1":110.81954751607627,"frame.support.1":110.83954751607627,"frame.rail.left.0":58.86764040483215,"frame.rail.right.0":92.70973777546426,"frame.rail.left.1":61.29391304331654,"frame.rail.right.1":82.7245183303397,"frame.frame.end.0.4":27.417620670521018,"frame.frame.end.0.18.5":36.350997911994995,"frame.frame.end.1.129.86":104.95933512651514,"frame.frame.end.1.144.36":113.89271236798912,"motor.control.box":72.38197678523531,"frame.cable.cover":61.27391304331654,"top.main":113.91271236798912,"keypad.body":78.03637783073584,"keypad.screen":73.20277228132247,"context.0":10.625320032933327,"context.existing-chair-back-1":12.937885974312493,"context.existing-chair-back-2":13.82323179117499,"context.3":0.19411479144482816,"context.4":0.15411479144482818,"context.5":0.17411479144482817,"context.6":-17.978699769246674,"context.7":-26.974064424062405,"context.8":0.13411479144482819,"context.9":-1.2158177167121114,"context.10":-25.624131915905473,"context.11":5.681289205583699,"context.12":7.099334668597784,"context.13":33.40556340326155,"context.14":34.82360886627564,"context.15":113.93271236798911,"context.16":113.95271236798911,"context.17":113.9727123679891,"context.18":113.95271236798911,"context.19":113.93271236798911,"context.20":113.93271236798911}},{"signature":"[\"wood\",149.86,74.93,2.794,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-132,34,[[\"chair\",\"own\",47.93000000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-10.773760322395942,"feet.pad.stem.0.-1":-10.410284935139957,"feet.pad.0.1":-48.40977059323471,"feet.pad.stem.0.1":-48.04629520597873,"feet.rail.0":-10.390284935139958,"feet.endcap.0.3":-7.5974600288681335,"feet.endcap.0.71.088":-49.54613517490124,"legs.column.0.0":-4.846941950857074,"legs.column.0.1":10.896575053458335,"legs.column.0.2":13.832337796679756,"motor.housing.0":16.11055748414666,"motor.leg.mount.0":20.403527395262817,"frame.support.0":20.423527395262816,"feet.pad.1.-1":-80.59263362036134,"feet.pad.stem.1.-1":-80.22915823310535,"feet.pad.1.1":-118.2286438912001,"feet.pad.stem.1.1":-117.8651685039441,"feet.rail.1":-80.57263362036134,"feet.endcap.1.3":-77.41633332683351,"feet.endcap.1.71.088":-119.36500847286662,"legs.column.1.0":-74.66581524882245,"legs.column.1.1":-58.92229824450705,"legs.column.1.2":-55.98653550128562,"motor.housing.1":-53.70831581381873,"motor.leg.mount.1":-49.41534590270255,"frame.support.1":-49.395345902702545,"frame.rail.left.0":2.358474463296915,"frame.rail.right.0":-28.113086876741534,"frame.rail.left.1":-8.731235215774234,"frame.rail.right.1":-28.860076040954244,"frame.frame.end.0.4":20.383527395262817,"frame.frame.end.0.18.5":12.339878397801368,"frame.frame.end.1.129.86":-49.43534590270255,"frame.frame.end.1.144.36":-57.47899490016401,"motor.control.box":-16.72888263364147,"frame.cable.cover":-28.880076040954243,"top.main":20.443527395262816,"keypad.body":-78.32840062803339,"keypad.screen":-78.34840062803339,"context.0":-83.85029389449622,"context.existing-chair-back-1":-82.58085761851105,"context.existing-chair-back-2":-81.56665460768812,"context.3":-94.30149913598474,"context.4":-95.67143164414166,"context.5":-94.32149913598474,"context.6":-113.20598066144544,"context.7":-95.69143164414166,"context.8":-120.09974584333501,"context.9":-94.34149913598473,"context.10":-121.44967835149195,"context.11":-62.051819621009415,"context.12":-60.90989671648197,"context.13":-87.0148682338208,"context.14":-85.87294532929336,"context.15":20.463527395262815,"context.16":20.483527395262815,"context.17":20.503527395262815,"context.18":20.483527395262815,"context.19":20.463527395262815,"context.20":20.463527395262815}},{"signature":"[\"wood\",149.86,74.93,2.794,\"right\",false,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-222,34,[[\"chair\",\"own\",47.93000000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-3.3142813745064506,"feet.pad.stem.0.-1":-2.950805987250465,"feet.pad.0.1":30.573334484591822,"feet.pad.stem.0.1":30.93680987184781,"feet.rail.0":30.59333448459182,"feet.endcap.0.3":-4.235883966238917,"feet.endcap.0.71.088":33.534872788185574,"legs.column.0.0":30.61333448459182,"legs.column.0.1":37.089324333966225,"legs.column.0.2":40.02508707718765,"motor.housing.0":42.88872146254887,"motor.leg.mount.0":48.21197019356563,"frame.support.0":52.76052058191351,"feet.pad.1.-1":-80.85599583050058,"feet.pad.stem.1.-1":-80.49252044324459,"feet.pad.1.1":-46.96837997140229,"feet.pad.stem.1.1":-46.60490458414631,"feet.rail.1":-46.58490458414631,"feet.endcap.1.3":-81.77759842223304,"feet.endcap.1.71.088":-44.006841667808544,"legs.column.1.0":-46.564904584146305,"legs.column.1.1":-40.45239012202789,"legs.column.1.2":-37.51662737880647,"motor.housing.1":-34.65299299344524,"motor.leg.mount.1":-29.329744262428502,"frame.support.1":-24.781193874080607,"frame.rail.left.0":17.301143362725234,"frame.rail.right.0":-16.540954007906876,"frame.rail.left.1":27.28636280784979,"frame.rail.right.1":-6.55573456278232,"frame.frame.end.0.4":48.19197019356562,"frame.frame.end.0.18.5":39.25859295209165,"frame.frame.end.1.129.86":-29.3497442624285,"frame.frame.end.1.144.36":-38.28312150390248,"motor.control.box":17.321143362725234,"frame.cable.cover":12.76993769105201,"top.main":52.780520581913514,"keypad.body":0.2573389700103661,"keypad.screen":5.090944519423736,"context.0":40.261234182904644,"context.existing-chair-back-1":61.43477018729685,"context.existing-chair-back-2":59.99023146696361,"context.3":29.830028941416142,"context.4":29.790028941416143,"context.5":11.657214380724632,"context.6":29.810028941416142,"context.7":29.770028941416143,"context.8":2.6618497259089064,"context.9":4.011782234065846,"context.10":28.42009643325921,"context.11":55.82993017619846,"context.12":62.240585361774826,"context.13":28.105655978520605,"context.14":34.51631116409697,"context.15":52.80052058191352,"context.16":52.82052058191352,"context.17":52.84052058191352,"context.18":52.80052058191352,"context.19":52.80052058191352,"context.20":52.80052058191352}},{"signature":"[\"executive\",149.86,69.85,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},48,34,[[\"chair\",\"own\",47.93000000000001,77.85,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":11.165195354825466,"feet.pad.stem.0.-1":11.52867074208145,"feet.pad.0.1":48.80120562566424,"feet.pad.stem.0.1":49.16468101292022,"feet.rail.0":48.82120562566424,"feet.endcap.0.3":10.02883077315894,"feet.endcap.0.71.088":51.97750591919204,"legs.column.0.0":48.841205625664244,"legs.column.0.1":52.58607890950994,"legs.column.0.2":55.59285915147214,"motor.housing.0":58.52268257048005,"motor.leg.mount.0":63.43174746376685,"frame.support.0":67.68650077496821,"shell.face.0":40.19469639746739,"shell.end.0.4":48.841205625664244,"shell.end.0.64.05":62.07682816021021,"feet.pad.1.-1":80.98406865279085,"feet.pad.stem.1.-1":81.34754404004684,"feet.pad.1.1":118.6200789236296,"feet.pad.stem.1.1":118.9835543108856,"feet.rail.1":118.6400789236296,"feet.endcap.1.3":79.84770407112431,"feet.endcap.1.71.088":121.79637921715742,"legs.column.1.0":118.6600789236296,"legs.column.1.1":122.40495220747532,"legs.column.1.2":125.41173244943752,"motor.housing.1":128.34155586844543,"motor.leg.mount.1":133.25062076173222,"frame.support.1":137.5053740729336,"shell.face.1":131.91570145817562,"shell.end.1.4":118.6600789236296,"shell.end.1.64.05":131.8957014581756,"frame.rail.left.0":73.95234430174204,"frame.rail.right.0":104.4239056417805,"frame.rail.left.1":85.0420539808132,"frame.rail.right.1":115.51361532085164,"frame.frame.end.0.4":55.36809846630539,"frame.frame.end.0.18.5":63.411747463766844,"frame.frame.end.1.129.86":125.18697176427077,"frame.frame.end.1.144.36":133.2306207617322,"motor.control.box":104.44390564178049,"frame.cable.cover":103.06596177280434,"top.main":155.12050176317913,"keypad.body":155.10050176317912,"keypad.screen":155.12050176317913,"panel.main":65.6023361448536,"context.0":131.60708560090742,"context.existing-chair-back-1":153.82375127069366,"context.existing-chair-back-2":152.25035535639998,"context.3":121.15588035941893,"context.4":119.785947851262,"context.5":102.25139883395823,"context.6":121.13588035941893,"context.7":95.35763365206863,"context.8":119.765947851262,"context.9":94.00770114391169,"context.10":121.11588035941894,"context.11":120.43327649336481,"context.12":127.12005423742782,"context.13":145.3963251061762,"context.14":152.08310285023921,"context.15":155.14050176317915,"context.16":155.16050176317916,"context.17":155.18050176317917,"context.18":155.14050176317915,"context.19":155.14050176317915,"context.20":155.14050176317915}},{"signature":"[\"executive\",149.86,69.85,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-42,34,[[\"chair\",\"own\",47.93000000000001,77.85,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":3.705716406935973,"feet.pad.stem.0.-1":4.069191794191958,"feet.pad.0.1":-30.181899452162302,"feet.pad.stem.0.1":-29.818424064906313,"feet.rail.0":4.089191794191958,"feet.endcap.0.3":6.667254710529725,"feet.endcap.0.71.088":-31.103502043894768,"legs.column.0.0":10.614303875316251,"legs.column.0.1":26.393329629002054,"legs.column.0.2":29.400109870964254,"motor.housing.0":31.74451859207784,"motor.leg.mount.0":33.41986805756372,"frame.support.0":33.43986805756372,"shell.face.0":-0.33449289599093923,"shell.end.0.4":20.079587264131213,"shell.end.0.64.05":4.109191794191958,"feet.pad.1.-1":81.24743086293009,"feet.pad.stem.1.-1":81.61090625018608,"feet.pad.1.1":47.35981500383182,"feet.pad.stem.1.1":47.7232903910878,"feet.rail.1":81.26743086293008,"feet.endcap.1.3":84.20896916652384,"feet.endcap.1.71.088":46.43821241209935,"legs.column.1.0":88.15601833131036,"legs.column.1.1":103.93504408499616,"legs.column.1.2":106.94182432695837,"motor.housing.1":109.28623304807195,"motor.leg.mount.1":110.96158251355783,"frame.support.1":110.98158251355783,"shell.face.1":97.64130172012533,"shell.end.1.4":97.62130172012533,"shell.end.1.64.05":81.28743086293008,"frame.rail.left.0":59.00967540231372,"frame.rail.right.0":92.85177277294582,"frame.rail.left.1":61.4359480407981,"frame.rail.right.1":82.86655332782126,"frame.frame.end.0.4":27.559655668002584,"frame.frame.end.0.18.5":36.49303290947656,"frame.frame.end.1.129.86":105.1013701239967,"frame.frame.end.1.144.36":114.03474736547068,"motor.control.box":72.52401178271685,"frame.cable.cover":61.4159480407981,"top.main":114.05474736547067,"keypad.body":80.99646364939701,"keypad.screen":76.16285809998365,"panel.main":61.184697198926415,"context.0":13.443370854112931,"context.existing-chair-back-1":15.75593679549209,"context.existing-chair-back-2":16.641282612354587,"context.3":3.012165612624432,"context.4":2.972165612624432,"context.5":2.992165612624432,"context.6":-15.160648948067077,"context.7":-24.1560136028828,"context.8":2.952165612624432,"context.9":1.6022331044674925,"context.10":-22.80608109472586,"context.11":8.499340026763303,"context.12":9.917385489777388,"context.13":36.223614224441164,"context.14":37.641659687455245,"context.15":114.07474736547067,"context.16":114.09474736547067,"context.17":114.11474736547066,"context.18":114.09474736547067,"context.19":114.07474736547067,"context.20":114.07474736547067}},{"signature":"[\"executive\",149.86,69.85,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-132,34,[[\"chair\",\"own\",47.93000000000001,77.85,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-10.773760322395942,"feet.pad.stem.0.-1":-10.410284935139957,"feet.pad.0.1":-48.40977059323471,"feet.pad.stem.0.1":-48.04629520597873,"feet.rail.0":-10.390284935139958,"feet.endcap.0.3":-7.5974600288681335,"feet.endcap.0.71.088":-49.54613517490124,"legs.column.0.0":-4.846941950857074,"legs.column.0.1":10.932083802828728,"legs.column.0.2":13.938864044790929,"motor.housing.0":16.25259248162822,"motor.leg.mount.0":20.545562392744383,"frame.support.0":20.565562392744383,"shell.face.0":5.748967728759732,"shell.end.0.4":5.7289677287597325,"shell.end.0.64.05":-10.370284935139958,"feet.pad.1.-1":-80.59263362036134,"feet.pad.stem.1.-1":-80.22915823310535,"feet.pad.1.1":-118.2286438912001,"feet.pad.stem.1.1":-117.8651685039441,"feet.rail.1":-80.57263362036134,"feet.endcap.1.3":-77.41633332683351,"feet.endcap.1.71.088":-119.36500847286662,"legs.column.1.0":-74.66581524882245,"legs.column.1.1":-58.886789495136654,"legs.column.1.2":-55.88000925317445,"motor.housing.1":-53.56628081633717,"motor.leg.mount.1":-49.27331090522098,"frame.support.1":-49.25331090522098,"shell.face.1":-85.97203733194846,"shell.end.1.4":-64.08990556920565,"shell.end.1.64.05":-80.55263362036135,"frame.rail.left.0":2.5005094607784812,"frame.rail.right.0":-27.971051879259967,"frame.rail.left.1":-8.589200218292667,"frame.rail.right.1":-28.718041043472684,"frame.frame.end.0.4":20.525562392744384,"frame.frame.end.0.18.5":12.481913395282934,"frame.frame.end.1.129.86":-49.293310905220984,"frame.frame.end.1.144.36":-57.336959902682445,"motor.control.box":-16.58684763615991,"frame.cable.cover":-28.738041043472684,"top.main":20.585562392744382,"keypad.body":-75.0566031211251,"keypad.screen":-75.07660312112509,"panel.main":-27.018025805372062,"context.0":-80.72053138506945,"context.existing-chair-back-1":-79.4510951090843,"context.existing-chair-back-2":-78.43689209826138,"context.3":-91.17173662655797,"context.4":-92.54166913471491,"context.5":-91.19173662655797,"context.6":-110.07621815201867,"context.7":-92.5616691347149,"context.8":-116.96998333390827,"context.9":-91.21173662655796,"context.10":-118.31991584206521,"context.11":-58.92205711158266,"context.12":-57.78013420705521,"context.13":-83.88510572439404,"context.14":-82.7431828198666,"context.15":20.605562392744382,"context.16":20.62556239274438,"context.17":20.64556239274438,"context.18":20.62556239274438,"context.19":20.605562392744382,"context.20":20.605562392744382}},{"signature":"[\"executive\",149.86,69.85,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-222,34,[[\"chair\",\"own\",47.93000000000001,77.85,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-3.3142813745064506,"feet.pad.stem.0.-1":-2.950805987250465,"feet.pad.0.1":30.573334484591822,"feet.pad.stem.0.1":30.93680987184781,"feet.rail.0":30.59333448459182,"feet.endcap.0.3":-4.235883966238917,"feet.endcap.0.71.088":33.534872788185574,"legs.column.0.0":30.61333448459182,"legs.column.0.1":37.12483308333662,"legs.column.0.2":40.131613325298815,"motor.housing.0":43.03075646003043,"motor.leg.mount.0":48.35400519104719,"frame.support.0":51.49353016880527,"shell.face.0":44.06150648325582,"shell.end.0.4":30.61333448459182,"shell.end.0.64.05":44.041506483255816,"feet.pad.1.-1":-80.85599583050058,"feet.pad.stem.1.-1":-80.49252044324459,"feet.pad.1.1":-46.96837997140229,"feet.pad.stem.1.1":-46.60490458414631,"feet.rail.1":-46.58490458414631,"feet.endcap.1.3":-81.77759842223304,"feet.endcap.1.71.088":-44.006841667808544,"legs.column.1.0":-46.564904584146305,"legs.column.1.1":-40.4168813726575,"legs.column.1.2":-37.410101130695296,"motor.housing.1":-34.51095799596368,"motor.leg.mount.1":-29.187709264946935,"frame.support.1":-26.048184287188832,"shell.face.1":-53.91428813286044,"shell.end.1.4":-46.564904584146305,"shell.end.1.64.05":-33.5002079727383,"frame.rail.left.0":17.4431783602068,"frame.rail.right.0":-16.39891901042531,"frame.rail.left.1":27.428397805331358,"frame.rail.right.1":-6.413699565300753,"frame.frame.end.0.4":48.33400519104719,"frame.frame.end.0.18.5":39.40062794957321,"frame.frame.end.1.129.86":-29.207709264946935,"frame.frame.end.1.144.36":-38.14108650642091,"motor.control.box":17.4631783602068,"frame.cable.cover":12.91197268853357,"top.main":51.513530168805275,"keypad.body":-2.4186768536876713,"keypad.screen":2.414928695725699,"panel.main":-22.600386859444882,"context.0":37.44318336172503,"context.existing-chair-back-1":58.61671936611725,"context.existing-chair-back-2":57.17218064578401,"context.3":27.011978120236538,"context.4":26.97197812023654,"context.5":8.839163559545028,"context.6":26.99197812023654,"context.7":26.95197812023654,"context.8":-0.15620109527069737,"context.9":1.1937314128862422,"context.10":25.6020456120796,"context.11":53.01187935501886,"context.12":59.42253454059522,"context.13":25.287605157341,"context.14":31.698260342917365,"context.15":51.53353016880528,"context.16":51.55353016880528,"context.17":51.573530168805284,"context.18":51.53353016880528,"context.19":51.53353016880528,"context.20":51.53353016880528}},{"signature":"[\"executiveL\",149.86,149.86,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},48,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":11.165195354825466,"feet.pad.stem.0.-1":11.52867074208145,"feet.pad.0.1":48.80120562566424,"feet.pad.stem.0.1":49.16468101292022,"feet.rail.0":48.82120562566424,"feet.endcap.0.3":10.02883077315894,"feet.endcap.0.71.088":51.97750591919204,"legs.column.0.0":48.841205625664244,"legs.column.0.1":52.58607890950994,"legs.column.0.2":55.59285915147214,"motor.housing.0":58.52268257048005,"motor.leg.mount.0":63.43174746376685,"frame.support.0":69.2513820296816,"shell.face.0":41.75957765218077,"shell.end.0.4":48.841205625664244,"shell.end.0.69.13000000000001":65.20659066963697,"feet.pad.1.-1":88.99330342100889,"feet.pad.stem.1.-1":89.35677880826488,"feet.pad.1.1":92.68987331403261,"feet.pad.stem.1.1":93.0533487012886,"feet.rail.1":93.0733487012886,"legs.column.1.0":106.62592645378952,"legs.column.1.1":122.40495220747532,"legs.column.1.2":125.41173244943752,"motor.housing.1":128.34155586844543,"motor.leg.mount.1":133.25062076173222,"frame.support.1":139.07025532764698,"shell.face.1":135.04546396760236,"shell.end.1.4":94.89919777882992,"shell.end.1.69.13000000000001":135.02546396760235,"feet.pad.2.-1":131.94516365789556,"feet.pad.stem.2.-1":132.30863904515155,"feet.pad.2.1":165.83277951699384,"feet.pad.stem.2.1":166.19625490424983,"feet.rail.2":166.21625490424984,"feet.endcap.2.80.39100000000002":131.0235610661631,"feet.endcap.2.148.479":168.7943178205876,"legs.column.2.0":166.23625490424985,"legs.column.2.1":180.45233542739928,"legs.column.2.2":183.4591156693615,"motor.housing.2":186.38893908836937,"motor.leg.mount.2":187.47887385596096,"frame.support.2":188.20582463047293,"shell.face.2":179.95262412124148,"shell.end.2.84.93500000000002":166.23625490424985,"shell.end.2.143.13500000000002":179.93262412124147,"frame.rail.left.0":73.95234430174204,"frame.rail.right.0":104.4239056417805,"frame.rail.left.1":85.0420539808132,"frame.rail.right.1":115.51361532085164,"frame.frame.end.0.4":55.36809846630539,"frame.frame.end.0.18.5":63.411747463766844,"frame.frame.end.1.129.86":125.18697176427077,"frame.frame.end.1.144.36":133.2306207617322,"frame.extension.rail.0":149.82525548667948,"frame.extension.rail.1":186.40893908836938,"motor.control.box":104.44390564178049,"frame.cable.cover":103.06596177280434,"top.main":123.93994079033065,"top.corner":186.4289390883694,"top.return":188.22582463047294,"keypad.body":123.91994079033066,"keypad.screen":123.93994079033065,"panel.main":65.6023361448536,"panel.return":160.6637552078913,"context.0":115.36274871472446,"context.existing-chair-back-1":137.57941438451067,"context.existing-chair-back-2":136.006018470217,"context.3":104.91154347323595,"context.4":103.541610965079,"context.5":86.00706194777524,"context.6":104.89154347323596,"context.7":79.11329676588566,"context.8":103.521610965079,"context.9":77.76336425772872,"context.10":104.87154347323596,"context.11":104.18893960718184,"context.12":110.87571735124486,"context.13":129.15198821999323,"context.14":135.83876596405622,"context.15":123.95994079033065,"context.16":123.97994079033064,"context.17":123.99994079033064,"context.18":123.95994079033065,"context.19":123.95994079033065,"context.20":123.95994079033065}},{"signature":"[\"executiveL\",149.86,149.86,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-42,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":3.705716406935973,"feet.pad.stem.0.-1":4.069191794191958,"feet.pad.0.1":-30.181899452162302,"feet.pad.stem.0.1":-29.818424064906313,"feet.rail.0":4.089191794191958,"feet.endcap.0.3":6.667254710529725,"feet.endcap.0.71.088":-31.103502043894768,"legs.column.0.0":10.614303875316251,"legs.column.0.1":26.393329629002054,"legs.column.0.2":29.400109870964254,"motor.housing.0":31.74451859207784,"motor.leg.mount.0":33.41986805756372,"frame.support.0":33.43986805756372,"shell.face.0":-1.7435183065807394,"shell.end.0.4":20.079587264131213,"shell.end.0.69.13000000000001":4.109191794191958,"feet.pad.1.-1":74.03588348589568,"feet.pad.stem.1.-1":74.39935887315167,"feet.pad.1.1":70.7074770041875,"feet.pad.stem.1.1":71.07095239144348,"feet.rail.1":74.41935887315167,"legs.column.1.0":88.15601833131036,"legs.column.1.1":103.93504408499616,"legs.column.1.2":106.94182432695837,"motor.housing.1":109.28623304807195,"motor.leg.mount.1":110.96158251355783,"frame.support.1":110.98158251355783,"shell.face.1":97.64130172012533,"shell.end.1.4":97.62130172012533,"shell.end.1.69.13000000000001":61.49144936118297,"feet.pad.2.-1":-24.287097104806275,"feet.pad.stem.2.-1":-23.923621717550287,"feet.pad.2.1":13.348913166032498,"feet.pad.stem.2.1":13.712388553288482,"feet.rail.2":13.732388553288482,"feet.endcap.2.80.39100000000002":-25.4234616864728,"feet.endcap.2.148.479":16.5252134595603,"legs.column.2.0":13.752388553288482,"legs.column.2.1":26.094271870567688,"legs.column.2.2":29.101052112529885,"motor.housing.2":31.445460833643466,"motor.leg.mount.2":61.455948040798106,"frame.support.2":67.11853436419749,"shell.face.2":6.466903578864104,"shell.end.2.84.93500000000002":13.752388553288482,"shell.end.2.143.13500000000002":27.945567807184524,"frame.rail.left.0":59.00967540231372,"frame.rail.right.0":92.85177277294582,"frame.rail.left.1":61.4359480407981,"frame.rail.right.1":82.86655332782126,"frame.frame.end.0.4":27.559655668002584,"frame.frame.end.0.18.5":36.49303290947656,"frame.frame.end.1.129.86":105.1013701239967,"frame.frame.end.1.144.36":114.03474736547068,"frame.extension.rail.0":61.4359480407981,"frame.extension.rail.1":67.09853436419749,"motor.control.box":72.52401178271685,"frame.cable.cover":61.4159480407981,"top.main":92.87177277294582,"top.corner":114.05474736547067,"top.return":67.13853436419748,"keypad.body":40.072938180964634,"keypad.screen":35.23933263155126,"panel.main":61.184697198926415,"panel.return":50.67512908997851,"context.0":-10.891797219375537,"context.existing-chair-back-1":-8.57923127799637,"context.existing-chair-back-2":-7.693885461133874,"context.3":-21.323002460864036,"context.4":-21.363002460864035,"context.5":-21.343002460864035,"context.6":-39.49581702155554,"context.7":-48.49118167637127,"context.8":-21.383002460864034,"context.9":-22.732934969020974,"context.10":-47.14124916821434,"context.11":-15.835828046725165,"context.12":-14.41778258371108,"context.13":11.888446150952692,"context.14":13.306491613966777,"context.15":92.89177277294581,"context.16":92.91177277294581,"context.17":92.9317727729458,"context.18":92.91177277294581,"context.19":92.89177277294581,"context.20":92.89177277294581}},{"signature":"[\"executiveL\",149.86,149.86,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-132,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-10.773760322395942,"feet.pad.stem.0.-1":-10.410284935139957,"feet.pad.0.1":-48.40977059323471,"feet.pad.stem.0.1":-48.04629520597873,"feet.rail.0":-10.390284935139958,"feet.endcap.0.3":-7.5974600288681335,"feet.endcap.0.71.088":-49.54613517490124,"legs.column.0.0":-4.846941950857074,"legs.column.0.1":10.932083802828728,"legs.column.0.2":13.938864044790929,"motor.housing.0":16.25259248162822,"motor.leg.mount.0":20.545562392744383,"frame.support.0":20.565562392744383,"shell.face.0":5.748967728759732,"shell.end.0.4":5.7289677287597325,"shell.end.0.69.13000000000001":-10.370284935139958,"feet.pad.1.-1":-88.60186838857938,"feet.pad.stem.1.-1":-88.23839300132339,"feet.pad.1.1":-92.2984382816031,"feet.pad.stem.1.1":-91.93496289434711,"feet.rail.1":-88.21839300132339,"legs.column.1.0":-74.66581524882245,"legs.column.1.1":-58.886789495136654,"legs.column.1.2":-55.88000925317445,"motor.housing.1":-53.56628081633717,"motor.leg.mount.1":-49.27331090522098,"frame.support.1":-49.25331090522098,"shell.face.1":-87.53691858666184,"shell.end.1.4":-64.08990556920565,"shell.end.1.69.13000000000001":-87.51691858666184,"feet.pad.2.-1":-131.55372862546605,"feet.pad.stem.2.-1":-131.19025323821006,"feet.pad.2.1":-165.44134448456433,"feet.pad.stem.2.1":-165.07786909730834,"feet.rail.2":-131.17025323821005,"feet.endcap.2.80.39100000000002":-128.5921903218723,"feet.endcap.2.148.479":-166.3629470762968,"legs.column.2.0":-131.15025323821004,"legs.column.2.1":-116.93417271506061,"legs.column.2.2":-113.92739247309841,"motor.housing.2":-111.6136640362611,"motor.leg.mount.2":-28.698041043472685,"frame.support.2":-28.678041043472685,"shell.face.2":-136.92356836122445,"shell.end.2.84.93500000000002":-116.83778903904778,"shell.end.2.143.13500000000002":-131.15025323821004,"frame.rail.left.0":2.5005094607784812,"frame.rail.right.0":-27.971051879259967,"frame.rail.left.1":-8.589200218292667,"frame.rail.right.1":-28.698041043472685,"frame.frame.end.0.4":20.525562392744384,"frame.frame.end.0.18.5":12.481913395282934,"frame.frame.end.1.129.86":-49.293310905220984,"frame.frame.end.1.144.36":-57.336959902682445,"frame.extension.rail.0":-28.718041043472684,"frame.extension.rail.1":-28.718041043472684,"motor.control.box":-16.58684763615991,"frame.cable.cover":-28.738041043472684,"top.main":20.585562392744382,"top.corner":-16.56684763615991,"top.return":-28.658041043472686,"keypad.body":-43.87604214827661,"keypad.screen":-43.896042148276614,"panel.main":-27.018025805372062,"panel.return":-122.07944486840978,"context.0":-64.47619449888649,"context.existing-chair-back-1":-63.20675822290133,"context.existing-chair-back-2":-62.1925552120784,"context.3":-74.92739974037501,"context.4":-76.29733224853194,"context.5":-74.947399740375,"context.6":-93.8318812658357,"context.7":-76.31733224853194,"context.8":-100.72564644772528,"context.9":-74.967399740375,"context.10":-102.07557895588224,"context.11":-42.67772022539968,"context.12":-41.53579732087225,"context.13":-67.64076883821107,"context.14":-66.49884593368363,"context.15":20.605562392744382,"context.16":20.62556239274438,"context.17":20.64556239274438,"context.18":20.62556239274438,"context.19":20.605562392744382,"context.20":20.605562392744382}},{"signature":"[\"executiveL\",149.86,149.86,2.54,\"right\",true,74,{\"tray\":false,\"monitorArm\":\"none\",\"drawer\":false,\"cpuHolder\":false},-222,34,[[\"chair\",\"own\",13.00500000000001,82.93,54,54,100,false,\"Existing\"]]]","keys":{"feet.pad.0.-1":-3.3142813745064506,"feet.pad.stem.0.-1":-2.950805987250465,"feet.pad.0.1":30.573334484591822,"feet.pad.stem.0.1":30.93680987184781,"feet.rail.0":30.59333448459182,"feet.endcap.0.3":-4.235883966238917,"feet.endcap.0.71.088":33.534872788185574,"legs.column.0.0":30.61333448459182,"legs.column.0.1":37.12483308333662,"legs.column.0.2":40.131613325298815,"motor.housing.0":43.03075646003043,"motor.leg.mount.0":48.35400519104719,"frame.support.0":52.90255557939508,"shell.face.0":46.87955730443543,"shell.end.0.4":30.61333448459182,"shell.end.0.69.13000000000001":46.85955730443543,"feet.pad.1.-1":-73.64444845346617,"feet.pad.stem.1.-1":-73.28097306621018,"feet.pad.1.1":-70.31604197175798,"feet.pad.stem.1.1":-69.952566584502,"feet.rail.1":-69.932566584502,"legs.column.1.0":-52.48526272227063,"legs.column.1.1":-40.4168813726575,"legs.column.1.2":-37.410101130695296,"motor.housing.1":-34.51095799596368,"motor.leg.mount.1":-29.187709264946935,"frame.support.1":-24.63915887659904,"shell.face.1":-52.505262722270636,"shell.end.1.4":-52.48526272227063,"shell.end.1.69.13000000000001":-30.682157151558698,"feet.pad.2.-1":24.678532137235795,"feet.pad.stem.2.-1":25.042007524491783,"feet.pad.2.1":-12.957478133602974,"feet.pad.stem.2.1":-12.59400274634699,"feet.rail.2":25.062007524491783,"feet.endcap.2.80.39100000000002":27.854832430763608,"feet.endcap.2.148.479":-14.093842715269496,"legs.column.2.0":25.082007524491782,"legs.column.2.1":37.423890841770984,"legs.column.2.2":40.43067108373319,"motor.housing.2":43.329814218464804,"motor.leg.mount.2":44.450429270332656,"frame.support.2":45.177380044844625,"shell.face.2":38.74045236476978,"shell.end.2.84.93500000000002":38.72045236476978,"shell.end.2.143.13500000000002":25.082007524491782,"frame.rail.left.0":17.4431783602068,"frame.rail.right.0":-16.39891901042531,"frame.rail.left.1":27.428397805331358,"frame.rail.right.1":-6.413699565300753,"frame.frame.end.0.4":48.33400519104719,"frame.frame.end.0.18.5":39.40062794957321,"frame.frame.end.1.129.86":-29.207709264946935,"frame.frame.end.1.144.36":-38.14108650642091,"frame.extension.rail.0":43.34981421846481,"frame.extension.rail.1":12.93197268853357,"motor.control.box":17.4631783602068,"frame.cable.cover":12.91197268853357,"top.main":52.92255557939508,"top.corner":43.36981421846481,"top.return":45.19738004484463,"keypad.body":38.50484861474471,"keypad.screen":43.33845416415809,"panel.main":-22.600386859444882,"panel.return":-12.090818750496982,"context.0":61.77835143521351,"context.existing-chair-back-1":82.95188743960571,"context.existing-chair-back-2":81.50734871927247,"context.3":51.34714619372502,"context.4":51.30714619372501,"context.5":33.174331633033496,"context.6":51.327146193725014,"context.7":51.28714619372501,"context.8":24.178966978217773,"context.9":25.528899486374712,"context.10":49.937213685568075,"context.11":77.34704742850732,"context.12":83.75770261408368,"context.13":49.622773230829466,"context.14":56.03342841640583,"context.15":52.94255557939508,"context.16":52.96255557939509,"context.17":52.98255557939509,"context.18":52.94255557939508,"context.19":52.94255557939508,"context.20":52.94255557939508}}]);
+/* END PLAN POLISH */
 const initialFit=repairLayout(state);if(initialFit.ok&&initialFit.moved){history.push(clone(state));state=initialFit.project;loadNotice=initialFit.moved+' desk'+(initialFit.moved===1?'':'s')+' moved into clear space. Undo restores your saved layout.';}
 hydrateIcons();renderLibraries();bindUI();refresh();if(initialFit.ok&&initialFit.moved)saveLocal();if(loadNotice)notify(loadNotice);
 
@@ -11084,7 +11457,7 @@ function v17Sync(){
  v17Tray.hidden=activeTab!=='planner';
  const desks=state.desks.filter(d=>selectedDeskIds.has(d.id));
  v17Selection.hidden=activeTab!=='planner'||!desks.length||resizingRoom||!!drag;
- $('#v17-selection-label').textContent=desks.length>1?desks.length+' desks selected':desks[0]?MODEL_NAMES[desks[0].model]:'';
+ $('#v17-selection-label').textContent=desks.length>1?desks.length+' desks selected':desks[0]?workspaceLabel(desks[0])+' · '+MODEL_NAMES[desks[0].model]:'';
  for(const id of ['v17-configure','v17-rotate','v17-duplicate'])$('#'+id).hidden=desks.length!==1;
  const unit=workspaceUnits(),count=state.desks.length;
  v17Metrics.textContent=displayRoomLength(state.room.w)+' × '+displayRoomLength(state.room.d)+'  ·  '+formatArea(areaOf(roomPolygon(state.room)),unit)+'  ·  '+count+' workspace'+(count===1?'':'s');
@@ -11110,5 +11483,768 @@ $('#library-batch-mobile').onclick=()=>showDeskPlanner('batch');
 window.addEventListener('resize',()=>{if(!v17Mobile())document.body.classList.remove('v17-library-mobile-open');queueCanvasResize();});
 v17FilterProducts();v17Sync();saveLocal();roomP=null;requestAnimationFrame(()=>renderRoom({fit:true}));
 
+/* BEGIN V20 PLANNER */
+document.body.classList.add("vernal-v20");
+const V20_GEOMETRY_CACHE_VERSION="3ab9203a55ce6c37";
+/* Reuse measured painter orders across reloads. Keys include geometry version.
+   This stores render data only; it never reads or changes purchase quantities. */
+(function v20RenderOrderCache(){
+ const cacheKey='vernal-render-orders-v20'+(new URLSearchParams(location.search).get('qa')==='1'?'-qa':'');
+ let timer=0,enabled=true;
+ const validOrder=order=>order&&typeof order==='object'&&!Array.isArray(order)&&Object.keys(order).length<2400&&Object.values(order).every(n=>typeof n==='number'&&Number.isFinite(n));
+ try{
+  const stored=JSON.parse(localStorage.getItem(cacheKey)||'null');
+  if(stored?.version===V20_GEOMETRY_CACHE_VERSION&&Array.isArray(stored.orders)){
+   for(const entry of stored.orders.slice(-8)){
+    if(Array.isArray(entry)&&typeof entry[0]==='string'&&entry[0].endsWith('|true')&&validOrder(entry[1]))ROOM_ORDERS.set(entry[0],entry[1]);
+   }
+  }
+ }catch{/* Storage is optional. */}
+ const write=()=>{
+  timer=0;if(!enabled)return;
+  const orders=[...ROOM_ORDERS.entries()].filter(([key,value])=>key.endsWith('|true')&&validOrder(value)).slice(-8);
+  const payload=JSON.stringify({version:V20_GEOMETRY_CACHE_VERSION,orders});
+  if(payload.length>450000)return;
+  try{localStorage.setItem(cacheKey,payload);}catch{enabled=false;}
+ };
+ const original=roomDeskFigure;
+ roomDeskFigure=function(d,P,detail=false){
+  const count=ROOM_ORDERS.size,result=original.apply(this,arguments);
+  if(enabled&&detail&&ROOM_ORDERS.size!==count){if(timer)clearTimeout(timer);timer=setTimeout(write,300);}
+  return result;
+ };
+})();
+
+/* Vernal Plan: editable scene starters and a reserved workspace action rail. */
+(function v20PlanModule(){
+  let libraryTab='scenes', presetId='', presetFingerprint='', panelKey='', panelVisible=false, ready=false;
+  const presets=[
+    {id:'blank',name:'Blank',w:800,d:700,count:0,models:[],positions:[]},
+    {id:'team',name:'Team office',w:800,d:700,count:6,models:['core','core','core','core','core','core'],positions:[[70,100],[310,100],[550,100],[70,390],[310,390],[550,390]]},
+    {id:'focus',name:'Focus office',w:760,d:650,count:4,models:['core','core','coreL','wood'],positions:[[70,90],[430,90],[70,360],[430,370]]},
+    {id:'executive',name:'Executive office',w:760,d:650,count:2,models:['executive','executiveL'],positions:[[90,100],[410,350]]}
+  ];
+  const node=(tag,attrs={},html='')=>{const el=document.createElement(tag);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);el.innerHTML=html;return el;};
+  function preview(preset){
+    const P=(x,y,z=0)=>[130+(x-y)*.12,13+(x+y)*.055-z*.2];
+    const shape=(pts,fill,stroke='#cdcfc5')=>'<path d="M'+pts.map(p=>P(...p).map(n=>n.toFixed(1)).join(',')).join('L')+'Z" fill="'+fill+'" stroke="'+stroke+'" stroke-width=".55"/>';
+    const W=760,D=650,scaleX=W/preset.w,scaleY=D/preset.d;
+    let out=shape([[0,0],[W,0],[W,D],[0,D]],'#eeeae1')+shape([[0,0],[0,D],[0,D,125],[0,0,125]],'#e3e5dc')+shape([[0,0],[W,0],[W,0,125],[0,0,125]],'#f4f3ec');
+    preset.positions.forEach(([px,py],i)=>{const x=px*scaleX,y=py*scaleY,w=145,d=72,h=74,lshape=/L$/.test(preset.models[i]);
+      for(const lx of [x+10,x+w-17]){out+=shape([[lx,y+10],[lx+7,y+10],[lx+7,y+10,h],[lx,y+10,h]],'#454b4c','#454b4c');out+=shape([[lx-8,y+1],[lx+12,y+1],[lx+12,y+64],[lx-8,y+64]],'#555b5c','#555b5c');}
+      out+=shape([[x,y,h],[x+w,y,h],[x+w,y+d,h],[x,y+d,h]],'#b88b61','#9c7854');
+      out+=shape([[x,y+d,h],[x+w,y+d,h],[x+w,y+d,h-5],[x,y+d,h-5]],'#9f7754','#9f7754');
+      if(lshape)out+=shape([[x+w-65,y+d,h],[x+w,y+d,h],[x+w,y+130,h],[x+w-65,y+130,h]],'#b88b61','#9c7854');
+      out+=shape([[x+55,y+17,h],[x+95,y+17,h],[x+95,y+17,h+31],[x+55,y+17,h+31]],'#414b4e','#414b4e');
+      out+=shape([[x+54,y+d+20,45],[x+95,y+d+20,45],[x+95,y+d+55,45],[x+54,y+d+55,45]],'#555b5b','#555b5b');
+      out+=shape([[x+54,y+d+55,45],[x+95,y+d+55,45],[x+95,y+d+55,90],[x+54,y+d+55,90]],'#4b5354','#4b5354');
+    });
+    return '<svg viewBox="0 -18 250 135" role="img" aria-label="'+esc(preset.name)+' layout preview">'+out+'</svg>';
+  }
+  function createScene(preset){
+    const project={...clone(state),room:{x:0,y:0,w:preset.w,d:preset.d,shape:'rect',cutW:190,cuth:160,height:260},desks:[],obstacles:[],nextDesk:preset.count+1};
+    delete project.camera;
+    project.desks=preset.models.map((model,i)=>{
+      const desk={...newDesk(model,i+1),x:preset.positions[i][0],y:preset.positions[i][1]};
+      desk.workspace.chair.mode='vernal';
+      if(preset.id==='executive')desk.workspace.storage.mode='vernal';
+      return desk;
+    });
+    if(preset.id==='team')project.obstacles=[{...newObstacle('square'),x:400,y:280,w:40,d:40}];
+    const normalized=normalizeProject(project),result=repairLayout(normalized);
+    return result.ok?result.project:null;
+  }
+  function useScene(id){
+    const preset=presets.find(p=>p.id===id);if(!preset)return;
+    const next=createScene(preset);if(!next){notify('This scene needs more space. Your current layout is saved.');return;}
+    remember();state=next;selected={type:null,id:null};selectedDeskIds.clear();selectionMode=false;inspectedDeskId=null;resizingRoom=false;
+    roomP=null;roomZoom=1;viewCameras.threeD=null;viewCameras.twoD=null;presetId=id;presetFingerprint=sceneFingerprint(state);
+    closeCanvasInspector();closeCanvasTool();closeCleanMenus();
+    if(v17Mobile())document.body.classList.remove('v17-library-mobile-open');
+    refresh();saveLocal();renderRoom({fit:true});sync();
+    notify(preset.name+' ready. Undo to restore.');
+  }
+  function sceneFingerprint(project){return JSON.stringify([project.room,project.desks.map(d=>[d.id,d.model,d.variant,d.x,d.y,d.rotation,workspaceKey(d)]),project.obstacles]);}
+  function chooseLibrary(tab,{focus=false}={}){
+    libraryTab=tab==='products'?'products':'scenes';
+    $('#v20-scenes-pane').hidden=libraryTab!=='scenes';$('#v20-products-pane').hidden=libraryTab!=='products';
+    for(const button of $$('#v20-library-tabs [role="tab"]')){const on=button.dataset.libraryTab===libraryTab;button.setAttribute('aria-selected',String(on));button.tabIndex=on?0:-1;}
+    if(focus)$('#v20-tab-'+libraryTab).focus({preventScroll:true});
+  }
+  function composition(desk){
+    const workspace=normalizeWorkspaceItems(desk),parts=[['desk','Desk']];
+    if(workspace.chair.mode!=='none')parts.push(['chair',workspace.chair.mode==='own'?'Own chair':'Chair']);
+    if(workspace.storage.mode!=='none')parts.push(['storage',workspace.storage.mode==='own'?'Own storage':'Storage']);
+    const extras=typeof accessorySelections==='function'?accessorySelections(desk).length:desk.tray?1:0;
+    if(extras)parts.push(['accessories',extras+' extra'+(extras===1?'':'s')]);
+    return parts.map(([kind,label])=>'<span title="'+esc(label.startsWith('Own ')?label+' · planning only':label)+'">'+personalIcon(kind)+'<span>'+esc(label)+'</span></span>').join('');
+  }
+  function sync(){
+    if(!ready)return;
+    if(presetId&&presetFingerprint!==sceneFingerprint(state))presetId='';
+    for(const button of $$('[data-v20-scene]')){button.setAttribute('aria-pressed',String(button.dataset.v20Scene===presetId));const preset=presets.find(p=>p.id===button.dataset.v20Scene),dimensions=button.querySelector('.v20-scene-meta>span');if(preset&&dimensions)dimensions.textContent=displayRoomLength(preset.w)+' × '+displayRoomLength(preset.d);}
+    const desks=state.desks.filter(d=>selectedDeskIds.has(d.id)),show=activeTab==='planner'&&desks.length>0&&!resizingRoom;
+    const panel=$('#v20-selection-panel');panel.hidden=!show;
+    if(panelVisible!==show){panelVisible=show;document.body.classList.toggle('v20-plan-selected',show);queueCanvasResize();}
+    $('#v17-selection').hidden=true;
+    if(!show){panelKey='';return;}
+    const key=JSON.stringify([desks.map(d=>[d.id,d.label,d.model,configurationKey(d),workspaceKey(d)]),!!drag]);
+    if(key!==panelKey){
+      panelKey=key;const single=desks.length===1,d=desks[0],disabled=drag?' disabled':'';
+      panel.innerHTML='<div class="v20-selection-heading"><div><p class="v20-selection-eyebrow">'+(single?'Selected workspace':'Selection')+'</p><h2>'+esc(single?workspaceLabel(d):desks.length+' workspaces')+'</h2></div><button type="button" id="v20-clear" aria-label="Clear workspace selection">'+icon('close')+'</button></div>'+
+      (single?'<p class="v20-selection-model">'+esc(MODEL_NAMES[d.model])+'</p><div class="v20-composition" aria-label="Workspace includes">'+composition(d)+'</div><button id="v20-configure" class="v20-configure" type="button"'+disabled+'>Customize workspace <span aria-hidden="true">→</span></button><div class="v20-selection-actions"><button id="v20-rotate" type="button" aria-label="Rotate complete workspace 90 degrees"'+disabled+'>'+icon('rotate')+'<span>Rotate</span></button><button id="v20-duplicate" type="button" aria-label="Duplicate complete workspace"'+disabled+'>'+icon('duplicate')+'<span>Duplicate</span></button><details class="v20-more"><summary aria-label="More workspace actions"><span aria-hidden="true">···</span><span>More</span></summary><div><button id="v20-remove" type="button"'+disabled+'>'+icon('delete')+' Remove workspace</button></div></details></div>':'<p class="v20-group-hint">Drag any selected workspace to move the group.</p><button id="v20-remove-group" class="v20-remove-group" type="button"'+disabled+'>'+icon('delete')+' Remove selected</button><button id="v20-select-all" class="v20-select-all" type="button"'+disabled+'>Select all '+state.desks.length+' workspaces</button>');
+      $('#v20-clear').onclick=clearCanvasSelection;
+      if(single){$('#v20-configure').onclick=()=>{const currentDesk=state.desks.find(item=>item.id===d.id);if(currentDesk)openDeskCustomization(clone(currentDesk));};$('#v20-rotate').onclick=rotateSelection;$('#v20-duplicate').onclick=duplicateSelection;$('#v20-remove').onclick=deleteSelection;}
+      else{$('#v20-remove-group').onclick=deleteSelectedDesks;$('#v20-select-all').onclick=selectAllCanvasDesks;}
+    }
+  }
+  function floorOutlines(){
+    if(!ready||activeTab!=='planner'||!roomP)return;
+    const P={...roomP,origin:[0,0]};
+    for(const desk of state.desks){
+      const owner=sceneNodes.get(desk.id);if(!owner)continue;let group=owner.querySelector(':scope > .v20-workspace-footprints');
+      if(!selectedDeskIds.has(desk.id)){group?.remove();owner.classList.remove('v20-whole-workspace');continue;}
+      const bare={...desk,x:0,y:0},parts=workspacePlacementParts(bare),key=JSON.stringify([parts,P]);
+      if(!group){group=document.createElementNS('http://www.w3.org/2000/svg','g');group.setAttribute('class','v20-workspace-footprints');group.setAttribute('pointer-events','none');group.setAttribute('aria-hidden','true');const anchor=owner.querySelector(':scope > .object-footprint');owner.insertBefore(group,anchor?anchor.nextSibling:owner.firstChild);}
+      if(group.dataset.key!==key){group.innerHTML=parts.map(part=>'<path class="v20-footprint v20-footprint-'+part.kind+'" data-workspace-footprint="'+part.kind+'" d="'+path2(part.poly.map(point=>projectedPoint(P,point)))+'"/>').join('');group.dataset.key=key;}
+      owner.classList.add('v20-whole-workspace');
+    }
+  }
+  function init(){
+    if(ready||!$('#product-tray'))return;ready=true;document.body.classList.add('vernal-v20-plan');
+    $('#tab-planner').textContent='Plan';
+    const section=$('#product-tray .products-section'),head=$('.v17-library-head');head.querySelector('h2').textContent='Library';
+    const tabs=node('div',{id:'v20-library-tabs',role:'tablist','aria-label':'Planning library'},'<button type="button" id="v20-tab-scenes" role="tab" data-library-tab="scenes" aria-controls="v20-scenes-pane" aria-selected="true">Scenes</button><button type="button" id="v20-tab-products" role="tab" data-library-tab="products" aria-controls="v20-products-pane" aria-selected="false" tabindex="-1">Products</button>');
+    head.after(tabs);
+    const productPane=node('div',{id:'v20-products-pane',role:'tabpanel','aria-labelledby':'v20-tab-products',hidden:''});
+    for(const selector of ['.v17-search','.tray-intro','#tray-options','#product-library','#v17-search-empty','#open-batch','.v17-library-foot']){const child=section.querySelector(selector);if(child)productPane.append(child);}
+    const layouts=$('#layouts-toggle');layouts.querySelector('span').textContent='Layouts';layouts.setAttribute('title','Arrange 4, 6 or 8 desks in the current room');productPane.append(layouts);
+    const scenes=node('div',{id:'v20-scenes-pane',role:'tabpanel','aria-labelledby':'v20-tab-scenes'},'<div class="v20-scenes-list">'+presets.map(p=>'<button type="button" class="v20-scene-card" data-v20-scene="'+p.id+'" aria-pressed="false" aria-label="Use '+p.name+' scene. Replaces current room and furniture; Undo is available."><span class="v20-scene-image">'+preview(p)+'</span><span class="v20-scene-name">'+p.name+'</span><span class="v20-scene-meta">'+(p.count?p.count+' workspaces':'Create your layout')+'<span>'+p.w/100+' × '+p.d/100+' m</span></span></button>').join('')+'</div><p class="v20-scenes-note">Replaces layout · Undo available</p>');
+    section.append(scenes,productPane);
+    tabs.addEventListener('click',event=>{const button=event.target.closest('[data-library-tab]');if(button)chooseLibrary(button.dataset.libraryTab);});
+    tabs.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();chooseLibrary(event.key==='Home'?'scenes':event.key==='End'?'products':libraryTab==='scenes'?'products':'scenes',{focus:true});}});
+    scenes.addEventListener('click',event=>{const button=event.target.closest('[data-v20-scene]');if(button)useScene(button.dataset.v20Scene);});
+    $('#planner-view').append(node('aside',{id:'v20-selection-panel','aria-label':'Selected workspace',hidden:''}));
+    const originalSync=v17Sync;v17Sync=function(){const result=originalSync.apply(this,arguments);sync();return result;};
+    const originalRoom=renderRoom;renderRoom=function(){const result=originalRoom.apply(this,arguments);floorOutlines();return result;};
+    const originalLibrary=v17SetLibrary;v17SetLibrary=function(open){const result=originalLibrary.apply(this,arguments);if(open)$('#v20-tab-'+libraryTab)?.focus({preventScroll:true});return result;};
+    const originalFilter=setBenefitFilter;setBenefitFilter=function(){chooseLibrary('products');return originalFilter.apply(this,arguments);};
+    $('#v17-mobile-presets').textContent='Scenes';$('#v17-mobile-presets').onclick=()=>{chooseLibrary('scenes');v17SetLibrary(true);};
+    $('#v17-mobile-library').textContent='+ Products';$('#v17-mobile-library').onclick=()=>{chooseLibrary('products');v17SetLibrary(true);};
+    $('#mobile-layouts-entry').textContent='Scenes →';$('#mobile-layouts-entry').onclick=()=>{closeCanvasTool();chooseLibrary('scenes');v17SetLibrary(true);};
+    $('#v17-library-toggle').setAttribute('title','Open scene and product library');
+    chooseLibrary('scenes');sync();renderRoom();queueCanvasResize();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+
+/* Inline Anatomy explanations. Pure previews share the configured workspace. */
+const V20_BENEFIT_COPY={
+ core:[['steady','Stay steady as you work','A reinforced frame and wider connections support your setup.','frame'],['lift','Move through your day','Your desk and equipment rise together.','lift'],['space','Room for your setup','An open frame gives you room to sit comfortably.','space']],
+ corner:[['zones','A place for every task','Keep screens, documents and hands-on work within reach.','zones'],['lift','Your whole setup moves together','Three columns raise the main surface and return together.','lift'],['corner','Fit your corner, your way','Choose the return that works with your room.','corner']],
+ executive:[['finish','A polished workspace','Coordinated woodgrain brings your desk and base together.','finish'],['panel','Privacy at your desk','The selected front panel gives your workspace considered coverage.','panel'],['lift','Move through your day','Your desktop rises while the lower enclosures stay grounded.','lift']],
+ executiveCorner:[['zones','Room for every task','Keep focused work and supporting tasks side by side.','zones'],['lift','Your whole setup moves together','The main work surface and return rise as one.','lift'],['finish','A polished, personal workspace','Coordinated woodgrain gives your setup a considered finish.','finish']],
+ hardwood:[['wood','Bring natural warmth to work','The solid hardwood top carries its character through the edge.','wood'],['finish','Find your finish','Choose the natural character of Maple, Cherry or Walnut.','wood'],['lift','Move through your day','Your desk and equipment rise together.','lift']]
+};
+const v20BenefitState={id:null,section:null,config:'',frame:0,token:0,progress:0,scene:null,sceneKey:'',shownHeight:null,restoreHeight:null,running:false,visible:true,live:false,view:[0,0,1000,720],axis:'height',previewReturn:null};
+const v20BenefitCache=new Map();
+function v20Benefits(d=detailDraft,part=personalSection){
+ if(!d)return [];
+ if(part==='desk'){
+  const p=productOf(d),v=variantOf(d),key=p.hardwood?'hardwood':p.executive?(p.lshape?'executiveCorner':'executive'):p.lshape?'corner':'core';
+  return V20_BENEFIT_COPY[key].filter(row=>row[0]!=='panel'||!!v.panel).map(([id,title,copy,motion])=>({id,title,copy,motion}));
+ }
+ const w=normalizeWorkspaceItems(d);
+ if(part==='chair')return w.chair.mode==='vernal'?[
+  {id:'lumbar',title:'Support that fits you',copy:'Adjust the lumbar support to suit your seated position.',motion:'lumbar'},
+  {id:'armrests',title:'Keep your arms supported',copy:'Bring the arm pads to a comfortable working height.',motion:'armrests'},
+  {id:'seat-depth',title:'Find your sitting position',copy:'Slide the seat to suit your leg length.',motion:'seat-depth'}]:[];
+ if(part==='storage')return w.storage.mode==='vernal'?[
+  {id:'storage',title:'Keep essentials close',copy:'Open the drawer while the cabinet stays in place.',motion:'storage'},
+  {id:'files',title:'Find your files easily',copy:'Hanging-file rails keep your documents together.',motion:'storage'}]:[];
+ const names={tray:['Give every cable a place','Keep power and device cables together below the surface.','tray'],monitorArm:[normalizeAccessories(d).monitorArm==='dual'?'Bring both screens into view':'Put your screen where you need it','The clamped support holds your screen above the work surface.','monitorArm'],drawer:['Keep daily essentials within reach','Slide open a dedicated space for smaller work tools.','drawer'],cpuHolder:['Give your PC a secure place','An under-desk cradle supports the tower beside your work area.','cpuHolder']};
+ return accessorySelections(d).filter(a=>!a.disabled&&names[a.key||a.id]).map(a=>{const id=a.key||a.id;return {id,title:names[id][0],copy:names[id][1],motion:names[id][2]};});
+}
+function v20CurrentBenefit(){return v20Benefits().find(b=>b.id===v20BenefitState.id)||null;}
+function v20BenefitConfig(d=detailDraft){return d?JSON.stringify([d.model,d.variant,normalizeWorkspaceItems(d),normalizeAccessories(d),personalSection]):'';}
+function v20BenefitIcon(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m10 8 6 4-6 4Z"/></svg>';}
+function v20RenderBenefitRows(){
+ const editor=$('#personal-editor');if(!editor||!detailDraft)return;
+ const focusBenefit=document.activeElement?.dataset?.v20Benefit,focusReturn=document.activeElement?.dataset?.v20Return;
+ const rows=v20Benefits(),key=v20BenefitConfig();
+ if(v20BenefitState.config!==key){v20StopBenefit({restore:true,paint:false});v20BenefitState.config=key;v20BenefitState.id=null;v20BenefitState.section=personalSection;}
+ let block=$('#v20-benefits');
+ if(!block){block=document.createElement('section');block.id='v20-benefits';block.className='v20-benefits';block.setAttribute('aria-label','Explore product benefits');const anchor=editor.querySelector('#personal-model-picker')||editor.querySelector('.personal-source-actions')||editor.querySelector('.personal-product-heading')||editor.querySelector('.personal-editor-title');if(anchor)anchor.after(block);else editor.prepend(block);}
+ const title=personalSection==='desk'?MODEL_NAMES[detailDraft.model]:personalSection==='chair'?'Arc chair':personalSection==='storage'?'File cabinet':'your extras';
+ block.hidden=!rows.length;
+ block.innerHTML='<p class="v20-benefits-label">Explore '+esc(title)+'</p><div class="v20-benefit-list">'+rows.map(b=>'<button type="button" data-v20-benefit="'+b.id+'" aria-pressed="'+(b.id===v20BenefitState.id)+'">'+v20BenefitIcon()+'<span><strong>'+esc(b.title)+'</strong>'+(b.id===v20BenefitState.id?'<small>'+esc(b.copy)+'</small>':'')+'</span></button>').join('')+'</div>';
+ if(v20BenefitState.id==='corner'){
+  const side=v20BenefitState.previewReturn||variantOf(detailDraft).side;
+  block.innerHTML+='<div class="v20-return-preview"><span>Preview return</span><div role="group" aria-label="Preview return side">'+['left','right'].map(s=>'<button type="button" data-v20-return="'+s+'" aria-pressed="'+(side===s)+'">'+s[0].toUpperCase()+s.slice(1)+'</button>').join('')+'</div>'+(side!==variantOf(detailDraft).side?'<button type="button" data-v20-return-apply>Apply return →</button>':'')+'</div>';
+ }
+ const explore=$('#personal-explore');if(explore)explore.hidden=true;
+ const review=$('#personal-review');if(review&&detailOrigin!=='compare')review.innerHTML='Review workspace <span aria-hidden="true">→</span>';
+ let playback=$('#v20-canvas-playback');
+ if(!playback){playback=document.createElement('div');playback.id='v20-canvas-playback';playback.className='v20-canvas-playback';playback.innerHTML='<button type="button" data-v20-replay aria-label="Replay benefit">'+personalIcon('reset')+'<span></span></button><button type="button" data-v20-reset aria-label="Return to complete workspace"><span>Full workspace</span>'+personalIcon('close')+'</button>';$('.personal-scene-footer')?.append(playback);}
+ const active=v20CurrentBenefit();playback.hidden=!active;playback.querySelector('[data-v20-replay] span').textContent=active?.motion==='lift'?'Sit–stand preview':active?.title||'';
+ $('#personal-canvas-label').textContent=active?'':personalPartName(personalSection);
+ $('.personal-position-wrap').hidden=!!active;
+ if(focusBenefit)block.querySelector('[data-v20-benefit="'+focusBenefit+'"]')?.focus({preventScroll:true});
+ if(focusReturn)block.querySelector('[data-v20-return="'+focusReturn+'"]')?.focus({preventScroll:true});
+}
+function v20PartMotionFactor(item){
+ if(item.context)return ['chair','storage'].includes(item.part.workspacePart)?0:1;
+ return liftMotionFactor(item);
+}
+function v20FigureNode(item,P){
+ const part=item.context?item.part.workspacePart||'accessories':['tray','monitorArm','drawer','cpuHolder','accessories'].includes(item.part.group)?'accessories':'desk';
+ const markup=item.part.furniture?furniturePartMarkup(item.part,P,{detail:true}):item.context?partMarkup(item.part,P):finishedPartMarkup(item,P),o=item.part;
+ // The main renderer is designed for an above-floor camera. Close the real
+ // lower face of each solid when the explanatory camera looks upward.
+ const underside=P.elevation<0&&o.kind==='box'?'<g class="mat-'+o.material+'"'+(o.furniture?' style="'+fgStyle(o.material)+'"':'')+'><path class="v20-underside-face" d="'+facePath(k.roundedPlan({x:o.x,y:o.y,w:o.w,d:o.d,r:o.r||0},5).map(([x,y])=>[x,y,o.z]),P,true)+'"/></g>':'';
+ return '<g data-v20-part="'+esc(item.name)+'" data-v20-group="'+esc(item.part.group||item.part.workspacePart||part)+'" data-workspace-part="'+part+'">'+markup+underside+'</g>';
+}
+function v20SceneProjection(d,angle='default'){
+ return k.fitProjection(figureEnvelope(d),1000,720,{pad:48,azimuth:angle==='low'?-132:angle==='rear'?-42:48,elevation:angle==='low'?-18:angle==='rear'?24:28});
+}
+function v20BuildScene(angle='default',preview={}){
+ if(!detailDraft||!$('#personal-scene'))return null;
+ const d={...detailDraft,...preview,x:0,y:0,rotation:0},key=JSON.stringify([configurationKey(d),d.height,d.workspace,angle]);
+ let built=v20BenefitCache.get(key);
+ if(!built){
+  // A structure close-up omits independent floor furniture from this render
+  // only. The configuration and its ground placement remain untouched.
+  const w=normalizeWorkspaceItems(d),drawing=['low','front'].includes(angle)?{...d,workspace:{...w,chair:{...w.chair,mode:'none'},storage:{...w.storage,mode:'none'}}}:d;
+  const P=v20SceneProjection(drawing,angle),f=roomDeskFigure(drawing,P,true),items=[...f.R.items].sort((a,b)=>a.key-b.key);
+  const head='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" class="iso iso-svg workspace-figure v20-workspace-figure '+materialClass(variantOf(d))+'" data-theme="light" data-iso-scale="'+P.scale+'" data-iso-origin-x="'+P.origin[0]+'" data-iso-origin-y="'+P.origin[1]+'" data-iso-k="'+k.cameraOf(P).k+'" data-iso-azimuth="'+P.azimuth+'" data-iso-elevation="'+P.elevation+'" role="img" aria-label="Your configured workspace. Select a benefit to explore its structure.">';
+  built={P,items,height:d.height,markup:head+workspaceShadow(drawing,P,[...f.data.parts,...f.props])+'<g class="v20-model-parts">'+items.map(i=>v20FigureNode(i,P)).join('')+'</g></svg>'};
+  v20BenefitCache.set(key,built);while(v20BenefitCache.size>8)v20BenefitCache.delete(v20BenefitCache.keys().next().value);
+ }
+ const scene=$('#personal-scene');scene.dataset.story='';scene.innerHTML='<div class="personal-svg-host">'+built.markup+'</div>';
+ const nodes=new Map([...scene.querySelectorAll('[data-v20-part]')].map(n=>[n.dataset.v20Part,n]));
+ v20BenefitState.scene={...built,key,angle,svg:scene.querySelector('svg'),items:built.items.map(i=>({...i,node:nodes.get(i.name),factor:v20PartMotionFactor(i)}))};
+ v20BenefitState.scene.svg.dataset.view=angle==='low'?'structure':'workspace';
+ v20BenefitState.scene.svg.dataset.variant=d.variant;
+ const active=v20BenefitState.scene,maxPreview=productOf(d).max+variantOf(d).thickness,boxes=active.items.flatMap(i=>{const b=i.node?.getBBox();if(!b)return [];const a=k.iso([0,0,0],active.P),z=k.iso([0,0,Math.max(0,maxPreview-d.height)*i.factor],active.P);return [{x:b.x,y:b.y,w:b.width,h:b.height},{x:b.x+z[0]-a[0],y:b.y+z[1]-a[1],w:b.width,h:b.height}];});
+ const x=Math.min(...boxes.map(b=>b.x))-30,y=Math.min(...boxes.map(b=>b.y))-30,right=Math.max(...boxes.map(b=>b.x+b.w))+30,bottom=Math.max(...boxes.map(b=>b.y+b.h))+30;
+ active.normalView=[x,y,right-x,bottom-y];active.svg.setAttribute('viewBox',active.normalView.join(' '));
+ v20BenefitState.sceneKey=key;v20BenefitState.shownHeight=d.height;v20BenefitState.view=[...active.normalView];
+ return v20BenefitState.scene;
+}
+function v20PaintHeight(height){
+ const s=v20BenefitState.scene;if(!s)return;const delta=height-s.height;
+ for(const item of s.items){const value=k.translateAlong(s.P,[0,0,delta*item.factor]);if(item.lastTransform!==value){item.node?.setAttribute('transform',value);item.lastTransform=value;}}
+ v20BenefitState.shownHeight=height;
+ const slider=$('#personal-desk-height'),readout=$('#personal-height-value');if(slider)slider.value=height;if(readout)readout.textContent=personalHeightText(height);
+ $$('[data-personal-height-preset]').forEach(b=>b.setAttribute('aria-pressed',String(Math.abs(+b.dataset.personalHeightPreset-height)<1)));
+}
+function v20DescribeHeight(){const slider=$('#personal-desk-height');if(slider)slider.setAttribute('aria-valuetext',personalHeightText(v20BenefitState.shownHeight??detailDraft.height));}
+function v20ClearHeight(from,to,announce=false){
+ const steps=Math.max(1,Math.ceil(Math.abs(to-from)/2));let safe=from,hit=null;
+ for(let n=1;n<=steps;n++){
+  const candidate=from+(to-from)*n/steps,contacts=placementContacts({...detailDraft,height:candidate});
+  if(contacts.length){hit=contacts[0];let clear=safe,blocked=candidate;for(let i=0;i<9;i++){const h=(clear+blocked)/2;if(placementContacts({...detailDraft,height:h}).length)blocked=h;else clear=h;}safe=clear;break;}
+  safe=candidate;
+ }
+ if(announce&&(hit||Math.abs(from-to)>.05||!$('#v20-height-clearance'))){let note=$('#v20-height-clearance');if(!note){note=document.createElement('p');note.id='v20-height-clearance';note.className='v20-height-clearance';note.setAttribute('role','status');$('.personal-height-control')?.append(note);}note.hidden=!hit;note.textContent=hit?'Move '+(hit.kind==='storage'?'storage':'the chair')+' aside to explore this height.':'';}
+ return safe;
+}
+function v20StopBenefit({restore=true,paint=false}={}){
+ const st=v20BenefitState;if(st.frame)cancelAnimationFrame(st.frame);st.frame=0;st.running=false;st.token++;st.live=false;
+ if(restore&&st.restoreHeight!==null&&detailDraft){detailDraft.height=st.restoreHeight;st.restoreHeight=null;if(st.scene)v20PaintHeight(detailDraft.height);v20DescribeHeight();}
+ else if(!restore)st.restoreHeight=null;
+ if(paint){st.scene=null;personalSceneKey='';paintPersonalScene(true);}
+}
+function v20Run(duration,draw,complete){
+ const st=v20BenefitState,token=++st.token;st.running=true;let first=null;
+ if(reduced.matches){draw(1);st.running=false;complete?.();return;}
+ const tick=time=>{if(token!==st.token)return;if(activeTab!=='details'||productSubview!=='customize'||document.hidden||!st.visible||$('#modal')?.open){v20StopBenefit({restore:true});return;}if(first===null)first=time;const t=Math.min(1,(time-first)/duration),p=t*t*(3-2*t);draw(p);if(t<1)st.frame=requestAnimationFrame(tick);else{st.frame=0;st.running=false;complete?.();}};
+ st.frame=requestAnimationFrame(tick);
+}
+function v20ZoomTo(names,amount=1){
+ const s=v20BenefitState.scene;if(!s)return [0,0,1000,720];
+ const normal=s.normalView,items=s.items.filter(i=>names(i));if(!items.length)return normal;
+ const boxes=items.map(i=>i.node.getBBox()),xs=boxes.flatMap(b=>[b.x,b.x+b.width]),ys=boxes.flatMap(b=>[b.y,b.y+b.height]),cx=(Math.min(...xs)+Math.max(...xs))/2,cy=(Math.min(...ys)+Math.max(...ys))/2;
+ const width=Math.max(200,(Math.max(...xs)-Math.min(...xs))*1.22),height=Math.max(width*.70,(Math.max(...ys)-Math.min(...ys))*1.25);
+ return [cx-width/2,cy-height/2,width,height].map((v,i)=>normal[i]+(v-normal[i])*amount);
+}
+function v20PaintView(target,p){const s=v20BenefitState.scene;if(!s)return;const normal=s.normalView,v=target.map((x,i)=>normal[i]+(x-normal[i])*p);s.svg.setAttribute('viewBox',v.map(n=>n.toFixed(2)).join(' '));v20BenefitState.view=v;}
+function v20Highlight(predicate){const s=v20BenefitState.scene;if(!s)return;for(const item of s.items)item.node?.classList.toggle('v20-benefit-focus',!!predicate(item));}
+function v20RestoreView(){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.previewReturn=null;v20BenefitState.scene=null;v20BenefitState.sceneKey='';personalSceneKey='';paintPersonalScene(true);v20RenderBenefitRows();}
+function v20ReturnVariant(side){const p=productOf(detailDraft),v=variantOf(detailDraft);return p.variants.find(a=>a.side===side&&a.w===v.w&&a.d===v.d&&a.finish===v.finish&&a.frame===v.frame&&!!a.panel===!!v.panel);}
+function v20PreviewReturn(side){
+ const next=v20ReturnVariant(side);if(!next)return;v20StopBenefit({restore:true});v20BenefitState.previewReturn=side;v20BuildScene('default',{variant:next.id});v20RenderBenefitRows();v20Highlight(i=>i.part.group==='top');
+}
+function v20ApplyReturn(){const next=v20ReturnVariant(v20BenefitState.previewReturn);if(!next)return;v20RestoreView();changeDeskVariant(next);}
+function v20FurnitureMotion(kind,topic){
+ const s=v20BenefitState.scene,layout=workspacePartLayout(detailDraft)[kind];if(!s||!layout)return ()=>{};
+ const generate=p=>kind==='chair'?arcChairParts(layout,{detail:true,topic,progress:p,axis:v20BenefitState.axis}):cabinetParts(layout,{detail:true,progress:p});
+ const target=new Map(generate(1).map(o=>[o.id,o])),motionItems=s.items.filter(i=>i.part.furniture&&i.part.workspacePart===kind&&i.part.motion),baseMap=new Map(generate(0).map(o=>[o.id,o]));
+ const changing=motionItems.filter(i=>{const a=baseMap.get(i.part.id),b=target.get(i.part.id);return a&&b&&(a.h!==b.h||JSON.stringify(a.polygon)!==JSON.stringify(b.polygon)||JSON.stringify(a.F?.u)!==JSON.stringify(b.F?.u));});
+ return p=>{
+  const live=changing.length?new Map(generate(p).map(o=>[o.id,o])):null;
+  for(const i of motionItems){const a=baseMap.get(i.part.id),b=target.get(i.part.id);if(!a||!b)continue;
+   if(changing.includes(i)){const o=live.get(i.part.id);i.node.innerHTML=furniturePartMarkup(o,s.P,{detail:true});}
+   else i.node.setAttribute('transform',k.translateAlong(s.P,[(b.x-a.x)*p,(b.y-a.y)*p,(b.z-a.z)*p]));
+  }
+ };
+}
+function v20PlayBenefit(id){
+ const b=v20Benefits().find(row=>row.id===id);if(!b||!detailDraft)return false;
+ v20StopBenefit({restore:true});personalStory=null;personalDeskStoryMode=null;personalPositionOpen=false;productSubview='customize';$('#details-view')?.classList.remove('personal-story-active','personal-desk-story-active');$('#personal-anatomy-view')?.setAttribute('hidden','');
+ const st=v20BenefitState;st.id=id;st.section=personalSection;st.config=v20BenefitConfig();st.previewReturn=null;
+ const angle=['frame','tray','cpuHolder','drawer','space'].includes(b.motion)?'low':b.motion==='lumbar'?'rear':'default';v20BuildScene(angle);v20RenderBenefitRows();personalPaintPosition();
+ if(b.motion==='lift'){
+  const start=detailDraft.height,target=start<90?110:74,p=productOf(detailDraft),v=variantOf(detailDraft),end=v20ClearHeight(start,clamp(target,p.min+v.thickness,p.max+v.thickness));st.restoreHeight=start;
+  v20Highlight(i=>/^legs\.(?:column|collar)/.test(i.name));
+  if(reduced.matches){v20PaintHeight(end);v20DescribeHeight();return true;}
+  v20Run(4200,t=>{const phase=Math.max(0,Math.min(1,t<.46?t/.46:t<.60?1:(1-t)/.40)),eased=phase*phase*(3-2*phase);v20PaintHeight(start+(end-start)*eased);},()=>{st.restoreHeight=null;v20PaintHeight(start);v20DescribeHeight();});
+ }else if(['lumbar','armrests','seat-depth','storage'].includes(b.motion)){
+  const kind=b.motion==='storage'?'storage':'chair',move=v20FurnitureMotion(kind,b.motion),match=i=>i.part.workspacePart===kind&&(kind==='storage'?i.part.motion==='drawer':i.part.motion===b.motion),target=v20ZoomTo(i=>i.part.workspacePart===kind,.72);v20Highlight(match);
+  v20Run(3200,t=>{v20PaintView(target,Math.min(1,t*3));const p=t<.6?t/.6:1;move(p*p*(3-2*p));});
+ }else{
+  const filter=i=>b.motion==='frame'?i.part.group==='frame'||/^motor\.leg\.mount/.test(i.name):b.motion==='space'?i.part.group==='feet'||i.part.group==='legs':b.motion==='zones'||b.motion==='corner'?i.part.group==='top':b.motion==='finish'?i.part.group==='shell'||i.part.group==='panel':b.motion==='panel'?i.part.group==='panel':b.motion==='wood'?i.part.group==='top':i.part.group===b.motion;
+  const target=v20ZoomTo(filter,['space','zones','corner'].includes(b.motion)?.30:.70);v20Highlight(filter);
+  if(b.motion==='monitorArm'){
+   v20Run(2200,t=>{v20PaintView(target,Math.min(1,t*2));for(const i of st.scene.items){const arm=i.part.group==='monitorArm'&&/\.(?:arm\.|pivot\.|vesa\.)/.test(i.name),screen=i.context&&i.part.workspacePart==='accessories'&&i.part.h>15;if(arm||screen)i.node.setAttribute('transform',k.translateAlong(st.scene.P,[0,0,-6*t]));}});
+  }else if(b.motion==='drawer'){
+   v20Run(2200,t=>{v20PaintView(target,Math.min(1,t*2));for(const i of st.scene.items)if(i.part.group==='drawer'&&!/\.(rail|mount)\./.test(i.name))i.node.setAttribute('transform',k.translateAlong(st.scene.P,[0,t*12,0]));});
+  }else v20Run(1500,t=>v20PaintView(target,t));
+ }
+ return true;
+}
+const v20OriginalPaintPersonalScene=paintPersonalScene;
+paintPersonalScene=function(force=false){
+ if(activeTab!=='details'||productSubview!=='customize'||!detailDraft)return v20OriginalPaintPersonalScene(force);
+ const st=v20BenefitState;if(st.running||st.live)return;
+ if(personalDrag){const view=st.scene?.normalView||st.view;st.scene=null;const out=v20OriginalPaintPersonalScene(force);$('#personal-scene svg')?.setAttribute('viewBox',view.join(' '));return out;}
+ const returnVariant=st.id==='corner'&&st.previewReturn?v20ReturnVariant(st.previewReturn):null,d=returnVariant?{...detailDraft,variant:returnVariant.id}:detailDraft;
+ const expected=JSON.stringify([configurationKey(d),d.height,d.workspace,st.id?st.scene?.angle||'default':'default']);
+ if(!st.scene||st.sceneKey!==expected||!st.scene.svg?.isConnected)v20BuildScene(st.id?st.scene?.angle||'default':'default',returnVariant?{variant:returnVariant.id}:{});
+ personalSceneKey=expected;
+};
+const v20OriginalRenderPersonalWorkspace=renderPersonalWorkspace;
+renderPersonalWorkspace=function(){
+ if(detailDraft&&v20BenefitState.config&&v20BenefitState.config!==v20BenefitConfig()){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;}
+ const out=v20OriginalRenderPersonalWorkspace();if(activeTab==='details'&&productSubview==='customize'&&detailDraft){document.body.classList.add('v20-inline-benefits');v20RenderBenefitRows();v20EnsureBenefitEvents();}else v20StopBenefit({restore:true});return out;
+};
+const v20OriginalSetHeight=personalSetHeight;
+personalSetHeight=function(value,live=false){
+ if(!detailDraft||!Number.isFinite(+value))return;
+ const st=v20BenefitState,start=st.shownHeight??detailDraft.height,p=productOf(detailDraft),v=variantOf(detailDraft),target=v20ClearHeight(start,clamp(+value,p.min+v.thickness,p.max+v.thickness),true);
+ if(live){if(st.running)v20StopBenefit({restore:false});if(!st.scene||st.scene.angle!=='default'){st.id=null;v20BuildScene();}st.live=true;detailDraft.height=target;v20PaintHeight(target);return;}
+ if(st.live){st.live=false;detailDraft.height=target;v20PaintHeight(target);v20DescribeHeight();personalHeightCamera=null;return;}
+ v20StopBenefit({restore:false});st.id=null;if(!st.scene||st.scene.angle!=='default')v20BuildScene();v20RenderBenefitRows();
+ if(Math.abs(start-target)<.05){detailDraft.height=target;v20PaintHeight(target);v20DescribeHeight();return;}
+ v20Run(1250,t=>{detailDraft.height=start+(target-start)*t;v20PaintHeight(detailDraft.height);},()=>{detailDraft.height=target;v20PaintHeight(target);v20DescribeHeight();personalHeightCamera=null;});
+};
+const v20OriginalSelectPart=selectPersonalPart;
+selectPersonalPart=function(part){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.previewReturn=null;v20BenefitState.scene=null;return v20OriginalSelectPart(part);};
+const v20OriginalResetPersonal=resetPersonalWorkspace;
+resetPersonalWorkspace=function(){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;v20BenefitState.config='';v20BenefitState.shownHeight=null;return v20OriginalResetPersonal();};
+const v20OriginalPersonalSetChange=personalSetChange;
+personalSetChange=function(edit){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalPersonalSetChange(edit);};
+const v20OriginalChooseDesk=personalChooseDesk;
+personalChooseDesk=function(field,value){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalChooseDesk(field,value);};
+const v20OriginalChangeDetailsModel=changeDetailsModel;
+changeDetailsModel=function(model){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalChangeDetailsModel(model);};
+const v20OriginalAccessoryChange=changeCustomizationAccessory;
+changeCustomizationAccessory=function(id,value){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalAccessoryChange(id,value);};
+const v20OriginalMoveFurniture=personalMoveFurniture;
+personalMoveFurniture=function(kind,offset){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalMoveFurniture(kind,offset);};
+const v20OriginalReviewPersonal=reviewPersonalWorkspace;
+reviewPersonalWorkspace=function(){v20StopBenefit({restore:true});if(v20BenefitState.previewReturn)v20RestoreView();return v20OriginalReviewPersonal();};
+const v20OriginalSavePersonalComparison=savePersonalComparison;
+savePersonalComparison=function(){v20StopBenefit({restore:true});if(v20BenefitState.previewReturn)v20RestoreView();return v20OriginalSavePersonalComparison();};
+const v20OriginalActivateTab=activateTab;
+activateTab=function(tab){if(tab!=='details'){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;}return v20OriginalActivateTab(tab);};
+openPersonalDeskStory=function(){if(productSubview!=='customize'){productSubview='customize';renderPersonalWorkspace();}return v20PlayBenefit(v20Benefits().find(b=>b.motion==='lift')?.id||v20Benefits()[0]?.id);};
+personalDeskBenefits=function(){return openPersonalDeskStory();};
+openPersonalStory=function(kind){personalSection=kind;productSubview='customize';renderPersonalWorkspace();return v20PlayBenefit(v20Benefits()[0]?.id);};
+let v20BenefitEventsReady=false;
+function v20EnsureBenefitEvents(){if(v20BenefitEventsReady)return;v20BenefitEventsReady=true;
+ document.addEventListener('click',event=>{const b=event.target.closest('[data-v20-benefit],[data-v20-replay],[data-v20-reset],[data-v20-return],[data-v20-return-apply]');if(!b)return;event.preventDefault();event.stopPropagation();if(b.hasAttribute('data-v20-reset'))return v20RestoreView();if(b.hasAttribute('data-v20-return'))return v20PreviewReturn(b.dataset.v20Return);if(b.hasAttribute('data-v20-return-apply'))return v20ApplyReturn();v20PlayBenefit(b.dataset.v20Benefit||v20BenefitState.id);},true);
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&activeTab==='details'&&!$('#modal')?.open&&v20BenefitState.id){v20RestoreView();event.preventDefault();}});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)v20StopBenefit({restore:true});});reduced.addEventListener?.('change',()=>{if(reduced.matches)v20StopBenefit({restore:true});});
+ $('#personal-scene').addEventListener('pointerdown',event=>{if(v20BenefitState.id||v20BenefitState.running){v20RestoreView();}},true);
+ if(typeof IntersectionObserver!=='undefined')new IntersectionObserver(entries=>{v20BenefitState.visible=entries.at(-1).isIntersecting;if(!v20BenefitState.visible)v20StopBenefit({restore:true});},{threshold:.05}).observe($('#personal-scene'));
+}
+requestAnimationFrame(()=>{if(activeTab==='details'&&productSubview==='customize'&&detailDraft)renderPersonalWorkspace();});
+
+/* Five different desk stories. All additions are presentation-only geometry.
+   Real configuration, room placement and purchasing state remain untouched. */
+const v21DeskEase=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);};
+const v21DeskPhase=(t,a,b)=>v21DeskEase((t-a)/(b-a));
+function v21DeskGroup(scene,name,markup,{behind=false}={}){
+ const node=document.createElementNS('http://www.w3.org/2000/svg','g');
+ node.dataset.v21DeskStory=name;node.setAttribute('aria-hidden','true');node.setAttribute('pointer-events','none');node.innerHTML=markup;
+ if(behind)scene.svg.insertBefore(node,scene.svg.firstChild);else scene.svg.append(node);return node;
+}
+function v21DeskRestore(scene,extras=[]){
+ for(const item of scene.items){item.node?.removeAttribute('transform');item.node?.style.removeProperty('visibility');item.node?.classList.remove('v20-benefit-focus');}
+ for(const node of extras)node?.remove();scene.svg?.setAttribute('viewBox',scene.normalView.join(' '));
+}
+function v21DeskView(scene,predicate,pad=24){
+ const boxes=scene.items.filter(predicate).map(i=>i.node?.getBBox()).filter(Boolean);if(!boxes.length)return scene.normalView;
+ const x=Math.min(...boxes.map(b=>b.x))-pad,y=Math.min(...boxes.map(b=>b.y))-pad,r=Math.max(...boxes.map(b=>b.x+b.width))+pad,b=Math.max(...boxes.map(b=>b.y+b.height))+pad;
+ return [x,y,r-x,b-y];
+}
+function v21DeskBlendView(scene,target,t){scene.svg.setAttribute('viewBox',target.map((n,i)=>scene.normalView[i]+(n-scene.normalView[i])*t).join(' '));}
+function v21DeskPath(points,P,{fill='none',stroke='#81905d',width=.7,opacity=1}={}){return '<path d="'+facePath(points,P,true)+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" opacity="'+opacity+'" stroke-linejoin="round"/>';}
+function v21DeskPointBox(scene,points,pad=16){
+ const xy=points.map(p=>k.iso(p,scene.P));return [Math.min(...xy.map(p=>p[0]))-pad,Math.min(...xy.map(p=>p[1]))-pad,Math.max(...xy.map(p=>p[0]))-Math.min(...xy.map(p=>p[0]))+pad*2,Math.max(...xy.map(p=>p[1]))-Math.min(...xy.map(p=>p[1]))+pad*2];
+}
+function v21DeskFinishSample(scene,finish,part){
+ const markup=partMarkup(part,scene.P),probe=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ probe.setAttribute('class','iso iso-svg workspace-figure '+materialClass(finish));probe.dataset.theme='light';probe.style.cssText='position:fixed;width:0;height:0;visibility:hidden;pointer-events:none';probe.innerHTML=markup;document.body.append(probe);
+ const palette=getComputedStyle(probe.querySelector('.mat-wood')),props=['top','paper','shade-0','shade-1','shade-2','shade-3','lo','hi','faint'],values=props.map(p=>[p,palette.getPropertyValue('--anatomy-'+p)]);
+ const node=v21DeskGroup(scene,'wood-sample-'+finish.finish,markup);
+ for(const part of node.querySelectorAll('.mat-wood'))for(const [p,value]of values)part.style.setProperty('--anatomy-'+p,value);
+ const styles=['.surface-grain','.surface-grain-band','.surface-edge-sheen'];
+ for(const selector of styles){const source=probe.querySelector(selector),destinations=node.querySelectorAll(selector);if(source){const style=getComputedStyle(source);for(const path of destinations){path.style.fill=style.fill;path.style.opacity=style.opacity;}}}
+ probe.remove();return node;
+}
+
+// The room corners and access strip are planning context, not supplied products.
+function v21CornerContext(scene,d){
+ d={...d,variant:scene.svg.dataset.variant||d.variant};
+ scene.svg.querySelector('[data-v21-desk-story="corner-context"]')?.remove();
+ const v=variantOf(d),left=v.side==='left',gap=13,edge=left?-gap:v.w+gap,far=-gap,front=v.d+52;
+ const floor=[[-gap,far,-.4],[v.w+gap,far,-.4],[v.w+gap,front,-.4],[-gap,front,-.4]];
+ const wallX=left?edge-2:edge,wallY=far-2;
+ const walls=[{kind:'box',x:-gap,y:wallY,z:0,w:v.w+gap*2,d:2,h:31,material:'wall',r:.1},{kind:'box',x:wallX,y:far,z:0,w:2,d:v.d+gap,h:31,material:'wall',r:.1}];
+ const openX=left?69.85+8:8,openW=Math.max(24,v.w-69.85-16),startY=74.93+4,endY=front-6;
+ const access=[[openX,startY,.03],[openX+openW,startY,.03],[openX+openW,endY,.03],[openX,endY,.03]];
+ const node=v21DeskGroup(scene,'corner-context',v21DeskPath(floor,scene.P,{fill:'#f0eee7',stroke:'#d8d9ce',width:.6})+renderDescriptors(walls,scene.P)+'<g data-v21-access>'+v21DeskPath(access,scene.P,{fill:'#e4e9d9',stroke:'#8c9b6b',width:.7})+'</g>',{behind:true});
+ const all=[...floor,...walls.flatMap(o=>[[o.x,o.y,o.h],[o.x+o.w,o.y+o.d,o.h]])];
+ const floorView=v21DeskPointBox(scene,all,20),n=scene.normalView,x=Math.min(n[0],floorView[0]),y=Math.min(n[1],floorView[1]),right=Math.max(n[0]+n[2],floorView[0]+floorView[2]),bottom=Math.max(n[1]+n[3],floorView[1]+floorView[3]);
+ const target=[x,y,right-x,bottom-y];scene.svg.setAttribute('viewBox',target.join(' '));
+ return {node,access:node.querySelector('[data-v21-access]'),view:target};
+}
+
+function v21DeskStory(b,ctx){
+ const scene=ctx.scene||v20BenefitState.scene;if(!ctx.d||!scene)return null;const d={...ctx.d,variant:scene.svg.dataset.variant||ctx.d.variant};
+ const P=scene.P,v=variantOf(d),tops=scene.items.filter(i=>i.part.group==='top'&&i.part.kind==='box'),top=tops.find(i=>i.name==='top.main')?.part||tops[0]?.part;
+ if(!top)return null;
+ if(b.motion==='support'){
+  const lifted=scene.items.filter(i=>i.part.group==='top'||i.context&&i.part.workspacePart==='accessories'||['monitorArm','keypad'].includes(i.part.group));
+  const groups=[i=>/^frame\.(?:support|top\.screw|frame\.end)/.test(i.name),i=>/^frame\.(?:rail|extension)/.test(i.name),i=>['legs','feet'].includes(i.part.group)];
+  const target=v21DeskView(scene,i=>!['chair','storage'].includes(i.part.workspacePart),22);
+  // A tall enough frame includes the separated top and its attached equipment.
+  const rise=k.iso([0,0,24],P)[1]-k.iso([0,0,0],P)[1];target[1]+=Math.min(0,rise);target[3]+=Math.abs(rise);
+  return {duration:5600,stages:[{at:0,label:'Your working setup',copy:'Screens and tools rest on one connected structure.'},{at:.18,label:'Desktop connections',copy:'The desktop attaches across the side supports.'},{at:.43,label:'A connected frame',copy:'Crossbars join the supports above the lifting columns.'},{at:.72,label:'Supported from top to floor',copy:'The assembled frame carries your setup down to the feet.'}],draw(t){
+   const apart=v21DeskPhase(t,.06,.25)*(1-v21DeskPhase(t,.72,.92));
+   for(const item of lifted)item.node?.setAttribute('transform',k.translateAlong(P,[0,0,24*apart]));
+   for(const item of scene.items){const index=t<.43?0:t<.72?1:2;item.node?.classList.toggle('v20-benefit-focus',t>.16&&t<.94&&groups[index](item));}
+   v21DeskBlendView(scene,target,v21DeskPhase(t,0,.16)*(1-v21DeskPhase(t,.84,1)));
+  },cleanup(){v21DeskRestore(scene);}};
+ }
+ if(b.motion==='corner-fit'){
+  const room=v21CornerContext(scene,d);
+  return {duration:4200,stages:[{at:0,label:'Start with your room',copy:'A corner gives the return a natural place.'},{at:.24,label:'Place the complete workspace',copy:'The return follows the room edge; the seat stays on the open side.'},{at:.66,label:'Choose your return',copy:'Preview Left or Right to suit your room. Apply when ready.'}],draw(t){
+   room.node.style.opacity=String(v21DeskPhase(t,0,.18));room.access.style.opacity=String(v21DeskPhase(t,.58,.82));
+   const shift=1-v21DeskPhase(t,.18,.58),side=v.side==='left'?1:-1;
+   for(const item of scene.items)item.node?.setAttribute('transform',k.translateAlong(P,[side*12*shift,12*shift,0]));
+   scene.svg.setAttribute('viewBox',room.view.join(' '));
+  },cleanup(){v21DeskRestore(scene,[room.node]);}};
+ }
+ if(b.motion==='privacy'){
+  const panels=scene.items.filter(i=>i.part.group==='panel');if(!panels.length)return null;
+  for(const item of scene.items)if(['chair','storage'].includes(item.part.workspacePart))item.node.style.visibility='hidden';
+  const target=v21DeskView(scene,i=>!['chair','storage'].includes(i.part.workspacePart),26);
+  // A short assembly separation reveals where the real front panel sits.
+  // It is never presented as a user-adjustable panel or an alternate purchase.
+  return {duration:4300,stages:[{at:0,label:'The visitor-facing side',copy:'A coordinated front gives the workspace a finished presence.'},{at:.22,label:'Front-panel coverage',copy:'The selected panel spans the space between the supports.'},{at:.70,label:'A more private workspace',copy:'The panel provides coverage across the front of your desk.'}],draw(t){
+   const apart=v21DeskPhase(t,.12,.32)*(1-v21DeskPhase(t,.52,.76));
+   for(const item of panels)item.node?.setAttribute('transform',k.translateAlong(P,[0,-18*apart,0]));
+   for(const item of scene.items)item.node?.classList.toggle('v20-benefit-focus',item.part.group==='panel'&&t>.2&&t<.8);
+   v21DeskBlendView(scene,target,v21DeskPhase(t,0,.22));
+  },cleanup(){v21DeskRestore(scene);}};
+ }
+ if(b.motion==='task-zones'){
+  const ret=tops.find(i=>i.name==='top.return')?.part;if(!ret)return null;
+  const paperW=Math.min(45,ret.w-15),paperD=Math.min(37,ret.d-19),px=ret.x+(ret.w-paperW)/2,py=ret.y+(ret.d-paperD)/2,z=d.height+.06;
+  const papers=[{kind:'box',x:px+.8,y:py+1,z,w:paperW,d:paperD,h:.16,material:'paper',r:.12},{kind:'box',x:px,y:py,z:z+.16,w:paperW,d:paperD,h:.12,material:'paper',r:.12}];
+  const line=(points,color='#8b9780',width=.28)=>'<path d="'+facePath(points,P)+'" fill="none" stroke="'+color+'" stroke-width="'+width+'"/>';
+  let drawing='';const zz=z+.29;
+  drawing+=v21DeskPath([[px+4,py+4,zz],[px+paperW-4,py+4,zz],[px+paperW-4,py+paperD-9,zz],[px+4,py+paperD-9,zz]],P,{stroke:'#89947e',width:.35});
+  drawing+=line([[px+paperW*.58,py+4,zz],[px+paperW*.58,py+paperD-9,zz]])+line([[px+4,py+paperD*.48,zz],[px+paperW*.58,py+paperD*.48,zz]]);
+  for(let j=0;j<3;j++)drawing+=line([[px+4,py+paperD-6+j*1.1,zz],[px+14+j*5,py+paperD-6+j*1.1,zz]],'#a8ae9e',.2);
+  const paper=v21DeskGroup(scene,'task-documents',renderDescriptors(papers,P)+drawing);
+  const binder={kind:'box',x:ret.x+7,y:ret.y+7,z:d.height,w:18,d:23,h:1.4,material:'graphite',r:.7};
+  const book=v21DeskGroup(scene,'task-notebook',partMarkup(binder,P)+line([[binder.x+2,binder.y+1,d.height+1.41],[binder.x+2,binder.y+22,d.height+1.41]],'#7b855f',.55));
+  const zoneMain=scene.items.filter(i=>i.context&&i.part.workspacePart==='accessories'),target=v21DeskView(scene,i=>i.part.group==='top'||i.context&&i.part.workspacePart==='accessories',28);
+  return {duration:4300,stages:[{at:0,label:'Keep focused work in place',copy:'Your screen and keyboard stay ready on the main surface.'},{at:.28,label:'Open a second task',copy:'The return gives paperwork and hands-on work their own space.'},{at:.70,label:'Both tasks, within reach',copy:'Keep documents open beside your screen and move between tasks.'}],draw(t){
+   const a=v21DeskPhase(t,.25,.60),c=v21DeskPhase(t,.45,.75);paper.style.opacity=String(a);paper.setAttribute('transform',k.translateAlong(P,[0,9*(1-a),8*(1-a)]));book.style.opacity=String(c);book.setAttribute('transform',k.translateAlong(P,[0,0,6*(1-c)]));
+   v21DeskBlendView(scene,target,.22*v21DeskPhase(t,0,.2));
+   for(const item of scene.items)item.node?.classList.toggle('v20-benefit-focus',t<.28&&zoneMain.includes(item));
+  },cleanup(){v21DeskRestore(scene,[paper,book]);}};
+ }
+ if(b.motion==='hardwood'){
+  // Keep the material close-up clean: independent furniture is outside this story.
+  for(const item of scene.items)if(['chair','storage'].includes(item.part.workspacePart))item.node.style.visibility='hidden';
+  const ground=[...scene.svg.querySelectorAll('.furniture-ground-shadow')].map(node=>[node,node.style.visibility]);
+  for(const [node]of ground)node.style.visibility='hidden';
+  const finishes=['Maple','Cherry','Walnut'].map(f=>productOf(d).variants.find(o=>o.finish===f&&o.w===v.w&&o.d===v.d)||productOf(d).variants.find(o=>o.finish===f)).filter(Boolean);
+  const edgeY=top.y+top.d,edgeX=top.x+top.w*.60,points=[[edgeX-23,edgeY-22,top.z],[edgeX+23,edgeY+2,top.z+top.h]],edge=v21DeskPointBox(scene,points,32);
+  // Material samples reuse actual catalog finish classes and the selected slab's thickness.
+  const w=27,sampleD=16,startX=top.x+10,sampleY=top.y+6,sampleZ=top.z+top.h+.02;
+  const samples=finishes.map((f,i)=>{const o={kind:'box',x:startX,y:sampleY+i*21,z:sampleZ,w,d:sampleD,h:f.thickness,r:1.1,material:'wood'};return v21DeskFinishSample(scene,f,o);});
+  const finalView=v21DeskView(scene,i=>!['chair','storage'].includes(i.part.workspacePart),30);
+  return {duration:5600,stages:[{at:0,label:'Solid wood, through the edge',copy:'See the solid desktop and its softly finished edge.'},{at:.22,label:'Natural grain and thickness',copy:'The surface and edge belong to the same solid wood top.'},{at:.62,label:'Compare wood samples',copy:finishes.map(f=>f.finish).join(' · ')+'. Choose a finish in the panel to update your workspace.'}],draw(t){
+   const close=v21DeskPhase(t,.06,.26)*(1-v21DeskPhase(t,.45,.68));
+   const blend=t<.65?edge:finalView,amount=t<.65?close:.45*v21DeskPhase(t,.65,.82);v21DeskBlendView(scene,blend,amount);
+   samples.forEach((node,i)=>{const a=v21DeskPhase(t,.62+i*.035,.82+i*.035);node.style.opacity=String(a);node.setAttribute('transform',k.translateAlong(P,[0,0,5*(1-a)]));});
+  },cleanup(){v21DeskRestore(scene,samples);for(const [node,visibility]of ground)node.style.visibility=visibility;}};
+ }
+ return null;
+}
+
+/* Short, result-led furniture stories. All motion is a reversible preview.
+   Human posture, files, stationery and computer devices are illustrative context. */
+function v21FurnitureStory(b,ctx){
+ const accepted=['lumbar','armrests','seat-depth','storage-organize','files','tray','monitorArm','drawer','cpuHolder'];
+ if(!accepted.includes(b.motion))return null;
+ const d=ctx.d,s=ctx.scene,P=s.P,svg=s.svg,root=svg.querySelector('.v20-model-parts'),layout=workspacePartLayout(d);
+ const saved=s.items.map(i=>({node:i.node,style:i.node.getAttribute('style'),className:i.node.getAttribute('class'),transform:i.node.getAttribute('transform'),html:i.node.innerHTML}));
+ const made=[],hidden=[],NS='http://www.w3.org/2000/svg',accent='#748a4b';
+ const smooth=n=>{n=Math.min(1,Math.max(0,n));return n*n*(3-2*n);};
+ const phase=(t,a,b)=>smooth((t-a)/(b-a));
+ const el=(tag,attrs={},parent=svg)=>{const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));parent.append(n);made.push(n);return n;};
+ const path=(points,attrs={},parent=svg)=>el('path',{d:fgPath(points,P),fill:'none',stroke:accent,'stroke-width':1.1,'stroke-linecap':'round','stroke-linejoin':'round','vector-effect':'non-scaling-stroke',...attrs},parent);
+ const rememberHide=n=>{hidden.push([n,n.getAttribute('style')]);n.style.visibility='hidden';};
+ const isolate=kind=>{for(const i of s.items)if(i.part.workspacePart!==kind)rememberHide(i.node);for(const n of svg.children)if(n!==root&&n.tagName.toLowerCase()!=='defs')rememberHide(n);};
+ const trans=(node,xyz)=>node.setAttribute('transform',k.translateAlong(P,xyz));
+ const clean=()=>{for(const n of made)n.remove();for(const a of saved){a.style===null?a.node.removeAttribute('style'):a.node.setAttribute('style',a.style);a.className===null?a.node.removeAttribute('class'):a.node.setAttribute('class',a.className);a.transform===null?a.node.removeAttribute('transform'):a.node.setAttribute('transform',a.transform);if(a.node.innerHTML!==a.html)a.node.innerHTML=a.html;}for(const [n,style]of hidden)style===null?n.removeAttribute('style'):n.setAttribute('style',style);};
+ const settleTarget=(predicate,extra=[])=>{
+  const boxes=s.items.filter(predicate).map(i=>i.node.getBBox());
+  for(const n of extra){const q=n.getBBox();if(q.width||q.height)boxes.push(q);}
+  if(!boxes.length)return s.normalView;
+  const x=Math.min(...boxes.map(q=>q.x)),y=Math.min(...boxes.map(q=>q.y)),r=Math.max(...boxes.map(q=>q.x+q.width)),bt=Math.max(...boxes.map(q=>q.y+q.height));
+  const pad=Math.max(18,(r-x)*.12),w=r-x+2*pad,h=Math.max(bt-y+2*pad,w*.7);return [x-pad,(y+bt-h)/2,w,h];
+ };
+ const zoom=(target,t)=>v20PaintView(target,phase(t,0,.23));
+ const shade=(item,on)=>item.node.classList.toggle('v20-benefit-focus',on);
+ const floorCue=(x,y,w,depth)=>{const n=el('path',{d:k.planOutline({x,y,w,d:depth,r:2},.02,P,5),fill:accent,'fill-opacity':.045,stroke:accent,'stroke-opacity':.5,'stroke-width':.8,'vector-effect':'non-scaling-stroke'});svg.insertBefore(n,root);return n;};
+ const contextBox=(id,x,y,z,w,depth,h,material='paper')=>({id,kind:'box',x,y,z,w,d:depth,h,material,r:.25,workspacePart:'accessories',furniture:true});
+ const addContext=(parts,before=null)=>{const n=el('g',{'data-v21-context':'illustrative-items','aria-hidden':'true'},root);n.innerHTML=parts.map(o=>furniturePartMarkup(o,P,{detail:false})).join('');if(before)root.insertBefore(n,before);return n;};
+
+ if(['lumbar','armrests','seat-depth'].includes(b.motion)){
+  if(layout.chair?.mode!=='vernal'){clean();return null;}
+  const c=layout.chair,cx=c.x+c.w/2,cy=c.y+c.d/2,kind=b.motion;
+  isolate('chair');
+  const ground=floorCue(c.x-2,c.y-2,c.w+4,c.d+4);ground.setAttribute('stroke','none');
+  const guide=el('g',{'data-v21-context':'seated-position','aria-hidden':'true'});
+  // A restrained seated outline gives each adjustment a body reference, without
+  // replacing the actual product or implying a universal ergonomic prescription.
+  const postureStyle={stroke:'#7e8975','stroke-opacity':.7,'stroke-width':1.2},headRadius=7*P.scale,zStep=Math.abs(k.iso([0,0,1],P)[1]-k.iso([0,0,0],P)[1]),neckZ=125-headRadius/zStep;
+  path([[cx,cy+10,neckZ],[cx,cy+10,107],[cx,cy+7,89],[cx,cy+14,65],[cx,cy+9,49],[cx,cy-35,48],[cx,cy-40,27],[cx,cy-41,5],[cx,cy-52,5]],postureStyle,guide);
+  path([[cx-14,cy+10,104],[cx+14,cy+10,104]],postureStyle,guide);
+  const arms=[];for(const sign of [-1,1])arms.push({sign,node:path([[cx+sign*14,cy+10,104],[cx+sign*29,cy+6,69.4],[cx+sign*29,cy-12,69.4]],postureStyle,guide)});
+  const head=k.iso([cx,cy+10,125],P);el('circle',{cx:head[0],cy:head[1],r:headRadius,fill:'none',stroke:'#7e8975','stroke-opacity':.65,'stroke-width':1.2,'vector-effect':'non-scaling-stroke'},guide);
+  const cues=[],contact=(points,predicate,width)=>{const n=path(points,{'data-v21-contact':kind,'aria-hidden':'true','stroke-width':width,'stroke-opacity':.66},root);const owner=s.items.find(predicate)?.node;if(owner)owner.after(n);cues.push(n);return n;};
+  let match;
+  if(kind==='lumbar'){
+   match=i=>i.part.motion==='lumbar';
+   contact([[cx-12,cy+15.2,65],[cx,cy+14.8,64],[cx+12,cy+15.2,65]],i=>i.name.endsWith('lumbar.cushion'),3);
+  }else if(kind==='armrests'){
+   match=i=>i.part.motion==='armrests';
+   for(const sign of [-1,1])contact([[cx+sign*30,cy+9,69.2],[cx+sign*30,cy-10,69.2]],i=>i.name.endsWith('arm.pad.'+sign),3);
+  }else{
+   match=i=>i.part.motion==='seat-depth';
+   contact([[cx-20,cy-24.2,47.2],[cx+20,cy-24.2,47.2]],i=>i.name.endsWith('seat.cushion'),2.5);
+  }
+  const move=v20FurnitureMotion('chair',kind),target=settleTarget(i=>i.part.workspacePart==='chair',[guide]);
+  const stages=kind==='lumbar'?[{at:0,label:'Your lower back',copy:'Support starts with where you sit.'},{at:.25,label:'Adjust the support',copy:'The lumbar pad moves along its track.'},{at:.76,label:'Support at your level',copy:'Bring the pad to the part of your back you want to support.'}]:kind==='armrests'?[{at:0,label:'Your working position',copy:'Bring the support to your forearms.'},{at:.25,label:'Raise the arm pads',copy:'The pads move while the lower mounts stay fixed.'},{at:.76,label:'Forearms supported',copy:'Choose a pad height that suits your working position.'}]:[{at:0,label:'Your seated position',copy:'Give your thighs the support that suits you.'},{at:.25,label:'Slide the seat',copy:'The cushion and pan move together on the rails.'},{at:.76,label:'A seat depth that fits',copy:'Adjust the front edge while the back support stays in place.'}];
+  return {duration:3900,stages,cleanup:clean,draw(t){const p=phase(t,.22,.76);zoom(target,t);move(p);for(const i of s.items)shade(i,match(i)&&t>.19);for(const cue of cues){trans(cue,kind==='lumbar'?[0,0,5*p]:kind==='armrests'?[0,0,7.874*p]:[0,-4.064*p,0]);cue.style.opacity=String(phase(t,.18,.35));}if(kind==='armrests')for(const a of arms)a.node.setAttribute('d',fgPath([[cx+a.sign*14,cy+10,104],[cx+a.sign*29,cy+6,69.4+7.874*p],[cx+a.sign*29,cy-12,69.4+7.874*p]],P));guide.style.opacity=String(phase(t,0,.18)*.85);}};
+ }
+
+ if(['storage-organize','files'].includes(b.motion)){
+  const c=layout.storage;if(!c||c.mode!=='vernal'){clean();return null;}
+  isolate('storage');
+  const depth=Math.max(16,c.d-3.2),casters=c.casters!==false&&c.size!=='Wide',base=casters?5.2:2.4,usable=c.h-base-3.2,split=c.size==='Short'?.31:.5,lowerH=usable*(1-split)-.14;
+  const upper=b.motion==='storage-organize',row=upper?'upper':'lower',shift=Math.min(27,depth*.55),drawerItems=s.items.filter(i=>i.part.workspacePart==='storage'&&i.name.includes('.drawer.'+row+'.')&&!i.name.includes('.slide.'));
+  const fileItems=s.items.filter(i=>i.part.workspacePart==='storage'&&i.name.includes('.file.'));
+  const extras=[];let context=null;
+  if(upper){
+   const z=base+1.6+lowerH+.28+1.3+Math.max(3,usable*split-.14-3.2)-2.1,yy=c.y+depth-10.2;
+   const parts=[contextBox('v21.notebook',c.x+5,yy,z,Math.min(14,c.w*.32),7.2,1.4),contextBox('v21.cards',c.x+c.w*.58,yy+1,z,Math.min(9,c.w*.18),5.2,.7),contextBox('v21.pen',c.x+c.w*.52,yy,z+1,1.1,7,.7,'graphite')];
+   const front=drawerItems.find(i=>i.name.endsWith('.front'))?.node;context=addContext(parts,front);context.style.opacity='0';extras.push(context);
+  }
+  const target=settleTarget(i=>i.part.workspacePart==='storage');target[3]*=1.12;target[2]*=1.12;
+  const ground=floorCue(c.x-2,c.y-2,c.w+4,c.d+shift+4);ground.setAttribute('stroke-opacity','.2');
+  const stages=upper?[{at:0,label:'Daily essentials',copy:'Keep the small things in a dedicated drawer.'},{at:.26,label:'Open the upper drawer',copy:'Bring stationery and everyday items within reach.'},{at:.76,label:'An organized work surface',copy:'Return small items here and keep your desktop ready. Illustrative contents.'}]:[{at:0,label:'Documents together',copy:'Keep your paperwork in a dedicated file drawer.'},{at:.26,label:'Bring files forward',copy:'The lower drawer carries the hanging files toward you.'},{at:.76,label:'Files ready to reach',copy:'Visible folders and hanging rails keep documents together. Illustrative contents.'}];
+  return {duration:4000,stages,cleanup:clean,draw(t){const p=phase(t,.22,.75);zoom(target,t);for(const i of drawerItems){trans(i.node,[0,shift*p,0]);shade(i,t>.24);}if(!upper)for(const i of fileItems){trans(i.node,[0,shift*p,0]);shade(i,t>.55);}if(context){trans(context,[0,shift*p,0]);context.style.opacity=String(phase(p,.56,.83));}}};
+ }
+
+ if(b.motion==='monitorArm'){
+  const match=i=>i.part.group==='monitorArm',mount=accessoryMountLayout(d),items=s.items.filter(match);if(!items.length){clean();return null;}
+  const moving=s.items.filter(i=>(match(i)&&/\.(?:arm\.|pivot\.|vesa\.)/.test(i.name))||(i.context&&i.part.workspacePart==='accessories'&&i.part.h>15));
+  const target=v20ZoomTo(i=>match(i)||(i.part.group==='top'),.38),dual=normalizeAccessories(d).monitorArm==='dual';
+  const v=variantOf(d),cx=mount.isLeft?mount.w-mount.cx:mount.cx,z=d.height+.06;
+  const zone=el('path',{d:k.planOutline({x:cx-25,y:10,w:50,d:25,r:1.6},z,P,5),fill:accent,'fill-opacity':.06,stroke:accent,'stroke-width':.8,'vector-effect':'non-scaling-stroke'});zone.style.opacity='0';
+  return {duration:3700,cleanup:clean,stages:[{at:0,label:dual?'Two screens, one setup':'Your screen, your position',copy:'A desk-edge clamp carries the display support.'},{at:.24,label:'Adjust the screen height',copy:'The supports and displays move together on the fixed post.'},{at:.77,label:'More room beneath your screen',copy:'Keep the surface below the display available for your work.'}],draw(t){const p=phase(t,.22,.74);zoom(target,t);for(const i of moving)trans(i.node,[0,0,-6*p]);for(const i of items)shade(i,t>.2&&!/clamp/.test(i.name));zone.style.opacity=String(phase(t,.63,.85));}};
+ }
+
+ if(b.motion==='tray'){
+  const items=s.items.filter(i=>i.part.group==='tray'),floor=items.find(i=>/\.floor$/.test(i.name))?.part;if(!floor){clean();return null;}
+  for(const i of s.items)if(i.part.group!=='tray')rememberHide(i.node);
+  for(const n of svg.children)if(n!==root&&n.tagName.toLowerCase()!=='defs')rememberHide(n);
+  const target=settleTarget(i=>i.part.group==='tray'),cableGroup=el('g',{'data-v21-context':'illustrative-cable-routing','aria-hidden':'true'},root);
+  // Each cable stays on a plausible run along the tray. These are illustrative
+  // device leads, not an invented automatic cable-pulling mechanism.
+  const floorNode=items.find(i=>/\.floor$/.test(i.name))?.node;if(floorNode)floorNode.after(cableGroup);
+  const traces=[];
+  for(let j=0;j<3;j++){
+   const x0=floor.x+16+j*4,y=floor.y+4+j*2,z=floor.z+floor.h+.55;
+   const n=path([[x0,y,z],[x0+6,y,z],[x0+9,y+1.4,z],[floor.x+floor.w-30,y+1.4,z],[floor.x+floor.w-26,y+3.1,z],[floor.x+floor.w-22,floor.y+10+j,z]],{stroke:j===1?'#a9bc82':'#d0d8c1','stroke-width':.9},cableGroup);n.style.setProperty('vector-effect','none','important');const length=n.getTotalLength();n.dataset.v21Length=length;n.style.strokeDasharray=String(length);n.style.strokeDashoffset=String(length);traces.push(n);
+   const cap=contextBox('v21.cable.plug.'+j,x0-1.5,y-.8,z,3,1.6,1.1,'graphite');const plug=el('g',{'aria-hidden':'true'},cableGroup);plug.innerHTML=furniturePartMarkup(cap,P,{detail:false});
+  }
+  const strip=el('g',{'aria-hidden':'true'},cableGroup);strip.innerHTML=furniturePartMarkup(contextBox('v21.power-strip',floor.x+floor.w-22,floor.y+9,floor.z+floor.h+.2,8,5,1.8,'paper'),P,{detail:false});
+  for(let j=0;j<3;j++){const mark=el('g',{'aria-hidden':'true'},strip);mark.innerHTML=furniturePartMarkup(contextBox('v21.outlet.'+j,floor.x+floor.w-20+j*2,floor.y+10,floor.z+floor.h+2.04,.55,2.2,.06,'graphite'),P,{detail:false});}
+  return {duration:3900,cleanup:clean,stages:[{at:0,label:'A place for device leads',copy:'The tray sits below your working surface.'},{at:.24,label:'Gather the cables',copy:'Route device leads together through the tray.'},{at:.78,label:'A clear working surface',copy:'Keep the cable bundle below the top. Routing shown is illustrative.'}],draw(t){zoom(target,t);for(const i of items)shade(i,t>.19);traces.forEach((n,j)=>{const p=phase(t,.25+j*.07,.63+j*.07);n.style.strokeDashoffset=String((1-p)*+n.dataset.v21Length);n.style.strokeDasharray=p===1?'none':n.dataset.v21Length;});}};
+ }
+
+ if(b.motion==='drawer'){
+  const items=s.items.filter(i=>i.part.group==='drawer'),floor=items.find(i=>/\.floor$/.test(i.name))?.part;if(!floor){clean();return null;}
+  for(const i of s.items)if(i.part.group!=='drawer')rememberHide(i.node);
+  for(const n of svg.children)if(n!==root&&n.tagName.toLowerCase()!=='defs')rememberHide(n);
+  const moving=items.filter(i=>!/(?:\.rail\.|\.mount\.)/.test(i.name));
+  const envelope=el('path',{d:k.planOutline({x:floor.x,y:floor.y+12,w:floor.w,d:floor.d,r:1},floor.z,P,3),fill:'none',stroke:'none','aria-hidden':'true'});
+  const target=settleTarget(i=>i.part.group==='drawer',[envelope]);
+  const upper=floor.z+floor.h+.15,props=addContext([contextBox('v21.drawer.notebook',floor.x+3,floor.y+3,upper,11,7,1.2),contextBox('v21.drawer.pen',floor.x+18,floor.y+2,upper,1.1,8,.7,'graphite')],moving.find(i=>/\.front$/.test(i.name))?.node);props.style.opacity='0';
+  return {duration:3600,cleanup:clean,stages:[{at:0,label:'Small tools close by',copy:'Give everyday essentials a dedicated place.'},{at:.23,label:'Slide them into reach',copy:'The drawer opens while its mounting rails stay fixed.'},{at:.77,label:'Ready for the next task',copy:'Keep small items beneath the desktop. Illustrative contents.'}],draw(t){const p=phase(t,.22,.73);zoom(target,t);for(const i of moving){trans(i.node,[0,12*p,0]);shade(i,t>.2);}trans(props,[0,12*p,0]);props.style.opacity=String(phase(p,.55,.85));}};
+ }
+
+ if(b.motion==='cpuHolder'){
+  const items=s.items.filter(i=>i.part.group==='cpuHolder'),tower=items.find(i=>/reference\.tower/.test(i.name))?.part,cradle=items.find(i=>/cradle\.floor/.test(i.name))?.part;if(!cradle){clean();return null;}
+  for(const i of s.items)if(!['cpuHolder','top'].includes(i.part.group))rememberHide(i.node);
+  for(const n of svg.children)if(n!==root&&n.tagName.toLowerCase()!=='defs')rememberHide(n);
+  const floor=floorCue(cradle.x,cradle.y,cradle.w,cradle.d);floor.style.opacity='0';
+  const envelope=el('path',{d:k.planOutline({x:cradle.x,y:cradle.y+32,w:cradle.w,d:cradle.d,r:1},.02,P,3),fill:'none',stroke:'none','aria-hidden':'true'});
+  const target=settleTarget(i=>i.part.group==='cpuHolder',[floor,envelope]);
+  const computer=items.filter(i=>/reference\./.test(i.name)),lift=tower?Math.max(0,tower.z):0;
+  const sequence=[i=>/mount|hanger/.test(i.name),i=>/cradle/.test(i.name),i=>i.part.group==='cpuHolder'];
+  return {duration:4200,cleanup:clean,stages:[{at:0,label:'A dedicated place for your tower',copy:'Give your computer a supported place beneath the desktop.'},{at:.25,label:'Supported by the cradle',copy:'The hanger and lower cradle carry the tower above the floor.'},{at:.8,label:'Floor space stays available',copy:'Keep the area beneath your tower clear. Placement is illustrative.'}],draw(t){zoom(target,t);const index=t<.32?0:t<.7?1:2;for(const i of items)shade(i,sequence[index](i));for(const i of computer)trans(i.node,[0,32*(1-phase(t,.53,.8)),-lift*(1-phase(t,.2,.52))]);floor.style.opacity=String(phase(t,.76,.92));}};
+ }
+ clean();return null;
+}
+
+/* V21: one observable benefit per story, with a useful held result. */
+let v21Story=null;
+const v21DeskRows={
+ core:[['support','Support for your whole setup','See how the desktop, frame and feet work together.','support']],
+ coreL:[['corner','Fit your corner, your way','Preview the return beside a room corner.','corner-fit'],['zones','Keep tasks side by side','Give screens and paperwork their own place.','task-zones']],
+ executive:[['privacy','A considered view for visitors','See the coverage of your selected front panel.','privacy'],['support','Support beneath the surface','Explore the connections beneath your desktop.','support']],
+ executiveL:[['zones','Keep focused work and paperwork together','Use the return while your screen setup stays ready.','task-zones'],['privacy','A considered view for visitors','See the coverage of your selected front panel.','privacy']],
+ wood:[['hardwood','Find your wood’s character','Explore the solid edge and natural wood choices.','hardwood']]
+};
+const v21PreviousBenefits=v20Benefits;
+v20Benefits=function(d=detailDraft,part=personalSection){
+ if(!d)return [];
+ if(part==='desk')return (v21DeskRows[d.model]||v21DeskRows.core).filter(r=>(r[0]!=='privacy'||!!variantOf(d).panel)&&!(d.model==='executive'&&variantOf(d).panel&&r[0]==='support')).map(([id,title,copy,motion])=>({id,title,copy,motion}));
+ if(part==='chair')return normalizeWorkspaceItems(d).chair.mode==='vernal'?[
+  {id:'lumbar',title:'Place support at your lower back',copy:'Follow the lumbar support as it adjusts to your position.',motion:'lumbar'},
+  {id:'armrests',title:'Bring support to your forearms',copy:'Adjust the arm pads to your working position.',motion:'armrests'},
+  {id:'seat-depth',title:'Fit the seat to your leg length',copy:'See the seat move while the backrest stays in place.',motion:'seat-depth'}]:[];
+ if(part==='storage')return normalizeWorkspaceItems(d).storage.mode==='vernal'?[
+  {id:'storage',title:'Give everyday tools their own place',copy:'Keep smaller essentials together in the top drawer.',motion:'storage-organize'},
+  {id:'files',title:'Keep files ready to find',copy:'See hanging files arranged in the file drawer.',motion:'files'}]:[];
+ const titles={tray:['Bring cables together beneath the desk','Follow an example cable path into the tray.'],monitorArm:[normalizeAccessories(d).monitorArm==='dual'?'Position both screens. Keep desk space.':'Position your screen. Keep desk space.','The screen support adjusts above the work surface.'],drawer:['Keep daily tools within reach','Open a dedicated drawer below the desktop.'],cpuHolder:['Make room around your feet','Place your tower in its under-desk cradle.']};
+ return v21PreviousBenefits(d,part).map(b=>({...b,title:titles[b.id]?.[0]||b.title,copy:titles[b.id]?.[1]||b.copy}));
+};
+function v21StoryIcon(motion){
+ const paths={support:'M4 5h16v3H4zM7 8v12M17 8v12M4 20h6M14 20h6M7 12h10', 'corner-fit':'M4 4v16h16M8 7h12v5h-7v5H8z', privacy:'M4 6h16M6 6v14M18 6v14M7 10h10v7H7z','task-zones':'M3 5h18v6H10v8H3zM6 7v2M13 7h5M5 13h3M5 16h3',hardwood:'M4 5h16v14H4zM7 5c7 5-5 9 3 14M12 5c7 5-5 9 3 14M17 5c7 5-5 9 3 14',lumbar:'M9 3c-5 5 5 8 0 13M9 16h8M11 20h8M6 11h7',armrests:'M7 4v10h10M5 10h5M14 10h5M12 14v6M8 20h8','seat-depth':'M7 4v10h12M6 14H3M15 18h6M19 16l2 2-2 2',files:'M5 3h14v18H5zM5 9h14M9 12v6M12 12v6M15 12v6','storage-organize':'M5 3h14v18H5zM5 10h14M10 7h4M10 15h4',tray:'M4 15h16v5H4zM7 4v11M12 4v11M17 4v11',monitorArm:'M3 4h18v10H3zM12 14v4h6M18 18v3',drawer:'M3 7h18v10H3zM10 12h4',cpuHolder:'M7 3h10v17H7zM10 6h4M4 17h3M17 17h3M4 17v4h16v-4'};
+ return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+(paths[motion]||paths.support)+'"/></svg>';
+}
+const v21PreviousRenderRows=v20RenderBenefitRows;
+v20RenderBenefitRows=function(){
+ v21PreviousRenderRows();
+ for(const row of v20Benefits()){
+  const button=$('[data-v20-benefit="'+row.id+'"]');if(!button)continue;
+  button.querySelector('svg')?.remove();button.insertAdjacentHTML('afterbegin',v21StoryIcon(row.motion));
+  button.setAttribute('aria-label','Explore: '+row.title);
+ }
+ const label=$('.v20-benefits-label');if(label)label.textContent='See it in use';
+ const replay=$('[data-v20-replay] span');if(replay)replay.textContent='Replay';
+};
+function v21Caption(){
+ let caption=$('#v21-story-caption');if(caption)return caption;
+ caption=document.createElement('section');caption.id='v21-story-caption';caption.className='v21-story-caption';caption.hidden=true;
+ caption.innerHTML='<div class="v21-story-heading"><span>PRODUCT STORY</span><span data-story-count></span></div><h3></h3><div class="v21-story-steps" role="group" aria-label="Story moments"></div><p role="status" aria-live="polite"></p><div class="v21-story-progress" aria-hidden="true"><i></i></div>';
+ $('#personal-scene')?.before(caption);return caption;
+}
+function v21PaintStoryProgress(t){
+ const story=v21Story;if(!story)return;
+ const stages=story.spec.stages||[],index=Math.max(0,stages.findLastIndex(s=>t>=s.at));
+ story.progress=t;const caption=v21Caption();
+ if(story.stage!==index){story.stage=index;caption.querySelector('p').textContent=stages[index]?.copy||story.b.copy;caption.querySelector('[data-story-count]').textContent=(index+1)+' / '+stages.length;
+  caption.querySelectorAll('[data-v21-step]').forEach((n,i)=>{n.setAttribute('aria-pressed',String(i===index));n.classList.toggle('is-complete',i<index);});}
+ caption.querySelector('.v21-story-progress i').style.transform='scaleX('+t+')';
+ caption.dataset.complete=String(t>=1);$('#personal-scene')?.setAttribute('data-benefit-story',story.b.motion);
+}
+function v21CleanupStory(){
+ const story=v21Story;if(!story)return;v21Story=null;
+ story.spec.cleanup?.();
+ if(story.scene.svg?.isConnected){const host=story.scene.svg.parentElement;host.innerHTML=story.baseMarkup;}
+ $('#v21-story-caption')?.setAttribute('hidden','');
+ $('#v20-canvas-playback')?.setAttribute('hidden','');
+ for(const button of $$('[data-v20-benefit][aria-pressed="true"]')){button.setAttribute('aria-pressed','false');button.querySelector('small')?.remove();}
+ $('.personal-preview')?.classList.remove('v21-story-active');
+ $('#personal-scene')?.removeAttribute('data-benefit-story');
+ v20BenefitState.scene=null;v20BenefitState.sceneKey='';v20BenefitState.id=null;
+}
+const v21PreviousStop=v20StopBenefit;
+v20StopBenefit=function(options={}){v21CleanupStory();return v21PreviousStop(options);};
+// A front close-up shows the actual selected panel, with opaque surfaces.
+const v21PreviousProjection=v20SceneProjection;
+v20SceneProjection=function(d,angle='default'){
+ if(angle!=='front')return v21PreviousProjection(d,angle);
+ return k.fitProjection(figureEnvelope(d),1000,720,{pad:48,azimuth:-132,elevation:12});
+};
+function v21BeginStory(b,{still=false}={}){
+ const scene=v20BenefitState.scene,baseMarkup=scene.svg.outerHTML;
+ const preview=v20BenefitState.previewReturn?v20ReturnVariant(v20BenefitState.previewReturn):null;
+ const ctx={d:preview?{...detailDraft,variant:preview.id}:detailDraft,scene};
+ const spec=v21DeskStory(b,ctx)||v21FurnitureStory(b,ctx);
+ if(!spec)return false;
+ v21Story={b,spec,scene,baseMarkup,progress:0,stage:-1};
+ const caption=v21Caption();caption.hidden=false;caption.querySelector('h3').textContent=b.title;
+ caption.querySelector('.v21-story-steps').innerHTML=spec.stages.map((s,i)=>'<button type="button" data-v21-step="'+i+'" aria-pressed="false"><span>'+String(i+1).padStart(2,'0')+'</span>'+esc(s.label)+'</button>').join('');
+ $('.personal-preview')?.classList.add('v21-story-active');
+ const draw=t=>{spec.draw(t);v21PaintStoryProgress(t);};
+ if(still||reduced.matches){draw(!still&&b.motion==='support'?.5:1);v20BenefitState.running=false;}
+ else v20Run(spec.duration||4800,draw,()=>{draw(1);});
+ if(matchMedia('(max-width:760px)').matches)caption.scrollIntoView({block:'start',behavior:'instant'});
+ return true;
+}
+v20PlayBenefit=function(id){
+ const b=v20Benefits().find(row=>row.id===id);if(!b||!detailDraft)return false;
+ v20StopBenefit({restore:true});personalStory=null;personalDeskStoryMode=null;personalPositionOpen=false;productSubview='customize';
+ $('#details-view')?.classList.remove('personal-story-active','personal-desk-story-active');$('#personal-anatomy-view')?.setAttribute('hidden','');
+ const st=v20BenefitState;st.id=id;st.section=personalSection;st.config=v20BenefitConfig();st.previewReturn=null;
+ const angle=b.motion==='privacy'?'front':['lumbar','armrests','seat-depth'].includes(b.motion)?'rear':'default';
+ v20BuildScene(angle);v20RenderBenefitRows();personalPaintPosition();
+ return v21BeginStory(b);
+};
+const v21PreviousReturnPreview=v20PreviewReturn;
+v20PreviewReturn=function(side){
+ v21PreviousReturnPreview(side);v20BenefitState.id='corner';
+ const b=v20Benefits().find(row=>row.id==='corner');if(b){v20RenderBenefitRows();v21BeginStory(b,{still:true});}
+};
+// Story moments remain inspectable, including when reduced motion is requested.
+document.addEventListener('click',event=>{
+ const button=event.target.closest('[data-v21-step]');if(!button||!v21Story)return;
+ event.preventDefault();const st=v20BenefitState;if(st.frame)cancelAnimationFrame(st.frame);st.frame=0;st.running=false;st.token++;
+ const i=+button.dataset.v21Step,stages=v21Story.spec.stages,t=i===stages.length-1?1:Math.max(stages[i].at,(stages[i+1]?.at||1)-.015);
+ v21Story.spec.draw(t);v21PaintStoryProgress(t);
+});
+// Direct height controls always return to a complete, clean workspace first.
+const v21PreviousSetHeight=personalSetHeight;
+personalSetHeight=function(value,live=false){if(v21Story)v20RestoreView();return v21PreviousSetHeight(value,live);};
+document.body.classList.add('vernal-v21');
+requestAnimationFrame(()=>{if(activeTab==='details'&&productSubview==='customize'&&detailDraft)renderPersonalWorkspace();});
+
+/* END V20 PLANNER */
 /* END V17 PLANNER */
 })();</script></body></html>
