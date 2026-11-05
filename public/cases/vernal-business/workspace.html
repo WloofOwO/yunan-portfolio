@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta name="vernal-case-version" content="business-v21"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>VERNAL — Office Studio · For Business</title><meta name="description" content="Plan your office, configure complete Vernal workspaces, and prepare a clear product list."><style>/* Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter) Inter-Italic[opsz,wght].ttf: Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+<html lang="en"><head><meta name="vernal-case-version" content="business-v21.1"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>VERNAL — Office Studio · For Business</title><meta name="description" content="Plan your office, configure complete Vernal workspaces, and prepare a clear product list."><style>/* Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter) Inter-Italic[opsz,wght].ttf: Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
@@ -2741,6 +2741,7 @@ html body.vernal-v17.vernal-v20-plan #v20-selection-panel[hidden]{display:none!i
 html body.vernal-v17.vernal-v20-plan .v20-selection-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 html body.vernal-v17.vernal-v20-plan .v20-selection-eyebrow{font-size:10px;color:#7a8171;margin:0 0 8px;letter-spacing:.02em}
 html body.vernal-v17.vernal-v20-plan .v20-selection-heading h2{font:600 18px/1.3 Arial,sans-serif;letter-spacing:-.3px;margin:0;color:#2c3628}
+html body.vernal-v17.vernal-v20-plan .v20-mobile-model{display:none}
 html body.vernal-v17.vernal-v20-plan #v20-clear{width:36px;min-width:36px;height:36px;display:grid;place-items:center;margin:-6px -8px 0 0;color:#727b66;border-radius:4px}
 html body.vernal-v17.vernal-v20-plan #v20-clear:hover{background:#eff1e8}
 html body.vernal-v17.vernal-v20-plan .v20-selection-model{font-size:13px;color:#606b54;margin:10px 0 15px}
@@ -2792,21 +2793,25 @@ html body.vernal-v17.vernal-v20-plan .object-invalid .v20-footprint{stroke:#ae77
  html body.vernal-v17.vernal-v20-plan .v20-scene-image{height:95px}
  html body.vernal-v17.vernal-v20-plan .v20-scene-name{font-size:12px}
  html body.vernal-v17.vernal-v20-plan .v20-scene-meta{font-size:9px;flex-wrap:wrap}
- html body.vernal-v17.vernal-v20-plan #v20-selection-panel{left:10px;right:10px;top:auto;bottom:79px;width:auto;height:auto;max-height:250px;padding:12px 14px 10px;border:1px solid #dce0d1;border-radius:5px;box-shadow:0 4px 16px #29371b08;overflow:visible;z-index:24;display:grid;grid-template-columns:1fr auto;gap:0 10px}
- html body.vernal-v17.vernal-v20-plan .v20-selection-heading{grid-column:1/-1}
+ /* Selection replaces the bottom dock. Its canvas rectangle never changes on touch-down. */
+ html body.vernal-v17.vernal-v20-plan #v20-selection-panel{left:10px;right:10px;top:auto;bottom:12px;width:auto;height:100px;max-height:none;padding:4px 10px 8px;border:1px solid #dce0d1;border-radius:5px;box-shadow:0 4px 16px #29371b08;overflow:visible;z-index:24;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:44px 44px;gap:0 8px}
+ html body.vernal-v17.vernal-v20-plan.v20-plan-selected .v17-mobile-dock{display:none}
+ html body.vernal-v17.vernal-v20-plan #row-handle{display:none!important}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-heading{grid-column:1/-1;align-items:center;gap:2px;min-width:0}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-heading>div{min-width:0}
  html body.vernal-v17.vernal-v20-plan .v20-selection-eyebrow{display:none}
- html body.vernal-v17.vernal-v20-plan .v20-selection-heading h2{font-size:14px;line-height:24px}
- html body.vernal-v17.vernal-v20-plan #v20-clear{width:44px;min-width:44px;height:44px;margin:-10px -12px -8px 0}
- html body.vernal-v17.vernal-v20-plan .v20-selection-model{font-size:11px;margin:3px 0 8px;grid-column:1/-1}
- html body.vernal-v17.vernal-v20-plan .v20-composition{grid-column:1/-1;margin:0 0 9px;gap:12px}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-heading h2{font-size:13px;line-height:24px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ html body.vernal-v17.vernal-v20-plan .v20-mobile-model{display:inline;font-size:11px;font-weight:400;color:#68715e;letter-spacing:0}
+ html body.vernal-v17.vernal-v20-plan #v20-clear{width:44px;min-width:44px;height:44px;margin:0 -6px 0 0}
+ html body.vernal-v17.vernal-v20-plan .v20-selection-model,html body.vernal-v17.vernal-v20-plan .v20-composition{display:none}
  html body.vernal-v17.vernal-v20-plan .v20-configure{font-size:11px;min-height:44px;padding:8px 10px}
  html body.vernal-v17.vernal-v20-plan .v20-selection-actions{margin:0;padding:0;border:0;gap:0;align-self:center}
  html body.vernal-v17.vernal-v20-plan .v20-selection-actions>button,html body.vernal-v17.vernal-v20-plan .v20-more>summary{min-width:44px;min-height:44px;padding:5px;gap:2px;font-size:9px}
  html body.vernal-v17.vernal-v20-plan .v20-more>div{top:auto;bottom:calc(100% + 4px)}
- html body.vernal-v17.vernal-v20-plan .v20-group-hint{grid-column:1/-1;margin:5px 0 8px;font-size:11px}
+ html body.vernal-v17.vernal-v20-plan .v20-group-hint{display:none}
  html body.vernal-v17.vernal-v20-plan .v20-select-all{margin:0;font-size:10px;max-width:115px}
- html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan.v20-plan-selected #planner-view .room-stage{bottom:285px!important}
- html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan.v20-plan-selected #planner-view .layout-footer{bottom:253px!important}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan #planner-view .room-stage,html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan:not(.planner-has-selection) #planner-view .room-stage{inset:64px 0 144px!important}
+ html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan #planner-view .layout-footer{bottom:120px!important}
  html body.vernal-v17.vernal-v20-plan #v20-products-pane #layouts-toggle{margin-bottom:5px;min-height:44px}
  html body.vernal-v17.vernal-v8.vernal-v13.vernal-v20-plan[data-v17-tab=planner] #toast{top:160px!important;bottom:auto!important}
 }
@@ -11485,7 +11490,7 @@ v17FilterProducts();v17Sync();saveLocal();roomP=null;requestAnimationFrame(()=>r
 
 /* BEGIN V20 PLANNER */
 document.body.classList.add("vernal-v20");
-const V20_GEOMETRY_CACHE_VERSION="3ab9203a55ce6c37";
+const V20_GEOMETRY_CACHE_VERSION="170cd7e506566da8";
 /* Reuse measured painter orders across reloads. Keys include geometry version.
    This stores render data only; it never reads or changes purchase quantities. */
 (function v20RenderOrderCache(){
@@ -11591,7 +11596,7 @@ const V20_GEOMETRY_CACHE_VERSION="3ab9203a55ce6c37";
     const key=JSON.stringify([desks.map(d=>[d.id,d.label,d.model,configurationKey(d),workspaceKey(d)]),!!drag]);
     if(key!==panelKey){
       panelKey=key;const single=desks.length===1,d=desks[0],disabled=drag?' disabled':'';
-      panel.innerHTML='<div class="v20-selection-heading"><div><p class="v20-selection-eyebrow">'+(single?'Selected workspace':'Selection')+'</p><h2>'+esc(single?workspaceLabel(d):desks.length+' workspaces')+'</h2></div><button type="button" id="v20-clear" aria-label="Clear workspace selection">'+icon('close')+'</button></div>'+
+      panel.innerHTML='<div class="v20-selection-heading"><div><p class="v20-selection-eyebrow">'+(single?'Selected workspace':'Selection')+'</p><h2>'+esc(single?workspaceLabel(d):desks.length+' workspaces')+(single?'<span class="v20-mobile-model"> · '+esc(MODEL_NAMES[d.model])+'</span>':'')+'</h2></div><button type="button" id="v20-clear" aria-label="Clear workspace selection">'+icon('close')+'</button></div>'+
       (single?'<p class="v20-selection-model">'+esc(MODEL_NAMES[d.model])+'</p><div class="v20-composition" aria-label="Workspace includes">'+composition(d)+'</div><button id="v20-configure" class="v20-configure" type="button"'+disabled+'>Customize workspace <span aria-hidden="true">→</span></button><div class="v20-selection-actions"><button id="v20-rotate" type="button" aria-label="Rotate complete workspace 90 degrees"'+disabled+'>'+icon('rotate')+'<span>Rotate</span></button><button id="v20-duplicate" type="button" aria-label="Duplicate complete workspace"'+disabled+'>'+icon('duplicate')+'<span>Duplicate</span></button><details class="v20-more"><summary aria-label="More workspace actions"><span aria-hidden="true">···</span><span>More</span></summary><div><button id="v20-remove" type="button"'+disabled+'>'+icon('delete')+' Remove workspace</button></div></details></div>':'<p class="v20-group-hint">Drag any selected workspace to move the group.</p><button id="v20-remove-group" class="v20-remove-group" type="button"'+disabled+'>'+icon('delete')+' Remove selected</button><button id="v20-select-all" class="v20-select-all" type="button"'+disabled+'>Select all '+state.desks.length+' workspaces</button>');
       $('#v20-clear').onclick=clearCanvasSelection;
       if(single){$('#v20-configure').onclick=()=>{const currentDesk=state.desks.find(item=>item.id===d.id);if(currentDesk)openDeskCustomization(clone(currentDesk));};$('#v20-rotate').onclick=rotateSelection;$('#v20-duplicate').onclick=duplicateSelection;$('#v20-remove').onclick=deleteSelection;}
@@ -11648,6 +11653,9 @@ const V20_BENEFIT_COPY={
 };
 const v20BenefitState={id:null,section:null,config:'',frame:0,token:0,progress:0,scene:null,sceneKey:'',shownHeight:null,restoreHeight:null,running:false,visible:true,live:false,view:[0,0,1000,720],axis:'height',previewReturn:null};
 const v20BenefitCache=new Map();
+// Furniture placement changes the contents, not the user's normal camera.
+// Product/variant changes may reframe; story close-ups keep their own cameras.
+let v20WorkspaceCamera=null;
 function v20Benefits(d=detailDraft,part=personalSection){
  if(!d)return [];
  if(part==='desk'){
@@ -11710,15 +11718,18 @@ function v20SceneProjection(d,angle='default'){
 function v20BuildScene(angle='default',preview={}){
  if(!detailDraft||!$('#personal-scene'))return null;
  const d={...detailDraft,...preview,x:0,y:0,rotation:0},key=JSON.stringify([configurationKey(d),d.height,d.workspace,angle]);
- let built=v20BenefitCache.get(key);
+ const normal=angle==='default'&&!v20BenefitState.id,cameraKey=normal?JSON.stringify([d.variant,v13ConfigureCameraKey(d,{width:1000,height:720})]):null;
+ if(normal&&v20WorkspaceCamera?.key!==cameraKey)v20WorkspaceCamera=null;
+ // A structure close-up omits independent floor furniture from this render
+ // only. The configuration and its ground placement remain untouched.
+ const w=normalizeWorkspaceItems(d),drawing=['low','front'].includes(angle)?{...d,workspace:{...w,chair:{...w.chair,mode:'none'},storage:{...w.storage,mode:'none'}}}:d;
+ const P=normal&&v20WorkspaceCamera?clone(v20WorkspaceCamera.P):v20SceneProjection(drawing,angle),cacheKey=JSON.stringify([key,P]);
+ let built=v20BenefitCache.get(cacheKey);
  if(!built){
-  // A structure close-up omits independent floor furniture from this render
-  // only. The configuration and its ground placement remain untouched.
-  const w=normalizeWorkspaceItems(d),drawing=['low','front'].includes(angle)?{...d,workspace:{...w,chair:{...w.chair,mode:'none'},storage:{...w.storage,mode:'none'}}}:d;
-  const P=v20SceneProjection(drawing,angle),f=roomDeskFigure(drawing,P,true),items=[...f.R.items].sort((a,b)=>a.key-b.key);
+  const f=roomDeskFigure(drawing,P,true),items=[...f.R.items].sort((a,b)=>a.key-b.key);
   const head='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" class="iso iso-svg workspace-figure v20-workspace-figure '+materialClass(variantOf(d))+'" data-theme="light" data-iso-scale="'+P.scale+'" data-iso-origin-x="'+P.origin[0]+'" data-iso-origin-y="'+P.origin[1]+'" data-iso-k="'+k.cameraOf(P).k+'" data-iso-azimuth="'+P.azimuth+'" data-iso-elevation="'+P.elevation+'" role="img" aria-label="Your configured workspace. Select a benefit to explore its structure.">';
   built={P,items,height:d.height,markup:head+workspaceShadow(drawing,P,[...f.data.parts,...f.props])+'<g class="v20-model-parts">'+items.map(i=>v20FigureNode(i,P)).join('')+'</g></svg>'};
-  v20BenefitCache.set(key,built);while(v20BenefitCache.size>8)v20BenefitCache.delete(v20BenefitCache.keys().next().value);
+  v20BenefitCache.set(cacheKey,built);while(v20BenefitCache.size>8)v20BenefitCache.delete(v20BenefitCache.keys().next().value);
  }
  const scene=$('#personal-scene');scene.dataset.story='';scene.innerHTML='<div class="personal-svg-host">'+built.markup+'</div>';
  const nodes=new Map([...scene.querySelectorAll('[data-v20-part]')].map(n=>[n.dataset.v20Part,n]));
@@ -11727,7 +11738,9 @@ function v20BuildScene(angle='default',preview={}){
  v20BenefitState.scene.svg.dataset.variant=d.variant;
  const active=v20BenefitState.scene,maxPreview=productOf(d).max+variantOf(d).thickness,boxes=active.items.flatMap(i=>{const b=i.node?.getBBox();if(!b)return [];const a=k.iso([0,0,0],active.P),z=k.iso([0,0,Math.max(0,maxPreview-d.height)*i.factor],active.P);return [{x:b.x,y:b.y,w:b.width,h:b.height},{x:b.x+z[0]-a[0],y:b.y+z[1]-a[1],w:b.width,h:b.height}];});
  const x=Math.min(...boxes.map(b=>b.x))-30,y=Math.min(...boxes.map(b=>b.y))-30,right=Math.max(...boxes.map(b=>b.x+b.w))+30,bottom=Math.max(...boxes.map(b=>b.y+b.h))+30;
- active.normalView=[x,y,right-x,bottom-y];active.svg.setAttribute('viewBox',active.normalView.join(' '));
+ active.normalView=normal&&v20WorkspaceCamera?[...v20WorkspaceCamera.view]:[x,y,right-x,bottom-y];
+ if(normal&&!v20WorkspaceCamera)v20WorkspaceCamera={key:cameraKey,P:clone(active.P),view:[...active.normalView]};
+ active.svg.setAttribute('viewBox',active.normalView.join(' '));
  v20BenefitState.sceneKey=key;v20BenefitState.shownHeight=d.height;v20BenefitState.view=[...active.normalView];
  return v20BenefitState.scene;
 }
@@ -11841,7 +11854,7 @@ personalSetHeight=function(value,live=false){
 const v20OriginalSelectPart=selectPersonalPart;
 selectPersonalPart=function(part){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.previewReturn=null;v20BenefitState.scene=null;return v20OriginalSelectPart(part);};
 const v20OriginalResetPersonal=resetPersonalWorkspace;
-resetPersonalWorkspace=function(){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;v20BenefitState.config='';v20BenefitState.shownHeight=null;return v20OriginalResetPersonal();};
+resetPersonalWorkspace=function(){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;v20BenefitState.config='';v20BenefitState.shownHeight=null;v20WorkspaceCamera=null;return v20OriginalResetPersonal();};
 const v20OriginalPersonalSetChange=personalSetChange;
 personalSetChange=function(edit){v20StopBenefit({restore:true});v20BenefitState.id=null;v20BenefitState.scene=null;return v20OriginalPersonalSetChange(edit);};
 const v20OriginalChooseDesk=personalChooseDesk;
